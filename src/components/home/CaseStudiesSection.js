@@ -7,14 +7,9 @@ import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 const CaseStudiesSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const totalSlides = 5; // 5 pairs of cards
-  const totalCards = totalSlides * 2; // 10 cards total
 
   const goToSlide = (index) => {
     setCurrentSlide(index);
-  };
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % totalSlides);
   };
 
   // Auto-play slideshow every 5 seconds
