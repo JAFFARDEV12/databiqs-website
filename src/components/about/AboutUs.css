@@ -1,0 +1,842 @@
+/* ===== Page ===== */
+.au-page {
+  min-height: 100vh;
+  background: #ffffff;
+  font-family: Questrial, system-ui, Arial, sans-serif;
+}
+
+/* ===== Frame ===== */
+.au-frame {
+  width: 1440px;
+  margin: 0 auto;
+  position: relative;
+
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(534px);
+
+  box-shadow: inset 0 0 0 9999px rgba(243, 237, 255, 0.65);
+}
+
+/* ===== Header ===== */
+.au-header {
+  position: relative;
+  padding-top: 28px;
+  opacity: 0;
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.au-header__bar {
+  width: 1200px;
+  margin: 0 auto;
+
+  background: #ffffff;
+  border-radius: 80px;
+  padding: 14px 28px;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 28px;
+
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+}
+
+.au-header__logo {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.au-header__logo img {
+  height: 34px;
+}
+
+.au-header__nav {
+  display: flex;
+  justify-content: center;
+  gap: 34px;
+}
+
+.au-header__nav a,
+.au-header__nav Link {
+  font-family: Questrial;
+  font-size: 14px;
+  font-weight: 400;
+  color: #8a8a8a;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.au-header__nav a:hover,
+.au-header__nav Link:hover {
+  color: #7B2CBF;
+}
+
+.au-header__letsTalk {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.au-header__letsTalk img {
+  height: 42px;
+}
+
+/* Hamburger Menu */
+.au-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 1001;
+}
+
+.au-hamburger-line {
+  width: 25px;
+  height: 3px;
+  background: #666666;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.au-hamburger-line.active:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.au-hamburger-line.active:nth-child(2) {
+  opacity: 0;
+}
+
+.au-hamburger-line.active:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* ===== Hero ===== */
+.au-hero {
+  width: 100%;
+  margin-top: 200px;
+  padding-bottom: 40px;
+}
+
+.au-hero__inner {
+  width: 1200px;
+  min-height: 529px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 537px 532px;
+  column-gap: 60px;
+  align-items: center;
+}
+
+/* Left */
+.au-left {
+  width: 537px;
+}
+
+/* Pill */
+.au-pill {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 80px;
+  background: #ffffff;
+
+  font-family: Questrial;
+  font-size: 14px;
+  font-weight: 400;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+
+  margin-bottom: 20px;
+  opacity: 0;
+}
+
+.au-hero.animate .au-pill {
+  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+}
+
+/* Heading */
+.au-title {
+  width: 537px;
+
+  font-family: "Bebas Neue";
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 71px;
+  letter-spacing: 0%;
+  color: #202020;
+  text-transform: uppercase;
+
+  margin: 0 0 10px;
+  opacity: 0;
+}
+
+.au-hero.animate .au-title {
+  animation: fadeInUp 0.8s ease-out 0.4s forwards;
+}
+
+/* Paragraph */
+.au-paragraph {
+  width: 537px;
+  min-height: 218px;
+
+  font-family: Questrial;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0%;
+  color: #36343a;
+
+  margin-bottom: 40px;
+  opacity: 0;
+}
+
+.au-hero.animate .au-paragraph {
+  animation: fadeInUp 0.8s ease-out 0.6s forwards;
+}
+
+.au-paragraph p {
+  margin: 0 0 14px;
+}
+
+.au-p1 {
+  line-height: 26px;
+}
+
+.au-p2 {
+  line-height: 36px;
+}
+
+/* Actions */
+.au-actions {
+  display: flex;
+  align-items: center;
+  gap: 75px;
+  opacity: 0;
+}
+
+.au-hero.animate .au-actions {
+  animation: fadeInUp 0.8s ease-out 0.8s forwards;
+}
+
+/* Schedule button */
+.au-btnSchedule {
+  width: 414px;
+  height: 50px;
+
+  border: none;
+  border-radius: 80px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-left: 22px;
+  padding-right: 14px;
+
+  background: linear-gradient(119.69deg, #ae0dff 12.36%, #401371 85.46%);
+  box-shadow: 0 10px 22px rgba(174, 13, 255, 0.25);
+}
+
+.au-btnSchedule__text {
+  font-family: Questrial;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.au-btnSchedule__icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+  color: #202020;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Visit Website */
+.au-btnOutline {
+  height: 50px;
+  padding: 17px 20px;
+
+  border-radius: 80px;
+  border: 1px solid #894cfb;
+  background: #ffffff;
+
+  font-family: Questrial;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #894cfb;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+  min-width: 132px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CEO */
+.au-right {
+  display: flex;
+  justify-content: flex-end;
+  opacity: 0;
+}
+
+.au-hero.animate .au-right {
+  animation: slideInRight 0.8s ease-out 0.6s forwards;
+}
+
+.au-ceoBox {
+  width: 532px;
+  height: 529px;
+
+  background: #ffffff;
+  border: 1px solid #eae3f4;
+  border-radius: 40px;
+
+  overflow: hidden;
+  opacity: 0;
+}
+
+.au-hero.animate .au-ceoBox {
+  animation: slideInRight 0.8s ease-out 0.6s forwards;
+}
+
+.au-ceoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Stats */
+.au-stats {
+  width: 100%;
+  margin-bottom: 32px;
+  opacity: 0;
+}
+
+.au-hero.animate .au-stats {
+  animation: fadeInUp 0.8s ease-out 1s forwards;
+}
+
+.au-stats__inner {
+  width: 1440px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+
+  font-family: Questrial;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #202020;
+}
+
+.au-star {
+  color: #894cfb;
+  font-weight: 700;
+}
+
+/* Responsive safety (existing) */
+@media (max-width: 1500px) {
+  .au-frame,
+  .au-stats__inner {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   ===== Section 2: "Innovating..." (PNG cards) =====
+   ========================================================= */
+
+.au2-section {
+  width: 1440px;
+  margin: 0 auto;
+  background: #ffffff;
+
+  /* ✅ Figma: stats → pill = 100px
+     ✅ Figma: cards → next section (Testimonials pill) gap = 100px */
+  padding: 100px 0 100px;
+}
+
+.au2-inner {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.au2-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.au2-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 50px; /* ✅ matches Figma */
+  padding: 0 22px;
+  border-radius: 999px;
+
+  background: #ffffff;
+  border: 1px solid rgba(32, 32, 32, 0.18);
+
+  font-family: Questrial;
+  font-size: 14px;
+  color: #202020;
+  opacity: 0;
+}
+
+.au2-section.animate .au2-pill {
+  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+}
+
+.au2-title {
+  margin: 20px 0 32px;
+
+  font-family: "Bebas Neue";
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 56px;
+  color: #202020;
+  text-transform: uppercase;
+  opacity: 0;
+}
+
+.au2-section.animate .au2-title {
+  animation: fadeInUp 0.8s ease-out 0.4s forwards;
+}
+
+.au2-subtitle {
+  margin: 0;
+  max-width: 827px;
+
+  font-family: Questrial;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: rgba(32, 32, 32, 0.75);
+  opacity: 0;
+}
+
+.au2-section.animate .au2-subtitle {
+  animation: fadeInUp 0.8s ease-out 0.6s forwards;
+}
+
+/* ===== PNG cards grid ===== */
+.au2-cardsPng {
+  margin-top: 50px; /* ✅ Figma */
+  display: grid;
+  grid-template-columns: repeat(3, 368px); /* ✅ Figma card width */
+  justify-content: center;
+  gap: 48px; /* ✅ Figma gap */
+}
+
+.au2-cardPng {
+  width: 368px;
+  height: auto;
+  display: block;
+  opacity: 0;
+}
+
+.au2-section.animate .au2-cardPng:nth-child(1) {
+  animation: fadeInUp 0.8s ease-out 0.8s forwards;
+}
+
+.au2-section.animate .au2-cardPng:nth-child(2) {
+  animation: fadeInUp 0.8s ease-out 1s forwards;
+}
+
+.au2-section.animate .au2-cardPng:nth-child(3) {
+  animation: fadeInUp 0.8s ease-out 1.2s forwards;
+}
+
+/* Responsive for section 2 */
+@media (max-width: 1200px) {
+  .au-hero__inner {
+    width: 100%;
+    padding: 0 20px;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .au-left {
+    width: 100%;
+  }
+  
+  .au-title {
+    width: 100%;
+  }
+  
+  .au-paragraph {
+    width: 100%;
+  }
+  
+  .au-right {
+    justify-content: center;
+  }
+  
+  .au-ceoBox {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .au2-section {
+    width: 100%;
+    padding: 60px 16px 80px;
+  }
+
+  .au2-inner {
+    width: 100%;
+  }
+
+  .au2-cardsPng {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    justify-content: center;
+  }
+
+  .au2-cardPng {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+/* =========================================================
+   ===== Section 4: Get In Touch / Form (assets) =====
+   ========================================================= */
+
+.au4-section {
+  width: 1440px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 70px 0 90px; /* top spacing from previous section */
+}
+
+.au4-inner {
+  width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 301px 1fr; /* matches your left-column feel */
+  column-gap: 80px; /* Figma shows ~80 gap */
+  align-items: start;
+}
+
+.au4-pill {
+  height: 50px;
+  padding: 0 22px;
+  border-radius: 999px;
+
+  background: #ffffff;
+  border: 1px solid rgba(32, 32, 32, 0.18);
+
+  font-family: Questrial;
+  font-size: 14px;
+  color: #202020;
+
+  cursor: pointer;
+  opacity: 0;
+}
+
+.au4-section.animate .au4-pill {
+  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+}
+
+.au4-title {
+  margin: 20px 0 11px;
+
+  font-family: "Bebas Neue";
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 56px;
+  color: #202020;
+  text-transform: uppercase;
+  opacity: 0;
+}
+
+.au4-section.animate .au4-title {
+  animation: fadeInUp 0.8s ease-out 0.4s forwards;
+}
+
+.au4-subtitle {
+  margin: 0;
+
+  font-family: Questrial;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: rgba(32, 32, 32, 0.75);
+  opacity: 0;
+}
+
+.au4-section.animate .au4-subtitle {
+  animation: fadeInUp 0.8s ease-out 0.6s forwards;
+}
+
+.au4-phoneWrap {
+  margin-top: 39px;
+}
+
+.au4-phoneImg {
+  width: 328px; /* from your measurement */
+  height: 246px;
+  display: block;
+  opacity: 0;
+}
+
+.au4-section.animate .au4-phoneImg {
+  animation: fadeInUp 0.8s ease-out 0.8s forwards;
+}
+
+.au4-privacy {
+  margin: 18px 0 0;
+
+  font-family: Questrial;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: rgba(32, 32, 32, 0.6);
+  opacity: 0;
+}
+
+.au4-section.animate .au4-privacy {
+  animation: fadeInUp 0.8s ease-out 1s forwards;
+}
+
+.au4-right {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.au4-formImg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0;
+}
+
+.au4-section.animate .au4-formImg {
+  animation: slideInRight 0.8s ease-out 0.8s forwards;
+}
+
+/* Responsive safety for section 4 */
+@media (max-width: 1100px) {
+  .au4-section {
+    width: 100%;
+    padding: 50px 16px 70px;
+  }
+
+  .au4-inner {
+    width: 100%;
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+  }
+  
+  .au4-left {
+    text-align: center;
+  }
+  
+  .au4-phoneImg {
+    width: 100%;
+    max-width: 328px;
+    margin: 0 auto;
+  }
+  
+  .au4-right {
+    justify-content: center;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .au-frame {
+    width: 100%;
+  }
+  
+  .au-header__bar {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 50px;
+    grid-template-columns: auto 1fr auto;
+  }
+  
+  .au-header__bar {
+    grid-template-columns: auto 1fr auto auto;
+  }
+  
+  .au-hamburger {
+    display: flex;
+  }
+  
+  .au-header__nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(252, 252, 252, 0.98);
+    backdrop-filter: blur(534px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    padding: 80px 20px 20px;
+  }
+  
+  .au-header__nav.au-nav-open {
+    transform: translateX(0);
+  }
+  
+  .au-header__nav a,
+  .au-header__nav Link {
+    font-size: 24px;
+    font-weight: 500;
+  }
+  
+  .au-hero {
+    margin-top: 100px;
+    padding: 20px;
+  }
+  
+  .au-hero__inner {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .au-left {
+    width: 100%;
+  }
+  
+  .au-title {
+    width: 100%;
+    font-size: 32px;
+    line-height: 40px;
+  }
+  
+  .au-paragraph {
+    width: 100%;
+    font-size: 14px;
+  }
+  
+  .au-actions {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .au-btnSchedule {
+    width: 100%;
+  }
+  
+  .au-right {
+    justify-content: center;
+  }
+  
+  .au-ceoBox {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    aspect-ratio: 1;
+  }
+  
+  .au-stats__inner {
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 0 20px;
+    font-size: 11px;
+    gap: 10px;
+  }
+  
+  .au2-section {
+    width: 100%;
+    padding: 60px 20px;
+  }
+  
+  .au2-inner {
+    width: 100%;
+  }
+  
+  .au2-title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  
+  .au2-subtitle {
+    font-size: 13px;
+  }
+  
+  .au2-cardsPng {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .au2-cardPng {
+    width: 100%;
+  }
+  
+  .about-testimonials-inner {
+    width: 100%;
+    padding: 0 20px;
+  }
+  
+  .about-testimonials-title {
+    font-size: 32px;
+    line-height: 45px;
+  }
+  
+  .about-testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .about-testimonial-card,
+  .about-testimonial-videoCard {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  .au4-section {
+    width: 100%;
+    padding: 50px 20px;
+  }
+  
+  .au4-inner {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+  
+  .au4-title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  
+  .au4-phoneImg {
+    width: 100%;
+    max-width: 280px;
+  }
+}

@@ -1,0 +1,230 @@
+/* ===== Testimonials Section (NEW) ===== */
+
+.about-testimonials {
+  width: 100%;
+  background: #ffffff;
+  padding: 100px 0 0; /* matches the 100px gap you showed from previous section */
+}
+
+.about-testimonials-inner {
+  width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-testimonials-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  padding: 0 22px;
+  border: 1px solid #d9d9d9;
+  border-radius: 80px;
+  font-family: Questrial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #202020;
+  margin-bottom: 10px; /* you showed 10px between pill and heading */
+  opacity: 0;
+}
+
+.about-testimonials.animate .about-testimonials-pill {
+  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+}
+
+.about-testimonials-title {
+  margin: 0;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 91px; /* based on your title box height vibe */
+  color: #202020;
+  opacity: 0;
+}
+
+.about-testimonials.animate .about-testimonials-title {
+  animation: fadeInUp 0.8s ease-out 0.4s forwards;
+}
+
+.about-testimonials-subtitle {
+  margin: 0 auto;
+  max-width: 676px; /* matches your 676 width label */
+  font-family: Questrial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #36343a;
+  margin-top: 6px;
+  opacity: 0;
+}
+
+.about-testimonials.animate .about-testimonials-subtitle {
+  animation: fadeInUp 0.8s ease-out 0.6s forwards;
+}
+
+.about-testimonials-grid {
+  margin-top: 50px; /* you showed 50px gap before cards */
+  display: grid;
+  grid-template-columns: repeat(4, 264px);
+  justify-content: space-between;
+  column-gap: 48px; /* your screenshot showed ~48 between cards */
+  align-items: start;
+}
+
+/* ---------- White Cards (264 x 340) ---------- */
+.about-testimonial-card {
+  width: 264px;
+  height: 340px;
+  background: #ffffff;
+  border: 1px solid #eae3f4;
+  border-radius: 30px;
+  box-sizing: border-box;
+  opacity: 0;
+}
+
+.about-testimonials.animate .about-testimonial-card {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.about-testimonials.animate .about-testimonial-card:nth-child(1) {
+  animation-delay: 0.8s;
+}
+
+.about-testimonials.animate .about-testimonial-card:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.about-testimonials.animate .about-testimonial-card:nth-child(3) {
+  animation-delay: 1.2s;
+}
+
+.about-testimonials.animate .about-testimonial-card:nth-child(4) {
+  animation-delay: 1.4s;
+}
+
+.about-testimonial-cardInner {
+  height: 100%;
+  padding: 24px; /* confirmed */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Avatar strip includes quotes on the right (inside PNG) */
+.about-testimonial-avatarStrip {
+  width: 216px; /* ~215.65 hug */
+  height: auto;
+  user-select: none;
+  pointer-events: none;
+}
+
+.about-testimonial-quote {
+  margin: 14px 0 0; /* keep tight like figma hug flow */
+  font-family: Questrial, sans-serif;
+  font-weight: 400;
+  font-size: 14px; /* confirmed in your panel */
+  line-height: 24px; /* confirmed */
+  color: #36343a;
+  text-align: left;
+  width: 210px; /* matches your 210x168 */
+  flex: 1;
+}
+
+.about-testimonial-person {
+  margin-top: 14px;
+  text-align: left;
+}
+
+.about-testimonial-name {
+  font-family: Questrial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #202020;
+  line-height: 20px;
+}
+
+.about-testimonial-role {
+  margin-top: 4px;
+  font-family: Questrial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #8a8396;
+  line-height: 18px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .about-testimonials-inner {
+    width: 100%;
+    padding: 0 20px;
+  }
+  
+  .about-testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .about-testimonial-card,
+  .about-testimonial-videoCard {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-testimonials {
+    padding: 60px 20px 0;
+  }
+  
+  .about-testimonials-inner {
+    width: 100%;
+    padding: 0;
+  }
+  
+  .about-testimonials-title {
+    font-size: 32px;
+    line-height: 45px;
+  }
+  
+  .about-testimonials-subtitle {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  
+  .about-testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .about-testimonial-card,
+  .about-testimonial-videoCard {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+/* ---------- Video Card (PNG) ---------- */
+.about-testimonial-videoCard {
+  width: 265px; /* your measurement */
+  height: 340px;
+  border-radius: 40px; /* video card looks more rounded than white cards */
+  overflow: hidden;
+  opacity: 0;
+}
+
+.about-testimonials.animate .about-testimonial-videoCard {
+  animation: fadeInUp 0.8s ease-out 1s forwards;
+}
+
+.about-testimonial-videoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+}

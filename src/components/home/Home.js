@@ -4,6 +4,7 @@ import HeroSection from './HeroSection';
 import TestimonialsSection from './TestimonialsSection';
 import StatsBar from './StatsBar';
 import CaseStudiesSection from './CaseStudiesSection';
+import InsightsSection from './InsightsSection';
 import ContactSection from './ContactSection';
 import Footer from './Footer';
 import './Home.css';
@@ -16,6 +17,7 @@ const Home = () => {
       <TestimonialsSection />
       <StatsBar />
       <CaseStudiesSection />
+      <InsightsSection />
       <ContactSection />
       <Footer />
     </div>

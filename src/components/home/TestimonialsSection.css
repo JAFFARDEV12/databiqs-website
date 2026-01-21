@@ -43,10 +43,22 @@
 }
 
 .section-description {
-  font-size: 18px;
+  font-family: 'Questrial', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: 0%;
+  text-align: center;
+  vertical-align: middle;
+  text-transform: capitalize;
   color: #666666;
   margin: 0 0 60px 0;
-  line-height: 1.6;
+  opacity: 0;
+}
+
+.testimonials-section.animate .section-description {
+  animation: fadeInUp 0.8s ease-out 0.6s forwards;
 }
 
 .testimonials-grid {
@@ -354,6 +366,27 @@
 @media (max-width: 768px) {
   .testimonials-section {
     padding: 60px 20px;
+  }
+  
+  .section-headline {
+    font-size: 36px;
+    line-height: 50px;
+  }
+  
+  .section-description {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  
+  .testimonials-grid {
+    gap: 20px;
+  }
+  
+  .testimonial-card {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    min-height: 350px;
   }
   
   .section-headline {

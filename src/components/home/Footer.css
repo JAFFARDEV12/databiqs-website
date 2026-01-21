@@ -113,14 +113,17 @@
   gap: 12px;
 }
 
-.footer-links li a {
+.footer-links li a,
+.footer-links li Link {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   font-size: 14px;
   transition: color 0.3s ease;
+  display: inline-block;
 }
 
-.footer-links li a:hover {
+.footer-links li a:hover,
+.footer-links li Link:hover {
   color: white;
 }
 
@@ -193,6 +196,10 @@
 }
 
 @media (max-width: 968px) {
+  .footer {
+    padding: 60px 40px 30px;
+  }
+  
   .footer-content {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -204,6 +211,41 @@
   
   .newsletter-button {
     width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 20px 20px;
+  }
+  
+  .footer-logo-text {
+    font-size: 24px;
+  }
+  
+  .footer-heading {
+    font-size: 16px;
+  }
+  
+  .footer-links {
+    gap: 12px;
+  }
+  
+  .footer-links a {
+    font-size: 14px;
+  }
+  
+  .social-icons {
+    gap: 12px;
+  }
+  
+  .newsletter-input {
+    font-size: 14px;
+  }
+  
+  .newsletter-button {
+    font-size: 14px;
+    padding: 10px 20px;
   }
 }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 import chatbotIcon from '../../assets/Chatbot-Icon.png';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
@@ -37,10 +38,10 @@ const Footer = () => {
           <div className="footer-middle">
             <h4 className="footer-heading">Links</h4>
             <ul className="footer-links">
-              <li><a href="#about">About</a></li>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#case-studies">Case Studies</a></li>
-              <li><a href="#insights">Insights</a></li>
+              <li><Link to="/about">About</Link></li>
+              <li><Link to="/#services">Services</Link></li>
+              <li><Link to="/#case-studies">Case Studies</Link></li>
+              <li><Link to="/#insights">Insights</Link></li>
             </ul>
           </div>
 

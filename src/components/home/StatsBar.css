@@ -101,11 +101,28 @@
 }
 
 @media (max-width: 768px) {
+  .stats-bar-section {
+    padding: 20px 0;
+  }
+  
   .stats-bar-track {
-    gap: 30px;
+    gap: 20px;
+  }
+  
+  .stat-item {
+    gap: 8px;
+  }
+  
+  .stat-icon {
+    width: 20px;
+    height: 20px;
   }
   
   .stat-text {
+    font-size: 12px;
+  }
+  
+  .stat-divider {
     font-size: 14px;
   }
 }

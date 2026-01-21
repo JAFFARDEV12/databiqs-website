@@ -308,18 +308,22 @@
 }
 
 @media (max-width: 768px) {
-  .case-study-slide-item {
-    min-width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
   .case-studies-section {
     padding: 60px 20px;
   }
   
   .section-headline {
     font-size: 28px;
+    line-height: 36px;
+  }
+  
+  .section-description {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  
+  .case-study-slide-item {
+    min-width: 100%;
   }
   
   .case-study-card {
@@ -328,5 +332,9 @@
   
   .case-study-title {
     font-size: 20px;
+  }
+  
+  .case-study-description {
+    font-size: 13px;
   }
 }
