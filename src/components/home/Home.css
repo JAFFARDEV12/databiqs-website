@@ -1,0 +1,11 @@
+.home {
+  width: 100%;
+  overflow-x: hidden;
+  background: #eeeeee;
+  backdrop-filter: blur(534px);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
