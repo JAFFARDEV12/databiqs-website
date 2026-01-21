@@ -1,6 +1,11 @@
 import React from 'react';
 import Header from './Header';
 import HeroSection from './HeroSection';
+import TestimonialsSection from './TestimonialsSection';
+import StatsBar from './StatsBar';
+import CaseStudiesSection from './CaseStudiesSection';
+import ContactSection from './ContactSection';
+import Footer from './Footer';
 import './Home.css';
 
 const Home = () => {
@@ -8,6 +13,11 @@ const Home = () => {
     <div className="home">
       <Header />
       <HeroSection />
+      <TestimonialsSection />
+      <StatsBar />
+      <CaseStudiesSection />
+      <ContactSection />
+      <Footer />
     </div>
   );
 };

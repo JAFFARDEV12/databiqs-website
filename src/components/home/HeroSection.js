@@ -4,10 +4,13 @@ import triangleImage from '../../assets/Triangle-herosection-revoleaboverectangl
 import rectangleImage from '../../assets/herosection-rectangle-rightside.png';
 import scrollIcon from '../../assets/Scroll Mouse Icon - just below herosection.png';
 import arrowIcon from '../../assets/rightarrow.png';
+import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 const HeroSection = () => {
+  const sectionRef = useScrollAnimation({ threshold: 0.2 });
+
   return (
-    <section className="hero-section">
+    <section className="hero-section" ref={sectionRef}>
       <div className="hero-container">
         <div className="hero-content">
           <div className="hero-tag">AI-Powered Innovation</div>

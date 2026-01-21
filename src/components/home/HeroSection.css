@@ -31,6 +31,11 @@
   font-size: 14px;
   font-weight: 500;
   width: fit-content;
+  opacity: 0;
+}
+
+.hero-section.animate .hero-tag {
+  animation: fadeInUp 0.8s ease-out 0.2s forwards;
 }
 
 .hero-headline {
@@ -43,6 +48,11 @@
   vertical-align: middle;
   color: #1a1a1a;
   margin: 0;
+  opacity: 0;
+}
+
+.hero-section.animate .hero-headline {
+  animation: fadeInUp 0.8s ease-out 0.4s forwards;
 }
 
 .hero-headline .technology-highlight {
@@ -58,6 +68,11 @@
   font-weight: 500;
   color: #4a4a4a;
   margin: 0;
+  opacity: 0;
+}
+
+.hero-section.animate .hero-subheadline {
+  animation: fadeInUp 0.8s ease-out 0.6s forwards;
 }
 
 .hero-description {
@@ -71,6 +86,11 @@
   position: relative;
   background: linear-gradient(119.69deg, #AE0DFF 12.36%, #401371 85.46%);
   color: white;
+  opacity: 0;
+}
+
+.hero-section.animate .hero-cta {
+  animation: fadeInUp 0.8s ease-out 1s forwards;
   border: 1px solid transparent;
   padding: 12px 20px;
   border-radius: 50px;
@@ -202,6 +222,11 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   width: 240px;
   pointer-events: auto;
+  opacity: 0;
+}
+
+.hero-section.animate .hero-card {
+  animation: fadeInUp 0.8s ease-out forwards;
 }
 
 .hero-card.top-card {
@@ -213,6 +238,14 @@
 .hero-card.bottom-card {
   bottom: 10%;
   right: -120px;
+}
+
+.hero-section.animate .hero-card.top-card {
+  animation-delay: 1.2s;
+}
+
+.hero-section.animate .hero-card.bottom-card {
+  animation-delay: 1.4s;
 }
 
 .hero-card h3 {
