@@ -7,7 +7,7 @@ import Footer from "../home/Footer";
 // Assets (hero)
 import ceoImg from "../../assets/ceo.png";
 import letsTalkImg from "../../assets/lets-talk.png";
-import logoImg from '../../assets/logo.png';
+import logoImg from '../../assets/Logo.png';
 
 // Assets (section 2 cards PNGs)
 import missionPng from "../../assets/mission.png";
