@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './InsightsSection.css';
 import arrowIcon from '../../assets/rightarrow.png';
 import leftImage from '../../assets/insights&innovationsection left image how ai chatbots...png';
@@ -69,12 +70,12 @@ const InsightsSection = () => {
                   <span className="insight-separator">•</span>
                   <span className="insight-read-time">{article.readTime}</span>
                 </div>
-                <button className="insight-cta">
+                <Link to={`/blog-detail/${article.id}`} className="insight-cta">
                   <span className="insight-cta-text">Read Full Blog</span>
                   <span className="insight-cta-arrow">
                     <img src={arrowIcon} alt="Arrow" />
                   </span>
-                </button>
+                </Link>
               </div>
             </div>
           ))}

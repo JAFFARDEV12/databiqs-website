@@ -35,7 +35,7 @@
 }
 
 .hero-section.animate .hero-tag {
-  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+  animation: fadeInUp 0.4s ease-out 0.05s forwards;
 }
 
 .hero-headline {
@@ -52,7 +52,7 @@
 }
 
 .hero-section.animate .hero-headline {
-  animation: fadeInUp 0.8s ease-out 0.4s forwards;
+  animation: fadeInUp 0.4s ease-out 0.1s forwards;
 }
 
 .hero-headline .technology-highlight {
@@ -72,7 +72,7 @@
 }
 
 .hero-section.animate .hero-subheadline {
-  animation: fadeInUp 0.8s ease-out 0.6s forwards;
+  animation: fadeInUp 0.4s ease-out 0.15s forwards;
 }
 
 .hero-description {
@@ -90,7 +90,7 @@
 }
 
 .hero-section.animate .hero-cta {
-  animation: fadeInUp 0.8s ease-out 1s forwards;
+  animation: fadeInUp 0.4s ease-out 0.1s forwards;
   border: 1px solid transparent;
   padding: 12px 20px;
   border-radius: 50px;
@@ -226,7 +226,7 @@
 }
 
 .hero-section.animate .hero-card {
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp 0.4s ease-out forwards;
 }
 
 .hero-card.top-card {
@@ -241,11 +241,11 @@
 }
 
 .hero-section.animate .hero-card.top-card {
-  animation-delay: 1.2s;
+  animation-delay: 0.6s;
 }
 
 .hero-section.animate .hero-card.bottom-card {
-  animation-delay: 1.4s;
+  animation-delay: 0.7s;
 }
 
 .hero-card h3 {

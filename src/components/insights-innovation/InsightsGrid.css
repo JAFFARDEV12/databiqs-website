@@ -1,0 +1,230 @@
+.insGrid {
+  padding: 84px 40px 100px; /* figma shows ~84 spacing before this heading */
+  background: rgba(252, 252, 252, 0.698);
+  backdrop-filter: blur(534px);
+}
+
+.insGrid__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.insGrid__pill {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 18px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid #e0b0ff;
+  background: #ffffff;
+  color: #7b2cbf;
+  font-size: 14px;
+  font-weight: 500;
+
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.insGrid__title {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-size: 52px;
+  line-height: 1.05;
+  text-align: center;
+  margin: 0 0 14px 0;
+  color: #1a1a1a;
+
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.insGrid__subtitle {
+  max-width: 900px; /* figma shows wide line ~887 */
+  margin: 0 auto 50px; /* figma: 50 gap to cards */
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #666666;
+
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+/* grid: exactly 1200 wide layout -> 576 + 48 + 576 */
+.insGrid__grid {
+  display: grid;
+  grid-template-columns: 576px 576px;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+/* card: figma 576 x 252 */
+.insCard {
+  width: 576px;
+  height: 252px;
+  border-radius: 26px;
+  border: 1px solid #eaeaea;
+  background: #ffffff;
+  box-shadow: 0 4px 28px rgba(0, 0, 0, 0.06);
+  padding: 18px;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 18px;
+  align-items: center;
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.insCard__imgWrap {
+  width: 260px;
+  height: 190px;
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+.insCard__imgWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.insCard__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 8px 0;
+  line-height: 1.35;
+}
+
+.insCard__desc {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #8a8a8a;
+  margin: 0 0 10px 0;
+}
+
+.insCard__meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: #666666;
+  margin-bottom: 14px;
+}
+
+.insCard__dot {
+  opacity: 0.6;
+}
+
+.insCard__footer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.insCard__cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 100%;
+  text-decoration: none;
+}
+
+.insCard__ctaText {
+  font-family: 'Questrial', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  text-transform: capitalize;
+  color: #894CFB;
+  margin-right: 12px;
+}
+
+.insCard__ctaArrow {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #894CFB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.insCard__ctaArrow img {
+  width: 14px;
+  height: 14px;
+  filter: brightness(0) invert(1);
+}
+
+.insCard__cta:hover .insCard__ctaText {
+  color: #6B3BC2;
+}
+
+.insCard__cta:hover .insCard__ctaArrow {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+/* animate with your hook-based class */
+.insGrid.animate .insGrid__pill {
+  animation: fadeInUp 0.4s ease-out 0.05s forwards;
+}
+.insGrid.animate .insGrid__title {
+  animation: fadeInUp 0.4s ease-out 0.05s forwards;
+}
+.insGrid.animate .insGrid__subtitle {
+  animation: fadeInUp 0.4s ease-out 0.05s forwards;
+}
+.insGrid.animate .insCard {
+  animation: fadeInUp 0.4s ease-out var(--delay) forwards;
+}
+
+/* responsive */
+@media (max-width: 1250px) {
+  .insGrid__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .insCard {
+    width: 100%;
+    height: auto;
+    grid-template-columns: 240px 1fr;
+  }
+
+  .insCard__imgWrap {
+    width: 240px;
+    height: 180px;
+  }
+}
+
+@media (max-width: 900px) {
+  .insGrid {
+    padding: 70px 20px 80px;
+  }
+
+  .insGrid__grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .insCard {
+    grid-template-columns: 1fr;
+  }
+
+  .insCard__imgWrap {
+    width: 100%;
+    height: 210px;
+  }
+}

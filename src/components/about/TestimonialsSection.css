@@ -29,7 +29,7 @@
 }
 
 .about-testimonials.animate .about-testimonials-pill {
-  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+  animation: fadeInUp 0.4s ease-out 0.05s forwards;
 }
 
 .about-testimonials-title {
@@ -43,7 +43,7 @@
 }
 
 .about-testimonials.animate .about-testimonials-title {
-  animation: fadeInUp 0.8s ease-out 0.4s forwards;
+  animation: fadeInUp 0.4s ease-out 0.1s forwards;
 }
 
 .about-testimonials-subtitle {
@@ -59,7 +59,7 @@
 }
 
 .about-testimonials.animate .about-testimonials-subtitle {
-  animation: fadeInUp 0.8s ease-out 0.6s forwards;
+  animation: fadeInUp 0.4s ease-out 0.15s forwards;
 }
 
 .about-testimonials-grid {
@@ -83,11 +83,11 @@
 }
 
 .about-testimonials.animate .about-testimonial-card {
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp 0.4s ease-out forwards;
 }
 
 .about-testimonials.animate .about-testimonial-card:nth-child(1) {
-  animation-delay: 0.8s;
+  animation-delay: 0.2s;
 }
 
 .about-testimonials.animate .about-testimonial-card:nth-child(2) {
@@ -95,11 +95,11 @@
 }
 
 .about-testimonials.animate .about-testimonial-card:nth-child(3) {
-  animation-delay: 1.2s;
+  animation-delay: 0.6s;
 }
 
 .about-testimonials.animate .about-testimonial-card:nth-child(4) {
-  animation-delay: 1.4s;
+  animation-delay: 0.7s;
 }
 
 .about-testimonial-cardInner {
@@ -218,7 +218,7 @@
 }
 
 .about-testimonials.animate .about-testimonial-videoCard {
-  animation: fadeInUp 0.8s ease-out 1s forwards;
+  animation: fadeInUp 0.4s ease-out 0.1s forwards;
 }
 
 .about-testimonial-videoImg {

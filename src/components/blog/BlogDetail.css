@@ -1,0 +1,434 @@
+/* PAGE WRAPPER – FULL SCREEN WHITE */
+.bdp {
+  width: 100%;
+  background: #ffffff;
+}
+
+/* MAIN FRAME – 1280 EXACT */
+.bdp__container {
+  width: 1280px;
+  margin: 0 auto;
+  background: #ffffff;
+}
+
+/* META ROW – 1280 x 70, 100px from top */
+.bdp__metaWrap {
+  width: 1280px;
+  height: 70px;
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+/* META TEXT LINE – match figma (14px / 24px, perfect vertical centering) */
+.bdp__meta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 24px; /* ✅ figma */
+  gap: 14px;    /* ✅ close to figma spacing */
+
+  font-family: "Questrial", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0;
+  color: #36343a;
+}
+
+.bdp__metaText {
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.bdp__dot {
+  opacity: 0.6;
+}
+
+/* TITLE – Bebas Neue (Figma) */
+.bdp__title {
+  width: 1092px;
+  height: 60px;
+  margin: 30px auto 0;
+  text-align: center;
+
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 60px;
+  letter-spacing: 0;
+  color: #111111;
+
+  text-decoration: none;
+  border: none;
+}
+
+/* HERO IMAGE – 1200 x 320 */
+.bdp__hero {
+  width: 1200px;
+  margin: 18px auto 0;
+}
+
+.bdp__heroImg {
+  width: 1200px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 28px;
+  display: block;
+}
+
+/* BLOG CONTENT – EXACT Figma text styling everywhere */
+.bdp__content {
+  width: 1200px;
+  margin: 22px auto 0;
+
+  font-family: "Questrial", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 26px;
+  letter-spacing: 0;
+  color: #36343a;
+}
+
+/* IMPORTANT: Force ALL text inside article to look the same */
+.bdp__content p,
+.bdp__content h2,
+.bdp__content h3,
+.bdp__content blockquote,
+.bdp__content span {
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 26px;
+  color: #36343a;
+
+  /* remove heading defaults */
+  margin: 0;
+  padding: 0;
+  text-transform: none;
+}
+
+/* Paragraph spacing like Figma (tight, consistent) */
+.bdp__content p {
+  margin-bottom: 12px;
+}
+
+/* Headings are just lines (same style) but with a little top spacing */
+.bdp__content h2 {
+  margin-top: 14px;
+  margin-bottom: 8px;
+}
+
+.bdp__content h3 {
+  margin-top: 14px;
+  margin-bottom: 8px;
+}
+
+/* Make your "Traditional support:" labels SAME as text (Figma is uniform) */
+.bdp__label {
+  font-weight: 400;
+  color: #36343a;
+}
+
+/* Quote: in Figma it reads like normal text lines too.
+   Keep it looking like a normal paragraph (no colored box) */
+.bdp__quote {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+/* Quote text also normal */
+.bdp__quoteText {
+  font-weight: 400;
+  color: #36343a;
+}
+
+/* ===================== RELATED BLOGS ===================== */
+
+.bdp__related {
+  width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 80px; /*  Figma gap to footer */
+}
+
+/* Distance from last blog line to RELATED BLOGS title = 95px (per your screenshot) */
+.bdp__relatedTitle {
+  width: 234px;
+  height: 60px;
+
+  margin: 95px auto 0;     /* ✅ top spacing */
+  text-align: center;
+
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 60px;
+  letter-spacing: 0;
+  color: #202020;
+}
+
+/* Cards row:
+   - two cards: 576px each
+   - gap between = 48px (you marked 48)
+   - total = 576 + 576 + 48 = 1200 ✅ */
+.bdp__relatedRow {
+  margin-top: 34px;         /* visually matches figma spacing under heading */
+  display: flex;
+  gap: 48px;                /* ✅ per your measurement */
+}
+
+.bdp__relatedCard {
+  width: 576px;
+  height: 252px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+
+  background: #ffffff;
+  border: 1px solid rgba(111, 106, 248, 0.25);
+  border-radius: 30px;
+
+  padding: 22px;
+}
+
+/* Image */
+.bdp__cardImgWrap {
+  width: 220px;
+  height: 208px;
+  border-radius: 26px;
+  overflow: hidden;
+  flex: 0 0 auto;
+}
+
+.bdp__cardImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Body */
+.bdp__cardBody {
+  height: 208px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.bdp__cardTitle {
+  margin: 0;
+  font-family: "Questrial", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  color: #111111;
+}
+
+.bdp__cardDesc {
+  margin: 8px 0 0;
+  font-family: "Questrial", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #7a7780;
+}
+
+.bdp__cardMeta {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-family: "Questrial", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #36343a;
+}
+
+.bdp__cardBottom {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.bdp__readLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 100%;
+  text-decoration: none;
+}
+
+.bdp__readLinkText {
+  font-family: "Questrial", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  text-transform: capitalize;
+  color: #894CFB;
+  margin-right: 12px;
+}
+
+.bdp__readLinkArrow {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #894CFB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.bdp__readLinkArrow img {
+  width: 14px;
+  height: 14px;
+  filter: brightness(0) invert(1);
+}
+
+.bdp__readLink:hover .bdp__readLinkText {
+  color: #6B3BC2;
+}
+
+.bdp__readLink:hover .bdp__readLinkArrow {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+/* ===================== ANIMATIONS (using your useScrollAnimation) ===================== */
+/* Default hidden */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+/* When intersection observer adds .animate */
+.scroll-reveal.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Small hover polish (optional) */
+.bdp__relatedCard:hover {
+  transform: translateY(-2px);
+  transition: transform 200ms ease;
+}
+
+/* Responsive Design */
+@media (max-width: 1280px) {
+  .bdp__container {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .bdp__metaWrap {
+    width: 100%;
+  }
+
+  .bdp__title {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .bdp__hero {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .bdp__heroImg {
+    width: 100%;
+    height: auto;
+  }
+
+  .bdp__content {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .bdp__related {
+    width: 100%;
+    padding: 0 20px 80px;
+  }
+
+  .bdp__relatedRow {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .bdp__relatedCard {
+    width: 100%;
+    max-width: 576px;
+  }
+}
+
+@media (max-width: 768px) {
+  .bdp__metaWrap {
+    margin-top: 60px;
+    height: auto;
+    padding: 0 20px;
+  }
+
+  .bdp__title {
+    font-size: 32px;
+    line-height: 40px;
+    height: auto;
+    margin: 20px auto 0;
+  }
+
+  .bdp__hero {
+    margin: 16px auto 0;
+  }
+
+  .bdp__heroImg {
+    height: 200px;
+  }
+
+  .bdp__content {
+    margin: 18px auto 0;
+  }
+
+  .bdp__relatedTitle {
+    font-size: 36px;
+    line-height: 44px;
+    width: auto;
+    height: auto;
+  }
+
+  .bdp__relatedRow {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .bdp__relatedCard {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    padding: 18px;
+  }
+
+  .bdp__cardImgWrap {
+    width: 100%;
+    height: 200px;
+  }
+
+  .bdp__cardBody {
+    height: auto;
+    gap: 12px;
+  }
+}

@@ -1,0 +1,32 @@
+.map-section {
+  background: #ffffff;
+  padding: 0 40px 100px; /* keep only bottom spacing */
+}
+
+.map-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.map-image {
+  width: 1200px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+  max-width: 100%;
+  background: #fff;
+}
+
+@media (max-width: 1240px) {
+  .map-image {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .map-section {
+    padding: 0 20px 60px;
+  }
+}

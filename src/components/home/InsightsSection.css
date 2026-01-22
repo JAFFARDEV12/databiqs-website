@@ -25,7 +25,7 @@
 }
 
 .insights-section.animate .section-tag {
-  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+  animation: fadeInUp 0.4s ease-out 0.05s forwards;
 }
 
 .section-headline {
@@ -43,7 +43,7 @@
 }
 
 .insights-section.animate .section-headline {
-  animation: fadeInUp 0.8s ease-out 0.4s forwards;
+  animation: fadeInUp 0.4s ease-out 0.1s forwards;
 }
 
 .section-description {
@@ -63,7 +63,7 @@
 }
 
 .insights-section.animate .section-description {
-  animation: fadeInUp 0.8s ease-out 0.6s forwards;
+  animation: fadeInUp 0.4s ease-out 0.15s forwards;
 }
 
 .insights-grid {
@@ -99,15 +99,15 @@
 }
 
 .insights-section.animate .insight-card.large-card {
-  animation: slideInLeft 0.8s ease-out forwards;
+  animation: slideInLeft 0.4s ease-out forwards;
 }
 
 .insights-section.animate .insight-card.small-card {
-  animation: slideInRight 0.8s ease-out forwards;
+  animation: slideInRight 0.4s ease-out forwards;
 }
 
 .insights-section.animate .insight-card:nth-child(1) {
-  animation-delay: 0.8s;
+  animation-delay: 0.2s;
 }
 
 .insights-section.animate .insight-card:nth-child(2) {
@@ -115,7 +115,7 @@
 }
 
 .insights-section.animate .insight-card:nth-child(3) {
-  animation-delay: 1.2s;
+  animation-delay: 0.6s;
 }
 
 .insight-card.large-card {
@@ -136,15 +136,15 @@
 }
 
 .insights-section.animate .insight-card:nth-child(1) .insight-image-container {
-  animation: fadeIn 0.6s ease-out 1.2s forwards;
+  animation: fadeIn 0.3s ease-out 0.3s forwards;
 }
 
 .insights-section.animate .insight-card:nth-child(2) .insight-image-container {
-  animation: fadeIn 0.6s ease-out 1.4s forwards;
+  animation: fadeIn 0.3s ease-out 0.1s forwards;
 }
 
 .insights-section.animate .insight-card:nth-child(3) .insight-image-container {
-  animation: fadeIn 0.6s ease-out 1.6s forwards;
+  animation: fadeIn 0.3s ease-out 0.4s forwards;
 }
 
 .insight-card.large-card .insight-image-container {
@@ -210,15 +210,15 @@
 }
 
 .insights-section.animate .insight-card:nth-child(1) .insight-title {
-  animation: fadeInUp 0.6s ease-out 1.4s forwards;
+  animation: fadeInUp 0.3s ease-out 0.1s forwards;
 }
 
 .insights-section.animate .insight-card:nth-child(2) .insight-title {
-  animation: fadeInUp 0.6s ease-out 1.6s forwards;
+  animation: fadeInUp 0.3s ease-out 0.4s forwards;
 }
 
 .insights-section.animate .insight-card:nth-child(3) .insight-title {
-  animation: fadeInUp 0.6s ease-out 1.8s forwards;
+  animation: fadeInUp 0.3s ease-out 0.1s forwards;
 }
 
 .insight-card.small-card .insight-title {
@@ -244,11 +244,11 @@
 }
 
 .insights-section.animate .insight-card:nth-child(2) .insight-description {
-  animation: fadeInUp 0.6s ease-out 1.7s forwards;
+  animation: fadeInUp 0.3s ease-out 0.1s forwards;
 }
 
 .insights-section.animate .insight-card:nth-child(3) .insight-description {
-  animation: fadeInUp 0.6s ease-out 1.9s forwards;
+  animation: fadeInUp 0.3s ease-out 0.1s forwards;
 }
 
 .insight-meta {
@@ -263,15 +263,15 @@
 }
 
 .insights-section.animate .insight-card:nth-child(1) .insight-meta {
-  animation: fadeIn 0.6s ease-out 1.5s forwards;
+  animation: fadeIn 0.3s ease-out 0.75s forwards;
 }
 
 .insights-section.animate .insight-card:nth-child(2) .insight-meta {
-  animation: fadeIn 0.6s ease-out 1.8s forwards;
+  animation: fadeIn 0.3s ease-out 0.1s forwards;
 }
 
 .insights-section.animate .insight-card:nth-child(3) .insight-meta {
-  animation: fadeIn 0.6s ease-out 2s forwards;
+  animation: fadeIn 0.3s ease-out 0.1s forwards;
 }
 
 .insight-separator {
@@ -292,15 +292,15 @@
 }
 
 .insights-section.animate .insight-card:nth-child(1) .insight-cta {
-  animation: fadeInUp 0.6s ease-out 1.6s forwards;
+  animation: fadeInUp 0.3s ease-out 0.4s forwards;
 }
 
 .insights-section.animate .insight-card:nth-child(2) .insight-cta {
-  animation: fadeInUp 0.6s ease-out 1.9s forwards;
+  animation: fadeInUp 0.3s ease-out 0.1s forwards;
 }
 
 .insights-section.animate .insight-card:nth-child(3) .insight-cta {
-  animation: fadeInUp 0.6s ease-out 2.1s forwards;
+  animation: fadeInUp 0.3s ease-out 0.1s forwards;
 }
 
 .insight-cta-text {

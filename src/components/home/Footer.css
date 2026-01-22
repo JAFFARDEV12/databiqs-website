@@ -30,7 +30,7 @@
 }
 
 .footer.animate .footer-logo {
-  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+  animation: fadeInUp 0.4s ease-out 0.05s forwards;
 }
 
 .footer-logo-icon {
@@ -101,7 +101,7 @@
 }
 
 .footer.animate .footer-heading {
-  animation: fadeInUp 0.8s ease-out 0.6s forwards;
+  animation: fadeInUp 0.4s ease-out 0.15s forwards;
 }
 
 .footer-links {
@@ -192,7 +192,7 @@
 }
 
 .footer.animate .copyright {
-  animation: fadeIn 0.8s ease-out 0.8s forwards;
+  animation: fadeIn 0.4s ease-out 0.1s forwards;
 }
 
 @media (max-width: 968px) {

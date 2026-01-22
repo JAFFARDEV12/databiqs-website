@@ -29,7 +29,7 @@
 }
 
 .stats-bar-section.animate .stat-item {
-  animation: fadeIn 0.6s ease-out forwards;
+  animation: fadeIn 0.3s ease-out forwards;
 }
 
 .stats-bar-section.animate .stat-item:nth-child(1) {
@@ -37,7 +37,7 @@
 }
 
 .stats-bar-section.animate .stat-item:nth-child(2) {
-  animation-delay: 0.2s;
+  animation-delay: 0.1s;
 }
 
 .stats-bar-section.animate .stat-item:nth-child(3) {
@@ -45,7 +45,7 @@
 }
 
 .stats-bar-section.animate .stat-item:nth-child(4) {
-  animation-delay: 0.4s;
+  animation-delay: 0.2s;
 }
 
 .stats-bar-section.animate .stat-item:nth-child(5) {
@@ -53,7 +53,7 @@
 }
 
 .stats-bar-section.animate .stat-item:nth-child(6) {
-  animation-delay: 0.6s;
+  animation-delay: 0.3s;
 }
 
 .stats-bar-section.animate .stat-item:nth-child(7) {
@@ -61,11 +61,11 @@
 }
 
 .stats-bar-section.animate .stat-item:nth-child(8) {
-  animation-delay: 0.8s;
+  animation-delay: 0.2s;
 }
 
 .stats-bar-section.animate .stat-item:nth-child(9) {
-  animation-delay: 0.9s;
+  animation-delay: 0.2s;
 }
 
 .stat-icon {

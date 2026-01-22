@@ -25,7 +25,7 @@
 }
 
 .case-studies-section.animate .section-tag {
-  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+  animation: fadeInUp 0.4s ease-out 0.05s forwards;
 }
 
 .section-headline {
@@ -39,7 +39,7 @@
 }
 
 .case-studies-section.animate .section-headline {
-  animation: fadeInUp 0.8s ease-out 0.4s forwards;
+  animation: fadeInUp 0.4s ease-out 0.1s forwards;
 }
 
 .section-description {
@@ -53,7 +53,7 @@
 }
 
 .case-studies-section.animate .section-description {
-  animation: fadeInUp 0.8s ease-out 0.6s forwards;
+  animation: fadeInUp 0.4s ease-out 0.15s forwards;
 }
 
 .case-studies-slider {
@@ -93,11 +93,11 @@
 }
 
 .case-studies-section.animate .case-study-card {
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp 0.4s ease-out forwards;
 }
 
 .case-studies-section.animate .case-study-card:nth-child(1) {
-  animation-delay: 0.8s;
+  animation-delay: 0.2s;
 }
 
 .case-studies-section.animate .case-study-card:nth-child(2) {
@@ -135,7 +135,7 @@
 }
 
 .case-studies-section.animate .case-study-title {
-  animation: fadeInUp 0.6s ease-out 1.2s forwards;
+  animation: fadeInUp 0.3s ease-out 0.3s forwards;
 }
 
 .case-study-description {
@@ -153,7 +153,7 @@
 }
 
 .case-studies-section.animate .case-study-description {
-  animation: fadeInUp 0.6s ease-out 1.4s forwards;
+  animation: fadeInUp 0.3s ease-out 0.1s forwards;
 }
 
 .challenge-label {

@@ -22,7 +22,7 @@
   position: relative;
   padding-top: 28px;
   opacity: 0;
-  animation: fadeIn 0.6s ease-out forwards;
+  animation: fadeIn 0.3s ease-out forwards;
 }
 
 .au-header__bar {
@@ -154,7 +154,7 @@
 }
 
 .au-hero.animate .au-pill {
-  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+  animation: fadeInUp 0.4s ease-out 0.05s forwards;
 }
 
 /* Heading */
@@ -174,7 +174,7 @@
 }
 
 .au-hero.animate .au-title {
-  animation: fadeInUp 0.8s ease-out 0.4s forwards;
+  animation: fadeInUp 0.4s ease-out 0.1s forwards;
 }
 
 /* Paragraph */
@@ -193,7 +193,7 @@
 }
 
 .au-hero.animate .au-paragraph {
-  animation: fadeInUp 0.8s ease-out 0.6s forwards;
+  animation: fadeInUp 0.4s ease-out 0.15s forwards;
 }
 
 .au-paragraph p {
@@ -217,7 +217,7 @@
 }
 
 .au-hero.animate .au-actions {
-  animation: fadeInUp 0.8s ease-out 0.8s forwards;
+  animation: fadeInUp 0.4s ease-out 0.1s forwards;
 }
 
 /* Schedule button */
@@ -297,7 +297,7 @@
 }
 
 .au-hero.animate .au-right {
-  animation: slideInRight 0.8s ease-out 0.6s forwards;
+  animation: slideInRight 0.4s ease-out 0.15s forwards;
 }
 
 .au-ceoBox {
@@ -313,7 +313,7 @@
 }
 
 .au-hero.animate .au-ceoBox {
-  animation: slideInRight 0.8s ease-out 0.6s forwards;
+  animation: slideInRight 0.4s ease-out 0.15s forwards;
 }
 
 .au-ceoImg {
@@ -330,7 +330,7 @@
 }
 
 .au-hero.animate .au-stats {
-  animation: fadeInUp 0.8s ease-out 1s forwards;
+  animation: fadeInUp 0.4s ease-out 0.1s forwards;
 }
 
 .au-stats__inner {
@@ -405,7 +405,7 @@
 }
 
 .au2-section.animate .au2-pill {
-  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+  animation: fadeInUp 0.4s ease-out 0.05s forwards;
 }
 
 .au2-title {
@@ -421,7 +421,7 @@
 }
 
 .au2-section.animate .au2-title {
-  animation: fadeInUp 0.8s ease-out 0.4s forwards;
+  animation: fadeInUp 0.4s ease-out 0.1s forwards;
 }
 
 .au2-subtitle {
@@ -437,7 +437,7 @@
 }
 
 .au2-section.animate .au2-subtitle {
-  animation: fadeInUp 0.8s ease-out 0.6s forwards;
+  animation: fadeInUp 0.4s ease-out 0.15s forwards;
 }
 
 /* ===== PNG cards grid ===== */
@@ -457,15 +457,15 @@
 }
 
 .au2-section.animate .au2-cardPng:nth-child(1) {
-  animation: fadeInUp 0.8s ease-out 0.8s forwards;
+  animation: fadeInUp 0.4s ease-out 0.1s forwards;
 }
 
 .au2-section.animate .au2-cardPng:nth-child(2) {
-  animation: fadeInUp 0.8s ease-out 1s forwards;
+  animation: fadeInUp 0.4s ease-out 0.1s forwards;
 }
 
 .au2-section.animate .au2-cardPng:nth-child(3) {
-  animation: fadeInUp 0.8s ease-out 1.2s forwards;
+  animation: fadeInUp 0.4s ease-out 0.3s forwards;
 }
 
 /* Responsive for section 2 */
@@ -559,7 +559,7 @@
 }
 
 .au4-section.animate .au4-pill {
-  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+  animation: fadeInUp 0.4s ease-out 0.05s forwards;
 }
 
 .au4-title {
@@ -575,7 +575,7 @@
 }
 
 .au4-section.animate .au4-title {
-  animation: fadeInUp 0.8s ease-out 0.4s forwards;
+  animation: fadeInUp 0.4s ease-out 0.1s forwards;
 }
 
 .au4-subtitle {
@@ -590,7 +590,7 @@
 }
 
 .au4-section.animate .au4-subtitle {
-  animation: fadeInUp 0.8s ease-out 0.6s forwards;
+  animation: fadeInUp 0.4s ease-out 0.15s forwards;
 }
 
 .au4-phoneWrap {
@@ -605,7 +605,7 @@
 }
 
 .au4-section.animate .au4-phoneImg {
-  animation: fadeInUp 0.8s ease-out 0.8s forwards;
+  animation: fadeInUp 0.4s ease-out 0.1s forwards;
 }
 
 .au4-privacy {
@@ -620,7 +620,7 @@
 }
 
 .au4-section.animate .au4-privacy {
-  animation: fadeInUp 0.8s ease-out 1s forwards;
+  animation: fadeInUp 0.4s ease-out 0.1s forwards;
 }
 
 .au4-right {
@@ -636,7 +636,7 @@
 }
 
 .au4-section.animate .au4-formImg {
-  animation: slideInRight 0.8s ease-out 0.8s forwards;
+  animation: slideInRight 0.4s ease-out 0.1s forwards;
 }
 
 /* Responsive safety for section 4 */

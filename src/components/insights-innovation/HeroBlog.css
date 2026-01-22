@@ -1,0 +1,244 @@
+.heroBlog {
+  background: rgba(252, 252, 252, 0.698);
+  backdrop-filter: blur(534px);
+  /* FIX: reduce top gap (header already has big spacing) */
+  padding: 40px 40px 0;
+}
+
+.heroBlog__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* main image block */
+.heroBlog__banner {
+  position: relative;
+  width: 100%;
+  height: 424px; /* figma: 1200 x 424 */
+  border-radius: 30px;
+  overflow: hidden; /* keep */
+}
+
+.heroBlog__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 30px;
+}
+
+/* overlay card */
+.heroBlog__overlay {
+  position: absolute;
+  left: 40px; /* figma shows 40 left */
+  top: 50%;
+  transform: translateY(-50%); /* important */
+  width: 365px; /* figma measurement */
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 24px;
+  padding: 26px 22px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+
+  opacity: 0;
+}
+
+/* Title */
+.heroBlog__title {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-size: 38px;
+  line-height: 1.05;
+  color: #1a1a1a;
+  margin: 0 0 14px 0;
+
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.heroBlog__meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: #666666;
+  margin-bottom: 10px;
+
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.heroBlog__dot {
+  opacity: 0.6;
+}
+
+.heroBlog__desc {
+  font-size: 11px;
+  line-height: 1.6;
+  color: #7a7a7a;
+  margin: 0 0 18px 0;
+
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* bottom row */
+.heroBlog__ctaRow {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.heroBlog__cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 100%;
+  text-decoration: none;
+}
+
+.heroBlog__ctaText {
+  font-family: 'Questrial', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  text-transform: capitalize;
+  color: #894CFB;
+  margin-right: 12px;
+}
+
+.heroBlog__ctaArrow {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #894CFB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.heroBlog__ctaArrow img {
+  width: 14px;
+  height: 14px;
+  filter: brightness(0) invert(1);
+}
+
+.heroBlog__cta:hover .heroBlog__ctaText {
+  color: #6B3BC2;
+}
+
+.heroBlog__cta:hover .heroBlog__ctaArrow {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+/* FIX: overlay animation must preserve translateY(-50%)
+   because fadeInUp animates transform and overrides it */
+@keyframes heroOverlayIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateY(0);
+  }
+}
+
+/* animations using your existing "animate" class pattern */
+.heroBlog.animate .heroBlog__overlay {
+  animation: heroOverlayIn 0.4s ease-out 0.05s forwards;
+}
+
+.heroBlog.animate .heroBlog__title {
+  animation: fadeInUp 0.4s ease-out 0.05s forwards;
+}
+
+.heroBlog.animate .heroBlog__meta {
+  animation: fadeInUp 0.4s ease-out 0.05s forwards;
+}
+
+.heroBlog.animate .heroBlog__desc {
+  animation: fadeInUp 0.4s ease-out 0.05s forwards;
+}
+
+.heroBlog.animate .heroBlog__ctaRow {
+  animation: fadeInUp 0.4s ease-out 0.05s forwards;
+}
+
+/* responsive rules */
+@media (max-width: 1100px) {
+  .heroBlog {
+    padding: 35px 26px 0;
+  }
+
+  .heroBlog__banner {
+    height: 380px;
+  }
+
+  .heroBlog__overlay {
+    left: 26px;
+    width: 340px;
+    padding: 22px 18px;
+  }
+
+  .heroBlog__title {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroBlog {
+    padding: 28px 20px 0;
+  }
+
+  .heroBlog__banner {
+    height: auto;
+    min-height: 420px;
+  }
+
+  .heroBlog__img {
+    min-height: 420px;
+  }
+
+  /* mobile overlay placement */
+  .heroBlog__overlay {
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    width: auto;
+    top: 22px;
+    transform: none; /* mobile uses normal position */
+  }
+
+  /* FIX: mobile animation should NOT use translateY(-50%) */
+  @keyframes heroOverlayInMobile {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .heroBlog.animate .heroBlog__overlay {
+    animation: heroOverlayInMobile 0.4s ease-out 0.05s forwards;
+  }
+
+  .heroBlog__title {
+    font-size: 32px;
+  }
+}
