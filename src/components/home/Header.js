@@ -35,7 +35,7 @@ const Header = () => {
             </>
           ) : (
             <>
-              <Link to="/#about" onClick={closeMenu}>About</Link>
+              <Link to="/about" onClick={closeMenu}>About</Link>
               <Link to="/#services" onClick={closeMenu}>Services</Link>
               <Link to="/#case-studies" onClick={closeMenu}>Case Studies</Link>
               <Link to="/insights-and-innovation" onClick={closeMenu}>Insights</Link>
