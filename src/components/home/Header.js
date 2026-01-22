@@ -27,7 +27,7 @@ const Header = () => {
         <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
           {isHomePage ? (
             <>
-              <a href="#about" onClick={closeMenu}>About</a>
+              <a href="/about" onClick={closeMenu}>About</a>
               <a href="#services" onClick={closeMenu}>Services</a>
               <a href="#case-studies" onClick={closeMenu}>Case Studies</a>
               <Link to="/insights-and-innovation" onClick={closeMenu}>Insights</Link>
