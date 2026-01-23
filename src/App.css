@@ -2,4 +2,11 @@
   width: 100%;
   margin: 0;
   padding: 0;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Ensure chatbot is not affected by App container */
+.App > *:last-child {
+  position: static;
 }

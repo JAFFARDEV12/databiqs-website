@@ -1,7 +1,7 @@
 .home {
   width: 100%;
   overflow-x: hidden;
-  background: #eeeeee;
+  background: rgba(252, 252, 252, 0.698);
   backdrop-filter: blur(534px);
 }
 

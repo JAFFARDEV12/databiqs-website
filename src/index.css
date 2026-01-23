@@ -16,8 +16,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #1a1a1a;
   background: rgba(252, 252, 252, 0.698);
-  backdrop-filter: blur(534px);
+  /* Moved backdrop-filter to #root to avoid containing block issues */
   line-height: 1.6;
+  position: relative;
+  /* Ensure fixed positioning works for chatbot */
+  transform: none;
+  filter: none;
+  backdrop-filter: none;
+}
+
+#root {
+  background: rgba(252, 252, 252, 0.698);
+  backdrop-filter: blur(534px);
+  min-height: 100vh;
 }
 
 code {
@@ -27,6 +38,7 @@ code {
 
 html {
   scroll-behavior: smooth;
+  position: relative;
 }
 
 a {

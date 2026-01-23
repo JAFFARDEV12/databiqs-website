@@ -2,6 +2,7 @@
   padding: 100px 40px;
   background: rgba(252, 252, 252, 0.698);
   backdrop-filter: blur(534px);
+  margin-top: -90px;
 }
 
 .section-container {
@@ -147,7 +148,7 @@
 .testimonial-card.featured .testimonial-author {
   margin-top: auto;
   padding-top: 0;
-  margin-top: 128px;
+  margin-top: 215px;
   position: relative;
   z-index: 2;
 }
@@ -286,7 +287,7 @@
 
 .testimonial-card.featured .play-button {
   top: auto;
-  bottom: 20px;
+  bottom: -120px;
   left: 50%;
   transform: translateX(-50%);
 }

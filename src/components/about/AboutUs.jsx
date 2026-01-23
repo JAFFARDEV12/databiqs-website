@@ -3,11 +3,10 @@ import { Link } from "react-router-dom";
 import "./AboutUs.css";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import Footer from "../home/Footer";
+import Header from "../home/Header";
 
 // Assets (hero)
 import ceoImg from "../../assets/ceo.png";
-import letsTalkImg from "../../assets/lets-talk.png";
-import logoImg from '../../assets/Logo.png';
 
 // Assets (section 2 cards PNGs)
 import missionPng from "../../assets/mission.png";
@@ -15,55 +14,22 @@ import visionPng from "../../assets/vision.png";
 import approachPng from "../../assets/approach.png";
 
 // NEW: Testimonials section
-import TestimonialsSection from "./TestimonialsSection";
+import TestimonialsSection from "../home/TestimonialsSection";
 
 // NEW: Contact / Get in touch assets
 import formImg from "../../assets/form.png";
 import phoneImg from "../../assets/phone.png";
 
 export default function AboutUs() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const heroRef = useScrollAnimation({ threshold: 0.2 });
   const section2Ref = useScrollAnimation({ threshold: 0.2 });
   const section4Ref = useScrollAnimation({ threshold: 0.2 });
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
-
   return (
     <div className="au-page">
+      <Header />
       {/* ===== TOP HERO BLOCK (unchanged) ===== */}
       <section className="au-frame">
-        {/* Header */}
-        <header className="au-header">
-          <div className="au-header__bar">
-            <Link to="/" className="au-header__logo">
-              <img src={logoImg} alt="Databiqs" />
-            </Link>
-
-            <nav className={`au-header__nav ${isMenuOpen ? 'au-nav-open' : ''}`}>
-              <Link to="/about" onClick={closeMenu}>About</Link>
-              <Link to="/#services" onClick={closeMenu}>Services</Link>
-              <Link to="/#case-studies" onClick={closeMenu}>Case Studies</Link>
-              <Link to="/#insights" onClick={closeMenu}>Insights</Link>
-              <Link to="/#contact" onClick={closeMenu}>Contact Us</Link>
-            </nav>
-
-            <button className="au-header__letsTalk" type="button">
-              <img src={letsTalkImg} alt="Let's Talk" />
-            </button>
-            <button className="au-hamburger" onClick={toggleMenu} aria-label="Menu">
-              <span className={`au-hamburger-line ${isMenuOpen ? 'active' : ''}`}></span>
-              <span className={`au-hamburger-line ${isMenuOpen ? 'active' : ''}`}></span>
-              <span className={`au-hamburger-line ${isMenuOpen ? 'active' : ''}`}></span>
-            </button>
-          </div>
-        </header>
 
         {/* Hero */}
         <div className="au-hero" id="about" ref={heroRef}>

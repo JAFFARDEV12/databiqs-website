@@ -1,4 +1,4 @@
-.ai-solutions-section {
+wrong.ai-solutions-section {
   padding: 100px 40px;
   background: rgba(252, 252, 252, 0.698);
   backdrop-filter: blur(534px);
@@ -12,11 +12,11 @@
 
 .section-tag {
   display: inline-block;
-  padding: 8px 20px;
-  border: 1px solid #000000;
-  border-radius: 50px;
+  padding: 8px 16px;
+  border: 1px solid #E0E0E0;
+  border-radius: 20px;
   background: #f5f5f5;
-  color: #000000;
+  color: #666666;
   font-size: 14px;
   font-weight: 500;
   width: fit-content;
@@ -61,21 +61,34 @@
 
 .card-left {
   position: relative;
+  margin-top: 50px;
 }
 
 .diagram-container {
   position: relative;
   width: 100%;
-  min-height: 650px;
 }
 
-.diagram-content {
+.diagram-wrapper {
   position: relative;
   width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
+}
+
+.diagram-image {
+  width: 80%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: bicubic;
+  image-rendering: auto;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .diagram-main-area {
@@ -444,38 +457,72 @@
   font-weight: 500;
 }
 
-.process-flow {
+.process-flow-overlay {
+  position: absolute;
+  bottom: -60px;
+  left: 0;
+  right: 0;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 12px;
-  margin-top: 20px;
+  z-index: 10;
 }
 
 .flow-stages {
   display: flex;
   align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
+  gap: 8px;
+  flex-wrap: nowrap;
   justify-content: center;
+  width: 100%;
+  max-width: 95%;
 }
 
 .flow-stage {
-  font-size: 11px;
+  font-size: 9px;
   color: #000000;
   text-align: center;
-  white-space: nowrap;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-width: 0;
+  line-height: 1.2;
 }
 
-.flow-note {
-  color: #999999;
-  font-size: 10px;
+.flow-stage-center {
+  flex: 1.2;
+  font-weight: 600;
+}
+
+.flow-line-1 {
+  font-size: 9px;
+  color: #000000;
+  margin-bottom: 2px;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.flow-line-2 {
+  font-size: 8px;
+  color: #666666;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.flow-line-2-match {
+  font-size: 9px;
+  color: #000000;
 }
 
 .flow-arrow {
   color: #E0E0E0;
-  font-size: 16px;
+  font-size: 14px;
+  flex-shrink: 0;
+  margin: 0 2px;
 }
 
 .card-right {
@@ -526,16 +573,28 @@
   text-align: left;
 }
 
-.capabilities-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.card-right .capabilities-list,
+.ai-solutions-section .capabilities-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
   display: flex;
   flex-direction: column;
   gap: 12px;
+  text-align: left;
+  align-items: flex-start;
 }
 
-.capabilities-list li {
+.card-right .capabilities-list::marker,
+.ai-solutions-section .capabilities-list::marker {
+  display: none !important;
+  content: "" !important;
+}
+
+.card-right .capabilities-list li,
+.ai-solutions-section .capabilities-list li {
   font-family: 'Questrial', sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -546,20 +605,40 @@
   text-transform: capitalize;
   color: #333333;
   padding-left: 20px;
+  margin-left: 0 !important;
+  padding-top: 0;
+  padding-bottom: 0;
   position: relative;
   text-align: left;
+  list-style: none !important;
+  list-style-type: none !important;
 }
 
-.capabilities-list li::before {
-  content: "";
+.card-right .capabilities-list li::marker,
+.ai-solutions-section .capabilities-list li::marker {
+  display: none !important;
+  content: "" !important;
+}
+
+.card-right .capabilities-list li::after,
+.ai-solutions-section .capabilities-list li::after {
+  display: none !important;
+  content: "" !important;
+}
+
+.card-right .capabilities-list li::before,
+.ai-solutions-section .capabilities-list li::before {
+  content: "" !important;
   position: absolute;
   left: 0;
-  top: 12px;
+  top: 9px;
   width: 6px;
   height: 6px;
   border-radius: 50%;
   background: #CCCCCC;
   color: #CCCCCC;
+  display: block !important;
+  flex-shrink: 0;
 }
 
 @media (max-width: 968px) {

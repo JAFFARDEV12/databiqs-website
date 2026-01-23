@@ -1,6 +1,8 @@
 import React from 'react';
 import Header from './Header';
 import HeroSection from './HeroSection';
+import AISolutionsSection from './AISolutionsSection';
+import AIAutomationSection from './AIAutomationSection';
 import TestimonialsSection from './TestimonialsSection';
 import StatsBar from './StatsBar';
 import CaseStudiesSection from './CaseStudiesSection';
@@ -14,6 +16,8 @@ const Home = () => {
     <div className="home">
       <Header />
       <HeroSection />
+      <AISolutionsSection />
+      <AIAutomationSection />
       <TestimonialsSection />
       <StatsBar />
       <CaseStudiesSection />

@@ -3,6 +3,7 @@ import './AISolutionsSection.css';
 import chatbotIcon from '../../assets/Chatbot-Icon.png';
 import userIcon from '../../assets/user.png';
 import sectionBg from '../../assets/section3-aibgrectangle.png';
+import diagramImage from '../../assets/img.PNG';
 
 const AISolutionsSection = () => {
   return (
@@ -13,113 +14,44 @@ const AISolutionsSection = () => {
           INTELLIGENT <span className="highlight">AI SOLUTIONS</span> BUILT FOR SCALABLE GROWTH
         </h2>
         <p className="section-description">
-          We Design Al-Powered Systems That Streamline Operations, Enhance Customer Engagement, And Enable Businesses To Scale With Confidence.
+          We Design AI-Powered Systems That Streamline Operations, Enhance Customer Engagement, And Enable Businesses To Scale With Confidence.
         </p>
 
         <div className="solutions-card">
           <div className="card-left">
             <div className="diagram-container">
-              <div className="diagram-content">
-                <div className="diagram-main-area">
-                  <div className="diagram-left">
-                    <div className="diagram-box customer-box">
-                      <div className="chat-interface">
-                        <div className="chat-avatar"></div>
-                        <div className="chat-person-icon"></div>
-                        <div className="chat-bubbles">
-                          <div className="chat-bubble"></div>
-                          <div className="chat-bubble with-avatar">
-                            <div className="bubble-avatar purple"></div>
-                            <div className="message-line"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="box-title">Customer</div>
-                      <div className="connection-line left-line"></div>
-                    </div>
-                    
-                    <div className="diagram-box integrated-system-box">
-                      <div className="chat-interface">
-                        <div className="chat-avatar"></div>
-                        <div className="chat-person-icon"></div>
-                        <div className="chat-bubbles">
-                          <div className="chat-bubble"></div>
-                          <div className="chat-bubble with-avatar">
-                            <div className="bubble-avatar blue"></div>
-                            <div className="message-line"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="box-title">Integrated System</div>
-                      <div className="connection-line left-line"></div>
-                    </div>
-                  </div>
-                  
-                  <div className="diagram-center">
-                    <div className="diagram-box chatbot-box">
-                      <div className="chatbot-icon">
-                        <div className="chatbot-ai-square">AI</div>
-                      </div>
-                      <div className="chatbot-label">Chatbot</div>
-                    </div>
-                  </div>
-                  
-                  <div className="diagram-right">
-                    <div className="diagram-box integrated-api-box">
-                      <div className="box-title">Integrated Systems (via API)</div>
-                      <div className="box-content api-content">
-                        <div className="person-icon blue-icon">👤</div>
-                        <div className="content-text">
-                          <div className="main-text">Your System</div>
-                          <div className="sub-text">Connected Via REST API</div>
-                        </div>
-                      </div>
-                      <div className="connection-line right-line"></div>
-                    </div>
-                    
-                    <div className="conversat-input-element">
-                      <div className="status-circles">
-                        <div className="status-circle red-circle">●</div>
-                        <div className="status-circle blue-circle">●</div>
-                      </div>
-                      <div className="conversat-text">ConversatiInput</div>
-                      <div className="connection-line right-line"></div>
-                    </div>
-                    
-                    <div className="diagram-box conversations-box">
-                      <div className="box-title">Customer Conversations</div>
-                      <div className="conversations-subtitle">(AI-Powered Or Human-Assisted)</div>
-                      <div className="box-content">
-                        <div className="person-icon teal-icon">👤</div>
-                        <div className="content-text">
-                          <div className="main-text">Conversations</div>
-                          <div className="sub-text">AI-Powered Chat History</div>
-                        </div>
-                      </div>
-                      <div className="connection-line right-line"></div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="nlp-section">
-                  <div className="arrow-down"></div>
-                  <div className="diagram-box nlp-box">
-                    <div className="box-title">NLP Model (Intent Recognition & Response Generation)</div>
-                  </div>
-                </div>
-                
-                <div className="process-flow">
-                  <div className="arrow-down"></div>
+              <div className="diagram-wrapper">
+                <img 
+                  src={diagramImage} 
+                  alt="AI Chatbot Flow Diagram" 
+                  className="diagram-image"
+                />
+                <div className="process-flow-overlay">
                   <div className="flow-stages">
-                    <div className="flow-stage">Customer Query</div>
+                    <div className="flow-stage">
+                      <div className="flow-line-1">Customer Query</div>
+                      <div className="flow-line-2"></div>
+                    </div>
                     <div className="flow-arrow">→</div>
-                    <div className="flow-stage">AI Generated Response <span className="flow-note">(Via NLP)</span></div>
+                    <div className="flow-stage">
+                      <div className="flow-line-1">AI Generated Response</div>
+                      <div className="flow-line-2">(NLP Model)</div>
+                    </div>
                     <div className="flow-arrow">→</div>
-                    <div className="flow-stage">Intent-Based Routing To Systems/Agents</div>
+                    <div className="flow-stage flow-stage-center">
+                      <div className="flow-line-1">Intent-Based Routing</div>
+                      <div className="flow-line-2 flow-line-2-match">To Systems/Agents</div>
+                    </div>
                     <div className="flow-arrow">→</div>
-                    <div className="flow-stage">Escalation To Human Agent Or Specialist</div>
+                    <div className="flow-stage">
+                      <div className="flow-line-1">Escalation To Human</div>
+                      <div className="flow-line-2 flow-line-2-match">Agent Or Specialist</div>
+                    </div>
                     <div className="flow-arrow">→</div>
-                    <div className="flow-stage">Resolution <span className="flow-note">(Automated Or Human)</span></div>
+                    <div className="flow-stage">
+                      <div className="flow-line-1">Resolution</div>
+                      <div className="flow-line-2">(Automated Or Human)</div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -128,15 +60,15 @@ const AISolutionsSection = () => {
           <div className="card-right">
             <h3 className="card-title">AI Conversational & Support Systems</h3>
             <p className="card-description">
-              AI-powered conversational and support systems designed to automate interactions, reduce response times, assist teams, and deliver consistent, high-quality customer experiences across all digital touchpoints.
+              AI-Powered Conversational And Support Systems Designed To Automate Interactions, Reduce Response Times, Assist Teams, And Deliver Consistent, High-Quality Customer Experiences Across All Digital Touchpoints.
             </p>
             <div className="capabilities-heading">Key Capabilities:</div>
             <ul className="capabilities-list">
-              <li>Conversational AI with natural language understanding</li>
-              <li>24/7 automated customer interactions</li>
-              <li>Intelligent query routing & escalation</li>
-              <li>Human-AI collaboration for support teams</li>
-              <li>Multi-channel integration (web, chat, messaging platforms)</li>
+              <li>Conversational AI With Natural Language Understanding</li>
+              <li>24/7 Automated Customer Interactions</li>
+              <li>Intelligent Query Routing & Escalation</li>
+              <li>Human-AI Collaboration For Support Teams</li>
+              <li>Multi-Channel Integration (Web, Chat, Messaging Platforms)</li>
             </ul>
           </div>
         </div>
