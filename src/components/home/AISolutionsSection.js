@@ -1,8 +1,5 @@
 import React from 'react';
 import './AISolutionsSection.css';
-import chatbotIcon from '../../assets/Chatbot-Icon.png';
-import userIcon from '../../assets/user.png';
-import sectionBg from '../../assets/section3-aibgrectangle.png';
 import diagramImage from '../../assets/img.PNG';
 
 const AISolutionsSection = () => {

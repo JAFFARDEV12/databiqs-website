@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./AboutUs.css";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import Footer from "../home/Footer";
