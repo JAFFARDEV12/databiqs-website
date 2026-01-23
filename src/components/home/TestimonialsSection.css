@@ -1,8 +1,11 @@
 .testimonials-section {
   padding: 100px 40px;
-  background: rgba(252, 252, 252, 0.698);
-  backdrop-filter: blur(534px);
+  background: rgba(240, 240, 240, 0.95);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   margin-top: -90px;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .section-container {

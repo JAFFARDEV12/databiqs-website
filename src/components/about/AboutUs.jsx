@@ -18,6 +18,7 @@ import TestimonialsSection from "../home/TestimonialsSection";
 // NEW: Contact / Get in touch assets
 import formImg from "../../assets/form.png";
 import phoneImg from "../../assets/phone.png";
+import arrowIcon from "../../assets/rightarrow.png";
 
 export default function AboutUs() {
   const heroRef = useScrollAnimation({ threshold: 0.2 });
@@ -60,7 +61,9 @@ export default function AboutUs() {
               <div className="au-actions">
                 <button className="au-btnSchedule" type="button">
                   <span className="au-btnSchedule__text">Schedule An Appointment</span>
-                  <span className="au-btnSchedule__icon">→</span>
+                  <span className="au-btnSchedule__icon">
+                    <img src={arrowIcon} alt="Arrow" />
+                  </span>
                 </button>
 
                 <button className="au-btnOutline" type="button">

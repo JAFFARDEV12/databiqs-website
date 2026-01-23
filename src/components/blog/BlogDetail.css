@@ -1,7 +1,9 @@
 /* PAGE WRAPPER – FULL SCREEN WHITE */
 .bdp {
   width: 100%;
-  background: #ffffff;
+  background: rgba(240, 240, 240, 0.95);
+  backdrop-filter: blur(534px);
+  min-height: 100vh;
 }
 
 /* MAIN FRAME – 1280 EXACT */

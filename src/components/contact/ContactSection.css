@@ -1,6 +1,10 @@
 .contact-section {
   padding: 100px 40px;
-  background: #ffffff;
+  background: rgba(240, 240, 240, 0.95);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  transform: translateZ(0);
+  will-change: transform;
 
   /* ✅ Figma spacing: gap between contact block and map */
   margin-bottom: 0px;

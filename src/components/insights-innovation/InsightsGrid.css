@@ -1,7 +1,10 @@
 .insGrid {
   padding: 84px 40px 100px; /* figma shows ~84 spacing before this heading */
-  background: rgba(252, 252, 252, 0.698);
-  backdrop-filter: blur(534px);
+  background: rgba(240, 240, 240, 0.95);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .insGrid__container {

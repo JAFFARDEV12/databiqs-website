@@ -15,6 +15,16 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
+  // Handle smooth scrolling for anchor links
+  const handleAnchorClick = (e, anchorId) => {
+    e.preventDefault();
+    closeMenu();
+    const element = document.querySelector(anchorId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   // Check if we're on the home page for anchor links
   const isHomePage = location.pathname === '/';
 
@@ -28,16 +38,36 @@ const Header = () => {
           {isHomePage ? (
             <>
               <a href="/about" onClick={closeMenu}>About</a>
-              <a href="#services" onClick={closeMenu}>Services</a>
-              <a href="#case-studies" onClick={closeMenu}>Case Studies</a>
+              <a href="#services" onClick={(e) => handleAnchorClick(e, '#services')}>Services</a>
+              <a href="#case-studies" onClick={(e) => handleAnchorClick(e, '#case-studies')}>Case Studies</a>
               <Link to="/insights-and-innovation" onClick={closeMenu}>Insights</Link>
               <Link to="/contact" onClick={closeMenu}>Contact Us</Link>
             </>
           ) : (
             <>
               <Link to="/about" onClick={closeMenu}>About</Link>
-              <Link to="/#services" onClick={closeMenu}>Services</Link>
-              <Link to="/#case-studies" onClick={closeMenu}>Case Studies</Link>
+              <Link to="/#services" onClick={(e) => {
+                e.preventDefault();
+                closeMenu();
+                window.location.href = '/#services';
+                setTimeout(() => {
+                  const element = document.querySelector('#services');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }, 100);
+              }}>Services</Link>
+              <Link to="/#case-studies" onClick={(e) => {
+                e.preventDefault();
+                closeMenu();
+                window.location.href = '/#case-studies';
+                setTimeout(() => {
+                  const element = document.querySelector('#case-studies');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }, 100);
+              }}>Case Studies</Link>
               <Link to="/insights-and-innovation" onClick={closeMenu}>Insights</Link>
               <Link to="/contact" onClick={closeMenu}>Contact Us</Link>
             </>

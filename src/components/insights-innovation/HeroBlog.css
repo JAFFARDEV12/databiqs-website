@@ -1,8 +1,11 @@
 .heroBlog {
-  background: rgba(252, 252, 252, 0.698);
-  backdrop-filter: blur(534px);
+  background: rgba(240, 240, 240, 0.95);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   /* FIX: reduce top gap (header already has big spacing) */
   padding: 40px 40px 0;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .heroBlog__container {
