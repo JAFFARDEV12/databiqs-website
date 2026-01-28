@@ -7,7 +7,6 @@ import testimonialIcon4 from '../../assets/testimonialicon4.png';
 import testimonialVideoBg from '../../assets/testimonialvideobgimage.png';
 import apostrophySvg from '../../assets/appostrophy.svg';
 import card1Picture from '../../assets/card 1 picture.svg';
-import card2Picture from '../../assets/card 2 picture.svg';
 import card3Picture from '../../assets/card 3 picture.svg';
 import card4Picture from '../../assets/card 4 picture.svg';
 import playButtonSvg from '../../assets/playbutton.svg';

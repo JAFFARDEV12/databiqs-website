@@ -1,5 +1,5 @@
 .ai-automation-section {
-  padding: 40px 40px;
+  padding: 40px 40px 60px 40px;
   background: transparent;
 }
 
@@ -11,12 +11,15 @@
 .automation-card {
   background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(250, 245, 255, 0.6) 100%);
   border-radius: 24px;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
   padding: 50px;
   display: grid;
   grid-template-columns: 1fr 1.5fr;
   gap: 60px;
   align-items: start;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
 }
 
 .automation-left,
@@ -132,7 +135,7 @@
   align-items: flex-start;
   background: linear-gradient(to right, rgba(240, 238, 240, 0.75) 0%, rgba(222, 215, 224, 0.9) 100%);
   border-radius: 16px;
-  margin: -50px -50px -50px 0;
+  margin: -50px -50px 0 0;
   padding: 50px;
 }
 
