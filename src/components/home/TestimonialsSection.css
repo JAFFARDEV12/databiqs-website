@@ -1,5 +1,5 @@
 .testimonials-section {
-  padding: 100px 40px;
+  padding: 100px 40px 40px 40px;
   background: rgba(240, 240, 240, 0.95);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
@@ -68,7 +68,7 @@
 .testimonials-grid {
   display: flex;
   gap: 30px;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
   justify-content: center;
   flex-wrap: wrap;
 }
@@ -76,7 +76,7 @@
 .testimonial-card {
   background: #ffffff;
   width: 264px;
-  height: 380px;
+  height: 320px;
   border-radius: 30px;
   border: 1px solid #E0E0E0;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
@@ -87,6 +87,46 @@
   text-align: left;
   position: relative;
   opacity: 0;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: bicubic;
+  image-rendering: auto;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.testimonial-card.card-bg-1,
+.testimonial-card.card-bg-3,
+.testimonial-card.card-bg-4 {
+  background-size: 80% auto;
+  background-position: center top;
+}
+
+.testimonial-card.featured {
+  background-size: cover;
+  background-position: center;
+}
+
+.testimonial-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.85);
+  z-index: 0;
+  border-radius: 30px;
+}
+
+.testimonial-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .testimonials-section.animate .testimonial-card {
@@ -133,7 +173,7 @@
 }
 
 .testimonial-card.featured .quote-icon {
-  color: rgba(255, 255, 255, 0.5);
+  opacity: 0.5;
   display: block;
 }
 
@@ -141,8 +181,8 @@
   position: absolute;
   top: 20px;
   left: 20px;
-  width: 60px;
-  height: 60px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   object-fit: cover;
   z-index: 2;
@@ -151,7 +191,7 @@
 .testimonial-card.featured .testimonial-author {
   margin-top: auto;
   padding-top: 0;
-  margin-top: 215px;
+  margin-top: 175px;
   position: relative;
   z-index: 2;
 }
@@ -165,8 +205,8 @@
 }
 
 .testimonial-avatar {
-  width: 60px;
-  height: 60px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 16px;
@@ -176,15 +216,13 @@
 }
 
 .quote-icon {
-  font-size: 72px;
-  color: #E0E0E0;
-  font-weight: 300;
-  line-height: 1;
+  width: 40px;
+  height: 24px;
+  object-fit: contain;
   margin-bottom: 16px;
   position: absolute;
   top: 20px;
   right: 20px;
-  font-family: Georgia, serif;
 }
 
 .testimonial-quote {
@@ -197,7 +235,7 @@
   vertical-align: middle;
   text-transform: capitalize;
   color: #666666;
-  margin: 80px 0 4px 0;
+  margin: 35px 0 4px 0;
   text-align: left;
   flex: 1;
   opacity: 0;
@@ -222,7 +260,7 @@
 .testimonial-author {
   margin-top: auto;
   padding-top: 0;
-  margin-top: -4px;
+  margin-top: 10px;
 }
 
 .author-name {
@@ -286,13 +324,37 @@
   cursor: pointer;
   transition: transform 0.3s ease;
   z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 39px;
+}
+
+.play-button-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 0;
+}
+
+.play-button-icon {
+  width: 10px;
+  height: 10px;
+  object-fit: contain;
+  z-index: 1;
+  position: relative;
 }
 
 .testimonial-card.featured .play-button {
-  top: auto;
-  bottom: -120px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 39px;
+  min-width: 70px;
+  min-height: 39px;
 }
 
 .play-button:hover {
@@ -373,8 +435,8 @@
   }
   
   .section-headline {
-    font-size: 36px;
-    line-height: 50px;
+    font-size: 28px;
+    line-height: 40px;
   }
   
   .section-description {
@@ -391,13 +453,45 @@
     max-width: 320px;
     height: auto;
     min-height: 350px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonials-section {
+    padding: 40px 15px;
   }
   
   .section-headline {
-    font-size: 28px;
+    font-size: 24px;
+    line-height: 32px;
+  }
+  
+  .section-description {
+    font-size: 13px;
+    line-height: 20px;
+  }
+  
+  .testimonials-grid {
+    gap: 15px;
   }
   
   .testimonial-card {
-    padding: 20px;
+    max-width: 100%;
+    min-height: 320px;
+    padding: 15px;
+  }
+  
+  .testimonial-quote {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  
+  .testimonial-author {
+    font-size: 14px;
+  }
+  
+  .testimonial-designation {
+    font-size: 12px;
   }
 }

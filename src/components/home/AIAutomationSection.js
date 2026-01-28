@@ -1,5 +1,6 @@
 import React from 'react';
 import './AIAutomationSection.css';
+import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import crmIcon from '../../assets/crm.png';
 import emailIcon from '../../assets/email.png';
 import databaseIcon from '../../assets/database.png';
@@ -16,8 +17,10 @@ import aiToEmailArrow from '../../assets/ai to email.png';
 import aiToCrmArrow from '../../assets/ai to crm.png';
 
 const AIAutomationSection = () => {
+  const sectionRef = useScrollAnimation({ threshold: 0.1 });
+
   return (
-    <section className="ai-automation-section">
+    <section className="ai-automation-section" ref={sectionRef}>
       <div className="section-container">
         <div className="automation-card">
           <div className="automation-left">

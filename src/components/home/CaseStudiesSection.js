@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './CaseStudiesSection.css';
-import arrowIcon from '../../assets/rightarrow.png';
+import arrowIcon from '../../assets/rightarrow.svg';
 import caseStudyImage from '../../assets/Whisk_12cf9afa8f18cab97e74ea097a47f83edr 1 (2).png';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 

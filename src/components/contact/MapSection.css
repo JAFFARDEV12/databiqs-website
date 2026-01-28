@@ -12,25 +12,28 @@
   margin: 0 auto;
 }
 
-.map-image {
-  width: 1200px;
+.map-iframe {
+  width: 100%;
   height: 300px;
-  object-fit: cover;
   border-radius: 20px;
+  border: none;
   display: block;
   max-width: 100%;
   background: #fff;
 }
 
 @media (max-width: 1240px) {
-  .map-image {
+  .map-iframe {
     width: 100%;
-    height: auto;
   }
 }
 
 @media (max-width: 768px) {
   .map-section {
     padding: 0 20px 60px;
+  }
+  
+  .map-iframe {
+    height: 250px;
   }
 }

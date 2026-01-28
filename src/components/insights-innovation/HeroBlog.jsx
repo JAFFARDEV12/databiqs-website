@@ -1,7 +1,7 @@
 import React from "react";
 import "./HeroBlog.css";
 import heroImg from "../../assets/main.png";
-import arrowIcon from "../../assets/rightarrow.png";
+import arrowIcon from "../../assets/rightarrow.svg";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import { Link } from "react-router-dom";
 

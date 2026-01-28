@@ -2,7 +2,7 @@ import React from "react";
 import "./InsightsGrid.css";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import { Link } from "react-router-dom";
-import arrowIcon from "../../assets/rightarrow.png";
+import arrowIcon from "../../assets/rightarrow.svg";
 
 import img1 from "../../assets/1.png";
 import img2 from "../../assets/2.png";

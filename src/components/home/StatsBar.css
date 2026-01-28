@@ -1,7 +1,6 @@
 .stats-bar-section {
   width: 100%;
-  background: rgba(252, 252, 252, 0.698);
-  backdrop-filter: blur(534px);
+  background: transparent;
   padding: 30px 0;
   overflow: hidden;
   position: relative;
@@ -124,5 +123,32 @@
   
   .stat-divider {
     font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-bar-section {
+    padding: 15px 0;
+  }
+  
+  .stats-bar-track {
+    gap: 15px;
+  }
+  
+  .stat-item {
+    gap: 6px;
+  }
+  
+  .stat-icon {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .stat-text {
+    font-size: 11px;
+  }
+  
+  .stat-divider {
+    font-size: 12px;
   }
 }

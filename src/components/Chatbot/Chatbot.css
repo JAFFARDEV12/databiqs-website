@@ -139,7 +139,7 @@
 .chatbot-header-brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 3px;
   margin-left: -5px;
 }
 

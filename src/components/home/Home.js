@@ -14,16 +14,21 @@ import './Home.css';
 const Home = () => {
   return (
     <div className="home">
-      <Header />
-      <HeroSection />
-      <AISolutionsSection />
-      <AIAutomationSection />
-      <TestimonialsSection />
-      <StatsBar />
-      <CaseStudiesSection />
-      <InsightsSection />
-      <ContactSection />
-      <Footer />
+      {/* Decorative Ellipse 1 from Figma - Purple blur background element */}
+      <div className="decorative-ellipse-1"></div>
+      
+      <div className="home-content">
+        <Header />
+        <HeroSection />
+        <AISolutionsSection />
+        <AIAutomationSection />
+        <TestimonialsSection />
+        <StatsBar />
+        <CaseStudiesSection />
+        <InsightsSection />
+        <ContactSection />
+        <Footer />
+      </div>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './InsightsSection.css';
-import arrowIcon from '../../assets/rightarrow.png';
+import arrowIcon from '../../assets/rightarrow.svg';
 import leftImage from '../../assets/insights&innovationsection left image how ai chatbots...png';
 import topRightImage from '../../assets/insights & innovationrightabove image automating buiness....png';
 import bottomRightImage from '../../assets/insights&innovations bottom rihg timage transforming customer....png';

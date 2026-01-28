@@ -6,4 +6,58 @@
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   transform: translateZ(0);
   will-change: transform;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Content wrapper to ensure proper z-index layering */
+.home-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Decorative Ellipse 1 from Figma - Purple blur effect */
+/* Figma specs: rgba(137, 76, 251, 0.8), blur radius 694px, 232x232px */
+.decorative-ellipse-1 {
+  position: fixed;
+  width: 232px;
+  height: 232px;
+  background: rgba(137, 76, 251, 0.8);
+  border-radius: 50%;
+  filter: blur(694px);
+  -webkit-filter: blur(694px);
+  pointer-events: none;
+  z-index: 0;
+  /* Positioned based on Figma coordinates (x: 917, y: 2166) */
+  /* Adjusted for responsive viewport - appears in lower right area */
+  top: 50%;
+  right: 5%;
+  transform: translate(50%, -50%);
+  opacity: 0.8;
+  will-change: transform;
+}
+
+@media (max-width: 1440px) {
+  .decorative-ellipse-1 {
+    right: 0%;
+    top: 55%;
+  }
+}
+
+@media (max-width: 768px) {
+  .decorative-ellipse-1 {
+    width: 150px;
+    height: 150px;
+    filter: blur(400px);
+    -webkit-filter: blur(400px);
+  }
+}
+
+@media (max-width: 480px) {
+  .decorative-ellipse-1 {
+    width: 100px;
+    height: 100px;
+    filter: blur(300px);
+    -webkit-filter: blur(300px);
+  }
 }

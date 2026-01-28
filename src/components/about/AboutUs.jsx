@@ -3,27 +3,23 @@ import "./AboutUs.css";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import Footer from "../home/Footer";
 import Header from "../home/Header";
+import ContactSection from "../home/ContactSection";
 
 // Assets (hero)
 import ceoImg from "../../assets/ceo.png";
 
-// Assets (section 2 cards PNGs)
-import missionPng from "../../assets/mission.png";
-import visionPng from "../../assets/vision.png";
-import approachPng from "../../assets/approach.png";
+// Assets (section 2 cards SVG icons)
+import missionIcon from "../../assets/mission.svg";
+import visionIcon from "../../assets/vision.svg";
+import approachIcon from "../../assets/approach.svg";
 
 // NEW: Testimonials section
 import TestimonialsSection from "../home/TestimonialsSection";
-
-// NEW: Contact / Get in touch assets
-import formImg from "../../assets/form.png";
-import phoneImg from "../../assets/phone.png";
-import arrowIcon from "../../assets/rightarrow.png";
+import arrowIcon from "../../assets/rightarrow.svg";
 
 export default function AboutUs() {
   const heroRef = useScrollAnimation({ threshold: 0.2 });
   const section2Ref = useScrollAnimation({ threshold: 0.2 });
-  const section4Ref = useScrollAnimation({ threshold: 0.2 });
 
   return (
     <div className="au-page">
@@ -65,10 +61,6 @@ export default function AboutUs() {
                     <img src={arrowIcon} alt="Arrow" />
                   </span>
                 </button>
-
-                <button className="au-btnOutline" type="button">
-                  Visit Website
-                </button>
               </div>
             </div>
 
@@ -106,11 +98,37 @@ export default function AboutUs() {
             </p>
           </div>
 
-          {/* PNG Cards */}
-          <div className="au2-cardsPng">
-            <img className="au2-cardPng" src={missionPng} alt="Our Mission" />
-            <img className="au2-cardPng" src={visionPng} alt="Our Vision" />
-            <img className="au2-cardPng" src={approachPng} alt="Our Approach" />
+          {/* Icon Cards */}
+          <div className="au2-cards">
+            <div className="au2-card">
+              <div className="au2-card-icon">
+                <img src={missionIcon} alt="Mission Icon" />
+              </div>
+              <h3 className="au2-card-title">Our Mission</h3>
+              <p className="au2-card-description">
+                To Democratize Access To Powerful AI And Automation Technologies Of Every Size To Make Smarter Decisions, Streamline Operations, And Scale With Confidence In A Rapidly Evolving Digital World.
+              </p>
+            </div>
+            
+            <div className="au2-card">
+              <div className="au2-card-icon">
+                <img src={visionIcon} alt="Vision Icon" />
+              </div>
+              <h3 className="au2-card-title">Our Vision</h3>
+              <p className="au2-card-description">
+                To Become A Global Leader In AI Powered Business Transformation, Shaping A Future Where Intelligent Systems Enhance Productivity, Innovation, And Sustainable Growth Across All Industries.
+              </p>
+            </div>
+            
+            <div className="au2-card">
+              <div className="au2-card-icon">
+                <img src={approachIcon} alt="Approach Icon" />
+              </div>
+              <h3 className="au2-card-title">Our Approach</h3>
+              <p className="au2-card-description">
+                We Design And Deploy AI Solutions That Are Practical, Ethical, And Scalable, Combining Data Intelligence, Automation, And Human Insight To Solve Real World Business Challenges And Deliver Measurable Impact.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -118,42 +136,8 @@ export default function AboutUs() {
       {/* ===== SECTION 3 (Testimonials) ===== */}
       <TestimonialsSection />
 
-      {/* ===== SECTION 4 (Get In Touch / Form) ===== */}
-      <section className="au4-section" id="contact" ref={section4Ref}>
-        <div className="au4-inner">
-          {/* Left */}
-          <div className="au4-left">
-            <button className="au4-pill" type="button">
-              Get In Touch
-            </button>
-
-            <h2 className="au4-title">
-              LET&apos;S BUILD THE FUTURE <br />
-              TOGETHER
-            </h2>
-
-            <p className="au4-subtitle">
-              Have Questions Or Want To Start A Project? <br />
-              Our Team Is Ready To Help You Unlock The <br />
-              Power Of AI For Your Business.
-            </p>
-
-            <div className="au4-phoneWrap">
-              <img className="au4-phoneImg" src={phoneImg} alt="Phone illustration" draggable="false" />
-            </div>
-
-            <p className="au4-privacy">
-              We Value Your Privacy And Will Never Share Your Information. <br />
-              Expect A Response From Our Team Within 24–48 Hours.
-            </p>
-          </div>
-
-          {/* Right (form as asset) */}
-          <div className="au4-right">
-            <img className="au4-formImg" src={formImg} alt="Contact form" draggable="false" />
-          </div>
-        </div>
-      </section>
+      {/* ===== SECTION 4 (Contact) ===== */}
+      <ContactSection />
 
       {/* Footer */}
       <Footer />

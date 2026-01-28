@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './ContactSection.css';
 import phoneIcon from '../../assets/phoneicon.png';
-import arrowIcon from '../../assets/rightarrow.png';
+import arrowIcon from '../../assets/rightarrow.svg';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 const ContactSection = () => {

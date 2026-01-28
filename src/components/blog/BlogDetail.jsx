@@ -5,7 +5,7 @@ import Footer from "../home/Footer";
 import mainImg from "../../assets/main.png";
 import related1 from "../../assets/1.png";
 import related2 from "../../assets/2.png";
-import arrowIcon from "../../assets/rightarrow.png";
+import arrowIcon from "../../assets/rightarrow.svg";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import "./BlogDetail.css";
 
