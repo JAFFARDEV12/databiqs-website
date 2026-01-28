@@ -15,15 +15,16 @@
 
 .section-tag {
   display: inline-block;
-  padding: 8px 16px;
+  padding: 10px 18px;
   border: 1px solid #E0E0E0;
-  border-radius: 20px;
-  background: #f5f5f5;
-  color: #666666;
+  border-radius: 80px;
+  background: #ffffff;
+  color: #000000;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
   width: fit-content;
   margin: 0 auto 24px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
   opacity: 0;
 }
 
@@ -72,9 +73,9 @@
 .insights-grid {
   display: grid;
   grid-template-columns: 576px 566px;
-  grid-template-rows: 267px 267px;
+  grid-template-rows: 279px 279px;
   gap: 30px;
-  align-items: start;
+  align-items: end;
   justify-content: center;
   min-height: auto;
 }
@@ -195,6 +196,7 @@
   padding-top: 20px;
   padding-right: 20px;
   padding-bottom: 20px;
+  justify-content: space-between;
 }
 
 .insight-title {
