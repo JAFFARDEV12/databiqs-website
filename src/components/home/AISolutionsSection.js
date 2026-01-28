@@ -2,18 +2,12 @@ import React from 'react';
 import './AISolutionsSection.css';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 // SVG Assets
-import externalBgCard from '../../assets/external bg card.svg';
 import blankAvatar from '../../assets/blank avator.svg';
 import girlAvatar from '../../assets/girl avator.svg';
-import CustomerSvg from '../../assets/Customer.svg';
 import firstRecFirstLine from '../../assets/1st rec 1st line.svg';
 import firstRecSecondLine from '../../assets/1st rec 2nd line.svg';
 import secondRecFirstLine from '../../assets/2nd rec first line.svg';
 import secondRecSecondLine from '../../assets/2nd rectangle 2nd line.svg';
-import internal2Rectangles from '../../assets/intenral 2 rctangles.svg';
-import rect34624511 from '../../assets/Rectangle 34624511.svg';
-import rect34624514 from '../../assets/Rectangle 34624514.svg';
-import rect34624515 from '../../assets/Rectangle 34624515.svg';
 import avatarBgEllipse from '../../assets/avator bg ellipse.svg';
 import beforeCustomerEllipse from '../../assets/before customer ellipse.svg';
 import dotSvg from '../../assets/dot.svg';
