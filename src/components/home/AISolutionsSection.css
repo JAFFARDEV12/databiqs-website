@@ -78,7 +78,6 @@
   align-items: start;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
-
 .card-left {
   position: relative;
   width: 100%;
@@ -87,11 +86,62 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background: linear-gradient(to left, rgba(250, 248, 250, 0.85) 0%, rgba(238, 232, 240, 0.95) 100%);
-  border-radius: 16px;
-  margin: -50px -50px -50px -50px;
+
+  margin: -50px;
   padding: 50px 20px;
+  border-radius: 16px;
+
+  background: none;
+  overflow: hidden;
 }
+
+/* Gradient background */
+.card-left::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 80px;   /* 👈 reduce from right */
+  bottom: 30px;  /* 👈 reduce from bottom */
+
+  background: linear-gradient(
+    to left,
+    rgba(241, 233, 241, 0.85) 0%,
+    rgba(233, 223, 236, 0.95) 100%
+  );
+
+  border-radius: 16px;
+  z-index: 0;
+}
+
+/* Grid overlay */
+.card-left::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 60px;   /* 👈 match gradient */
+  bottom: 30px;  /* 👈 match gradient */
+
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.6) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.6) 1px, transparent 1px);
+  background-size: 50px 50px;
+
+  border-radius: 16px;
+  pointer-events: none;
+  opacity: 0.3 !important;
+  z-index: 1;
+}
+
+/* Content above background + grid */
+.card-left > * {
+  position: relative;
+  z-index: 2;
+}
+
+
+
 
 /* AI Powered Solutions Diagram */
 .ai-powered-diagram {
@@ -106,8 +156,9 @@
   z-index: 2;
   overflow: visible;
   margin-top: -10px;
-  transform: scale(0.85);
+  transform: scale(0.70);
   transform-origin: center;
+  margin-left: -100px;
 }
 
 /* Professional Animations for Solutions Section */
@@ -218,12 +269,13 @@
   width: auto;
   height: auto;
   max-width: 200px;
-  margin: -93px auto 20px auto;
+  margin: -105px auto 20px auto;
   display: block;
   position: relative;
   z-index: 10;
   opacity: 0;
   visibility: hidden;
+  margin-left: 250px;
 }
 
 .ai-solutions-section.animate .arrow-nlp-to-intent {
@@ -237,12 +289,13 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 750px;
-  margin-top: 0px;
-  gap: 8px;
+  max-width: 500px;
+  margin-top: -10px;
+  /* gap: 8px; */
   align-self: center;
   opacity: 0;
   visibility: hidden;
+  margin-left: -100px;
 }
 
 .ai-solutions-section.animate .process-steps-row {
@@ -253,7 +306,7 @@
   font-family: 'Questrial', sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 10px;
+  font-size: 8px;
   line-height: 13px;
   letter-spacing: 0%;
   text-align: center;
@@ -347,17 +400,19 @@
   border-radius: 16px;
   display: flex;
   flex-direction: column;
+
 }
 
 .integrated-api-box {
   width: 250px !important;
   max-width: 250px !important;
   padding-top: 5px !important;
+  margin-left: 10px;
 }
 
 .conversatinput-box {
   width: 180px !important;
-  margin-left: -15px;
+  margin-left: -5px;
   max-width: 180px !important;
 }
 
@@ -365,6 +420,7 @@
   width: 200px !important;
   max-width: 200px !important;
   margin-top: -3px;
+  margin-left: 10px;
 }
 
 .customer-conversations-subtitle {
@@ -1621,8 +1677,8 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  margin-left: -40px;
-  max-width: calc(100% - 40px);
+  margin-left: -120px;
+  max-width: calc(100%);
 }
 
 
@@ -1736,10 +1792,10 @@
   flex-shrink: 0;
 }
 .solutions-card{
-  height: 500px;
+  height: 470px;
 }
 .automation-card{
-  height:500px
+  height:480px
 }
 @media (max-width: 968px) {
   .solutions-card {
