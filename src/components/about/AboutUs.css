@@ -119,7 +119,7 @@
 .au-hero {
   width: 100%;
   margin-top: 50px;
-  padding-bottom: 40px;
+  padding-bottom: 100px;
 
   /* ✅ Same subtle hero background as Home */
   background: linear-gradient(
@@ -326,9 +326,10 @@
   opacity: 0;
 }
 
-.au-hero.animate .au-stats {
+.au-frame.animate .au-stats {
   animation: fadeInUp 0.4s ease-out 0.1s forwards;
 }
+
 
 .au-stats__inner {
   width: 1440px;
@@ -336,7 +337,7 @@
 
   display: flex;
   justify-content: center;
-  gap: 18px;
+  gap: 50px;
 
   font-family: Questrial;
   font-size: 13px;
@@ -373,13 +374,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   
 
   /* ✅ Figma: stats → pill = 100px
      ✅ Figma: cards → next section (Testimonials pill) gap = 100px */
   padding: 100px 20px;
   box-sizing: border-box;
-  margin-top: -60px;
+  margin-top: -35px;
 }
 
 .au2-inner {
@@ -893,7 +895,7 @@
   .au2-section {
     width: 100%;
     padding: 60px 20px;
-    margin-top: 0px;
+    margin-top: -35px;
   }
   
   .au2-inner {
@@ -1012,4 +1014,95 @@
 .header,
 .site-header {
   background: #eeeeee !important;
+}
+.au-frame.animate .au-pill {
+  animation: fadeInUp 0.4s ease-out 0.05s forwards;
+}
+
+.au-frame.animate .au-title {
+  animation: fadeInUp 0.4s ease-out 0.1s forwards;
+}
+
+.au-frame.animate .au-paragraph {
+  animation: fadeInUp 0.4s ease-out 0.15s forwards;
+}
+
+.au-frame.animate .au-actions {
+  animation: fadeInUp 0.4s ease-out 0.2s forwards;
+}
+
+.au-frame.animate .au-right,
+.au-frame.animate .au-ceoBox {
+  animation: slideInRight 0.4s ease-out 0.15s forwards;
+}
+.au-stats {
+  opacity: 0;
+}
+
+.au-frame.animate .au-stats {
+  animation: fadeInUp 0.4s ease-out 0.25s forwards;
+}
+.au-hero,
+.au-stats {
+  opacity: 1 !important;
+}
+/* ===== Wrapper ===== */
+.au-stats {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ===== Moving belt ===== */
+.au-stats__track {
+  display: flex;
+  width: max-content;
+  animation: stats-scroll 30s linear infinite;
+  will-change: transform;
+}
+
+/* ===== Each content block ===== */
+.au-stats__inner {
+  display: flex;
+  gap: 50px;
+  padding-right: 50px;
+
+  font-family: Questrial;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #202020;
+  white-space: nowrap;
+}
+
+/* ===== Conveyor animation ===== */
+@keyframes stats-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ===== Optional polish ===== */
+
+/* Pause on hover */
+.au-stats:hover .au-stats__track {
+  animation-play-state: paused;
+}
+
+/* Soft fade edges */
+/* .au-stats {
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+} */
+
+.au-stats{
+  background-color: white !important;
+  /* margin-top: 50px; */
 }

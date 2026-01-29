@@ -4,6 +4,7 @@ import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import Footer from "../home/Footer";
 import Header from "../home/Header";
 import ContactSection from "../home/ContactSection";
+import starIcon from "../../assets/star.svg";
 
 // Assets (hero)
 import ceoImg from "../../assets/ceo.png";
@@ -19,70 +20,96 @@ import arrowIcon from "../../assets/rightarrow.svg";
 
 export default function AboutUs() {
   const heroRef = useScrollAnimation({ threshold: 0.2 });
+
+
   const section2Ref = useScrollAnimation({ threshold: 0.2 });
 
   return (
     <div className="au-page">
       <Header />
       {/* ===== TOP HERO BLOCK (unchanged) ===== */}
-      <section className="au-frame">
+      <section className="au-frame" ref={heroRef}>
+  {/* Hero */}
+  <div className="au-hero" id="about">
+    <div className="au-hero__inner">
+      {/* Left */}
+      <div className="au-left">
+        <div className="au-pill">Meet Our CEO</div>
 
-        {/* Hero */}
-        <div className="au-hero" id="about" ref={heroRef}>
-          <div className="au-hero__inner">
-            {/* Left */}
-            <div className="au-left">
-              <div className="au-pill">Meet Our CEO</div>
+        <h1 className="au-title">
+          MEET OUR FOUNDER &amp; CEO <br />
+          MR. JAFFAR ALI CHAUDHARY
+        </h1>
 
-              <h1 className="au-title">
-                MEET OUR FOUNDER &amp; CEO <br />
-                MR. JAFFAR ALI CHAUDHARY
-              </h1>
+        <div className="au-paragraph">
+          <p className="au-p1">
+            Mr. Jaffar Ali founded Databiqs with a clear vision: to help founders and startups
+            transform their ideas into revenue-ready AI and SaaS products without the typical
+            delays, uncertainty, and technical complexity that slow down innovation.
+          </p>
 
-              <div className="au-paragraph">
-                <p className="au-p1">
-                  Mr. Jaffar Ali founded Databiqs with a clear vision: to help founders and startups
-                  transform their ideas into revenue-ready AI and SaaS products without the typical
-                  delays, uncertainty, and technical complexity that slow down innovation.
-                </p>
-
-                <p className="au-p2">
-                  With deep expertise across AI development, full-stack engineering, and enterprise
-                  architecture, Jaffar has spent his career solving one of the hardest challenges in
-                  tech: how to go from concept to scalable product quickly, without compromising on
-                  quality or future growth potential.
-                </p>
-              </div>
-
-              <div className="au-actions">
-                <button className="au-btnSchedule" type="button">
-                  <span className="au-btnSchedule__text">Schedule An Appointment</span>
-                  <span className="au-btnSchedule__icon">
-                    <img src={arrowIcon} alt="Arrow" />
-                  </span>
-                </button>
-              </div>
-            </div>
-
-            {/* Right */}
-            <div className="au-right">
-              <div className="au-ceoBox">
-                <img className="au-ceoImg" src={ceoImg} alt="Founder & CEO" />
-              </div>
-            </div>
-          </div>
+          <p className="au-p2">
+            With deep expertise across AI development, full-stack engineering, and enterprise
+            architecture, Jaffar has spent his career solving one of the hardest challenges in
+            tech: how to go from concept to scalable product quickly, without compromising on
+            quality or future growth potential.
+          </p>
         </div>
 
-        {/* Stats */}
-        <div className="au-stats">
-          <div className="au-stats__inner">
-            <span className="au-star">✶</span> TRUSTED BY 1,500+ CLIENTS
-            <span className="au-star">✶</span> 98% CLIENT SATISFACTION
-            <span className="au-star">✶</span> 12 YEARS OF INDUSTRY EXCELLENCE
-            <span className="au-star">✶</span> 150+ SUCCESSFULLY DELIVERED PROJECTS
-          </div>
+        <div className="au-actions">
+          <button className="au-btnSchedule" type="button">
+            <span className="au-btnSchedule__text">Schedule An Appointment</span>
+            <span className="au-btnSchedule__icon">
+              <img src={arrowIcon} alt="Arrow" />
+            </span>
+          </button>
         </div>
-      </section>
+      </div>
+
+      {/* Right */}
+      <div className="au-right">
+        <div className="au-ceoBox">
+          <img className="au-ceoImg" src={ceoImg} alt="Founder & CEO" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div className="au-stats">
+  <div className="au-stats__track">
+    <div className="au-stats__inner">
+      <img src={starIcon} className="au-star" alt="" />
+      TRUSTED BY 1,500+ CLIENTS
+
+      <img src={starIcon} className="au-star" alt="" />
+      98% CLIENT SATISFACTION
+
+      <img src={starIcon} className="au-star" alt="" />
+      12 YEARS OF INDUSTRY EXCELLENCE
+
+      <img src={starIcon} className="au-star" alt="" />
+      150+ SUCCESSFULLY DELIVERED PROJECTS
+    </div>
+
+    <div className="au-stats__inner">
+      <img src={starIcon} className="au-star" alt="" />
+      TRUSTED BY 1,500+ CLIENTS
+
+      <img src={starIcon} className="au-star" alt="" />
+      98% CLIENT SATISFACTION
+
+      <img src={starIcon} className="au-star" alt="" />
+      12 YEARS OF INDUSTRY EXCELLENCE
+
+      <img src={starIcon} className="au-star" alt="" />
+      150+ SUCCESSFULLY DELIVERED PROJECTS
+    </div>
+  </div>
+</div>
+
+
+</section>
+
 
       {/* ===== SECTION 2 (Innovating...) ===== */}
       <section className="au2-section" ref={section2Ref}>
