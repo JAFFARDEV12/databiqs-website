@@ -173,6 +173,7 @@
 .hero-illustration::before {
   content: '';
   position: absolute;
+  border-radius: 30px;
   top: 0;
   left: 0;
   width: 100%;
