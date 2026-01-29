@@ -254,12 +254,10 @@ const AISolutionsSection = () => {
                 <span className="step-bracket">(via nlp)</span>
               </div>
               <div className="process-step">
-                <span>Intent-based routing </span>
-                <span className="step-bracket">to systems/agents</span>
+                <span>Intent-based routing to systems/agents</span>
               </div>
               <div className="process-step">
-                <span>Escalation to Human Agent </span>
-                <span className="step-bracket">or Specialist</span>
+                <span>Escalation to Human Agent or Specialist</span>
               </div>
               <div className="process-step">
                 <span>Resolution </span>
