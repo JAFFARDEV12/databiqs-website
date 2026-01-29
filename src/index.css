@@ -16,7 +16,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #1a1a1a;
-  background: #fafafa;
+  background: #ffffff;
   line-height: 1.6;
   position: relative;
   /* Ensure fixed positioning works for chatbot */
@@ -26,16 +26,22 @@ body {
 }
 
 #root {
-  background: #fafafa;
+  background: #ffffff;
   min-height: 100vh;
   transform: translateZ(0);
   will-change: transform;
 }
 
-/* Light background for all pages */
+/* Landing header/hero gradient – same grey top → white bottom for all pages */
+.contact-page,
+.insights-innovation-page,
+.bdp,
+.au-page {
+  background: linear-gradient(to bottom, #f8f8f8 0%, #f9f9f9 25%, #fafafa 50%, #fcfcfc 75%, #ffffff 100%);
+}
+
 .contact-page,
 .insights-innovation-page {
-  background: #fafafa;
   min-height: 100vh;
   width: 100%;
   transform: translateZ(0);

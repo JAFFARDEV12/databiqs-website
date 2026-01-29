@@ -41,7 +41,6 @@ const HeroBlog = () => {
               </Link>
             </div>
           </div>
-          {/* overlay end */}
         </div>
       </div>
     </section>

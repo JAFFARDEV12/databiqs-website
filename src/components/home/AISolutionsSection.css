@@ -1,6 +1,6 @@
 .ai-solutions-section {
   /* padding: 100px 40px 0 40px; */
-  background: #fafafa;
+  background: #ffffff;
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   transform: translateZ(0);
@@ -28,7 +28,6 @@
   font-weight: 400;
   width: fit-content;
   margin: 0px auto 24px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
   opacity: 1 !important;
   visibility: visible !important;
 }
@@ -1817,6 +1816,12 @@
     grid-template-columns: 1fr;
     gap: 40px;
     overflow: visible;
+  }
+  
+  /* Hide diagram on mobile – show text/capabilities only */
+  .card-left,
+  .ai-powered-diagram {
+    display: none !important;
   }
   
   .card-right {

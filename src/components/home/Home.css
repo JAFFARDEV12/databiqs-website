@@ -1,7 +1,7 @@
 .home {
   width: 100%;
   overflow-x: hidden;
-  background: #fafafa;
+  background: #ffffff;
   transform: translateZ(0);
   will-change: transform;
   position: relative;

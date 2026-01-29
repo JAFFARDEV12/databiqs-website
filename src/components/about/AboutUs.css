@@ -1,24 +1,17 @@
-/* ===== Page ===== */
+/* ===== Page (gradient from index.css – same as landing header/hero) ===== */
 .au-page {
   min-height: 100vh;
-  background: #fafafa;
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
   font-family: Questrial, system-ui, Arial, sans-serif;
   transform: translateZ(0);
   will-change: transform;
 }
 
-/* ===== Frame ===== */
+/* ===== Frame (transparent so page gradient shows like hero) ===== */
 .au-frame {
   width: 1440px;
   margin: 0 auto;
   position: relative;
-
-  background: #fafafa;
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-
+  background: transparent;
   transform: translateZ(0);
   will-change: transform;
 }
@@ -44,7 +37,7 @@
   align-items: center;
   gap: 28px;
 
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #E0E0E0;
 }
 
 .au-header__logo {
@@ -124,7 +117,20 @@
   width: 100%;
   margin-top: 50px;
   padding-bottom: 40px;
+
+  /* ✅ Same subtle hero background as Home */
+  background: linear-gradient(
+    180deg,
+    #eeeeee 0%,
+    #f5f5f5 35%,
+    #ffffff 100%
+  );
+
+  position: relative;
+  transform: translateZ(0);
+  will-change: transform;
 }
+
 
 .au-hero__inner {
   width: 1200px;
@@ -155,7 +161,6 @@
   font-weight: 400;
   color: #000000;
 
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
 
   margin-bottom: 20px;
   opacity: 0;
@@ -245,7 +250,6 @@
   padding-right: 14px;
 
   background: linear-gradient(119.69deg, #ae0dff 12.36%, #401371 85.46%);
-  box-shadow: 0 10px 22px rgba(174, 13, 255, 0.25);
 }
 
 .au-btnSchedule__text {
@@ -357,7 +361,7 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  background: #fafafa;
+  background: #ffffff;
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   transform: translateZ(0);
@@ -365,11 +369,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  
 
   /* ✅ Figma: stats → pill = 100px
      ✅ Figma: cards → next section (Testimonials pill) gap = 100px */
   padding: 100px 20px;
   box-sizing: border-box;
+  margin-top: -60px;
 }
 
 .au2-inner {
@@ -405,7 +411,6 @@
   font-size: 14px;
   font-weight: 400;
   color: #000000;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
   opacity: 0;
 }
 
@@ -468,7 +473,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #E0E0E0;
   opacity: 0;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 300px !important;
@@ -483,7 +488,6 @@
 
 .au2-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
 .au2-section.animate .au2-card:nth-child(1),
@@ -511,7 +515,6 @@
   height: 50px;
   display: block;
   margin-bottom: 16px;
-  box-shadow: 0 4px 15px rgba(123, 44, 191, 0.3);
   background: transparent;
   border-radius: 50%;
   overflow: hidden;
@@ -632,7 +635,7 @@
 .au4-section {
   width: 1440px;
   margin: 0 auto;
-  background: #fafafa;
+  background: #ffffff;
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   transform: translateZ(0);
@@ -695,6 +698,10 @@
   line-height: 24px;
   color: rgba(32, 32, 32, 0.75);
   opacity: 0;
+}
+/* Make Contact Us section white on About page */
+.au-page .contact-section {
+  background: #ffffff;
 }
 
 .au4-section.animate .au4-subtitle {
@@ -802,7 +809,7 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    background: #fafafa;
+    background: #ffffff;
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
     flex-direction: column;
@@ -980,4 +987,24 @@
     width: 100%;
     max-width: 280px;
   }
+}
+.au-page {
+  min-height: 100vh;
+  font-family: Questrial, system-ui, Arial, sans-serif;
+
+  /* ✅ SINGLE SOURCE OF TRUTH */
+  background: linear-gradient(
+    180deg,
+    #eeeeee 0%,
+    #f5f5f5 35%,
+    #ffffff 100%
+  );
+
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.header,
+.site-header {
+  background: #eeeeee !important;
 }

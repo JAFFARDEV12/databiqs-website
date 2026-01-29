@@ -24,7 +24,6 @@
   font-size: 14px;
   font-weight: 400;
   color: #000000;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
   margin-bottom: 10px; /* you showed 10px between pill and heading */
   opacity: 0;
 }

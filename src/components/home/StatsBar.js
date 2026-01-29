@@ -4,6 +4,7 @@ import trustedIcon from '../../assets/trusted by 1500+ clients.png';
 import satisfactionIcon from '../../assets/client satisfaction icon.png';
 import experienceIcon from '../../assets/12 years of industry experience icon.png';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
+import starIcon from '../../assets/star.svg';
 
 const StatsBar = () => {
   const stats = [
@@ -28,8 +29,10 @@ const StatsBar = () => {
                 <span className="stat-text">{stat.text}</span>
               </div>
               {index < duplicatedStats.length - 1 && (
-                <span className="stat-divider">★</span>
-              )}
+                <span className="stat-divider">
+  <img src={starIcon} alt="divider star" className="star-icon" />
+</span>
+)}
             </React.Fragment>
           ))}
         </div>

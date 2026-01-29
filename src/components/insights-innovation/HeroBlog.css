@@ -1,8 +1,6 @@
+/* Transparent so page gradient shows (same as landing header/hero) */
 .heroBlog {
-  background: #fafafa;
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  /* FIX: reduce top gap (header already has big spacing) */
+  background: transparent;
   padding: 40px 40px 0;
   transform: translateZ(0);
   will-change: transform;
@@ -244,4 +242,24 @@
   .heroBlog__title {
     font-size: 32px;
   }
+}
+
+/* PAGE GRADIENT (same logic as About hero) */
+.heroBlog {
+  background: linear-gradient(
+    180deg,
+    #eeeeee 0%,
+    #f5f5f5 35%,
+    #ffffff 100%
+  );
+
+  padding: 40px 40px 0;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+
+.header,
+.site-header {
+  background: #eeeeee;
 }

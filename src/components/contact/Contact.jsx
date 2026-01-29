@@ -8,8 +8,17 @@ const Contact = () => {
   return (
     <div className="contact-page">
       <Header />
-      <ContactSection />
-      <MapSection />
+
+      {/* Gradient wrapper for Contact + Map */}
+      <div
+        style={{
+          background: 'linear-gradient(180deg, #eeeeee 0%, #f5f5f5 35%, #ffffff 100%)'
+        }}
+      >
+        <ContactSection />
+        <MapSection />
+      </div>
+
       <Footer />
     </div>
   );

@@ -1,15 +1,25 @@
-/* PAGE WRAPPER – FULL SCREEN WHITE */
+/* PAGE WRAPPER – gradient from index.css (same as landing header/hero) */
 .bdp {
   width: 100%;
-  background: #fafafa;
-  backdrop-filter: blur(534px);
   min-height: 100vh;
+  background: linear-gradient(
+    180deg,
+    #eeeeee 0%,
+    #f5f5f5 35%,
+    #ffffff 100%
+  );
 }
 
 /* MAIN FRAME – 1280 EXACT */
 .bdp__container {
   width: 1280px;
   margin: 0 auto;
+  background: linear-gradient(
+    180deg,
+    #eeeeee 0%,
+    #f5f5f5 35%,
+    #ffffff 100%
+  );
 }
 
 /* META ROW – 1280 x 70, 100px from top */

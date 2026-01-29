@@ -1,6 +1,6 @@
 .insGrid {
   padding: 84px 40px 100px; /* figma shows ~84 spacing before this heading */
-  background: #fafafa;
+  background: #ffffff;
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   transform: translateZ(0);
@@ -23,7 +23,6 @@
   color: #000000;
   font-size: 14px;
   font-weight: 400;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
 
   opacity: 0;
   transform: translateY(14px);
@@ -67,9 +66,8 @@
   width: 576px;
   height: 220px !important;
   border-radius: 26px;
-  border: 1px solid #eaeaea;
+  border: 1px solid #E0E0E0;
   background: #ffffff;
-  box-shadow: 0 4px 28px rgba(0, 0, 0, 0.06);
   padding: 18px;
   display: grid;
   grid-template-columns: 260px 1fr;
@@ -225,6 +223,7 @@
 
   .insCard {
     grid-template-columns: 1fr;
+    height: 430px !important;
   }
 
   .insCard__imgWrap {

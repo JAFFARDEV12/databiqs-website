@@ -166,12 +166,11 @@
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .newsletter-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(174, 13, 255, 0.4);
 }
 
 .newsletter-text {

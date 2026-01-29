@@ -1,7 +1,5 @@
 .map-section {
-  background: #fafafa;
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: transparent;
   padding: 0 40px 100px; /* keep only bottom spacing */
   transform: translateZ(0);
   will-change: transform;
