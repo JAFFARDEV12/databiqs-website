@@ -1,8 +1,8 @@
 import React from 'react';
 import './StatsBar.css';
-import trustedIcon from '../../assets/trusted by 1500+ clients.png';
-import satisfactionIcon from '../../assets/client satisfaction icon.png';
-import experienceIcon from '../../assets/12 years of industry experience icon.png';
+import trustedIcon from '../../assets/trust.svg';
+import satisfactionIcon from '../../assets/satisfaction.svg';
+import experienceIcon from '../../assets/excellence.svg';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import starIcon from '../../assets/star.svg';
 
