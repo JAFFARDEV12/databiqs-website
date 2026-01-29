@@ -889,6 +889,7 @@
   .au2-section {
     width: 100%;
     padding: 60px 20px;
+    margin-top: -130px;
   }
   
   .au2-inner {

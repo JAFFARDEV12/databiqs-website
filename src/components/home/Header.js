@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
-import logo from '../../assets/chatbotlogo.svg';
+import logo from '../../assets/header-logo.svg';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
