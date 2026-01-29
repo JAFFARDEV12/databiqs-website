@@ -43,8 +43,8 @@ const AIAutomationSection = () => {
                 <div className="center-box-label">AI Automation</div>
                 <div className="ai-box-wrapper">
                   <div className="ai-box">AI</div>
-                  <div className="ai-white-box ai-white-box-1"></div>
-                  <div className="ai-white-box ai-white-box-2"></div>
+                  {/* <div className="ai-white-box ai-white-box-1"></div> */}
+                  {/* <div className="ai-white-box ai-white-box-2"></div> */}
                   <div className="ai-white-box ai-white-box-3"></div>
                   {/* Arrow below AI box */}
                   <img 
