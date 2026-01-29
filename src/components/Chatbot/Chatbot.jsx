@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import './Chatbot.css';
-import chatbotIcon from '../../assets/Chatbot-Icon.png';
+import chatbotIcon from '../../assets/chatbotlogo.svg';
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);

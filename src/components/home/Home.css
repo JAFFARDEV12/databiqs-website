@@ -1,9 +1,7 @@
 .home {
   width: 100%;
   overflow-x: hidden;
-  background: rgba(240, 240, 240, 0.95);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: #fafafa;
   transform: translateZ(0);
   will-change: transform;
   position: relative;

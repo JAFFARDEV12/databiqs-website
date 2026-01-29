@@ -82,9 +82,11 @@
   transform: translateY(-2px);
 }
 
-.social-icon svg {
+.social-icon svg,
+.social-icon img {
   width: 18px;
   height: 18px;
+  object-fit: contain;
 }
 
 .footer-middle {
@@ -159,7 +161,7 @@
   color: white;
   border: none;
   padding: 12px 24px;
-  border-radius: 8px;
+  border-radius: 24px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;

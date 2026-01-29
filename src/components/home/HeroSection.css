@@ -1,6 +1,6 @@
 .hero-section {
   padding: 40px 40px 40px;
-  background: rgba(240, 240, 240, 0.95);
+  background: #fafafa;
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   position: relative;
@@ -166,7 +166,7 @@
   border-radius: 30px;
   overflow: visible;
   padding: 25px 25px;
-  transform: translateX(-50px);
+  transform: translateX(-120px);
 }
 
 .hero-illustration::before {

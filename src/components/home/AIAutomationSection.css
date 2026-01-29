@@ -133,7 +133,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  background: linear-gradient(to right, rgba(240, 238, 240, 0.75) 0%, rgba(222, 215, 224, 0.9) 100%);
+  background: linear-gradient(to right, rgba(250, 248, 250, 0.85) 0%, rgba(240, 235, 242, 0.95) 100%);
   border-radius: 16px;
   margin: -50px -50px 0 0;
   padding: 50px;
@@ -158,7 +158,7 @@
   border-radius: 16px;
   padding: 16px 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  z-index: 20;
+  z-index: 40;
   margin: 110px auto 40px;
   min-width: 160px;
   width: fit-content;
@@ -188,7 +188,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 22;
+  z-index: 50;
   opacity: 1;
   visibility: visible;
 }
@@ -275,9 +275,9 @@
   position: absolute;
   bottom: -55px;
   right: 40px;
-  z-index: 25;
+  z-index: 45;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  box-shadow: 0 0 10px rgba(122, 90, 248, 0.5);
+  box-shadow: 0 0 4px rgba(122, 90, 248, 0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -287,7 +287,7 @@
 
 .ai-box:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(122, 90, 248, 0.8);
+  box-shadow: 0 0 8px rgba(122, 90, 248, 0.8);
 }
 
 .arrow-ai-to-text {
@@ -364,7 +364,7 @@
   min-width: 50px;
   min-height: 45px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  z-index: 18;
+  z-index: 35;
 }
 
 .ai-automation-section.animate .ai-white-box {
@@ -729,10 +729,10 @@
 /* AI Box Animations */
 @keyframes aiBoxGlow {
   0%, 100% {
-    box-shadow: 0 0 10px rgba(122, 90, 248, 0.5), 0 0 20px rgba(122, 90, 248, 0.3);
+    box-shadow: 0 0 4px rgba(122, 90, 248, 0.5), 0 0 8px rgba(122, 90, 248, 0.3);
   }
   50% {
-    box-shadow: 0 0 20px rgba(122, 90, 248, 0.8), 0 0 30px rgba(122, 90, 248, 0.5);
+    box-shadow: 0 0 8px rgba(122, 90, 248, 0.8), 0 0 12px rgba(122, 90, 248, 0.5);
   }
 }
 

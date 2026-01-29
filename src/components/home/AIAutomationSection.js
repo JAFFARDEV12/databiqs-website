@@ -1,12 +1,12 @@
 import React from 'react';
 import './AIAutomationSection.css';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-import crmIcon from '../../assets/crm.png';
-import emailIcon from '../../assets/email.png';
-import databaseIcon from '../../assets/database.png';
-import llmIcon from '../../assets/llm.png';
-import userIcon from '../../assets/user.png';
-import erpIcon from '../../assets/erp.png';
+import crmIcon from '../../assets/crm.svg';
+import emailIcon from '../../assets/email.svg';
+import databaseIcon from '../../assets/databse.svg';
+import llmIcon from '../../assets/llm.svg';
+import userIcon from '../../assets/user.svg';
+import erpIcon from '../../assets/erp.svg';
 import arrowToDatabase from '../../assets/ai automation box middle to databse box.png';
 import arrowToLLM from '../../assets/ai automation box to llm box.png';
 import arrowToUser from '../../assets/ai automation box to user box.png';

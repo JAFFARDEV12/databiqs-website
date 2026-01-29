@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './CaseStudiesSection.css';
 import arrowIcon from '../../assets/rightarrow.svg';
-import caseStudyImage from '../../assets/Whisk_12cf9afa8f18cab97e74ea097a47f83edr 1 (2).png';
+import caseStudyImage from '../../assets/case studies.svg';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 const CaseStudiesSection = () => {
