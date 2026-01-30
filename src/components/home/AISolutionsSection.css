@@ -39,7 +39,6 @@
   font-size: 50px;
   line-height: 91px;
   letter-spacing: 0%;
-  vertical-align: middle;
   color: #1a1a1a !important;
   margin: 0 0 20px 0;
   text-align: center;
@@ -110,7 +109,7 @@
     rgba(233, 223, 236, 0.95) 100%
   );
 
-  border-radius: 16px;
+  border-radius: 16px 0 0 16px;
   z-index: 0;
 }
 
@@ -128,7 +127,7 @@
     linear-gradient(90deg, rgba(255, 255, 255, 0.6) 1px, transparent 1px);
   background-size: 50px 50px;
 
-  border-radius: 16px;
+  border-radius: 16px 0 0 16px;
   pointer-events: none;
   opacity: 0.3 !important;
   z-index: 1;
