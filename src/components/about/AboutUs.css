@@ -9,13 +9,14 @@
 
 /* ===== Frame (transparent so page gradient shows like hero) ===== */
 .au-frame {
-  width: 1440px;
+  width: 100%;
+  max-width: 1440px;
   margin: 0 auto;
   position: relative;
   background: transparent;
   transform: translateZ(0);
   will-change: transform;
-  
+
 }
 
 /* ===== Header ===== */
@@ -28,7 +29,8 @@
 }
 
 .au-header__bar {
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
 
   background: #ffffff;
@@ -117,11 +119,13 @@
 
 /* ===== Hero ===== */
 .au-hero {
-  width: 100%;
+  width: 100vw;
   margin-top: 50px;
   padding-bottom: 100px;
+  margin-left: calc(-50vw + 50%);
+  position: relative;
 
-  /* ✅ Same subtle hero background as Home */
+  /* ✅ Full viewport width background */
   background: linear-gradient(
     180deg,
     #eeeeee 0%,
@@ -129,7 +133,6 @@
     #ffffff 100%
   );
 
-  position: relative;
   transform: translateZ(0);
   will-change: transform;
 }
@@ -137,19 +140,24 @@
 
 
 .au-hero__inner {
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   min-height: 529px;
   margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
 
   display: grid;
-  grid-template-columns: 537px 532px;
+  grid-template-columns: 1fr 1fr;
   column-gap: 60px;
   align-items: center;
 }
 
 /* Left */
 .au-left {
-  width: 537px;
+  width: 100%;
 }
 
 /* Pill */
@@ -176,7 +184,7 @@
 
 /* Heading */
 .au-title {
-  width: 537px;
+  width: 100%;
 
   font-family: "Bebas Neue";
   font-weight: 400;
@@ -196,7 +204,7 @@
 
 /* Paragraph */
 .au-paragraph {
-  width: 537px;
+  width: 100%;
   min-height: 218px;
 
   font-family: Questrial;
@@ -239,7 +247,8 @@
 
 /* Schedule button */
 .au-btnSchedule {
-  width: 270px;
+  width: 100%;
+  max-width: 270px;
   height: 50px;
 
   border: none;
@@ -298,8 +307,10 @@
 }
 
 .au-ceoBox {
-  width: 532px;
-  height: 529px;
+  width: 100%;
+  max-width: 532px;
+  aspect-ratio: 1;
+  min-height: 529px;
 
   background: #ffffff;
   border: 1px solid #eae3f4;
@@ -321,9 +332,13 @@
 
 /* Stats */
 .au-stats {
-  width: 100%;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
   margin-bottom: 32px;
   opacity: 0;
+
+  /* ✅ Full viewport width white background */
+  background: #ffffff;
 }
 
 .au-frame.animate .au-stats {
@@ -332,8 +347,11 @@
 
 
 .au-stats__inner {
-  width: 1440px;
+  width: 100%;
+  max-width: 1440px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 
   display: flex;
   justify-content: center;
@@ -364,7 +382,6 @@
 
 .au2-section {
   width: 100%;
-  max-width: 1440px;
   margin: 0 auto;
   background: #ffffff;
   backdrop-filter: blur(20px) saturate(180%);
@@ -386,7 +403,6 @@
 
 .au2-inner {
   width: 100%;
-  max-width: 1200px;
   margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
@@ -1102,7 +1118,8 @@
   );
 } */
 
-.au-stats{
+/* Stats section now has full viewport gradient background */
+/* .au-stats{
   background-color: white !important;
-  /* margin-top: 50px; */
-}
+  margin-top: 50px;
+} */
