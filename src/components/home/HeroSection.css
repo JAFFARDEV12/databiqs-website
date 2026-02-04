@@ -71,9 +71,15 @@
 }
 
 .hero-subheadline {
+  font-family: 'Questrial', sans-serif;
+  font-weight: 400;
+  font-style: normal;
   font-size: 18px;
-  font-weight: 500;
-  color: #4a4a4a;
+  line-height: 100%;
+  letter-spacing: 0;
+  vertical-align: middle;
+  text-transform: capitalize;
+  color: #000000;
   margin: 0;
   opacity: 0;
 }
@@ -99,14 +105,14 @@
 .hero-section.animate .hero-cta {
   animation: fadeInUp 0.4s ease-out 0.1s forwards;
   border: 1px solid transparent;
-  padding: 12px 20px;
+  padding: 6px 12px;
   border-radius: 50px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 400;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
   width: fit-content;
   transition: transform 0.3s ease;
   isolation: isolate;
@@ -135,16 +141,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  height: 22px;
+  width: 30px;
+  height: 30px;
   background: white;
   border-radius: 50%;
   flex-shrink: 0;
+  margin-left: 8px;
 }
 
 .hero-cta .cta-icon img {
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
   object-fit: contain;
 }
 

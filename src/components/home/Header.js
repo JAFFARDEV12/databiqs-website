@@ -27,6 +27,15 @@ const Header = () => {
 
   // Check if we're on the home page for anchor links
   const isHomePage = location.pathname === '/';
+  const hash = location.hash || '';
+
+  const isAboutActive = location.pathname === '/about';
+  const isServicesActive = isHomePage && hash === '#services';
+  const isCaseStudiesActive = isHomePage && hash === '#case-studies';
+  const isInsightsActive = location.pathname === '/insights-and-innovation';
+  const isContactActive = location.pathname === '/contact';
+
+  const activeClass = (active) => (active ? ' nav-link-active' : '');
 
   return (
     <header className="header">
@@ -37,15 +46,15 @@ const Header = () => {
         <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
           {isHomePage ? (
             <>
-              <a href="/about" onClick={closeMenu}>About</a>
-              <a href="#services" onClick={(e) => handleAnchorClick(e, '#services')}>Services</a>
-              <a href="#case-studies" onClick={(e) => handleAnchorClick(e, '#case-studies')}>Case Studies</a>
-              <Link to="/insights-and-innovation" onClick={closeMenu}>Insights</Link>
-              <Link to="/contact" onClick={closeMenu}>Contact Us</Link>
+              <a href="/about" onClick={closeMenu} className={activeClass(isAboutActive)}>About</a>
+              <a href="#services" onClick={(e) => handleAnchorClick(e, '#services')} className={activeClass(isServicesActive)}>Services</a>
+              <a href="#case-studies" onClick={(e) => handleAnchorClick(e, '#case-studies')} className={activeClass(isCaseStudiesActive)}>Case Studies</a>
+              <Link to="/insights-and-innovation" onClick={closeMenu} className={activeClass(isInsightsActive)}>Insights</Link>
+              <Link to="/contact" onClick={closeMenu} className={activeClass(isContactActive)}>Contact Us</Link>
             </>
           ) : (
             <>
-              <Link to="/about" onClick={closeMenu}>About</Link>
+              <Link to="/about" onClick={closeMenu} className={activeClass(isAboutActive)}>About</Link>
               <Link to="/#services" onClick={(e) => {
                 e.preventDefault();
                 closeMenu();
@@ -56,7 +65,7 @@ const Header = () => {
                     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                   }
                 }, 100);
-              }}>Services</Link>
+              }} className={activeClass(isServicesActive)}>Services</Link>
               <Link to="/#case-studies" onClick={(e) => {
                 e.preventDefault();
                 closeMenu();
@@ -67,9 +76,9 @@ const Header = () => {
                     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                   }
                 }, 100);
-              }}>Case Studies</Link>
-              <Link to="/insights-and-innovation" onClick={closeMenu}>Insights</Link>
-              <Link to="/contact" onClick={closeMenu}>Contact Us</Link>
+              }} className={activeClass(isCaseStudiesActive)}>Case Studies</Link>
+              <Link to="/insights-and-innovation" onClick={closeMenu} className={activeClass(isInsightsActive)}>Insights</Link>
+              <Link to="/contact" onClick={closeMenu} className={activeClass(isContactActive)}>Contact Us</Link>
             </>
           )}
         </nav>

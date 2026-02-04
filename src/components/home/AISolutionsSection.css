@@ -75,7 +75,7 @@
   grid-template-columns: 60% 40%;
   gap: 60px;
   align-items: start;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #E0E0E0;
 }
 .card-left {
   position: relative;
@@ -1785,8 +1785,8 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #CCCCCC;
-  color: #CCCCCC;
+  background: #999999;
+  color: #999999;
   display: block !important;
   flex-shrink: 0;
 }

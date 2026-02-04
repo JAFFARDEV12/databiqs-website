@@ -58,7 +58,7 @@
 .capabilities-heading {
   font-family: 'Questrial', sans-serif;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 400;
   color: #1a1a1a;
   margin-top: 8px;
   text-transform: capitalize;
@@ -122,8 +122,8 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #CCCCCC;
-  color: #CCCCCC;
+  background: #999999;
+  color: #999999;
   display: block !important;
   flex-shrink: 0;
 }
