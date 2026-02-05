@@ -11,6 +11,7 @@ import ContactSection from './ContactSection';
 import Footer from './Footer';
 import './Home.css';
 
+
 const Home = () => {
   return (
     <div className="home">
@@ -19,6 +20,7 @@ const Home = () => {
       
       <div className="home-content">
         <Header />
+      
         <HeroSection />
         <AISolutionsSection />
         <AIAutomationSection />

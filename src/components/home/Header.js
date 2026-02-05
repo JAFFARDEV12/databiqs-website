@@ -38,7 +38,8 @@ const Header = () => {
   const activeClass = (active) => (active ? ' nav-link-active' : '');
 
   return (
-    <header className="header">
+
+    <header className="header" >
       <div className="header-container">
         <Link to="/" className="logo">
           <img src={logo} alt="Databiqs" />

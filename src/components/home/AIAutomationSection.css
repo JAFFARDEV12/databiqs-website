@@ -10,9 +10,9 @@
 
 .automation-card {
   background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(250, 245, 255, 0.6) 100%);
-  border-radius: 24px;
-  border-bottom-left-radius: 24px;
-  border-bottom-right-radius: 24px;
+  border-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
   padding: 50px;
   display: grid;
   grid-template-columns: 1fr 1.5fr;
@@ -73,6 +73,7 @@
   margin-left: 0 !important;
   display: flex;
   flex-direction: column;
+  
   gap: 12px;
   text-align: left;
   align-items: flex-start;
@@ -88,7 +89,7 @@
 .ai-automation-section .capabilities-list li {
   font-family: 'Questrial', sans-serif;
   font-size: 14px;
-  color: #1a1a1a;
+ color: #7F768D;
   padding-left: 20px;
   margin-left: 0 !important;
   padding-top: 0;
@@ -105,6 +106,7 @@
 .ai-automation-section .capabilities-list li::marker {
   display: none !important;
   content: "" !important;
+  color: #414141;
 }
 
 .automation-left .capabilities-list li::after,

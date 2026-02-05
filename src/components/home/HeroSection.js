@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './HeroSection.css';
 import triangleImage from '../../assets/Triangle-herosection-revoleaboverectangle.png';
 import rectangleImage from '../../assets/herosection-rectangle-rightside.png';
 import scrollIcon from '../../assets/scroll.svg';
 import arrowIcon from '../../assets/rightarrow.svg';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-
 const HeroSection = () => {
   const sectionRef = useScrollAnimation({ threshold: 0.2 });
 
+ 
+ 
   return (
     <section className="hero-section" ref={sectionRef}>
+
+      
+      
       <div className="hero-container">
         <div className="hero-content">
           <div className="hero-tag">AI-Powered Innovation</div>
@@ -33,7 +37,7 @@ const HeroSection = () => {
             </span>
           </button>
         </div>
-        <div className="hero-illustration">
+      <div className="hero-illustration">
           <img src={triangleImage} alt="Triangle" className="triangle-bg" />
           <div className="hero-cards">
             <div className="hero-card top-card">
@@ -46,11 +50,14 @@ const HeroSection = () => {
             </div>
           </div>
           <img src={rectangleImage} alt="Rectangle" className="rectangle-bg" />
-        </div>
+        </div> 
+        
       </div>
       <div className="scroll-indicator">
         <img src={scrollIcon} alt="Scroll" />
       </div>
+    
+
     </section>
   );
 };
