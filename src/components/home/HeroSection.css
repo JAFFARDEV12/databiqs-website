@@ -3,14 +3,26 @@
   overflow: hidden;
   padding: 40px 40px 40px;
   /* Same barely grey as header at top → slowly to white at bottom */
-background: linear-gradient(
+/* background: linear-gradient(
   180deg,
   rgba(178, 131, 255, 0.2) 0%, 
   #ffffff 100%
-);
+); */
   margin-top: 0;
   transform: translateZ(0);
   will-change: transform;
+}
+.animatecostume {
+  position: absolute;
+  left: 450px;
+  top: -50px;
+
+  width: 720px;
+  height: 720px;
+
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
 }
 
 /*  */
@@ -167,6 +179,8 @@ background: linear-gradient(
 .hero-illustration {
  
   position: relative !important;
+   
+  z-index: 2;
   height: 420px;
   width: 100%;
   max-width: 360px;
@@ -474,5 +488,63 @@ background: linear-gradient(
 }
 
 
+@media (max-width: 1400px) {
+  .animatecostume {
+    left: 360px;
+    top: -40px;
+
+    width: 620px;
+    height: 620px;
+
+    opacity: 0.45;
+  }
+}
+
+@media (max-width: 1200px) {
+  .animatecostume {
+    left: 280px;
+    top: -30px;
+
+    width: 520px;
+    height: 520px;
+
+    opacity: 0.4;
+  }
+}
+@media (max-width: 992px) {
+  .animatecostume {
+    left: 160px;
+    top: 0;
+
+    width: 420px;
+    height: 420px;
+
+    opacity: 0.35;
+  }
+}
+@media (max-width: 768px) {
+  .animatecostume {
+    left: 50%;
+    top: 80px;
+    transform: translateX(-50%);
+
+    width: 320px;
+    height: 320px;
+
+    opacity: 0.25;
+  }
+}
+@media (max-width: 480px) {
+  .animatecostume {
+    left: 50%;
+    top: 120px;
+    transform: translateX(-50%);
+
+    width: 240px;
+    height: 240px;
+
+    opacity: 0.18;
+  }
+}
 
 

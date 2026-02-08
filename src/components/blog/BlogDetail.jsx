@@ -98,29 +98,36 @@ const BlogDetail = () => {
 
   return (
     <>
-      <Header />
+   <div className="decorative-ellipse-1"></div>
+    <div className="top-gradient-wrapper">
+  <Header />
 
-      <main className="bdp">
+  <main className="bdp">
+    <div className="bdp__container">
+
+      <div className="bdp__metaWrap">
+        <div className="bdp__meta">
+          <span>{blog.date}</span>
+          <span className="bdp__dot">•</span>
+          <span>{blog.readTime}</span>
+        </div>
+      </div>
+
+      <h1 className="bdp__title">{blog.title}</h1>
+
+      {/* ✅ HERO IMAGE IS STILL INSIDE GRADIENT */}
+      <div className="bdp__hero">
+        <img className="bdp__heroImg" src={blog.image} alt="Blog main" />
+      </div>
+
+    </div>
+  </main>
+</div>
+
+      <main className="bdp bdp--contents">
         <div className="bdp__container">
-          {/* Meta row (1280 x 70, top spacing 100) */}
-          <div className="bdp__metaWrap">
-            <div className="bdp__meta">
-              <span>{blog.date}</span>
-              <span className="bdp__dot">•</span>
-              <span>{blog.readTime}</span>
-            </div>
-          </div>
-
-          {/* Title (30px below meta row) */}
-          <h1 className="bdp__title">
-            {blog.title}
-          </h1>
-
-          {/* Main Image (1200 x 320) */}
-          <div className="bdp__hero">
-            <img className="bdp__heroImg" src={blog.image} alt="Blog main" />
-          </div>
-
+         
+    
           {/* Content */}
           <article className="bdp__content">
             <p>
@@ -287,6 +294,9 @@ const BlogDetail = () => {
           {/* ========================================================== */}
         </div>
       </main>
+     
+
+     
 
       <Footer />
     </>

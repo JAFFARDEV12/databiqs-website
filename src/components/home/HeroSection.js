@@ -5,16 +5,26 @@ import rectangleImage from '../../assets/herosection-rectangle-rightside.png';
 import scrollIcon from '../../assets/scroll.svg';
 import arrowIcon from '../../assets/rightarrow.svg';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
+
+import costumeanimation from '../../assets/developer skills.json';
+import Lottie from 'lottie-react';
+
 const HeroSection = () => {
   const sectionRef = useScrollAnimation({ threshold: 0.2 });
+  
 
- 
  
   return (
     <section className="hero-section" ref={sectionRef}>
 
-      
-      
+      <div className="animatecostume">
+    <Lottie
+      animationData={costumeanimation}
+      loop
+      style={{ width: '100%', height: '100%' }}
+    />
+  </div>
+       
       <div className="hero-container">
         <div className="hero-content">
           <div className="hero-tag">AI-Powered Innovation</div>

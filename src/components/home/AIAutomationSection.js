@@ -15,6 +15,10 @@ import aiToTextArrow from '../../assets/ai to text.png';
 import aiToErpArrow from '../../assets/ai to erp.png';
 import aiToEmailArrow from '../../assets/ai to email.png';
 import aiToCrmArrow from '../../assets/ai to crm.png';
+import aiAutomationAnimation from '../../assets/Robot-Futuristic-Ai-animated.json';
+
+
+import Lottie from 'lottie-react';
 
 const AIAutomationSection = () => {
   const sectionRef = useScrollAnimation({ threshold: 0.1 });
@@ -24,7 +28,18 @@ const AIAutomationSection = () => {
       <div className="section-container">
         <div className="automation-card">
           <div className="automation-left">
-            <h3 className="automation-title">AI Automation</h3>
+           <div className="automation-title-row">
+  <div className="automation-title-lottie">
+    <Lottie
+      animationData={aiAutomationAnimation}
+      loop
+      autoplay
+    />
+  </div>
+
+  <h3 className="automation-title">AI Automation</h3>
+</div>
+
             <p className="automation-description">
               Automate Workflows Using N8n To Connect Systems, Eliminate Manual Tasks, And Optimize Business Operations.
             </p>

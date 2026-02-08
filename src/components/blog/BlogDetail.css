@@ -2,24 +2,36 @@
 .bdp {
   width: 100%;
   min-height: 100vh;
+ 
+}
+
+.top-gradient-wrapper {
+  width: 100%;
   background: linear-gradient(
     180deg,
-    #eeeeee 0%,
-    #f5f5f5 35%,
-    #ffffff 100%
+    rgba(178, 131, 255, 0.22) 0%,
+    #ffffff 85%
   );
+}
+.bdp--contents{
+  background-color:white !important;
+}
+.bdp,
+.bdp__container,
+.bdp__hero {
+  background: transparent;
 }
 
 /* MAIN FRAME – 1280 EXACT */
 .bdp__container {
   width: 1280px;
   margin: 0 auto;
-  background: linear-gradient(
+ /*  background: linear-gradient(
     180deg,
-    #eeeeee 0%,
-    #f5f5f5 35%,
+    #ffffff 0%,
+    #ffffff 35%,
     #ffffff 100%
-  );
+  ); */
 }
 
 /* META ROW – 1280 x 70, 100px from top */
@@ -61,20 +73,20 @@
 
 /* TITLE – Bebas Neue (Figma) */
 .bdp__title {
-  width: 1092px;
-  height: 60px;
-  margin: 30px auto 0;
+   max-width: 1092px;      /* width ki jagah max-width */
+  margin: 30px auto 40px; /* 👈 bottom gap image se */
+
   text-align: center;
+  padding: 0 16px;        /* small screens safety */
 
   font-family: "Bebas Neue", sans-serif;
   font-weight: 400;
   font-size: 50px;
-  line-height: 60px;
+  line-height: 1.2;       /* flexible line height */
   letter-spacing: 0;
   color: #111111;
 
-  text-decoration: none;
-  border: none;
+  word-break: break-word;
 }
 
 /* HERO IMAGE – 1200 x 320 */
@@ -441,5 +453,31 @@
   .bdp__cardBody {
     height: auto;
     gap: 12px;
+  }
+}
+
+.decorative-ellipse-1 {
+  position: fixed;
+  width: 232px;
+  height: 232px;
+  background: rgba(137, 76, 251, 0.8);
+  border-radius: 50%;
+  filter: blur(694px);
+  -webkit-filter: blur(694px);
+  pointer-events: none;
+  z-index: 0;
+  /* Positioned based on Figma coordinates (x: 917, y: 2166) */
+  /* Adjusted for responsive viewport - appears in lower right area */
+  top: 50%;
+  right: 5%;
+  transform: translate(50%, -50%);
+  opacity: 0.8;
+  will-change: transform;
+}
+
+@media (max-width: 1440px) {
+  .decorative-ellipse-1 {
+    right: 0%;
+    top: 55%;
   }
 }

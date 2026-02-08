@@ -3,21 +3,20 @@ import Header from '../home/Header';
 import ContactSection from './ContactSection';
 import MapSection from './MapSection';
 import Footer from '../home/Footer';
-
+import './Contact.css';
 const Contact = () => {
   return (
     <div className="contact-page">
-      <Header />
+     
+
+        <div className="decorative-ellipse-1"></div> 
+       <div className="top-gradient-wrapper">
+         <Header />
+         <ContactSection />
+       </div>
 
       {/* Gradient wrapper for Contact + Map */}
-      <div
-        style={{
-          background: 'linear-gradient(180deg, #eeeeee 0%, #f5f5f5 35%, #ffffff 100%)'
-        }}
-      >
-        <ContactSection />
-        <MapSection />
-      </div>
+       <MapSection />
 
       <Footer />
     </div>

@@ -26,9 +26,11 @@ export default function AboutUs() {
 
   return (
     <div className="au-page">
-      <Header />
-      {/* ===== TOP HERO BLOCK (unchanged) ===== */}
-      <section className="au-frame" ref={heroRef}>
+
+       <div className="decorative-ellipse-1"></div> 
+       <div className="top-gradient-wrapper">
+        <Header />
+         <section className="au-frame" ref={heroRef}>
   {/* Hero */}
   <div className="au-hero" id="about">
     <div className="au-hero__inner">
@@ -110,6 +112,10 @@ export default function AboutUs() {
 
 </section>
 
+      </div>
+     
+      {/* ===== TOP HERO BLOCK (unchanged) ===== */}
+    
 
       {/* ===== SECTION 2 (Innovating...) ===== */}
       <section className="au2-section" ref={section2Ref}>
@@ -156,9 +162,15 @@ export default function AboutUs() {
                 We Design And Deploy AI Solutions That Are Practical, Ethical, And Scalable, Combining Data Intelligence, Automation, And Human Insight To Solve Real World Business Challenges And Deliver Measurable Impact.
               </p>
             </div>
+         
           </div>
+
         </div>
+      
       </section>
+       
+
+       
 
       {/* ===== SECTION 3 (Testimonials) ===== */}
       <TestimonialsSection />

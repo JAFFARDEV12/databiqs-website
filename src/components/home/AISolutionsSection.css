@@ -2174,3 +2174,47 @@
     padding: 8px;
   }
 }
+
+/* Rotating icon animation */
+.rotating-icon {
+  animation: rotateIcon 3s linear infinite;
+}
+
+@keyframes rotateIcon {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+/* Animated arrow: appear, extend, disappear, repeat */
+.animated-arrow {
+  width: 100px;        /* adjust length */
+  height: 4px;          /* thickness */
+  background: #4810B2;  /* arrow color */
+  position: absolute;
+  left: 0;              /* start point */
+  top: 50%;             /* center vertically */
+  transform-origin: left center;
+  opacity: 0;
+  animation: arrowLoop 4s ease-in-out infinite;
+}
+
+@keyframes arrowLoop {
+  0% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  20% {
+    opacity: 1;
+  }
+  50% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+}
+

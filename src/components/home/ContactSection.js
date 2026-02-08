@@ -3,7 +3,8 @@ import './ContactSection.css';
 import phoneIcon from '../../assets/phoneicon.png';
 import arrowIcon from '../../assets/rightarrow.svg';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-
+import costumeanimation from '../../assets/Contact.json';
+import Lottie from 'lottie-react';
 const ContactSection = () => {
   const [formData, setFormData] = useState({
     fullName: '',
@@ -47,7 +48,16 @@ const ContactSection = () => {
           </div>
 
           <div className="contact-right">
+            
             <form className="contact-form" onSubmit={handleSubmit}>
+               
+    <div className="form-lottie-icon">
+    <Lottie
+      animationData={costumeanimation}
+      loop
+      autoplay
+    />
+  </div>
               <div className="form-group">
                 <label htmlFor="fullName">Full Name: <span className="required">*</span></label>
                 <input

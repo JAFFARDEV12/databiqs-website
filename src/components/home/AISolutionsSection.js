@@ -113,6 +113,7 @@ const AISolutionsSection = () => {
                       </div>
                     </div>
                   </div>
+                      
                   
                   {/* Second Message: Bot message - Chat bubble on left, nerd avatar on right */}
                   <div className="customer-message-block agent-message">
@@ -143,14 +144,14 @@ const AISolutionsSection = () => {
               <img 
                 src={customerToChatbotArrow} 
                 alt="Customer to Chatbot" 
-                className="arrow-customer-to-chatbot"
+                className="arrow-customer-to-chatbot "
               />
 
               {/* Center - Chatbot */}
               <div className="diagram-center">
                 <div className="chatbot-box">
-                  <div className="ai-icon-box">
-                    <span className="ai-text">AI</span>
+                  <div className="ai-icon-box rotating-icon">
+                    <span className="ai-text ">AI</span>
                   </div>
                   <div className="chatbot-label">Chatbot</div>
                 </div>

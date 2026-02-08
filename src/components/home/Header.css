@@ -1,23 +1,13 @@
-.header {
-  /* Barely grey header, hero continues then to white */
- background: linear-gradient(
-  180deg,
-  rgba(178, 131, 255, 0.2) 0%,  /* very light purple tint */
-  #ffffff 100%
-) ;
-  padding: 20px 100px;
-  position: relative;
-  width: 100%;
-  z-index: 1000;
+
+.Header{
+   padding: 20px 100px;
+   position: relative;
+    z-index: 1000;
+     width: 100%;
+
   transform: translateZ(0);
   will-change: transform;
-}
-.bgGradient{
-  background: linear-gradient(
-  180deg,
-  rgba(178, 131, 255, 0.2) 0%,  /* very light purple tint */
-  #ffffff 100%
-) ;
+ 
 }
 
 .header-container {

@@ -4,7 +4,16 @@
   font-family: Questrial, system-ui, Arial, sans-serif;
   transform: translateZ(0);
   will-change: transform;
-  
+    
+  background-color: red !important;
+}
+.top-gradient-wrapper {
+ width: 100%;
+   background: linear-gradient(
+  180deg,
+  rgba(178, 131, 255, 0.2) 0%, 
+  #ffffff 100%
+); 
 }
 
 /* ===== Frame (transparent so page gradient shows like hero) ===== */
@@ -13,7 +22,7 @@
   max-width: 1440px;
   margin: 0 auto;
   position: relative;
-  background: transparent;
+  
   transform: translateZ(0);
   will-change: transform;
 
@@ -124,14 +133,9 @@
   padding-bottom: 100px;
   margin-left: calc(-50vw + 50%);
   position: relative;
-
+  
   /* ✅ Full viewport width background */
-  background: linear-gradient(
-    180deg,
-    #eeeeee 0%,
-    #f5f5f5 35%,
-    #ffffff 100%
-  );
+ 
 
   transform: translateZ(0);
   will-change: transform;
@@ -664,7 +668,14 @@
   will-change: transform;
   padding: 70px 0 90px; /* top spacing from previous section */
 }
-
+.au-page-lay{
+width: 100%;
+   background: linear-gradient(
+  180deg,
+  rgba(178, 131, 255, 0.2) 0%, 
+  #ffffff 100%
+); 
+}
 .au4-inner {
   width: 1200px;
   margin: 0 auto;
@@ -723,7 +734,7 @@
 }
 /* Make Contact Us section white on About page */
 .au-page .contact-section {
-  background: #ffffff;
+  background: #ffffff !important;
 }
 
 .au4-section.animate .au4-subtitle {
@@ -1016,12 +1027,7 @@
   font-family: Questrial, system-ui, Arial, sans-serif;
 
   /* ✅ SINGLE SOURCE OF TRUTH */
-  background: linear-gradient(
-    180deg,
-    #eeeeee 0%,
-    #f5f5f5 35%,
-    #ffffff 100%
-  );
+
 
   transform: translateZ(0);
   will-change: transform;
@@ -1123,3 +1129,29 @@
   background-color: white !important;
   margin-top: 50px;
 } */
+
+.decorative-ellipse-1 {
+  position: fixed;
+  width: 232px;
+  height: 232px;
+  background: rgba(137, 76, 251, 0.8);
+  border-radius: 50%;
+  filter: blur(694px);
+  -webkit-filter: blur(694px);
+  pointer-events: none;
+  z-index: 0;
+  /* Positioned based on Figma coordinates (x: 917, y: 2166) */
+  /* Adjusted for responsive viewport - appears in lower right area */
+  top: 50%;
+  right: 5%;
+  transform: translate(50%, -50%);
+  opacity: 0.8;
+  will-change: transform;
+}
+
+@media (max-width: 1440px) {
+  .decorative-ellipse-1 {
+    right: 0%;
+    top: 55%;
+  }
+}
