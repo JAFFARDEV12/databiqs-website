@@ -125,9 +125,11 @@ const BlogDetail = () => {
 </div>
 
       <main className="bdp bdp--contents">
+         
         <div className="bdp__container">
           {/* Content */}
           <article className="bdp__content">
+            
             <p>
               The phone rings at 3 AM. A customer in Tokyo needs urgent help resolving a payment issue.
               Another in London has a billing question that requires immediate clarification.

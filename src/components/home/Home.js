@@ -41,6 +41,7 @@ useEffect(() => {
         <Header />
         <HeroSection />
       </div>
+      
         <AISolutionsSection />
         <AIAutomationSection />
         <TestimonialsSection />

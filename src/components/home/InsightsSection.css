@@ -1,6 +1,7 @@
 .insights-section {
-  padding: 80px 40px;
-  background: #ffffff;
+  padding: 20px 40px;
+  /* background: #ffffff; */
+ background: #ffffff;
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   position: relative;

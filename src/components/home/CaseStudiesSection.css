@@ -1,6 +1,7 @@
 .case-studies-section {
-  padding: 100px 40px;
-  background: #ffffff;
+  padding: 20px 40px;
+ /*  background: #ffffff; */
+ background: #ffffff;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   transform: translateZ(0);
