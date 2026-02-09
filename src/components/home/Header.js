@@ -45,6 +45,7 @@ const Header = () => {
         <Link to="/" className="logo">
           <img src={logo} alt="Databiqs" />
         </Link>
+       
         <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
           {isHomePage ? (
             <>
@@ -81,10 +82,13 @@ const Header = () => {
               }} className={activeClass(isCaseStudiesActive)}>Case Studies</Link>
               <Link to="/insights-and-innovation" onClick={closeMenu} className={activeClass(isInsightsActive)}>Insights</Link>
               <Link to="/contact" onClick={closeMenu} className={activeClass(isContactActive)}>Contact Us</Link>
+               
             </>
           )}
+           <button className="cta-button mobile-only">Let's Talk</button>
         </nav>
-        <button className="cta-button">Let's Talk</button>
+         <button className="cta-button desktop-only">Let's Talk</button>
+     
         <button className="hamburger" onClick={toggleMenu} aria-label="Menu">
           <span className={`hamburger-line ${isMenuOpen ? 'active' : ''}`}></span>
           <span className={`hamburger-line ${isMenuOpen ? 'active' : ''}`}></span>

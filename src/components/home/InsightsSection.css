@@ -279,7 +279,12 @@
 }
 
 .insight-separator {
-  color: #999999;
+   width: 6px;
+  height: 6px;
+  display: inline-block;
+  background-color: #7F7F7F;  
+  border-radius: 50%;       
+  opacity: 1;   
 }
 
 .insight-cta {

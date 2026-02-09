@@ -1,4 +1,12 @@
 
+.desktop-only {
+  display: inline-flex;
+}
+
+.mobile-only {
+  display: none;
+}
+
 .Header{
    padding: 20px 100px;
    position: relative;
@@ -207,6 +215,42 @@
     font-size: 14px;
   }
 }
+@media (max-width: 600px) {
+
+  .Header {
+    padding: 10px 12px;
+  }
+
+  .header-container {
+    grid-template-columns: auto auto;
+    padding: 8px 14px;
+    border-radius: 22px;
+    gap: 10px;
+  }
+
+  /* CTA hide from header row */
+  .desktop-only {
+    display: none;
+  }
+
+  /* CTA show inside menu */
+  .mobile-only {
+    display: inline-flex;
+    margin-top: 20px;
+    font-size: 16px;
+    padding: 12px 28px;
+  }
+
+  .hamburger {
+    display: flex;
+    justify-self: end;
+  }
+
+  .logo img {
+    height: 26px;
+  }
+}
+
 
 @media (max-width: 480px) {
   .header {

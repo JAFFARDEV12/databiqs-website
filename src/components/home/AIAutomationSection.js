@@ -29,13 +29,13 @@ const AIAutomationSection = () => {
         <div className="automation-card">
           <div className="automation-left">
            <div className="automation-title-row">
-  <div className="automation-title-lottie">
+            <div className="automation-title-lottie">
     <Lottie
       animationData={aiAutomationAnimation}
       loop
       autoplay
     />
-  </div>
+            </div>
 
   <h3 className="automation-title">AI Automation</h3>
 </div>

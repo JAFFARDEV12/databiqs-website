@@ -21,7 +21,7 @@ const HeroBlog = () => {
 
             <div className="heroBlog__meta">
               <span>September 04, 2025</span>
-              <span className="heroBlog__dot">•</span>
+              <span className="heroBlog__dot"></span>
               <span>12 Minutes</span>
             </div>
 

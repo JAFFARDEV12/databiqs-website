@@ -99,7 +99,7 @@ const BlogDetail = () => {
   return (
     <>
    <div className="decorative-ellipse-1"></div>
-    <div className="top-gradient-wrapper">
+    <div className="top-gradient-wrapper-blog">
   <Header />
 
   <main className="bdp">
@@ -108,14 +108,14 @@ const BlogDetail = () => {
       <div className="bdp__metaWrap">
         <div className="bdp__meta">
           <span>{blog.date}</span>
-          <span className="bdp__dot">•</span>
+          <span className="bdp__dot"></span>
           <span>{blog.readTime}</span>
         </div>
       </div>
 
       <h1 className="bdp__title">{blog.title}</h1>
 
-      {/* ✅ HERO IMAGE IS STILL INSIDE GRADIENT */}
+      {/*  HERO IMAGE IS STILL INSIDE GRADIENT */}
       <div className="bdp__hero">
         <img className="bdp__heroImg" src={blog.image} alt="Blog main" />
       </div>
@@ -126,8 +126,6 @@ const BlogDetail = () => {
 
       <main className="bdp bdp--contents">
         <div className="bdp__container">
-         
-    
           {/* Content */}
           <article className="bdp__content">
             <p>
@@ -243,7 +241,7 @@ const BlogDetail = () => {
 
                   <div className="bdp__cardMeta">
                     <span>{blog.relatedBlogs[0].date}</span>
-                    <span className="bdp__dot">•</span>
+                    <span className="bdp__dot"></span>
                     <span>{blog.relatedBlogs[0].readTime}</span>
                   </div>
 
@@ -275,7 +273,7 @@ const BlogDetail = () => {
 
                   <div className="bdp__cardMeta">
                     <span>{blog.relatedBlogs[1].date}</span>
-                    <span className="bdp__dot">•</span>
+                    <span className="bdp__dot"></span>
                     <span>{blog.relatedBlogs[1].readTime}</span>
                   </div>
 

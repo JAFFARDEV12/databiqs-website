@@ -1,7 +1,7 @@
 /* Transparent so page gradient shows (same as landing header/hero) */
 .heroBlog {
-  background: transparent;
-  padding: 40px 40px 0;
+
+  padding: 0px 40px 0;
   position: relative;
   z-index: 1;
   transform: translateZ(0);
@@ -98,7 +98,13 @@
 }
 
 .heroBlog__dot {
-  opacity: 0.6;
+   width: 6px;
+  height: 6px;
+  display: inline-block;
+  background-color: #7F7F7F;  
+  border-radius: 50%;       
+  opacity: 1;   
+  
 }
 
 .heroBlog__desc {

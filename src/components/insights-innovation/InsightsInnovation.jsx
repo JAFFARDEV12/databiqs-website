@@ -13,7 +13,7 @@ const InsightsInnovation = () => {
         <div className="decorative-ellipse-1"></div>
 
      
-       <div className="top-gradient-wrapper">
+       <div className="top-gradient-wrapper-insights">
         <Header />
       <HeroBlog />
 

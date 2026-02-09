@@ -1,11 +1,6 @@
 /* PAGE WRAPPER – gradient from index.css (same as landing header/hero) */
-.bdp {
-  width: 100%;
-  min-height: 100vh;
- 
-}
 
-.top-gradient-wrapper {
+.top-gradient-wrapper-blog {
   width: 100%;
   background: linear-gradient(
     180deg,
@@ -13,6 +8,12 @@
     #ffffff 85%
   );
 }
+.bdp {
+  width: 100%;
+  
+
+}
+
 .bdp--contents{
   background-color:white !important;
 }
@@ -32,6 +33,7 @@
     #ffffff 35%,
     #ffffff 100%
   ); */
+  padding-top: 20px;
 }
 
 /* META ROW – 1280 x 70, 100px from top */
@@ -68,7 +70,12 @@
 }
 
 .bdp__dot {
-  opacity: 0.6;
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  background-color: #7F7F7F;  
+  border-radius: 50%;       
+  opacity: 1;   
 }
 
 /* TITLE – Bebas Neue (Figma) */
@@ -81,7 +88,7 @@
 
   font-family: "Bebas Neue", sans-serif;
   font-weight: 400;
-  font-size: 50px;
+  font-size: 47px;
   line-height: 1.2;       /* flexible line height */
   letter-spacing: 0;
   color: #111111;

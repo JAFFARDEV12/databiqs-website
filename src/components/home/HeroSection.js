@@ -6,7 +6,7 @@ import scrollIcon from '../../assets/scroll.svg';
 import arrowIcon from '../../assets/rightarrow.svg';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
-import costumeanimation from '../../assets/developer skills.json';
+import costumeanimation from '../../assets/ai-animation-Flow.json';
 import Lottie from 'lottie-react';
 
 const HeroSection = () => {

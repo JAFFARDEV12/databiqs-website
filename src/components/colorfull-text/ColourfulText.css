@@ -1,0 +1,61 @@
+.au2-titles {
+  margin: 20px 0 32px;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.25;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.hover-char {
+  display: inline-block;
+  color: #000;
+  transition: color 0.4s ease;
+}
+
+.gradient-active .hover-char {
+  background: linear-gradient(
+    180deg,
+    #7B2CBF 0%,
+    rgba(178, 131, 255, 0.85) 50%,
+    #ffffff 100%
+  );
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+
+  animation:
+    waveFloat 0.6s ease-in-out forwards,
+    gradientFlow 4s linear infinite;
+}
+
+/* wave motion */
+@keyframes waveFloat {
+  0% {
+    transform: translateY(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-4px);
+    filter: blur(2px);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+/* continuous gradient movement */
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}

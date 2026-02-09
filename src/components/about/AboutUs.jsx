@@ -17,6 +17,7 @@ import approachIcon from "../../assets/approach.svg";
 // NEW: Testimonials section
 import TestimonialsSection from "../home/TestimonialsSection";
 import arrowIcon from "../../assets/rightarrow.svg";
+import ColourfulText from "../colorfull-text/ColourfulText";
 
 export default function AboutUs() {
   const heroRef = useScrollAnimation({ threshold: 0.2 });
@@ -42,6 +43,7 @@ export default function AboutUs() {
           MEET OUR FOUNDER &amp; CEO <br />
           MR. JAFFAR ALI CHAUDHARY
         </h1>
+       {/*  <TextHoverReveal text="Mr Faizan Ahmed Tanoli" /> */}
 
         <div className="au-paragraph">
           <p className="au-p1">
@@ -123,7 +125,8 @@ export default function AboutUs() {
           <div className="au2-top">
             <div className="au2-pill">About Us</div>
 
-            <h2 className="au2-title">INNOVATING THE FUTURE OF BUSINESS TECHNOLOGY</h2>
+           {/*  <h2 className="au2-title">INNOVATING THE FUTURE OF BUSINESS TECHNOLOGY</h2> */}
+            <ColourfulText text="INNOVATING THE FUTURE OF BUSINESS TECHNOLOGY" />
 
             <p className="au2-subtitle">
               We&apos;re A Team Of Passionate Technologists Committed To Helping Businesses Unlock

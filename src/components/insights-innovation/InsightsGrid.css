@@ -1,6 +1,7 @@
 .insGrid {
-  padding: 84px 40px 100px; /* figma shows ~84 spacing before this heading */
-  background: #ffffff;
+  padding: 0px 40px 50px; /* figma shows ~84 spacing before this heading */
+ /*   */
+ background: #ffffff;
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   transform: translateZ(0);
@@ -10,6 +11,7 @@
 .insGrid__container {
   max-width: 1200px;
   margin: 0 auto;
+  padding-top: 20px;
 }
 
 .insGrid__pill {
@@ -118,7 +120,12 @@
 }
 
 .insCard__dot {
-  opacity: 0.6;
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  background-color: #7F7F7F;  
+  border-radius: 50%;       
+  opacity: 1;   
 }
 
 .insCard__footer {

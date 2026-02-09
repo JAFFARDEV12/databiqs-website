@@ -67,7 +67,7 @@ const InsightsSection = () => {
                 )}
                 <div className="insight-meta">
                   <span className="insight-date">{article.date}</span>
-                  <span className="insight-separator">•</span>
+                  <span className="insight-separator"></span>
                   <span className="insight-read-time">{article.readTime}</span>
                 </div>
                 <Link to={`/blog-detail/${article.id}`} className="insight-cta">

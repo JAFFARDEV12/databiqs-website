@@ -1,7 +1,8 @@
-.top-gradient-wrapper {
+.top-gradient-wrapper-insights {
   width: 100%;
-  min-height: 100vh; /* gradient ko space mile */
-  background: linear-gradient(
+ /* gradient ko space mile */
+ 
+ background: linear-gradient(
     180deg,
     rgba(178, 131, 255, 0.22) 0%,
     #ffffff 65%
