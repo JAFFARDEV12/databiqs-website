@@ -295,9 +295,6 @@ const BlogDetail = () => {
         </div>
       </main>
      
-
-     
-
       <Footer />
     </>
   );
