@@ -1,9 +1,10 @@
 .testimonials-section {
-  padding: 100px 40px 40px 40px;
-  background: #ffffff;
+  padding: 10px 40px 40px 20px;
+/*   background: #ffffff; */
+ background: #ffffff;
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  margin-top: -40px;
+  margin-top: 0px;
   transform: translateZ(0);
   will-change: transform;
 }

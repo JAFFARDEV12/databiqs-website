@@ -1,0 +1,38 @@
+.top-gradient-wrapper-insights {
+  width: 100%;
+ /* gradient ko space mile */
+ 
+ background: linear-gradient(
+    180deg,
+    rgba(178, 131, 255, 0.22) 0%,
+    #ffffff 65%
+  );
+  position: relative;
+  z-index: 0;
+}
+
+.decorative-ellipse-1 {
+  position: fixed;
+  width: 232px;
+  height: 232px;
+  background: rgba(137, 76, 251, 0.8);
+  border-radius: 50%;
+  filter: blur(694px);
+  -webkit-filter: blur(694px);
+  pointer-events: none;
+  z-index: 0;
+  /* Positioned based on Figma coordinates (x: 917, y: 2166) */
+  /* Adjusted for responsive viewport - appears in lower right area */
+  top: 50%;
+  right: 5%;
+  transform: translate(50%, -50%);
+  opacity: 0.8;
+  will-change: transform;
+}
+
+@media (max-width: 1440px) {
+  .decorative-ellipse-1 {
+    right: 0%;
+    top: 55%;
+  }
+}

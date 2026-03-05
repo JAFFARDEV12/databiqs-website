@@ -13,6 +13,8 @@ import playButtonSvg from '../../assets/playbutton.svg';
 import bgPlayButtonSvg from '../../assets/bg play button.svg';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
+/* import ColourfulText from "../colorfull-text/ColourfulText"; */
+
 const TestimonialsSection = () => {
   const sectionRef = useScrollAnimation({ threshold: 0.2 });
 
@@ -21,6 +23,8 @@ const TestimonialsSection = () => {
       <div className="section-container">
         <div className="section-tag">Testimonials</div>
         <h2 className="section-headline">TRUSTED BY FORWARD-THINKING BUSINESSES</h2>
+         {/*  <ColourfulText text="TRUSTED BY FORWARD-THINKING BUSINESSES" /> */}
+         
         <p className="section-description">
           Our Clients Partner With Us To Solve Complex Challenges, Streamline Operations, And Achieve Measurable Results Through Intelligent AI Solutions.
         </p>

@@ -3,8 +3,12 @@ import './CaseStudiesSection.css';
 import arrowIcon from '../../assets/rightarrow.svg';
 import caseStudyImage from '../../assets/case studies.svg';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 
 const CaseStudiesSection = () => {
+  const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
   const totalSlides = 5; // 5 pairs of cards
 
@@ -22,7 +26,7 @@ const CaseStudiesSection = () => {
   }, [totalSlides]);
 
   const CaseStudyCard = () => (
-    <div className="case-study-card">
+    <div className="case-study-card" >
       <div className="case-study-image-container">
         <img src={caseStudyImage} alt="AI Support Engine Flow" className="case-study-image" />
       </div>
@@ -30,12 +34,25 @@ const CaseStudiesSection = () => {
       <p className="case-study-description">
         <span className="challenge-label">Challenge:</span> Inefficient customer support with long response times and inconsistent service quality. Inefficient customer support with long response times and inconsistent service quality.
       </p>
-      <button className="case-study-cta">
-        <span className="case-study-text">Read Full Case Study</span>
-        <span className="case-study-arrow">
-          <img src={arrowIcon} alt="Arrow" />
-        </span>
-      </button>
+    <button
+  className="case-study-cta"
+  onClick={() => {
+    navigate('/');
+    setTimeout(() => {
+      const section = document.getElementById('case-studies');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 200);
+  }}
+>
+  <span className="case-study-text">Read Full Case Study</span>
+  <span className="case-study-arrow">
+    <img src={arrowIcon} alt="Arrow" />
+  </span>
+</button>
+
+
     </div>
   );
 

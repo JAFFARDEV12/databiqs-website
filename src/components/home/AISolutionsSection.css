@@ -69,7 +69,7 @@
 
 .solutions-card {
   background: linear-gradient(135deg, rgba(250, 245, 255, 0.6) 0%, rgba(255, 255, 255, 1) 100%);
-  border-radius: 24px;
+  border-radius: 40px;
   padding: 50px;
   display: grid;
   grid-template-columns: 60% 40%;
@@ -88,7 +88,7 @@
 
   margin: -50px;
   padding: 50px 20px;
-  border-radius: 16px;
+  border-radius:40px;
 
   background: none;
   overflow: hidden;
@@ -162,7 +162,13 @@
 
 /* Professional Animations for Solutions Section */
 .ai-solutions-section.animate .diagram-box {
-  animation: boxFadeInUp 0.6s ease-out forwards;
+ /*  animation: boxFadeInUp 0.6s ease-out forwards; */
+  animation: boxFloat 2s ease-in-out infinite alternate;
+}
+@keyframes boxFloat {
+  0% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(-8px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 1; }
 }
 
 .ai-solutions-section.animate .diagram-box:nth-child(1) {
@@ -178,12 +184,32 @@
 }
 
 .ai-solutions-section.animate .chatbot-box {
-  animation: boxFadeInScale 0.8s ease-out 0.4s forwards;
+  /* animation: boxFadeInScale 0.8s ease-out 0.4s forwards; */
+    animation: chatbotBounce 2s ease-in-out infinite alternate;
 }
-
+@keyframes chatbotBounce {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
 .ai-solutions-section.animate .arrow-customer-to-chatbot {
   animation: arrowSlideIn 0.6s ease-out 0.6s forwards;
 }
+/* Continuous subtle arrow animation */
+.ai-solutions-section.animate .arrow-customer-to-chatbot,
+.ai-solutions-section.animate .arrow-chatbot-to-left,
+.ai-solutions-section.animate .arrow-chatbot-to-integrated-systems,
+.ai-solutions-section.animate .arrow-chatbot-to-conversatinput,
+.ai-solutions-section.animate .arrow-chatbot-to-customer-conversations {
+  animation: arrowFloat 2s ease-in-out infinite alternate;
+}
+
+@keyframes arrowFloat {
+  0% { transform: translateY(0) translateX(0); opacity: 1; }
+  50% { transform: translateY(-5px) translateX(3px); opacity: 1; }
+  100% { transform: translateY(0) translateX(0); opacity: 1; }
+}
+
 
 .ai-solutions-section.animate .arrow-chatbot-to-integrated-systems {
   animation: arrowSlideIn 0.6s ease-out 0.8s forwards;
@@ -284,6 +310,7 @@
 /* Process Steps Row */
 .process-steps-row {
   display: flex;
+  
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -622,12 +649,22 @@
 }
 
 .typing-dot {
-  width: 2.5px;
+  /* width: 2.5px;
   height: 2.5px;
   flex-shrink: 0;
+  display: block; */
+   width: 2.5px;
+  height: 2.5px;
   display: block;
+  border-radius: 50%;
+  background: #808080;
+  animation: pulseDot 1s ease-in-out infinite;
 }
-
+@keyframes pulseDot {
+  0% { transform: scale(0.8); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(0.8); opacity: 0.5; }
+}
 .message-line-in-bubble {
   height: auto;
   width: auto;
@@ -1055,6 +1092,7 @@
   }
   
   .ai-powered-diagram {
+    
     transform: scale(0.65);
     transform-origin: center;
     max-width: 100%;
@@ -1673,11 +1711,13 @@
 }
 
 .card-right {
+
   display: flex;
   flex-direction: column;
   gap: 24px;
   margin-left: -120px;
   max-width: calc(100%);
+  margin-bottom: 50px !important;
 }
 
 
@@ -1749,7 +1789,7 @@
   font-weight: 400;
   font-style: normal;
   font-size: 13px;
-  line-height: 24px;
+  line-height: 20px;
   letter-spacing: 0%;
   vertical-align: middle;
   text-transform: capitalize;
@@ -1893,6 +1933,16 @@
     gap: 10px;
     max-width: 100%;
   }
+  .ai-solutions-section.animate .process-steps-row,
+.ai-solutions-section.animate .nlp-model-box {
+  animation: floatSlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes floatSlow {
+  0% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(-6px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 1; }
+}
   
   .process-step {
     font-size: 9px;
@@ -2041,6 +2091,7 @@
   }
   
   .process-steps-row {
+   
     flex-wrap: wrap;
     justify-content: center;
     gap: 8px;
@@ -2124,3 +2175,67 @@
     padding: 8px;
   }
 }
+
+/* Rotating icon animation */
+.rotating-icon {
+  animation: rotateIcon 3s linear infinite;
+}
+
+@keyframes rotateIcon {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+/* Animated arrow: appear, extend, disappear, repeat */
+.animated-arrow {
+  width: 100px;        /* adjust length */
+  height: 4px;          /* thickness */
+  background: #4810B2;  /* arrow color */
+  position: absolute;
+  left: 0;              /* start point */
+  top: 50%;             /* center vertically */
+  transform-origin: left center;
+  opacity: 0;
+  animation: arrowLoop 4s ease-in-out infinite;
+}
+
+@keyframes arrowLoop {
+  0% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  20% {
+    opacity: 1;
+  }
+  50% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+}
+
+.automation-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;              /* space between icon & text */
+}
+.automation-title-lottie {
+  width: 100px;
+  height: 50px ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(122, 90, 248, 0.12);
+  border-radius: 50%;
+}
+@keyframes lottieFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+

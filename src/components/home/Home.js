@@ -9,17 +9,39 @@ import CaseStudiesSection from './CaseStudiesSection';
 import InsightsSection from './InsightsSection';
 import ContactSection from './ContactSection';
 import Footer from './Footer';
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+
+
 import './Home.css';
 
+
 const Home = () => {
+  const location = useLocation();
+
+useEffect(() => {
+  if (location.state?.scrollTo) {
+    const section = document.getElementById(location.state.scrollTo);
+
+    if (section) {
+      setTimeout(() => {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  }
+}, [location]);
+
   return (
     <div className="home">
       {/* Decorative Ellipse 1 from Figma - Purple blur background element */}
       <div className="decorative-ellipse-1"></div>
       
       <div className="home-content">
+         <div className="top-gradient-wrapper">
         <Header />
         <HeroSection />
+      </div>
+      
         <AISolutionsSection />
         <AIAutomationSection />
         <TestimonialsSection />

@@ -7,11 +7,13 @@ import BlogDetail from './components/blog/BlogDetail';
 import InsightsInnovation from './components/insights-innovation/InsightsInnovation';
 import Chatbot from './components/Chatbot/Chatbot';
 import './App.css';
+import ScrollToTop from './components/home/ScrollToTop';
 
 function App() {
   return (
     <>
       <Router>
+         <ScrollToTop />
         <div className="App">
           <Routes>
             <Route path="/" element={<Home />} />

@@ -24,6 +24,11 @@ import chatbotToIntegratedSystemsArrow from '../../assets/chatbot to integrated 
 import chatbotToCustomerConversationsArrow from '../../assets/chatbot to customer conversations.svg';
 import nlpToIntentArrow from '../../assets/nlp to intent.svg';
 
+import aiCustomerAnimation from '../../assets/Customer-Support.json';
+
+
+import Lottie from 'lottie-react';
+
 const AISolutionsSection = () => {
   const sectionRef = useScrollAnimation({ threshold: 0.2, rootMargin: '0px' });
 
@@ -113,6 +118,7 @@ const AISolutionsSection = () => {
                       </div>
                     </div>
                   </div>
+                      
                   
                   {/* Second Message: Bot message - Chat bubble on left, nerd avatar on right */}
                   <div className="customer-message-block agent-message">
@@ -143,14 +149,14 @@ const AISolutionsSection = () => {
               <img 
                 src={customerToChatbotArrow} 
                 alt="Customer to Chatbot" 
-                className="arrow-customer-to-chatbot"
+                className="arrow-customer-to-chatbot "
               />
 
               {/* Center - Chatbot */}
               <div className="diagram-center">
                 <div className="chatbot-box">
-                  <div className="ai-icon-box">
-                    <span className="ai-text">AI</span>
+                  <div className="ai-icon-box rotating-icon">
+                    <span className="ai-text ">AI</span>
                   </div>
                   <div className="chatbot-label">Chatbot</div>
                 </div>
@@ -266,7 +272,18 @@ const AISolutionsSection = () => {
             </div>
           </div>
           <div className="card-right">
-            <h3 className="card-title">AI Conversational & Support Systems</h3>
+              <div className="automation-title-row">
+  <div className="automation-title-lottie">
+    <Lottie
+      animationData={aiCustomerAnimation}
+      loop
+      autoplay
+    />
+  </div>
+
+  <h3 className="card-title">AI Conversational & Support Systems</h3>
+</div>
+            
             <p className="card-description">
               AI-Powered Conversational And Support Systems Designed To Automate Interactions, Reduce Response Times, Assist Teams, And Deliver Consistent, High-Quality Customer Experiences Across All Digital Touchpoints.
             </p>

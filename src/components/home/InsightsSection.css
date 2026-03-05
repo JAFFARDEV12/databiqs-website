@@ -1,6 +1,7 @@
 .insights-section {
-  padding: 80px 40px;
-  background: #ffffff;
+  padding: 20px 40px;
+  /* background: #ffffff; */
+ background: #ffffff;
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   position: relative;
@@ -279,7 +280,12 @@
 }
 
 .insight-separator {
-  color: #999999;
+   width: 6px;
+  height: 6px;
+  display: inline-block;
+  background-color: #7F7F7F;  
+  border-radius: 50%;       
+  opacity: 1;   
 }
 
 .insight-cta {

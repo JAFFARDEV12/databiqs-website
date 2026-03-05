@@ -24,16 +24,49 @@ const Footer = () => {
               limitless innovation for a smarter future.
             </p>
             <div className="social-icons">
-              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn">
-                <img src={linkedinSvg} alt="" aria-hidden="true" />
-              </a>
-              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Facebook">
-                <img src={facebookSvg} alt="" aria-hidden="true" />
-              </a>
-              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Instagram">
-                <img src={instaSvg} alt="" aria-hidden="true" />
-              </a>
-            </div>
+  <a
+    href="https://www.linkedin.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="social-icon"
+    aria-label="LinkedIn"
+    style={{ "--i": "#0A66C2", "--j": "#004182" }}
+  >
+    <span className="icon">
+      <img src={linkedinSvg} alt="" aria-hidden="true" />
+    </span>
+    <span className="title">LinkedIn</span>
+  </a>
+
+  <a
+    href="https://www.facebook.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="social-icon"
+    aria-label="Facebook"
+    style={{ "--i": "#1877F2", "--j": "#0F5DC4" }}
+  >
+    <span className="icon">
+      <img src={facebookSvg} alt="" aria-hidden="true" />
+    </span>
+    <span className="title">Facebook</span>
+  </a>
+
+  <a
+    href="https://www.instagram.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="social-icon"
+    aria-label="Instagram"
+    style={{ "--i": "#FF5F6D", "--j": "#FFC371" }}
+  >
+    <span className="icon">
+      <img src={instaSvg} alt="" aria-hidden="true" />
+    </span>
+    <span className="title">Instagram</span>
+  </a>
+</div>
+
           </div>
 
           <div className="footer-middle">

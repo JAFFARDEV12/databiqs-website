@@ -17,6 +17,7 @@ import approachIcon from "../../assets/approach.svg";
 // NEW: Testimonials section
 import TestimonialsSection from "../home/TestimonialsSection";
 import arrowIcon from "../../assets/rightarrow.svg";
+import ColourfulText from "../colorfull-text/ColourfulText";
 
 export default function AboutUs() {
   const heroRef = useScrollAnimation({ threshold: 0.2 });
@@ -26,9 +27,11 @@ export default function AboutUs() {
 
   return (
     <div className="au-page">
-      <Header />
-      {/* ===== TOP HERO BLOCK (unchanged) ===== */}
-      <section className="au-frame" ref={heroRef}>
+
+       <div className="decorative-ellipse-1"></div> 
+       <div className="top-gradient-wrapper">
+        <Header />
+         <section className="au-frame" ref={heroRef}>
   {/* Hero */}
   <div className="au-hero" id="about">
     <div className="au-hero__inner">
@@ -40,6 +43,7 @@ export default function AboutUs() {
           MEET OUR FOUNDER &amp; CEO <br />
           MR. JAFFAR ALI CHAUDHARY
         </h1>
+       {/*  <TextHoverReveal text="Mr Faizan Ahmed Tanoli" /> */}
 
         <div className="au-paragraph">
           <p className="au-p1">
@@ -110,6 +114,10 @@ export default function AboutUs() {
 
 </section>
 
+      </div>
+     
+      {/* ===== TOP HERO BLOCK (unchanged) ===== */}
+    
 
       {/* ===== SECTION 2 (Innovating...) ===== */}
       <section className="au2-section" ref={section2Ref}>
@@ -117,7 +125,8 @@ export default function AboutUs() {
           <div className="au2-top">
             <div className="au2-pill">About Us</div>
 
-            <h2 className="au2-title">INNOVATING THE FUTURE OF BUSINESS TECHNOLOGY</h2>
+           {/*  <h2 className="au2-title">INNOVATING THE FUTURE OF BUSINESS TECHNOLOGY</h2> */}
+            <ColourfulText text="INNOVATING THE FUTURE OF BUSINESS TECHNOLOGY" />
 
             <p className="au2-subtitle">
               We&apos;re A Team Of Passionate Technologists Committed To Helping Businesses Unlock
@@ -156,9 +165,15 @@ export default function AboutUs() {
                 We Design And Deploy AI Solutions That Are Practical, Ethical, And Scalable, Combining Data Intelligence, Automation, And Human Insight To Solve Real World Business Challenges And Deliver Measurable Impact.
               </p>
             </div>
+         
           </div>
+
         </div>
+      
       </section>
+       
+
+       
 
       {/* ===== SECTION 3 (Testimonials) ===== */}
       <TestimonialsSection />

@@ -10,7 +10,7 @@ import img3 from "../../assets/3.png";
 import img4 from "../../assets/4.png";
 import img5 from "../../assets/5.png";
 import img6 from "../../assets/6.png";
-
+import ColourfulText from "../colorfull-text/ColourfulText";
 const InsightsGrid = () => {
   const sectionRef = useScrollAnimation({ threshold: 0.2 });
 
@@ -65,9 +65,10 @@ const InsightsGrid = () => {
     <section className="insGrid" ref={sectionRef}>
       <div className="insGrid__container">
         <div className="insGrid__pill">Insights &amp; Innovation</div>
+        <div className="insGrid__title"> <ColourfulText text="THOUGHT LEADERSHIP &amp; INSIGHTS" /></div>
 
-        <h2 className="insGrid__title">THOUGHT LEADERSHIP &amp; INSIGHTS</h2>
-
+      {/*   <h2 className="insGrid__title">THOUGHT LEADERSHIP &amp; INSIGHTS</h2>
+ */}
         <p className="insGrid__subtitle">
           Explore In-Depth Articles And Expert Analysis On AI, Automation, And
           Technology Strategies Shaping The Future Of Business.
@@ -90,7 +91,7 @@ const InsightsGrid = () => {
 
                 <div className="insCard__meta">
                   <span>September 04, 2025</span>
-                  <span className="insCard__dot">•</span>
+                  <span className="insCard__dot"></span>
                   <span>12 Minutes</span>
                 </div>
 

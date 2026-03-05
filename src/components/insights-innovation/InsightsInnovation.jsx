@@ -4,12 +4,20 @@ import Footer from '../home/Footer';
 import TestimonialsSection from '../home/TestimonialsSection';
 import HeroBlog from './HeroBlog';
 import InsightsGrid from './InsightsGrid';
+import './InsightsInnovation.css';
 
 const InsightsInnovation = () => {
   return (
     <div className="insights-innovation-page">
-      <Header />
+
+        <div className="decorative-ellipse-1"></div>
+
+     
+       <div className="top-gradient-wrapper-insights">
+        <Header />
       <HeroBlog />
+
+       </div>
       <InsightsGrid />
       <TestimonialsSection />
       <Footer />

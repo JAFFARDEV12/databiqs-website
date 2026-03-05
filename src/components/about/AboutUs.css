@@ -4,7 +4,17 @@
   font-family: Questrial, system-ui, Arial, sans-serif;
   transform: translateZ(0);
   will-change: transform;
-  
+    
+  background-color: red !important;
+}
+.top-gradient-wrapper {
+  width: 100%;
+  overflow-x: hidden;
+   background: linear-gradient(
+  180deg,
+  rgba(178, 131, 255, 0.2) 0%, 
+  #ffffff 100%
+); 
 }
 
 /* ===== Frame (transparent so page gradient shows like hero) ===== */
@@ -13,7 +23,7 @@
   max-width: 1440px;
   margin: 0 auto;
   position: relative;
-  background: transparent;
+  
   transform: translateZ(0);
   will-change: transform;
 
@@ -119,19 +129,14 @@
 
 /* ===== Hero ===== */
 .au-hero {
-  width: 100vw;
+  width: 100%;
+
   margin-top: 50px;
   padding-bottom: 100px;
-  margin-left: calc(-50vw + 50%);
   position: relative;
-
+  
   /* ✅ Full viewport width background */
-  background: linear-gradient(
-    180deg,
-    #eeeeee 0%,
-    #f5f5f5 35%,
-    #ffffff 100%
-  );
+ 
 
   transform: translateZ(0);
   will-change: transform;
@@ -309,24 +314,29 @@
 .au-ceoBox {
   width: 100%;
   max-width: 532px;
-  aspect-ratio: 1;
   min-height: 529px;
+
+  display: flex;                /* 🔥 MUST */
+  justify-content: center;      /* horizontal */
+  align-items: flex-start;      /* desktop top look */
 
   background: #ffffff;
   border: 1px solid #eae3f4;
   border-radius: 40px;
-
   overflow: hidden;
+  margin: 0 auto;
   opacity: 0;
 }
+
 
 .au-hero.animate .au-ceoBox {
   animation: slideInRight 0.4s ease-out 0.15s forwards;
 }
 
 .au-ceoImg {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+  height: auto;
+  display: block;
   object-fit: contain;
 }
 
@@ -488,14 +498,19 @@
 }
 
 .au2-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 250, 250, 0.98) 100%);
-  border-radius: 20px;
+ background: linear-gradient(
+    135deg,
+    #f6f2fb 0%,
+    #ffffff 55%,
+    #f9f7fd 100%
+  );
+  border-radius: 30px;
   padding: 30px 22px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  border: 1px solid #E0E0E0;
+  
   opacity: 0;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 300px !important;
@@ -504,6 +519,10 @@
   flex-shrink: 0 !important;
   flex-grow: 0 !important;
   flex-basis: 300px !important;
+   border: 1px solid #EAE3F4;
+  box-shadow:
+    0 8px 30px rgba(138, 97, 255, 0.08),
+    inset 0 0 0 1px rgba(234, 227, 244, 0.6);
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -664,7 +683,14 @@
   will-change: transform;
   padding: 70px 0 90px; /* top spacing from previous section */
 }
-
+.au-page-lay{
+width: 100%;
+   background: linear-gradient(
+  180deg,
+  rgba(178, 131, 255, 0.2) 0%, 
+  #ffffff 100%
+); 
+}
 .au4-inner {
   width: 1200px;
   margin: 0 auto;
@@ -723,7 +749,7 @@
 }
 /* Make Contact Us section white on About page */
 .au-page .contact-section {
-  background: #ffffff;
+  background: #ffffff !important;
 }
 
 .au4-section.animate .au4-subtitle {
@@ -893,11 +919,28 @@
     justify-content: center;
   }
   
-  .au-ceoBox {
-    width: 100%;
+ .au-ceoBox {
     max-width: 400px;
+    min-height: auto;
     height: auto;
-    aspect-ratio: 1;
+
+    display: flex;
+    justify-content: flex-end;   /* 🔥 KEY LINE */
+    align-items: center;
+
+    padding: 32px 16px 24px;     /* top zyada, bottom tight */
+  }
+
+  .au-ceoImg {
+    max-height: 310px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+
+    
+
+  display: block;
+  
   }
   
   .au-stats__inner {
@@ -1016,12 +1059,7 @@
   font-family: Questrial, system-ui, Arial, sans-serif;
 
   /* ✅ SINGLE SOURCE OF TRUTH */
-  background: linear-gradient(
-    180deg,
-    #eeeeee 0%,
-    #f5f5f5 35%,
-    #ffffff 100%
-  );
+
 
   transform: translateZ(0);
   will-change: transform;
@@ -1123,3 +1161,52 @@
   background-color: white !important;
   margin-top: 50px;
 } */
+
+.decorative-ellipse-1 {
+  position: fixed;
+  width: 232px;
+  height: 232px;
+  background: rgba(137, 76, 251, 0.8);
+  border-radius: 50%;
+  filter: blur(694px);
+  -webkit-filter: blur(694px);
+  pointer-events: none;
+  z-index: 0;
+  /* Positioned based on Figma coordinates (x: 917, y: 2166) */
+  /* Adjusted for responsive viewport - appears in lower right area */
+  top: 50%;
+  right: 5%;
+  transform: translate(50%, -50%);
+  opacity: 0.8;
+  will-change: transform;
+}
+
+@media (max-width: 1440px) {
+  .decorative-ellipse-1 {
+    right: 0%;
+    top: 55%;
+  }
+}
+
+@media (max-width: 768px) {
+  .au-hero {
+    width: 100%;
+    margin-left: 0;
+    padding: 0;
+  }
+
+  .au-right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .au-ceoBox {
+    max-width: 320px;
+  }
+
+  /* Kill invisible overflow source */
+  .decorative-ellipse-1 {
+    display: none;
+  }
+}
