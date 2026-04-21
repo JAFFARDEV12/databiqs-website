@@ -1,0 +1,114 @@
+.numbers-stats-section {
+  width: 100%;
+  padding: 8px 40px 32px;
+  background: transparent;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.numbers-stats-section__wrap {
+  max-width: 1288px;
+  margin: 0 auto;
+}
+
+.numbers-stats-card {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 165px;
+  border-radius: 12px;
+  padding: 30px clamp(24px, 6vw, 90px);
+  background: rgba(255, 226, 255, 0.2);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(32px, 6vw, 90px);
+  opacity: 0;
+}
+
+.numbers-stats-section.animate .numbers-stats-card {
+  animation: fadeInUp 0.45s ease-out 0.06s forwards;
+}
+
+.numbers-stat {
+  flex: 1 1 180px;
+  max-width: 229px;
+  min-height: 105px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 6px;
+}
+
+.numbers-stat__value {
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 50px;
+  letter-spacing: 0;
+  color: rgba(32, 32, 32, 1);
+}
+
+.numbers-stat__label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  font-size: clamp(12px, 1.5vw, 15px);
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(32, 32, 32, 1);
+  max-width: 20ch;
+}
+
+@media (max-width: 1024px) {
+  .numbers-stats-card {
+    min-height: 0;
+    padding: 28px clamp(20px, 5vw, 64px);
+  }
+}
+
+@media (max-width: 768px) {
+  .numbers-stats-section {
+    padding: 8px 20px 28px;
+  }
+
+  .numbers-stats-card {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(24px, 5vw, 40px) clamp(16px, 4vw, 32px);
+    justify-items: center;
+  }
+
+  .numbers-stat {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+    min-height: 0;
+  }
+
+  .numbers-stat__value {
+    font-size: 40px;
+    line-height: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .numbers-stats-card {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 24px 20px;
+  }
+
+  .numbers-stat__value {
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  .numbers-stat__label {
+    font-size: 13px;
+    max-width: 24ch;
+  }
+}

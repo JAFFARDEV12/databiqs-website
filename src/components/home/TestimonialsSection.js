@@ -19,7 +19,7 @@ const TestimonialsSection = () => {
   const sectionRef = useScrollAnimation({ threshold: 0.2 });
 
   return (
-    <section className="testimonials-section" id="case-studies" ref={sectionRef}>
+    <section className="testimonials-section" id="testimonials" ref={sectionRef}>
       <div className="section-container">
         <div className="section-tag">Testimonials</div>
         <h2 className="section-headline">TRUSTED BY FORWARD-THINKING BUSINESSES</h2>
