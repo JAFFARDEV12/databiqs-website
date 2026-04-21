@@ -573,3 +573,139 @@
     font-size: 12px;
   }
 }
+/* Add to TestimonialsSection.css */
+
+/* Video Modal Styles */
+.video-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.video-modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  background: #000;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  transform: scale(0.95);
+  animation: scaleIn 0.3s ease-out forwards;
+}
+
+.video-modal-player {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  background: black;
+}
+
+.video-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+.video-modal-close:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.video-modal-close img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+}
+
+/* Modal animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive adjustments for modal */
+@media (max-width: 768px) {
+  .video-modal-content {
+    width: 95%;
+    border-radius: 16px;
+  }
+  
+  .video-modal-close {
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+  }
+  
+  .video-modal-close img {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-modal-overlay {
+    backdrop-filter: blur(3px);
+  }
+  
+  .video-modal-content {
+    width: 98%;
+    border-radius: 12px;
+  }
+  
+  .video-modal-close {
+    top: 8px;
+    right: 8px;
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Ensure the play button is interactive and responsive */
+.testimonial-card.featured .play-button {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.testimonial-card.featured .play-button:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* Keep existing responsive rules for the card itself */
+@media (max-width: 768px) {
+  .testimonial-card.featured .play-button {
+    top: calc(50% + 50px);
+    transform: translate(-50%, 220%);
+  }
+  
+  .testimonial-card.featured .play-button:hover {
+    transform: translate(-50%, 220%) scale(1.05);
+  }
+}

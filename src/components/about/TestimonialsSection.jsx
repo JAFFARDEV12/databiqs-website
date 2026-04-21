@@ -1,4 +1,4 @@
-import React from "react";
+
 import "./TestimonialsSection.css";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 

@@ -1,4 +1,4 @@
-import React from "react";
+
 import "./AboutUs.css";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import Footer from "../home/Footer";

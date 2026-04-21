@@ -1,17 +1,17 @@
-import React from 'react';
+
 import Header from './Header';
 import HeroSection from './HeroSection';
-import NumbersStatsSection from './NumbersStatsSection';
-import NumbersAccentBelow from './NumbersAccentBelow';
 import AISolutionsSection from './AISolutionsSection';
 import AIAutomationSection from './AIAutomationSection';
 import TestimonialsSection from './TestimonialsSection';
 import StatsBar from './StatsBar';
 import CaseStudiesSection from './CaseStudiesSection';
+import InsightsSection from './InsightsSection';
+import ContactSection from './ContactSection';
+import NumbersStatsSection from './NumbersStatsSection';
+
 import ToolsAuditsSection from './ToolsAuditsSection';
 import MeetingBannerSection from './MeetingBannerSection';
-// import InsightsSection from './InsightsSection';
-// import ContactSection from './ContactSection';
 import Footer from './Footer';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -46,9 +46,10 @@ useEffect(() => {
         <HeroSection />
       </div>
 
-        <NumbersStatsSection />
-        <NumbersAccentBelow />
+      <NumbersStatsSection />
+      
 
+      
         <AISolutionsSection />
         <AIAutomationSection />
         <TestimonialsSection />
@@ -56,8 +57,6 @@ useEffect(() => {
         <CaseStudiesSection />
         <ToolsAuditsSection />
         <MeetingBannerSection />
-        {/* <InsightsSection />
-        <ContactSection /> */}
         <Footer />
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+
 import './AIAutomationSection.css';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import crmIcon from '../../assets/crm.svg';

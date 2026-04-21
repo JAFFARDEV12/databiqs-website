@@ -13,10 +13,11 @@ const Contact = () => {
        <div className="top-gradient-wrapper">
          <Header />
          <ContactSection />
+         <MapSection />
        </div>
 
       {/* Gradient wrapper for Contact + Map */}
-       <MapSection />
+      
 
       <Footer />
     </div>

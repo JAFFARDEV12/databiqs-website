@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/home/Home';
 import AboutUs from './components/about/AboutUs';
@@ -8,6 +8,7 @@ import InsightsInnovation from './components/insights-innovation/InsightsInnovat
 import Chatbot from './components/Chatbot/Chatbot';
 import './App.css';
 import ScrollToTop from './components/home/ScrollToTop';
+import CaseStudies from './components/case-studies/caseStudies';
 
 function App() {
   return (
@@ -22,6 +23,10 @@ function App() {
             <Route path="/blog/:id" element={<BlogDetail />} />
             <Route path="/blog-detail/:id" element={<BlogDetail />} />
             <Route path="/insights-and-innovation" element={<InsightsInnovation />} />
+            <Route path="/case-studies" element={<CaseStudies />} /> {/* Placeholder for Case Studies page */}
+
+              
+
           </Routes>
         </div>
       </Router>
