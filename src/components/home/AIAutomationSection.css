@@ -6,11 +6,13 @@
 .section-container {
   max-width: 1200px;
   margin: 0 auto;
+ 
 }
 
 .automation-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(250, 245, 255, 0.6) 100%);
+  /* background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(250, 245, 255, 0.6) 100%); */
   border-radius: 40px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(250, 245, 255, 0.6) 100%);
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
   padding: 50px;
@@ -25,6 +27,10 @@
 .automation-left,
 .automation-right {
   margin-top: 50px;
+  
+}
+.automation-right{
+  background-color: green;
 }
 
 .automation-left {
@@ -32,6 +38,7 @@
   flex-direction: column;
   gap: 24px;
   text-align: left;
+ 
   align-items: flex-start;
 }
 .automation-title-row {
@@ -182,7 +189,7 @@
   left: 50px;      /* 👈 reduce from left by 20px */
   right: 0;
   margin-bottom: 100px;
-  bottom: 70px;    /* 👈 reduce from bottom */
+      /* 👈 reduce from bottom */
 
  /*  background: linear-gradient(
     to right,
@@ -1092,5 +1099,157 @@
 
   .automation-title-row {
     gap: 8px;
+  }
+}
+
+/* Restored GIF-based right panel override */
+.automation-card {
+  --automation-card-h: clamp(280px, 27vw, 360px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0;
+  padding: 0;
+  align-items: stretch;
+  height: var(--automation-card-h);
+}
+
+.automation-left,
+.automation-right {
+  margin-top: 0;
+}
+
+.automation-left {
+  height: 100%;
+  padding: clamp(14px, 2vw, 28px);
+  gap: 14px;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.automation-title {
+  font-size: clamp(24px, 2vw, 30px);
+  line-height: 1.08;
+}
+
+.automation-description {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.automation-left .capabilities-list {
+  gap: 8px;
+}
+
+.automation-left .capabilities-list li {
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.automation-left .automation-title-lottie {
+  width: 64px;
+  height: 64px;
+}
+
+.automation-right {
+  min-width: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  overflow: hidden;
+  border-radius: 0 40px 40px 0;
+  border-left: 1px solid #ece7f8;
+}
+
+.automation-right::before,
+.automation-right::after {
+  display: none;
+}
+
+.automation-gif-frame {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  min-height: 0;
+  border-radius: 0 40px 40px 0;
+  overflow: hidden;
+  background: #f8f3ff;
+}
+
+.automation-gif {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 968px) {
+  .automation-card {
+    grid-template-columns: 1fr;
+    padding: 20px 16px;
+    gap: 20px;
+    height: auto;
+  }
+
+  .automation-left {
+    padding: 0;
+    height: auto;
+    overflow: visible;
+  }
+
+  .automation-left .automation-title-lottie {
+    width: 52px;
+    height: 52px;
+  }
+
+  .automation-right {
+    display: flex !important;
+    border-left: none;
+    border-radius: 14px;
+  }
+
+  .automation-gif-frame {
+    display: block !important;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 14px;
+  }
+
+  .automation-gif {
+    display: block !important;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 768px) {
+  .automation-right {
+    display: flex !important;
+    width: 100%;
+  }
+
+  .automation-gif-frame {
+    display: block !important;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+
+  .automation-gif {
+    display: block !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .automation-right {
+    display: flex !important;
+  }
+
+  .automation-gif-frame {
+    display: block !important;
+    aspect-ratio: 16 / 9;
   }
 }

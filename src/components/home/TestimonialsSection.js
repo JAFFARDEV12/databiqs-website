@@ -1,6 +1,5 @@
 // TestimonialsSection.jsx
-import { useState } from 'react';
-import { IoClose } from 'react-icons/io5';
+import { useRef, useState } from 'react';
 import './TestimonialsSection.css';
 import avatar1 from '../../assets/1 avator.png';
 import avatar2 from '../../assets/2 avator.png';
@@ -13,17 +12,28 @@ import card3Picture from '../../assets/card 3 picture.svg';
 import card4Picture from '../../assets/card 4 picture.svg';
 import playButtonSvg from '../../assets/playbutton.svg';
 import bgPlayButtonSvg from '../../assets/bg play button.svg';
+import testimonialVideoMp4 from '../../assets/client-testinomials.mp4';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 const TestimonialsSection = () => {
   const sectionRef = useScrollAnimation({ threshold: 0.2 });
-  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
-  const openVideoModal = () => setIsVideoModalOpen(true);
-  const closeVideoModal = () => setIsVideoModalOpen(false);
-
-  // Sample testimonial video – replace with your actual video URL
-  const testimonialVideoUrl = "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4";
+  const toggleVideo = async () => {
+    if (!videoRef.current) return;
+    if (videoRef.current.paused) {
+      try {
+        await videoRef.current.play();
+        setIsPlaying(true);
+      } catch {
+        setIsPlaying(false);
+      }
+      return;
+    }
+    videoRef.current.pause();
+    setIsPlaying(false);
+  };
 
   return (
     <>
@@ -50,11 +60,40 @@ const TestimonialsSection = () => {
             </div>
 
             {/* Card 2 – Featured Video Testimonial */}
-            <div className="testimonial-card featured" style={{ backgroundImage: `url(${testimonialVideoBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <div className="testimonial-card featured">
+              <video
+                ref={videoRef}
+                className="testimonial-video-inline"
+                poster={testimonialVideoBg}
+                preload="auto"
+                playsInline
+                muted
+                controls={false}
+                disablePictureInPicture
+                controlsList="nodownload noplaybackrate noremoteplayback nofullscreen"
+                onContextMenu={(e) => e.preventDefault()}
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
+                onEnded={() => setIsPlaying(false)}
+              >
+                <source src={testimonialVideoMp4} type="video/mp4" />
+              </video>
               <img src={avatar2} alt="Emily Scott" className="testimonial-avatar" />
-              <div className="play-button" onClick={openVideoModal} role="button" tabIndex={0} aria-label="Play testimonial video">
+              <div className="featured-video-overlay" />
+              <div
+                className="play-button"
+                onClick={toggleVideo}
+                onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && toggleVideo()}
+                role="button"
+                tabIndex={0}
+                aria-label={isPlaying ? 'Pause testimonial video' : 'Play testimonial video'}
+              >
                 <img src={bgPlayButtonSvg} alt="" className="play-button-bg" aria-hidden="true" />
-                <img src={playButtonSvg} alt="Play" className="play-button-icon" />
+                {isPlaying ? (
+                  <span className="play-button-pause" aria-hidden />
+                ) : (
+                  <img src={playButtonSvg} alt="Play" className="play-button-icon" />
+                )}
               </div>
               <div className="testimonial-author">
                 <div className="author-name">Emily Scott</div>
@@ -91,20 +130,6 @@ const TestimonialsSection = () => {
         </div>
       </section>
 
-      {/* Video Modal */}
-      {isVideoModalOpen && (
-        <div className="video-modal-overlay" onClick={closeVideoModal}>
-          <div className="video-modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="video-modal-close" onClick={closeVideoModal} aria-label="Close video">
-              <IoClose size={24} color="#fff" />
-            </button>
-            <video className="video-modal-player" controls autoPlay>
-              <source src={testimonialVideoUrl} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
-      )}
     </>
   );
 };

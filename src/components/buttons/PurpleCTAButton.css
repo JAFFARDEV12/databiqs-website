@@ -15,7 +15,7 @@
   gap: 14px;
   min-width: 160px;
   padding: 8px 8px 8px 18px;
-  background: #894CFB;
+  background: linear-gradient(111.24deg, #AE0DFF 15.72%, #401371 86%);
   border-radius: 999px;
 }
 
@@ -56,7 +56,7 @@
   font-family: "Questrial", sans-serif;
   font-size: 14px;
   line-height: 1;
-  color: #894CFB;
+  color: #9C16C8;
   white-space: nowrap;
 }
 
@@ -64,7 +64,7 @@
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: #894CFB;
+  background: #9C16C8;
   display: flex;
   align-items: center;
   justify-content: center;

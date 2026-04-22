@@ -44,7 +44,7 @@
 
 .tools-card {
   position: relative;
-  background: #ffffff;
+  background: #9C16C80D;
   border-radius: 28px;
   padding: 32px 32px 28px;
   box-shadow: 0 8px 32px rgba(17, 24, 39, 0.06);
@@ -67,7 +67,8 @@
   width: 48px;
   height: 48px;
   border-radius: 10px;
-  background: linear-gradient(135deg, #9d4edd 0%, #5a189a 100%);
+ 
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -161,5 +162,99 @@
 @media (max-width: 768px) {
   .tools-audits-section {
     padding: 56px 20px 72px;
+  }
+}
+
+.tools-card__header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  flex-wrap: nowrap;
+}
+
+.tools-card__title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+  .tools-card {
+    padding: 24px 20px 20px;
+    gap: 12px;
+    border-radius: 22px;
+  }
+
+  .tools-card__header {
+    gap: 10px;
+  }
+
+  .tools-card__icon-wrap {
+    width: 42px;
+    height: 42px;
+  }
+
+  .tools-card__title {
+    font-size: 20px;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+
+  .tools-card__body {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .tools-card__cta {
+    padding: 12px 14px 12px 18px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tools-audits-section {
+    padding: 44px 14px 56px;
+  }
+
+  .tools-audits-section__pill {
+    margin-bottom: 26px;
+  }
+
+  .tools-card {
+    padding: 18px 14px 16px;
+    gap: 10px;
+    border-radius: 18px;
+  }
+
+  .tools-card__icon-wrap {
+    width: 36px;
+    height: 36px;
+  }
+
+  .tools-card__title {
+    font-size: 17px;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+
+  .tools-card__body {
+    font-size: 12px;
+    line-height: 19px;
+  }
+
+  .tools-card__cta {
+    font-size: 13px;
+    padding: 10px 12px 10px 14px;
+  }
+
+  .tools-card__cta-arrow {
+    width: 24px;
+    height: 24px;
+  }
+
+  .tools-card__cta-arrow img {
+    width: 12px;
+    height: 12px;
   }
 }
