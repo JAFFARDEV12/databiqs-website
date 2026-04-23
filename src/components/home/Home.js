@@ -6,8 +6,8 @@ import AIAutomationSection from './AIAutomationSection';
 import TestimonialsSection from './TestimonialsSection';
 import StatsBar from './StatsBar';
 import CaseStudiesSection from './CaseStudiesSection';
-import InsightsSection from './InsightsSection';
-import ContactSection from './ContactSection';
+/* import InsightsSection from './InsightsSection';
+import ContactSection from './ContactSection'; */
 import NumbersStatsSection from './NumbersStatsSection';
 
 import ToolsAuditsSection from './ToolsAuditsSection';

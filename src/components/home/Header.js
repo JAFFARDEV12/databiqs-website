@@ -2,7 +2,7 @@ import  { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
 import logo from '../../assets/header-logo.svg';
-import arrowIcon from '../../assets/rightarrow.svg';
+/* import arrowIcon from '../../assets/rightarrow.svg'; */
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();

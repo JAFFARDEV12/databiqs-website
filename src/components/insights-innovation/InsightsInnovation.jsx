@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../home/Header';
 import Footer from '../home/Footer';
-import TestimonialsSection from '../home/TestimonialsSection';
+/* import TestimonialsSection from '../home/TestimonialsSection'; */
 import HeroBlog from './HeroBlog';
 import InsightsGrid from './InsightsGrid';
 import './InsightsInnovation.css';
