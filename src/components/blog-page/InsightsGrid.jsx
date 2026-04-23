@@ -66,10 +66,10 @@ const InsightsGrid = () => {
     <section className="insGrid" ref={sectionRef}>
       <div className="insGrid__container">
         <div className="insGrid__pill">Insights &amp; Innovation</div>
-        <div className="insGrid__title"> <ColourfulText text="THOUGHT LEADERSHIP &amp; INSIGHTS" /></div>
+        <h2 className="insGrid__title">THOUGHT LEADERSHIP &amp; INSIGHTS</h2>
+        {/* <div className="insGrid__title"> <ColourfulText text="THOUGHT LEADERSHIP &amp; INSIGHTS" /></div> */}
 
-      {/*   <h2 className="insGrid__title">THOUGHT LEADERSHIP &amp; INSIGHTS</h2>
- */}
+     
         <p className="insGrid__subtitle">
           Explore In-Depth Articles And Expert Analysis On AI, Automation, And
           Technology Strategies Shaping The Future Of Business.

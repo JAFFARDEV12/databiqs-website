@@ -62,7 +62,7 @@ export default function AboutUs() {
 
         <div className="au-actions">
           <button className="au-btnSchedule" type="button">
-            <span className="au-btnSchedule__text">Schedule An Appointment</span>
+            <span className="au-btnSchedule__text">Book a Consultation</span>
             <span className="au-btnSchedule__icon">
               <img src={arrowIcon} alt="Arrow" />
             </span>
@@ -126,7 +126,8 @@ export default function AboutUs() {
             <div className="au2-pill">About Us</div>
 
            {/*  <h2 className="au2-title">INNOVATING THE FUTURE OF BUSINESS TECHNOLOGY</h2> */}
-            <ColourfulText text="INNOVATING THE FUTURE OF BUSINESS TECHNOLOGY" />
+           {/*  <ColourfulText text="INNOVATING THE FUTURE OF BUSINESS TECHNOLOGY" /> */}
+           <h2 className="au2-title">INNOVATING THE FUTURE OF BUSINESS TECHNOLOGY</h2>
 
             <p className="au2-subtitle">
               We&apos;re A Team Of Passionate Technologists Committed To Helping Businesses Unlock
