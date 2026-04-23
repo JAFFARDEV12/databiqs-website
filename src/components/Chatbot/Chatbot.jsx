@@ -62,7 +62,7 @@ const Chatbot = () => {
           }}
         />
         {showTooltip && !isOpen && (
-          <div className="chatbot-tooltip">Hye 👋 Ask Chatbot</div>
+          <div className="chatbot-tooltip">Hye 👋 Ask Databiqs AI Assistant</div>
         )}
       </button>
 
