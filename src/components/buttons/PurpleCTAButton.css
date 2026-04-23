@@ -1,0 +1,103 @@
+/* PurpleCTAButton.css */
+
+/* base */
+.purpleBtn {
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* ================================================= */
+/* HERO BUTTON (existing pill style) */
+/* ================================================= */
+.purpleBtn--pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 160px;
+  padding: 8px 8px 8px 18px;
+  background: linear-gradient(111.24deg, #AE0DFF 15.72%, #401371 86%);
+  border-radius: 999px;
+}
+
+.purpleBtn--pill .purpleBtn__text {
+  font-size: 14px;
+  color: #fff;
+}
+
+.purpleBtn--pill .purpleBtn__icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.purpleBtn--pill .purpleBtn__icon img {
+  width: 12px;
+}
+
+.purpleBtn--pill:hover {
+  background: #6B3BC2;
+}
+
+/* ================================================= */
+/* BLOG CARD STYLE (your screenshot right column) */
+/* ================================================= */
+.purpleBtn--inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto; /* push right */
+}
+
+.purpleBtn--inline .purpleBtn__text {
+  font-family: "Questrial", sans-serif;
+  font-size: 14px;
+  line-height: 1;
+  color: #9C16C8;
+  white-space: nowrap;
+}
+
+.purpleBtn--inline .purpleBtn__icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #9C16C8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.purpleBtn--inline .purpleBtn__icon img {
+  width: 7px;
+  height: 7px;
+  filter: brightness(0) invert(1);
+}
+
+.purpleBtn--inline:hover .purpleBtn__text {
+  color: #6B3BC2;
+}
+
+.purpleBtn--inline:hover .purpleBtn__icon {
+  transform: scale(1.08);
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .purpleBtn--inline .purpleBtn__text {
+    font-size: 13px;
+  }
+
+  .purpleBtn--inline .purpleBtn__icon {
+    width: 15px;
+    height: 15px;
+  }
+
+  .purpleBtn--inline .purpleBtn__icon img {
+    width: 6px;
+    height: 6px;
+  }
+}

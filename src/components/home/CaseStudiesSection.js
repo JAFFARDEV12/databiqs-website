@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import './CaseStudiesSection.css';
 import arrowIcon from '../../assets/rightarrow.svg';
 import caseStudyImage from '../../assets/case studies.svg';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 

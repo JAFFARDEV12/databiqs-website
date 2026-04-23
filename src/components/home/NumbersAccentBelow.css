@@ -1,0 +1,43 @@
+.numbers-accent-below {
+  width: 100%;
+  max-width: 1288px;
+  margin: 0 auto;
+  padding: 4px 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+.numbers-accent-below__scroll {
+  text-align: center;
+}
+
+.numbers-accent-below__scroll img {
+  width: 30px;
+  height: auto;
+  opacity: 0.6;
+  animation: numbersAccentBounce 2s infinite;
+}
+
+@keyframes numbersAccentBounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@media (max-width: 768px) {
+  .numbers-accent-below {
+    padding: 4px 20px 16px;
+  }
+}

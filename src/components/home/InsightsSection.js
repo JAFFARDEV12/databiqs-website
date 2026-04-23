@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Link } from 'react-router-dom';
 import './InsightsSection.css';
 import arrowIcon from '../../assets/rightarrow.svg';

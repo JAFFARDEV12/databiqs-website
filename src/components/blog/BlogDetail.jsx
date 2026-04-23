@@ -1,4 +1,4 @@
-import React from "react";
+
 import { useParams, Link } from "react-router-dom";
 import Header from "../home/Header";
 import Footer from "../home/Footer";
@@ -128,99 +128,139 @@ const BlogDetail = () => {
          
         <div className="bdp__container">
           {/* Content */}
-          <article className="bdp__content">
-            
-            <p>
-              The phone rings at 3 AM. A customer in Tokyo needs urgent help resolving a payment issue.
-              Another in London has a billing question that requires immediate clarification.
-              Simultaneously, someone in New York is trying to track a delayed shipment. Your support team
-              is asleep. Your customers are frustrated, waiting in digital queues. Your business is
-              hemorrhaging potential revenue with every unanswered query.
-            </p>
+      
 
-            <p>
-              This was the stark reality of enterprise customer support just five years ago—a constant,
-              exhausting battle against time zones, staffing limitations, and the seemingly impossible
-              demand of being everywhere at once, for everyone at once. Today, that reality is
-              transforming. Not gradually. Dramatically. AI chatbots have evolved from experimental
-              novelties into business necessities, fundamentally reshaping how enterprises approach
-              customer support. But this transformation isn&apos;t simply about automation for
-              automation&apos;s sake. It&apos;s about reimagining what customer service can become when
-              intelligent technology and human expertise work together in perfect harmony.
-            </p>
+<article className="bdp__article">
 
-            <h2>Cost Efficiency at Scale</h2>
-            <p>
-              <span className="bdp__label">Traditional support:</span> Each additional 1,000 customers
-              typically requires 2-3 additional full-time support agents at $40,000-$60,000 annual cost
-              each.
-            </p>
-            <p>
-              <span className="bdp__label">AI-powered support:</span> AI chatbots handle 1,000+
-              simultaneous conversations with zero incremental cost per interaction.
-            </p>
-            <p>
-              <span className="bdp__label">Real example:</span> An e-commerce enterprise with 50,000
-              daily customer interactions reduced support costs by $2.4 million annually while
-              simultaneously improving response quality and customer satisfaction.
-            </p>
+  <span className="bdp__badge">Enterprise AI</span>
 
-            <h2>True 24/7 Global Coverage</h2>
-            <p>
-              <span className="bdp__label">Traditional support:</span> Operating 24/7 support requires
-              three full shifts across time zones, complex scheduling, and 3-4x staffing overhead.
-            </p>
-            <p>
-              <span className="bdp__label">AI-powered support:</span> Always available, never tired,
-              instantly scaling to handle traffic spikes during product launches or system issues.
-            </p>
-            <p>
-              <span className="bdp__label">Real example:</span> A global financial services company
-              eliminated their nightshift support teams (saving $800K annually) while paradoxically
-              improving overnight response quality and resolution rates.
-            </p>
+  <h1 className="bdp__articleTitle">
+    How AI Chatbots Are Transforming Enterprise Customer Support
+  </h1>
 
-            <h2>Consistency and Accuracy</h2>
-            <p>
-              <span className="bdp__label">Traditional support:</span> Quality varies based on agent
-              experience, training recency, mood, and fatigue. Errors occur. Information becomes outdated.
-            </p>
-            <p>
-              <span className="bdp__label">AI-powered support:</span> Every customer receives identical,
-              accurate information based on the latest product documentation, policy updates, and
-              knowledge base content—updated centrally in real-time.
-            </p>
-            <p>
-              <span className="bdp__label">Real example:</span> A healthcare technology company reduced
-              incorrect information incidents by 87% after implementing AI chatbots with integrated,
-              version-controlled knowledge management.
-            </p>
+  <div className="bdp__leadWrap">
+    <div className="bdp__leadBar"></div>
 
-            <h2>Beyond Basic Automation: Advanced Capabilities</h2>
-            <p>
-              Modern enterprise AI chatbots go far beyond answering simple FAQs. Today&apos;s systems
-              deliver sophisticated functionality that was impossible just a few years ago:
-            </p>
+    <p className="bdp__lead">
+      From 3 AM unanswered calls to always-on intelligent service — the shift
+      from automation novelty to business necessity is already here.
+    </p>
+  </div>
 
-            <h3>Predictive Support</h3>
-            <p>
-              AI systems can identify frustrated customers before they explicitly complain, analyzing
-              conversation tone, response patterns, and behavioral signals to proactively offer assistance
-              or escalate to specialized agents.
-            </p>
+  <div className="bdp__articleMeta">
+    <span>Customer Experience</span>
+    <span className="purple"></span>
+    <span>8 Min Read</span>
+    <span className="purple"></span>
+    <span>Enterprise</span>
+  </div>
 
-            <blockquote className="bdp__quote">
-              A customer who has visited your pricing page 12 times but hasn&apos;t made a purchase might
-              receive a proactive chat:{" "}
-              <span className="bdp__quoteText">
-                &quot;Hi! I noticed you&apos;re exploring our Enterprise plan. I&apos;m here to answer any
-                questions about pricing, implementation, or custom features.&quot;
-              </span>
-            </blockquote>
-          </article>
+  <div className="bdp__copy">
+    <p>
+      The phone rings at 3 AM. A customer in Tokyo needs urgent help resolving a
+      payment issue. Another in London has a billing question. Simultaneously,
+      someone in New York is trying to track a delayed shipment. Your support
+      team is asleep. Your customers are frustrated, waiting in digital queues.
+    </p>
 
-          {/* ===================== RELATED BLOGS ===================== */}
-          <section className="bdp__related">
+    <p>
+      This was the stark reality of enterprise customer support just five years
+      ago — a constant, exhausting battle against time zones, staffing
+      limitations, and the seemingly impossible demand of being everywhere at
+      once.
+    </p>
+
+    <p>
+      Today, that reality is transforming. Not gradually. Dramatically. AI
+      chatbots have evolved from experimental novelties into business
+      necessities, fundamentally reshaping how enterprises approach customer
+      support.
+    </p>
+  </div>
+
+  <section className="bdp__miniSection">
+    <h2>Cost Efficiency At Scale</h2>
+
+    <div className="bdp__statGrid">
+      <div className="bdp__statCard">
+        <h3>Traditional</h3>
+        <strong className="">2-3</strong>
+      
+        <p>New agents needed per 1,000 customers. At $40k–$60k each annually.</p>
+      </div>
+
+      <div className="bdp__statCard">
+        <h3>AI Powered</h3>
+        <strong className="">0</strong>
+        <p>Incremental cost per interaction — 1,000+ simultaneous conversations</p>
+      </div>
+
+      <div className="bdp__statCard">
+        <h3>Real-World Result</h3>
+        <strong>$2.4M</strong>
+        <p>Saved annually by one e-commerce enterprise with 50,000 daily interactions</p>
+      </div>
+    </div>
+  </section>
+
+  <section className="bdp__miniSection">
+    <h2>True 24/7 Global Coverage</h2>
+
+    <div className="bdp__compareGrid">
+      <div className="bdp__compareCard">
+        <h3>Traditional Support</h3>
+        <p>
+          Requires 3 full shifts across time zones, complex scheduling, 3–4x
+          staffing overhead
+        </p>
+      </div>
+
+      <div className="bdp__compareCard bdp__compareCard--accent">
+        <h3>AI-Powered Support</h3>
+        <p>
+          Always available, never tired, instantly scales during traffic spikes
+        </p>
+      </div>
+    </div>
+  </section>
+  <div className="bdp__leadWrap margin-top-custom ">
+    <div className="bdp__leadBar"></div>
+
+    <p className="bdp__lead">
+    A global financial services company eliminated their entire nightshift support teams — saving $800K annually — while paradoxically improving overnight response quality and resolution rates.
+    </p>
+  </div>
+ 
+
+<section className="bdp__miniSection">
+  <h2>Consistency And Accuracy</h2>
+
+  <div className="bdp__consistencyCopy">
+    <p>
+      Traditional support quality varies based on agent experience, training
+      recency, mood, and fatigue. Errors occur. Information becomes outdated.
+    </p>
+
+    <p>
+      With AI-powered support, every customer receives identical, accurate
+      information based on the latest product documentation and policy updates
+      — maintained centrally in real-time.
+    </p>
+  </div>
+</section>
+
+<section className="bdp__miniSection bdp__assistantSection">
+  <h2>AI Assistant — Triggered By 12 Pricing Page Visits</h2>
+
+  <div className="bdp__assistantBox">
+    <p>
+      Hi! I noticed you're exploring our Enterprise plan. I'm here to answer
+      any questions about pricing, implementation, or custom features.
+    </p>
+  </div>
+</section>
+  {/*  arictle link */}
+    <section className="bdp__related">
             <h2 ref={relatedTitleRef} className="bdp__relatedTitle scroll-reveal">
               RELATED BLOGS
             </h2>
@@ -291,6 +331,11 @@ const BlogDetail = () => {
               </article>
             </div>
           </section>
+
+</article>
+
+          {/* ===================== RELATED BLOGS ===================== */}
+         
           {/* ========================================================== */}
         </div>
       </main>

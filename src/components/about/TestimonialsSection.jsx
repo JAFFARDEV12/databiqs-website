@@ -1,9 +1,11 @@
-import React from "react";
+
+import React, { useRef, useState } from "react";
 import "./TestimonialsSection.css";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 import testimonialVideo from "../../assets/testimonial-video.png";
 import playButton from "../../assets/play-button.png";
+import testimonialVideoMp4 from "../../assets/client-testinomials.mp4";
 
 import avatarRobert from "../../assets/avatar-robert-wilson.png";
 import avatarDavid from "../../assets/avatar-david-turner.png";
@@ -61,14 +63,45 @@ function TestimonialCard({ avatar, quote, name, role }) {
 }
 
 function VideoCard() {
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const togglePlayPause = async () => {
+    if (!videoRef.current) return;
+
+    if (videoRef.current.paused) {
+      try {
+        await videoRef.current.play();
+        setIsPlaying(true);
+      } catch {
+        setIsPlaying(false);
+      }
+      return;
+    }
+
+    videoRef.current.pause();
+    setIsPlaying(false);
+  };
+
   return (
     <div className="about-testimonial-videoCard" aria-label="Testimonial video">
-      <img
-        className="about-testimonial-videoImg"
-        src={testimonialVideo}
-        alt="Testimonial video card"
-        draggable="false"
-      />
+      <video
+        ref={videoRef}
+        className="about-testimonial-videoMedia"
+        poster={testimonialVideo}
+        preload="auto"
+        playsInline
+        muted
+        controls={false}
+        disablePictureInPicture
+        controlsList="nodownload noplaybackrate noremoteplayback nofullscreen"
+        onContextMenu={(e) => e.preventDefault()}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+        onEnded={() => setIsPlaying(false)}
+      >
+        <source src={testimonialVideoMp4} type="video/mp4" />
+      </video>
 
       {/* overlay for readability (matches design feel) */}
       <div className="about-testimonial-videoOverlay" />
@@ -85,9 +118,14 @@ function VideoCard() {
       <button
         className="about-testimonial-playBtn"
         type="button"
-        aria-label="Play testimonial video"
+        aria-label={isPlaying ? "Pause testimonial video" : "Play testimonial video"}
+        onClick={togglePlayPause}
       >
-        <img src={playButton} alt="" draggable="false" />
+        {isPlaying ? (
+          <span className="about-testimonial-pauseIcon" aria-hidden />
+        ) : (
+          <img src={playButton} alt="" draggable="false" />
+        )}
       </button>
     </div>
   );
@@ -113,7 +151,7 @@ export default function TestimonialsSection() {
 
         <div className="about-testimonials-grid">
           <TestimonialCard {...testimonials[0]} />
-          <VideoCard />
+         
           <TestimonialCard {...testimonials[1]} />
           <TestimonialCard {...testimonials[2]} />
         </div>

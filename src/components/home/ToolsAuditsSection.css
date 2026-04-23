@@ -1,0 +1,260 @@
+.tools-audits-section {
+  padding: 80px 40px 100px;
+  background: #ffffff;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  position: relative;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.tools-audits-section .section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tools-audits-section__pill {
+  display: block;
+  width: fit-content;
+  padding: 10px 22px;
+  border: 1px solid #e0e0e0;
+  border-radius: 80px;
+  background: #ffffff;
+  color: #000000;
+  font-family: 'Questrial', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  width: fit-content;
+  margin: 0 auto 40px;
+  opacity: 0;
+}
+
+.tools-audits-section.animate .tools-audits-section__pill {
+  animation: fadeInUp 0.4s ease-out 0.05s forwards;
+}
+
+.tools-audits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.tools-card {
+  position: relative;
+  background: #9C16C80D;
+  border-radius: 28px;
+  padding: 32px 32px 28px;
+  box-shadow: 0 8px 32px rgba(17, 24, 39, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 280px;
+  opacity: 0;
+}
+
+.tools-audits-section.animate .tools-card:nth-child(1) {
+  animation: slideInLeft 0.45s ease-out 0.12s forwards;
+}
+
+.tools-audits-section.animate .tools-card:nth-child(2) {
+  animation: slideInRight 0.45s ease-out 0.18s forwards;
+}
+
+.tools-card__icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+ 
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.tools-card__icon-svg {
+  width: 26px;
+  height: 26px;
+}
+
+.tools-card__title {
+  font-family: 'Questrial', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.2;
+  color: #000000;
+  margin: 0;
+  text-align: left;
+}
+
+.tools-card__body {
+  font-family: 'Questrial', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #1a1a1a;
+  margin: 0;
+  flex: 1;
+  text-align: left;
+  text-transform: capitalize;
+}
+
+.tools-card__cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: auto;
+  padding: 14px 18px 14px 22px;
+  border-radius: 999px;
+  background: linear-gradient(119.69deg, #ae0dff 12.36%, #401371 85.46%);
+  color: #ffffff;
+  text-decoration: none;
+  font-family: 'Questrial', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-sizing: border-box;
+}
+
+.tools-card__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(64, 19, 113, 0.35);
+}
+
+.tools-card__cta-text {
+  flex: 1;
+  text-align: center;
+}
+
+.tools-card__cta-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: #ffffff;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tools-card__cta-arrow img {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+  .tools-audits-grid {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+  }
+
+  .tools-card {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .tools-audits-section {
+    padding: 56px 20px 72px;
+  }
+}
+
+.tools-card__header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  flex-wrap: nowrap;
+}
+
+.tools-card__title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+  .tools-card {
+    padding: 24px 20px 20px;
+    gap: 12px;
+    border-radius: 22px;
+  }
+
+  .tools-card__header {
+    gap: 10px;
+  }
+
+  .tools-card__icon-wrap {
+    width: 42px;
+    height: 42px;
+  }
+
+  .tools-card__title {
+    font-size: 20px;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+
+  .tools-card__body {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .tools-card__cta {
+    padding: 12px 14px 12px 18px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tools-audits-section {
+    padding: 44px 14px 56px;
+  }
+
+  .tools-audits-section__pill {
+    margin-bottom: 26px;
+  }
+
+  .tools-card {
+    padding: 18px 14px 16px;
+    gap: 10px;
+    border-radius: 18px;
+  }
+
+  .tools-card__icon-wrap {
+    width: 36px;
+    height: 36px;
+  }
+
+  .tools-card__title {
+    font-size: 17px;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+
+  .tools-card__body {
+    font-size: 12px;
+    line-height: 19px;
+  }
+
+  .tools-card__cta {
+    font-size: 13px;
+    padding: 10px 12px 10px 14px;
+  }
+
+  .tools-card__cta-arrow {
+    width: 24px;
+    height: 24px;
+  }
+
+  .tools-card__cta-arrow img {
+    width: 12px;
+    height: 12px;
+  }
+}

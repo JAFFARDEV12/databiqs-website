@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './ContactSection.css';
 import phoneIcon from '../../assets/phoneicon.png';
 import arrowIcon from '../../assets/rightarrow.svg';
@@ -51,6 +51,7 @@ const ContactSection = () => {
             
             <form className="contact-form" onSubmit={handleSubmit}>
                
+   {/* 
     <div className="form-lottie-icon">
     <Lottie
       animationData={costumeanimation}
@@ -58,6 +59,8 @@ const ContactSection = () => {
       autoplay
     />
   </div>
+   
+   */}
               <div className="form-group">
                 <label htmlFor="fullName">Full Name: <span className="required">*</span></label>
                 <input

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
 import logo from '../../assets/header-logo.svg';
-
+import arrowIcon from '../../assets/rightarrow.svg';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
@@ -31,7 +31,7 @@ const Header = () => {
 
   const isAboutActive = location.pathname === '/about';
   const isServicesActive = isHomePage && hash === '#services';
-  const isCaseStudiesActive = isHomePage && hash === '#case-studies';
+  const isCaseStudiesActive = location.pathname === '/case-studies';
   const isInsightsActive = location.pathname === '/insights-and-innovation';
   const isContactActive = location.pathname === '/contact';
 
@@ -49,16 +49,19 @@ const Header = () => {
         <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
           {isHomePage ? (
             <>
-              <a href="/about" onClick={closeMenu} className={activeClass(isAboutActive)}>About</a>
-              <a href="#services" onClick={(e) => handleAnchorClick(e, '#services')} className={activeClass(isServicesActive)}>Services</a>
-              <a href="#case-studies" onClick={(e) => handleAnchorClick(e, '#case-studies')} className={activeClass(isCaseStudiesActive)}>Case Studies</a>
-              <Link to="/insights-and-innovation" onClick={closeMenu} className={activeClass(isInsightsActive)}>Insights</Link>
+            <a href="/" onClick={closeMenu} className={activeClass(isAboutActive)}>Home</a>
+            <a href="#services" onClick={(e) => handleAnchorClick(e, '#services')} className={activeClass(isServicesActive)}>Services</a>
+            <Link to="/case-studies" onClick={closeMenu} className={activeClass(isCaseStudiesActive)}>Case Studies</Link>
+              <a href="/about" onClick={closeMenu} className={activeClass(isAboutActive)}>About Us</a>
+             
+             
+              <Link to="/insights-and-innovation" onClick={closeMenu} className={activeClass(isInsightsActive)}>Blog</Link>
               <Link to="/contact" onClick={closeMenu} className={activeClass(isContactActive)}>Contact Us</Link>
             </>
           ) : (
             <>
-              <Link to="/about" onClick={closeMenu} className={activeClass(isAboutActive)}>About</Link>
-              <Link to="/#services" onClick={(e) => {
+            <Link to="/" onClick={closeMenu} className={activeClass(isAboutActive)}>Home</Link>
+            <Link to="/#services" onClick={(e) => {
                 e.preventDefault();
                 closeMenu();
                 window.location.href = '/#services';
@@ -69,25 +72,24 @@ const Header = () => {
                   }
                 }, 100);
               }} className={activeClass(isServicesActive)}>Services</Link>
-              <Link to="/#case-studies" onClick={(e) => {
-                e.preventDefault();
-                closeMenu();
-                window.location.href = '/#case-studies';
-                setTimeout(() => {
-                  const element = document.querySelector('#case-studies');
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  }
-                }, 100);
-              }} className={activeClass(isCaseStudiesActive)}>Case Studies</Link>
-              <Link to="/insights-and-innovation" onClick={closeMenu} className={activeClass(isInsightsActive)}>Insights</Link>
-              <Link to="/contact" onClick={closeMenu} className={activeClass(isContactActive)}>Contact Us</Link>
+           
+             
+              <Link to="/case-studies" onClick={closeMenu} className={activeClass(isCaseStudiesActive)}>Case Studies</Link>
+              <Link to="/about" onClick={closeMenu} className={activeClass(isAboutActive)}>About Us</Link>
+              <Link to="/insights-and-innovation" onClick={closeMenu} className={activeClass(isInsightsActive)}>Blog</Link>
+             {/*  <Link to="/contact" onClick={closeMenu} className={activeClass(isContactActive)}>Contact Us</Link> */}
                
             </>
           )}
-           <button className="cta-button mobile-only">Let's Talk</button>
+           
+           <button className="cta-button  mobile-only">Book a Consultation
+          
+           </button>
         </nav>
-         <button className="cta-button desktop-only">Let's Talk</button>
+         
+         <button className="cta-button desktop-only">Book a Consultation
+          
+           </button>
      
         <button className="hamburger" onClick={toggleMenu} aria-label="Menu">
           <span className={`hamburger-line ${isMenuOpen ? 'active' : ''}`}></span>

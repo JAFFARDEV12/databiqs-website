@@ -279,3 +279,24 @@
     font-size: 13px;
   }
 }
+
+/* .cta-icon {
+  position: absolute !important;
+  right: 6px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 26px !important;
+  height: 26px !important;
+  border-radius: 50% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.cta-icon img {
+  width: 11px !important;
+  height: 11px !important;
+  object-fit: contain !important;
+}
+.cta-icon img {
+  filter: brightness(0) saturate(100%) invert(15%) sepia(79%) saturate(4007%) hue-rotate(270deg) brightness(87%) contrast(101%) !important;
+} */

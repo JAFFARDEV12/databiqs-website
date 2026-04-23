@@ -11,6 +11,7 @@ import img4 from "../../assets/4.png";
 import img5 from "../../assets/5.png";
 import img6 from "../../assets/6.png";
 import ColourfulText from "../colorfull-text/ColourfulText";
+import PurpleCTAButton from "../buttons/PurpleCTAButton";
 const InsightsGrid = () => {
   const sectionRef = useScrollAnimation({ threshold: 0.2 });
 
@@ -94,15 +95,23 @@ const InsightsGrid = () => {
                   <span className="insCard__dot"></span>
                   <span>12 Minutes</span>
                 </div>
-
                 <div className="insCard__footer">
+  <PurpleCTAButton
+    to={`/blog-detail/${c.blogId}`}
+    text="Read Full Blog"
+    variant="inline"
+    className="insCard__reuseBtn"
+  />
+</div>
+
+               {/*  <div className="insCard__footer">
                   <Link to={`/blog-detail/${c.blogId}`} className="insCard__cta">
                     <span className="insCard__ctaText">Read Full Blog</span>
                     <span className="insCard__ctaArrow">
                       <img src={arrowIcon} alt="Arrow" />
                     </span>
                   </Link>
-                </div>
+                </div> */}
               </div>
             </div>
           ))}

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+
 import './HeroSection.css';
 import triangleImage from '../../assets/Triangle-herosection-revoleaboverectangle.png';
 import rectangleImage from '../../assets/herosection-rectangle-rightside.png';
@@ -17,13 +17,13 @@ const HeroSection = () => {
   return (
     <section className="hero-section" ref={sectionRef}>
 
-      <div className="animatecostume">
+     {/*  <div className="animatecostume">
     <Lottie
       animationData={costumeanimation}
       loop
       style={{ width: '100%', height: '100%' }}
     />
-  </div>
+  </div> */}
        
       <div className="hero-container">
         <div className="hero-content">
@@ -40,12 +40,20 @@ const HeroSection = () => {
             Empowering Businesses With Cutting-Edge AI Solutions,<br />
             Intelligent Chatbots, And Seamless Automation Workflows.
           </p>
-          <button className="hero-cta">
-            Start A Project
-            <span className="cta-icon">
-              <img src={arrowIcon} alt="Arrow" />
-            </span>
-          </button>
+          <div className="hero-cta-group">
+            <button className="hero-cta hero-cta-primary">
+              Book a Consultation
+              <span className="cta-icon">
+                <img src={arrowIcon} alt="Arrow" />
+              </span>
+            </button>
+            <button className="hero-cta hero-cta-secondary">
+              View Case Studies
+              <span className="cta-icon">
+                <img src={arrowIcon} alt="Arrow" />
+              </span>
+            </button>
+          </div>
         </div>
       <div className="hero-illustration">
           <img src={triangleImage} alt="Triangle" className="triangle-bg" />
@@ -64,7 +72,7 @@ const HeroSection = () => {
         
       </div>
       <div className="scroll-indicator">
-        <img src={scrollIcon} alt="Scroll" />
+       
       </div>
     
 

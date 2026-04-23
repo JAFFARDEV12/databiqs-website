@@ -4,6 +4,7 @@ import heroImg from "../../assets/main.png";
 import arrowIcon from "../../assets/rightarrow.svg";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import { Link } from "react-router-dom";
+import PurpleCTAButton from "../buttons/PurpleCTAButton";
 
 const HeroBlog = () => {
   const sectionRef = useScrollAnimation({ threshold: 0.2 });
@@ -12,9 +13,15 @@ const HeroBlog = () => {
     <section className="heroBlog" ref={sectionRef}>
       <div className="heroBlog__container">
         <div className="heroBlog__banner">
+          
           <img className="heroBlog__img" src={heroImg} alt="Blog hero" />
 
           <div className="heroBlog__overlay">
+            {/* ADDED: Our Latest Article badge */}
+            <div className="heroBlog__badge">
+              Our Latest Article
+            </div>
+
             <h1 className="heroBlog__title">
               HOW AI CHATBOTS ARE REDEFINING ENTERPRISE CUSTOMER SUPPORT
             </h1>
@@ -31,15 +38,13 @@ const HeroBlog = () => {
               in New York is trying to track their order. Your support team is
               asleep...
             </p>
-
             <div className="heroBlog__ctaRow">
-              <Link to="/blog-detail/1" className="heroBlog__cta">
-                <span className="heroBlog__ctaText">Read Full Blog</span>
-                <span className="heroBlog__ctaArrow">
-                  <img src={arrowIcon} alt="Arrow" />
-                </span>
-              </Link>
-            </div>
+  <PurpleCTAButton
+    to="/blog-detail/1"
+    text="Read Full Blog"
+  />
+</div>
+
           </div>
         </div>
       </div>

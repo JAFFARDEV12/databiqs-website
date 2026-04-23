@@ -17,7 +17,7 @@
 .section-tag {
   display: inline-block;
   padding: 10px 18px;
-  border: 1px solid #E0E0E0;
+  border: 1px solid #BDBDBD;
   border-radius: 80px;
   background: #ffffff;
   color: #000000;
@@ -57,7 +57,7 @@
   text-align: center;
   vertical-align: middle;
   text-transform: capitalize;
-  color: #666666;
+  color: #36343A;
   margin: 0 0 60px 0;
   opacity: 0;
 }
@@ -150,23 +150,19 @@
 }
 
 .testimonial-card.featured {
-  transform: scale(1);
-  z-index: 1;
   position: relative;
+  width: 264px;
+  height: 320px;
+  border-radius: 30px;
+  overflow: hidden;
+  background: #000;
+  padding: 0 !important;
+  border: none;
 }
 
 .testimonial-card.featured::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 30px;
-  z-index: 0;
+  display: none !important;
 }
-
 .testimonial-card.featured > * {
   position: relative;
   z-index: 1;
@@ -179,29 +175,35 @@
 
 .testimonial-card.featured .testimonial-avatar {
   position: absolute;
-  top: 20px;
-  left: 20px;
-  width: 36px;
-  height: 36px;
+  top: 18px;
+  left: 18px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  object-fit: cover;
-  z-index: 2;
+  z-index: 5;
 }
 
 .testimonial-card.featured .testimonial-author {
-  margin-top: auto;
-  padding-top: 0;
-  margin-top: 175px;
-  position: relative;
-  z-index: 2;
+  position: absolute;
+  left: 24px;
+  bottom: 22px;
+  margin: 0;
+  padding: 0;
+  z-index: 6;
 }
 
 .testimonial-card.featured .author-name {
-  color: white;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 8px;
 }
 
 .testimonial-card.featured .author-title {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255,255,255,.9);
+  font-size: 20px;
+  font-weight: 400;
 }
 
 .testimonial-avatar {
@@ -354,13 +356,11 @@
 }
 
 .testimonial-card.featured .play-button {
+  position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70px;
-  height: 39px;
-  min-width: 70px;
-  min-height: 39px;
+  transform: translate(-50%, -50%) !important;
+  z-index: 6;
 }
 
 .play-button:hover {
@@ -411,7 +411,59 @@
   color: #7B2CBF;
   font-size: 20px;
 }
+@media (max-width:768px){
 
+  .testimonial-card.featured{
+    width: 100%;
+    max-width: 360px;
+    height: 520px;
+    border-radius: 34px;
+  }
+
+  .testimonial-video-inline,
+  .featured-video-overlay{
+    border-radius: 34px;
+  }
+
+  .testimonial-card.featured .testimonial-avatar{
+    top: 18px;
+    left: 18px;
+    width: 46px;
+    height: 46px;
+  }
+
+  .testimonial-card.featured .author-name{
+    font-size: 18px;
+  }
+
+  .testimonial-card.featured .author-title{
+    font-size: 14px;
+  }
+
+  .testimonial-card.featured .testimonial-author{
+    left: 20px;
+    bottom: 20px;
+  }
+}
+
+/* -------- SMALL MOBILE -------- */
+@media (max-width:480px){
+
+  .testimonial-card.featured{
+    max-width: 100%;
+    height: 500px;
+    border-radius: 28px;
+  }
+
+  .testimonial-video-inline,
+  .featured-video-overlay{
+    border-radius: 28px;
+  }
+
+  .testimonial-card.featured .play-button{
+    transform: translate(-50%, -50%) scale(.9) !important;
+  }
+}
 @media (max-width: 968px) {
   .testimonials-grid {
     flex-direction: column;
@@ -572,4 +624,209 @@
   .author-title {
     font-size: 12px;
   }
+}
+/* Add to TestimonialsSection.css */
+
+/* Video Modal Styles */
+.video-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.video-modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  background: #000;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  transform: scale(0.95);
+  animation: scaleIn 0.3s ease-out forwards;
+}
+
+.video-modal-player {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  background: black;
+}
+
+.video-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+.video-modal-close:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.video-modal-close img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+}
+
+/* Modal animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive adjustments for modal */
+@media (max-width: 768px) {
+  .video-modal-content {
+    width: 95%;
+    border-radius: 16px;
+  }
+  
+  .video-modal-close {
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+  }
+  
+  .video-modal-close img {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-modal-overlay {
+    backdrop-filter: blur(3px);
+  }
+  
+  .video-modal-content {
+    width: 98%;
+    border-radius: 12px;
+  }
+  
+  .video-modal-close {
+    top: 8px;
+    right: 8px;
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Ensure the play button is interactive and responsive */
+.testimonial-card.featured .play-button {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.testimonial-card.featured .play-button:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* Keep existing responsive rules for the card itself */
+@media (max-width: 768px) {
+  .testimonial-card.featured .play-button {
+    top: calc(50% + 50px);
+    transform: translate(-50%, 220%);
+  }
+  
+  .testimonial-card.featured .play-button:hover {
+    transform: translate(-50%, 220%) scale(1.05);
+  }
+}
+
+/* ===== Inline featured video: force in-card playback ===== */
+.testimonial-card.featured {
+  background: #000 !important;
+}
+
+.testimonial-video-inline {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 30px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.featured-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 2;
+  border-radius: 30px;
+}
+
+.testimonial-card.featured > * {
+  z-index: 2;
+}
+
+.testimonial-card.featured .testimonial-avatar {
+  z-index: 3;
+}
+
+.testimonial-card.featured .play-button {
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 4;
+}
+
+.testimonial-card.featured .play-button:hover {
+  transform: translate(-50%, -50%) scale(1.05) !important;
+}
+
+.play-button-pause {
+  width: 12px;
+  height: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.play-button-pause::before,
+.play-button-pause::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 4px;
+  height: 12px;
+  border-radius: 3px;
+  background: #4f118e;
+}
+
+.play-button-pause::before {
+  left: 1px;
+}
+
+.play-button-pause::after {
+  right: 1px;
 }
