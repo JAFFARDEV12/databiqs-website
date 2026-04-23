@@ -88,10 +88,10 @@
     min-height: clamp(220px, 40vw, 400px);
     border-radius: clamp(14px, 2vw, 24px);
     object-fit: cover;
-    background:
+   /*  background:
       radial-gradient(circle at 75% 10%, rgba(193, 158, 255, 0.5), transparent 45%),
       radial-gradient(circle at 22% 82%, rgba(106, 53, 222, 0.65), transparent 55%),
-      linear-gradient(135deg, #3d2369 0%, #522f8d 42%, #6d47c6 100%);
+      linear-gradient(135deg, #3d2369 0%, #522f8d 42%, #6d47c6 100%); */
     box-shadow: 0 14px 36px rgba(87, 37, 172, 0.24);
     display: block;
   }

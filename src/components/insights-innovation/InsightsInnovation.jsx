@@ -19,7 +19,7 @@ const InsightsInnovation = () => {
 
        </div>
       <InsightsGrid />
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
       <Footer />
     </div>
   );
