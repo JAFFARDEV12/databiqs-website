@@ -1,4 +1,4 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
 import logo from '../../assets/header-logo.svg';
@@ -30,39 +30,39 @@ const Header = () => {
   const isHomePage = location.pathname === '/';
   const hash = location.hash || '';
 
-  const isAboutActive = location.pathname === '/about';
+  const isAboutActive = location.pathname === '/about-us';
   const isServicesActive = isHomePage && hash === '#services';
   const isCaseStudiesActive = location.pathname === '/case-studies';
-  const isInsightsActive = location.pathname === '/insights-and-innovation';
+  const isInsightsActive = location.pathname === '/blog-page';
   const isContactActive = location.pathname === '/contact';
 
   const activeClass = (active) => (active ? ' nav-link-active' : '');
 
   return (
-    
+
 
     <header className="Header">
       <div className="header-container">
         <Link to="/" className="logo">
           <img src={logo} alt="Databiqs" />
         </Link>
-       
+
         <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
           {isHomePage ? (
             <>
-            <a href="/" onClick={closeMenu} className={activeClass(isAboutActive)}>Home</a>
-            <a href="#services" onClick={(e) => handleAnchorClick(e, '#services')} className={activeClass(isServicesActive)}>Services</a>
-            <Link to="/case-studies" onClick={closeMenu} className={activeClass(isCaseStudiesActive)}>Case Studies</Link>
-              <a href="/about" onClick={closeMenu} className={activeClass(isAboutActive)}>About Us</a>
-             
-             
-              <Link to="/insights-and-innovation" onClick={closeMenu} className={activeClass(isInsightsActive)}>Blog</Link>
-              <Link to="/contact" onClick={closeMenu} className={activeClass(isContactActive)}>Contact Us</Link>
+              <a href="/" onClick={closeMenu} className={activeClass(isAboutActive)}>Home</a>
+              <a href="#services" onClick={(e) => handleAnchorClick(e, '#services')} className={activeClass(isServicesActive)}>Services</a>
+              <Link to="/case-studies" onClick={closeMenu} className={activeClass(isCaseStudiesActive)}>Case Studies</Link>
+              <a href="/about-us" onClick={closeMenu} className={activeClass(isAboutActive)}>About Us</a>
+
+
+              <Link to="/blog-page" onClick={closeMenu} className={activeClass(isInsightsActive)}>Blog</Link>
+              {/* <Link to="/contact" onClick={closeMenu} className={activeClass(isContactActive)}>Contact Us</Link> */}
             </>
           ) : (
             <>
-            <Link to="/" onClick={closeMenu} className={activeClass(isAboutActive)}>Home</Link>
-            <Link to="/#services" onClick={(e) => {
+              <Link to="/" onClick={closeMenu} className={activeClass(isAboutActive)}>Home</Link>
+              <Link to="/#services" onClick={(e) => {
                 e.preventDefault();
                 closeMenu();
                 window.location.href = '/#services';
@@ -73,32 +73,32 @@ const Header = () => {
                   }
                 }, 100);
               }} className={activeClass(isServicesActive)}>Services</Link>
-           
-             
+
+
               <Link to="/case-studies" onClick={closeMenu} className={activeClass(isCaseStudiesActive)}>Case Studies</Link>
-              <Link to="/about" onClick={closeMenu} className={activeClass(isAboutActive)}>About Us</Link>
-              <Link to="/insights-and-innovation" onClick={closeMenu} className={activeClass(isInsightsActive)}>Blog</Link>
-             {/*  <Link to="/contact" onClick={closeMenu} className={activeClass(isContactActive)}>Contact Us</Link> */}
-               
+              <Link to="/about-us" onClick={closeMenu} className={activeClass(isAboutActive)}>About Us</Link>
+              <Link to="/blog-page" onClick={closeMenu} className={activeClass(isInsightsActive)}>Blog</Link>
+              {/*  <Link to="/contact" onClick={closeMenu} className={activeClass(isContactActive)}>Contact Us</Link> */}
+
             </>
           )}
-           
-           <button className="cta-button mobile-only">
-  <span>Book a Consultation</span>
-  <div className="cta-icon-circle">
-  <img src={arrowIcon} alt="Arrow" />
-  </div>
-</button>
+
+          <button className="cta-button mobile-only">
+            <span>Book a Consultation</span>
+            <div className="cta-icon-circle">
+              <img src={arrowIcon} alt="Arrow" />
+            </div>
+          </button>
 
         </nav>
-         
+
         <button className="cta-button desktop-only">
-  <span>Book a Consultation</span>
-  <div className="cta-icon-circle">
-  <img src={arrowIcon} alt="Arrow" />
-  </div>
-</button>
-     
+          <span>Book a Consultation</span>
+          <div className="cta-icon-circle">
+            <img src={arrowIcon} alt="Arrow" />
+          </div>
+        </button>
+
         <button className="hamburger" onClick={toggleMenu} aria-label="Menu">
           <span className={`hamburger-line ${isMenuOpen ? 'active' : ''}`}></span>
           <span className={`hamburger-line ${isMenuOpen ? 'active' : ''}`}></span>

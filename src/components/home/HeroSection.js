@@ -2,7 +2,7 @@
 import './HeroSection.css';
 import triangleImage from '../../assets/Triangle-herosection-revoleaboverectangle.png';
 import rectangleImage from '../../assets/herosection-rectangle-rightside.png';
-import scrollIcon from '../../assets/scroll.svg';
+/* import scrollIcon from '../../assets/scroll.svg'; */
 import arrowIcon from '../../assets/rightarrow.svg';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
