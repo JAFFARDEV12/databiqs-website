@@ -92,16 +92,20 @@
 /* Single line on tablet/desktop — font tracks card width (cqi) */
 .meeting-banner__title {
   font-family: 'Bebas Neue', sans-serif;
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: 0.04em;
-  color: #000000;
-  margin: 0;
-  width: 100%;
-  max-width: 100%;
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 91px;
+  letter-spacing: 0;
   text-align: center;
-  white-space: nowrap;
-  font-size: clamp(1.35rem, 2.65cqi + 0.45rem, 3.125rem);
+  vertical-align: middle;
+
+  color: #000;
+  margin: 0;
+  text-transform: uppercase;
+
+  width: 100%;
+  font-size: 50px;
 }
 
 .meeting-banner__sub {
@@ -151,7 +155,7 @@
   text-decoration: none;
   font-family: 'Questrial', sans-serif;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0.01em;
   box-sizing: border-box;
   transition: transform 0.25s ease, box-shadow 0.25s ease;

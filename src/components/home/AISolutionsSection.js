@@ -38,9 +38,14 @@ const AISolutionsSection = () => {
 
           <div className="card-right">
             <div className="automation-title-row">
-              <div className="automation-title-lottie">
-                <Lottie animationData={aiCustomerAnimation} loop autoplay />
-              </div>
+            <div className="automation-title-lottie">
+  <Lottie
+    animationData={aiCustomerAnimation}
+    loop
+    autoplay
+    style={{ width: 'auto', height: 'auto', maxWidth: '100%', maxHeight: '100%' }}
+  />
+            </div>
               <h3 className="card-title">AI Conversational & Support Systems</h3>
             </div>
 

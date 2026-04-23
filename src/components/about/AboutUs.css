@@ -158,26 +158,38 @@
 }
 
 /* Pill */
-.au-pill {
-  display: inline-block;
-  padding: 10px 18px;
-  border-radius: 80px;
-  background: #ffffff;
-  border: 1px solid #E0E0E0;
+/* SAME SIZE AS hero-tag
+   keep original colors/style */
 
-  font-family: Questrial;
-  font-size: 14px;
-  font-weight: 400;
-  color: #000000;
-
-
-  margin-bottom: 20px;
-  opacity: 0;
-}
-
-.au-hero.animate .au-pill {
-  animation: fadeInUp 0.4s ease-out 0.05s forwards;
-}
+   .au-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  
+    height: 40px;           /* same height */
+    padding: 10px 18px;     /* same spacing */
+    margin-bottom: 20px;
+  
+    border-radius: 80px;
+    border: 1px solid #E0E0E0;
+    background: #ffffff;
+  
+    font-family: 'Questrial', sans-serif;
+    font-size: 14px;        /* same font size */
+    font-weight: 400;
+    line-height: 1;
+    color: #000000;
+  
+    width: fit-content;
+    max-width: 100%;
+    white-space: nowrap;
+  
+    opacity: 0;
+  }
+  
+  .au-hero.animate .au-pill {
+    animation: fadeInUp 0.4s ease-out 0.05s forwards;
+  }
 
 /* Heading */
 .au-title {
@@ -425,16 +437,23 @@
   align-items: center;
   justify-content: center;
 
-  padding: 10px 18px;
-  border-radius: 80px;
+  height: 40px;           /* same height */
+  padding: 10px 18px;     /* same spacing */
 
+  border-radius: 80px;
   background: #ffffff;
   border: 1px solid #E0E0E0;
 
-  font-family: Questrial;
-  font-size: 14px;
+  font-family: 'Questrial', sans-serif;
+  font-size: 14px;        /* same font size */
   font-weight: 400;
+  line-height: 1;
   color: #000000;
+
+  width: fit-content;
+  max-width: 100%;
+  white-space: nowrap;
+
   opacity: 0;
 }
 

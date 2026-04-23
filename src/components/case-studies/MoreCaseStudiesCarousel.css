@@ -33,16 +33,24 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 44px;
-  padding: 10px 20px;
+
+  height: 40px;           /* same height */
+  padding: 10px 18px;     /* same spacing */
   margin-bottom: 20px;
+
   border: 1px solid #e0e0e0;
-  border-radius: 60px;
+  border-radius: 80px;
+
   background: #ffffff;
   color: #1a1a1a;
-  font-size: 14px;
+
+  font-size: 14px;        /* same font size */
   font-weight: 400;
   line-height: 1;
+
+  width: fit-content;
+  max-width: 100%;
+  white-space: nowrap;
 }
 
 .more-cs-title {

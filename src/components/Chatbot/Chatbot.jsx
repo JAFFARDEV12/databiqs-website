@@ -4,26 +4,18 @@ import './Chatbot.css';
 import chatbotIcon from '../../assets/chatbotlogo.svg';
 
 const Chatbot = () => {
-  // Auto open on first load
+  // Auto open on first load / refresh
   const [isOpen, setIsOpen] = useState(true);
   const [mounted, setMounted] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
-  const [isFirstLoad, setIsFirstLoad] = useState(true);
 
   useEffect(() => {
     setMounted(true);
-
-    // After first auto popup closes, next opens from icon side
     return () => setMounted(false);
   }, []);
 
   const toggleChatbot = () => {
-    if (isOpen) {
-      setIsOpen(false);
-      setIsFirstLoad(false);
-    } else {
-      setIsOpen(true);
-    }
+    setIsOpen(!isOpen);
   };
 
   if (!mounted) return null;
@@ -34,20 +26,19 @@ const Chatbot = () => {
       <button
         onClick={toggleChatbot}
         className="chatbot-icon-container"
-        style={{
-          position: 'fixed',
-          bottom: '24px',
-          right: '24px',
-          zIndex: 99999
-        }}
         onMouseEnter={() => setShowTooltip(true)}
         onMouseLeave={() => setShowTooltip(false)}
+        aria-label="Open chatbot"
       >
-        <img src={chatbotIcon} alt="Chatbot" className="chatbot-icon" />
+        <img
+          src={chatbotIcon}
+          alt="Chatbot"
+          className="chatbot-icon"
+        />
 
         {!isOpen && showTooltip && (
           <div className="chatbot-tooltip">
-            Hye 👋 Ask Databiqs AI Assistant
+            Hey 👋 Ask Databiqs AI Assistant
           </div>
         )}
       </button>
@@ -57,48 +48,30 @@ const Chatbot = () => {
         <div
           className="chatbot-overlay"
           onClick={toggleChatbot}
-          style={{
-            position: 'fixed',
-            inset: 0,
-            zIndex: 99997
-          }}
         />
       )}
 
       {/* Chat Window */}
       {isOpen && (
-        <div
-          className="chatbot-window"
-          style={{
-            position: 'fixed',
-            zIndex: 99998,
-
-            // First load center popup
-            ...(isFirstLoad
-              ? {
-                  top: '50%',
-                  left: '50%',
-                  transform: 'translate(-50%, -50%)'
-                }
-              : {
-                  bottom: '90px',
-                  right: '24px'
-                })
-          }}
-        >
+        <div className="chatbot-window">
           <div className="chatbot-header">
             <div className="chatbot-header-brand">
+              <div className="chatbot-mini-logo">
               <img
-                src={chatbotIcon}
-                alt="Chatbot"
-                className="chatbot-logo"
-              />
-              <span className="chatbot-brand-text">Databiqs</span>
+                  src={chatbotIcon}
+                  alt="Databiqs"
+                  className="chatbot-mini-logo-icon"
+                />
+                <span className="chatbot-mini-logo-text">
+                  atabiqs
+                </span>
+              </div>
             </div>
 
             <button
               className="chatbot-close"
               onClick={toggleChatbot}
+              aria-label="Close chatbot"
             >
               ×
             </button>
@@ -117,6 +90,7 @@ const Chatbot = () => {
                 placeholder="Type your message..."
                 className="chatbot-input"
               />
+
               <button className="chatbot-send">
                 Send
               </button>
