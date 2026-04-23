@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
 import logo from '../../assets/header-logo.svg';
 /* import arrowIcon from '../../assets/rightarrow.svg'; */
+import arrowIcon from '../../assets/rightarrow.svg';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
@@ -82,14 +83,21 @@ const Header = () => {
             </>
           )}
            
-           <button className="cta-button  mobile-only">Book a Consultation
-          
-           </button>
+           <button className="cta-button mobile-only">
+  <span>Book a Consultation</span>
+  <div className="cta-icon-circle">
+  <img src={arrowIcon} alt="Arrow" />
+  </div>
+</button>
+
         </nav>
          
-         <button className="cta-button desktop-only">Book a Consultation
-          
-           </button>
+        <button className="cta-button desktop-only">
+  <span>Book a Consultation</span>
+  <div className="cta-icon-circle">
+  <img src={arrowIcon} alt="Arrow" />
+  </div>
+</button>
      
         <button className="hamburger" onClick={toggleMenu} aria-label="Menu">
           <span className={`hamburger-line ${isMenuOpen ? 'active' : ''}`}></span>

@@ -1,10 +1,22 @@
 
+/* ===== Default Visibility ===== */
 .desktop-only {
   display: inline-flex;
 }
 
 .mobile-only {
-  display: none;
+  display: none !important;
+}
+
+/* ===== Mobile Only ===== */
+@media (max-width: 600px) {
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-only {
+    display: inline-flex !important;
+  }
 }
 
 .Header{
@@ -97,19 +109,40 @@
   background: linear-gradient(119.69deg, #AE0DFF 12.36%, #401371 85.46%);
   color: white;
   border: none;
-  padding: 10px 28px;
-  border-radius: 25px;
-  font-size: 16px;
+  padding: 6px 8px 6px 18px;
+  border-radius: 999px;
+  font-size: 14px;
   font-weight: 400;
   cursor: pointer;
   transition: transform 0.3s ease;
   white-space: nowrap;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
   animation: fadeIn 0.3s ease-out 0.15s forwards;
   opacity: 0;
 }
 
 .cta-button:hover {
   transform: translateY(-2px);
+}
+
+.cta-icon-circle {
+  width: 28px;
+  height: 28px;
+  background: white;
+  color: #2d2140;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
 }
 
 /* Hamburger Menu */
@@ -144,6 +177,18 @@
   transform: rotate(-45deg) translate(7px, -7px);
 }
 
+@media (max-width: 600px) {
+  .cta-button {
+    font-size: 13px;
+    padding: 6px 8px 6px 14px;
+  }
+
+  .cta-icon-circle {
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+  }
+}
 @media (max-width: 968px) {
   .header {
     padding: 15px 40px;

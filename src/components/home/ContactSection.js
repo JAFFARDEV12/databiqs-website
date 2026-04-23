@@ -3,7 +3,7 @@ import './ContactSection.css';
 import phoneIcon from '../../assets/phoneicon.png';
 import arrowIcon from '../../assets/rightarrow.svg';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-imp/* ort costumeanimation from '../../assets/Contact.json';
+/* import costumeanimation from '../../assets/Contact.json';
 import Lottie from 'lottie-react'; */
 const ContactSection = () => {
   const [formData, setFormData] = useState({
