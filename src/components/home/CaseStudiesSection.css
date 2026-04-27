@@ -77,9 +77,10 @@
 
 .case-studies-track {
   display: flex;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.65s cubic-bezier(0.22, 0.61, 0.36, 1);
   gap: 30px;
   background-color: transparent !important;
+  will-change: transform;
 }
 
 .case-study-slide-item {
@@ -258,6 +259,7 @@
 
 .case-study-cta:hover {
   transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(64, 19, 113, 0.35);
 }
 
 .case-study-text {

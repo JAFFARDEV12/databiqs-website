@@ -9,20 +9,36 @@ import { useNavigate } from 'react-router-dom';
 const CaseStudiesSection = () => {
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isForward, setIsForward] = useState(true);
   const totalSlides = 5; // 5 pairs of cards
 
   const goToSlide = (index) => {
     setCurrentSlide(index);
   };
 
-  // Auto-play slideshow every 5 seconds
+  // Smooth autoplay without abrupt last->first jump:
+  // moves forward to the end, then reverses back.
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % totalSlides);
-    }, 5000);
+    const timer = setTimeout(() => {
+      if (isForward) {
+        if (currentSlide >= totalSlides - 1) {
+          setIsForward(false);
+          setCurrentSlide((prev) => Math.max(prev - 1, 0));
+        } else {
+          setCurrentSlide((prev) => prev + 1);
+        }
+      } else {
+        if (currentSlide <= 0) {
+          setIsForward(true);
+          setCurrentSlide((prev) => Math.min(prev + 1, totalSlides - 1));
+        } else {
+          setCurrentSlide((prev) => prev - 1);
+        }
+      }
+    }, 4500);
 
-    return () => clearInterval(interval);
-  }, [totalSlides]);
+    return () => clearTimeout(timer);
+  }, [currentSlide, isForward, totalSlides]);
 
   const CaseStudyCard = () => (
     <div className="case-study-card" >

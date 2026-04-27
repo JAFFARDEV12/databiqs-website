@@ -17,6 +17,7 @@
   padding: 8px 8px 8px 18px;
   background: linear-gradient(111.24deg, #AE0DFF 15.72%, #401371 86%);
   border-radius: 999px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .purpleBtn--pill .purpleBtn__text {
@@ -39,7 +40,8 @@
 }
 
 .purpleBtn--pill:hover {
-  background: #6B3BC2;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(64, 19, 113, 0.35);
 }
 
 /* ================================================= */

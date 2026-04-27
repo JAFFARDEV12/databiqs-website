@@ -51,7 +51,7 @@ const TestimonialsSection = () => {
               <img src={avatar1} alt="Robert Wilson" className="testimonial-avatar" />
               <img src={apostrophySvg} alt="" className="quote-icon" aria-hidden="true" />
               <p className="testimonial-quote">
-                "Databigs Delivered An Al Solution That Significantly Improved Our Customer Response Time And Operational Efficiency. Their Approach Was Strategic, Professional, And Results-Driven."
+                "Databiqs Delivered An Al Solution That Significantly Improved Our Customer Response Time And Operational Efficiency. Their Approach Was Strategic, Professional, And Results-Driven."
               </p>
               <div className="testimonial-author">
                 <div className="author-name">Robert Wilson</div>
@@ -119,7 +119,7 @@ const TestimonialsSection = () => {
               <img src={avatar4} alt="Michael Hayes" className="testimonial-avatar" />
               <img src={apostrophySvg} alt="" className="quote-icon" aria-hidden="true" />
               <p className="testimonial-quote">
-                "Databigs Delivered An Al Solution That Significantly Improved Our Customer Response Time And Operational Efficiency. Their Approach Was Strategic, Professional, And Results-Driven"
+                "Databiqs Delivered An Al Solution That Significantly Improved Our Customer Response Time And Operational Efficiency. Their Approach Was Strategic, Professional, And Results-Driven"
               </p>
               <div className="testimonial-author">
                 <div className="author-name">Michael Hayes</div>
