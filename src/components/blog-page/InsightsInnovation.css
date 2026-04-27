@@ -1,5 +1,6 @@
 
 .insights-innovation-page{
+  --case-study-page-pad-x: clamp(16px, 4vw, 32px);
   width: 100%;
   overflow-x: hidden;
   background: #ffffff;
@@ -8,15 +9,11 @@
   position: relative;
   min-height: 100vh;
 
-  background: linear-gradient(
-    180deg,
-    rgba(178, 131, 255, 0.22) 0%,
-    #ffffff 65%
-  );
+ 
 }
 
 
-.top-gradient-wrapper {
+.insights-innovation-page .top-gradient-wrapper {
   margin: -12px calc(-1 * var(--case-study-page-pad-x)) 0;
   /* Re-add the same padding so inner content stays aligned */
   padding: 12px var(--case-study-page-pad-x) clamp(16px, 3vw, 32px);
@@ -30,7 +27,7 @@
   );
 }
 
-.decorative-ellipse-1 {
+.insights-innovation-page .decorative-ellipse-1 {
   position: fixed;
   width: 180px;
   height: 180px;
@@ -51,7 +48,7 @@
 }
 
 @media (max-width: 1440px) {
-  .decorative-ellipse-1 {
+  .insights-innovation-page .decorative-ellipse-1 {
     right: 0%;
     top: 55%;
   }

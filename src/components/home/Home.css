@@ -1,17 +1,15 @@
 .home {
+  --home-page-pad-x: clamp(10px, 2.8vw, 32px);
   width: 100%;
   overflow-x: hidden;
   background: #ffffff;
+  
   transform: translateZ(0);
   will-change: transform;
   position: relative;
   min-height: 100vh;
 
-  background: linear-gradient(
-    180deg,
-    rgba(178, 131, 255, 0.22) 0%,
-    #ffffff 65%
-  );
+  
 
 }
 
@@ -21,26 +19,27 @@
 .home-content {
   position: relative;
   z-index: 1;
+  width: 100%;
+  box-sizing: border-box;
+  
+  overflow-x: clip;
 }
 
 /* Decorative Ellipse 1 from Figma - Purple blur effect */
 /* Figma specs: rgba(137, 76, 251, 0.8), blur radius 694px, 232x232px */
-.top-gradient-wrapper {
+.home .top-gradient-wrapper {
   
-  margin: -12px calc(-1 * var(--case-study-page-pad-x)) 0;
-    /* Re-add the same padding so inner content stays aligned */
-    padding: 12px var(--case-study-page-pad-x) clamp(16px, 3vw, 32px);
-    /* Expand width to cover the bled-out margins */
-    width: calc(100% + 2 * var(--case-study-page-pad-x));
-    box-sizing: border-box;
-    background: linear-gradient(
-      180deg,
-      rgba(178, 131, 255, 0.22) 0%,
-      #ffffff 65%
-    );
+  
+  width: 100vw;
+  box-sizing: border-box;
+  background: linear-gradient(
+    180deg,
+    rgba(178, 131, 255, 0.22) 0%,
+    #ffffff 65%
+  );
 }
 
-.decorative-ellipse-1 {
+.home .decorative-ellipse-1 {
   position: fixed;
   width: 180px;
   height: 180px;
@@ -61,20 +60,24 @@
 }
 
 @media (max-width: 1440px) {
-  .decorative-ellipse-1 {
+  .home .decorative-ellipse-1 {
     right: 0%;
     top: 55%;
   }
 }
 @media (max-width: 1440px) {
-  .decorative-ellipse-1 {
+  .home .decorative-ellipse-1 {
     right: 0%;
     top: 55%;
   }
 }
 
 @media (max-width: 768px) {
-  .decorative-ellipse-1 {
+  .home {
+    --home-page-pad-x: clamp(10px, 3.5vw, 20px);
+  }
+
+  .home .decorative-ellipse-1 {
     width: 150px;
     height: 150px;
     filter: blur(400px);
@@ -83,10 +86,80 @@
 }
 
 @media (max-width: 480px) {
-  .decorative-ellipse-1 {
+  .home {
+    --home-page-pad-x: 10px;
+  }
+
+  .home .decorative-ellipse-1 {
     width: 100px;
     height: 100px;
     filter: blur(300px);
     -webkit-filter: blur(300px);
+  }
+}
+
+/* ===== Final responsive page-level stability (300px - 1400px) ===== */
+.home-content > :where(
+  .top-gradient-wrapper,
+  section,
+  .numbers-stats-section,
+  .ai-solutions-section,
+  .ai-automation-section,
+  .testimonials-section,
+  .stats-bar-section,
+  .case-studies-section,
+  .tools-audits-section,
+  .meeting-banner-section,
+  .footer
+) {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.home :where(
+  .hero-container,
+  .section-container,
+  .stats-bar-container,
+  .footer-container,
+  .meeting-banner-section__wrap
+) {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+
+/* Prevent any section internals from causing horizontal overflow */
+.home :where(
+  .hero-section,
+  .numbers-stats-section,
+  .ai-solutions-section,
+  .ai-automation-section,
+  .testimonials-section,
+  .stats-bar-section,
+  .case-studies-section,
+  .tools-audits-section,
+  .meeting-banner-section,
+  .footer
+) {
+  overflow-x: hidden;
+}
+
+@media (max-width: 1200px) {
+  .home {
+    --home-page-pad-x: clamp(12px, 3vw, 24px);
+  }
+}
+
+@media (max-width: 968px) {
+  .home {
+    --home-page-pad-x: clamp(10px, 3vw, 18px);
+  }
+}
+
+@media (max-width: 360px) {
+  .home {
+    --home-page-pad-x: 8px;
   }
 }

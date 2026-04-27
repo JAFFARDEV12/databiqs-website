@@ -1,5 +1,6 @@
 /* ===== Page (gradient from index.css – same as landing header/hero) ===== */
 .au-page {
+  --about-page-pad-x: clamp(10px, 2.8vw, 32px);
   width: 100%;
   overflow-x: hidden;
   background: #ffffff;
@@ -8,11 +9,7 @@
   position: relative;
   min-height: 100vh;
 
-  background: linear-gradient(
-    180deg,
-    rgba(178, 131, 255, 0.22) 0%,
-    #ffffff 65%
-  );
+ 
  
 }
 
@@ -1188,8 +1185,11 @@ width: 100%;
   margin-top: 50px;
 } */
 
-.top-gradient-wrapper {
-  width: 100%;
+.au-page .top-gradient-wrapper {
+  margin: -12px calc(-1 * var(--about-page-pad-x)) 0;
+  padding: 12px var(--about-page-pad-x) clamp(16px, 3vw, 32px);
+  width: calc(100% + 2 * var(--about-page-pad-x));
+  box-sizing: border-box;
   background: linear-gradient(
     180deg,
     rgba(178, 131, 255, 0.22) 0%,
@@ -1197,7 +1197,7 @@ width: 100%;
   );
 }
 
-.decorative-ellipse-1 {
+.au-page .decorative-ellipse-1 {
   position: fixed;
   width: 180px;
   height: 180px;
@@ -1218,7 +1218,7 @@ width: 100%;
 }
 
 @media (max-width: 1440px) {
-  .decorative-ellipse-1 {
+  .au-page .decorative-ellipse-1 {
     right: 0%;
     top: 55%;
   }
