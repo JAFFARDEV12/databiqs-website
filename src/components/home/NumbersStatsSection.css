@@ -4,6 +4,7 @@
   background: transparent;
   transform: translateZ(0);
   will-change: transform;
+  background-color: white !important;
 }
 
 .numbers-stats-section__wrap {

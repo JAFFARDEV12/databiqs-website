@@ -1,0 +1,142 @@
+.core-capabilities {
+    padding: 80px 20px;
+   
+  }
+  
+  .core-capabilities__container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  
+  .core-capabilities__top {
+    margin-bottom: 28px;
+  }
+  
+  .core-capabilities__title {
+    margin: 0 0 8px;
+    color: #000;
+    font-size: clamp(28px, 4vw, 50px);
+    font-weight: 400;
+    line-height: 60px;
+    text-transform: uppercase;
+    font-family: "Bebas Neue", sans-serif;
+  }
+  
+  .core-capabilities__subtitle {
+    margin: 0;
+    color:#838383;
+    font-size: clamp(14px, 2vw, 18px);
+    line-height: 1.6;
+    max-width: 760px;
+  }
+  
+  .core-capabilities__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  .core-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    min-height: 230px;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .core-card__icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: #f1d8ff;
+    color: #a300ff;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    margin-bottom: 18px;
+  }
+  
+  .core-card__title {
+    margin: 0 0 12px;
+    font-size: clamp(18px, 2vw, 26px);
+    font-weight: 600;
+    color: #111;
+  }
+  
+  .core-card__desc {
+    margin: 0;
+    color: #7a7a7a;
+    font-size: clamp(14px, 1.4vw, 16px);
+    line-height: 1.7;
+  }
+  
+  .core-card__link {
+    margin-top: auto;
+    padding-top: 18px;
+    border: none;
+    background: transparent;
+    color: #a300ff;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+  
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .core-card__link span {
+    transition: transform 0.25s ease;
+  }
+  
+  .core-card:hover .core-card__link span {
+    transform: translateX(4px);
+  }
+  
+  /* Tablet */
+  @media (max-width: 992px) {
+    .core-capabilities {
+      padding: 70px 20px;
+    }
+  
+    .core-card {
+      min-height: 250px;
+    }
+  }
+  
+  /* Mobile */
+  @media (max-width: 768px) {
+    .core-capabilities__grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .core-capabilities {
+      padding: 60px 16px;
+    }
+  
+    .core-card {
+      padding: 20px;
+      min-height: auto;
+    }
+  }
+  
+  /* Small Mobile */
+  @media (max-width: 480px) {
+    .core-capabilities__title {
+      font-size: 34px;
+    }
+  
+    .core-card__title {
+      font-size: 20px;
+    }
+  
+    .core-card__desc {
+      font-size: 14px;
+    }
+  }

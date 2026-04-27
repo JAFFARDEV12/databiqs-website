@@ -10,6 +10,7 @@ import './App.css';
 import ScrollToTop from './components/home/ScrollToTop';
 import CaseStudies from './components/case-studies/caseStudies';
 import InsightsInnovation from './components/blog-page/InsightsInnovation';
+import Services from './components/services/Services';
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
             <Route path="/blog-detail/:id" element={<BlogDetail />} />
             <Route path="/blog-page" element={<InsightsInnovation />} />
             <Route path="/case-studies" element={<CaseStudies />} /> {/* Placeholder for Case Studies page */}
-
+            <Route path="/services" element={<Services />} />
               
 
           </Routes>

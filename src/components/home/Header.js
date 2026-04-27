@@ -62,7 +62,7 @@ const Header = () => {
           ) : (
             <>
               <Link to="/" onClick={closeMenu} className={activeClass(isAboutActive)}>Home</Link>
-              <Link to="/#services" onClick={(e) => {
+              <Link to="/services" onClick={(e) => {
                 e.preventDefault();
                 closeMenu();
                 window.location.href = '/#services';

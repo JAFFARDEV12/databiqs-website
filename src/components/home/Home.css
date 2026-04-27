@@ -7,7 +7,11 @@
   position: relative;
   min-height: 100vh;
 
-  
+  background: linear-gradient(
+    180deg,
+    rgba(178, 131, 255, 0.22) 0%,
+    #ffffff 65%
+  );
 
 }
 
@@ -22,13 +26,18 @@
 /* Decorative Ellipse 1 from Figma - Purple blur effect */
 /* Figma specs: rgba(137, 76, 251, 0.8), blur radius 694px, 232x232px */
 .top-gradient-wrapper {
-  width: 100%;
-  background: linear-gradient(
-    180deg,
-    rgba(178, 131, 255, 0.08) 0%,
-    rgba(245, 242, 255, 0.35) 30%,
-    #ffffff 100%
-  );
+  
+  margin: -12px calc(-1 * var(--case-study-page-pad-x)) 0;
+    /* Re-add the same padding so inner content stays aligned */
+    padding: 12px var(--case-study-page-pad-x) clamp(16px, 3vw, 32px);
+    /* Expand width to cover the bled-out margins */
+    width: calc(100% + 2 * var(--case-study-page-pad-x));
+    box-sizing: border-box;
+    background: linear-gradient(
+      180deg,
+      rgba(178, 131, 255, 0.22) 0%,
+      #ffffff 65%
+    );
 }
 
 .decorative-ellipse-1 {

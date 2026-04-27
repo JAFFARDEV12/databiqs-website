@@ -1,6 +1,6 @@
 .meeting-banner-section {
   padding: 0 40px 100px;
-  background: #ffffff;
+ 
   transform: translateZ(0);
   will-change: transform;
 }

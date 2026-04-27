@@ -73,6 +73,7 @@
   align-items: center;
   justify-content: center;
   color: #ffffff;
+  
   flex-shrink: 0;
 }
 
@@ -187,7 +188,7 @@
   }
 
   .tools-card__header {
-    gap: 10px;
+    gap: 20px;
   }
 
   .tools-card__icon-wrap {

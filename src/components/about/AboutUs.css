@@ -1,12 +1,21 @@
 /* ===== Page (gradient from index.css – same as landing header/hero) ===== */
 .au-page {
-  min-height: 100vh;
-  font-family: Questrial, system-ui, Arial, sans-serif;
+  width: 100%;
+  overflow-x: hidden;
+  background: #ffffff;
   transform: translateZ(0);
   will-change: transform;
-    
+  position: relative;
+  min-height: 100vh;
+
+  background: linear-gradient(
+    180deg,
+    rgba(178, 131, 255, 0.22) 0%,
+    #ffffff 65%
+  );
  
 }
+
 
 
 /* ===== Frame (transparent so page gradient shows like hero) ===== */
@@ -35,7 +44,7 @@
   max-width: 1200px;
   margin: 0 auto;
 
-  background: #ffffff;
+ 
   border-radius: 80px;
   padding: 14px 28px;
 
@@ -1177,9 +1186,8 @@ width: 100%;
   width: 100%;
   background: linear-gradient(
     180deg,
-    rgba(178, 131, 255, 0.08) 0%,
-    rgba(245, 242, 255, 0.35) 30%,
-    #ffffff 100%
+    rgba(178, 131, 255, 0.22) 0%,
+    #ffffff 65%
   );
 }
 
