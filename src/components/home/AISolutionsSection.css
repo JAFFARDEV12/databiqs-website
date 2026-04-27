@@ -6,6 +6,8 @@
   transform: translateZ(0);
   will-change: transform;
  
+  padding: 40px 40px 60px 40px;
+  
   background-color: white !important;
 }
 
@@ -2360,6 +2362,17 @@
   font-size: 12px;
   line-height: 1.4;
   overflow-wrap: anywhere;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding-left: 0 !important;
+}
+
+.card-right .capabilities-list li::before,
+.ai-solutions-section .capabilities-list li::before {
+  position: static !important;
+  margin-top: 0.45em;
+  flex: 0 0 6px;
 }
 
 @media (max-width: 1200px) {
@@ -2418,6 +2431,240 @@
   .solutions-card .automation-title-lottie {
     width: 40px;
     height: 40px;
+  }
+}
+
+/* ===== Final responsive lock: AI Solutions (300px - 1400px) ===== */
+.ai-solutions-section {
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.ai-solutions-section .section-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.ai-solutions-section .section-headline {
+  font-size: clamp(28px, 4.2vw, 50px);
+  line-height: 1.15;
+}
+
+.ai-solutions-section .section-description {
+  font-size: clamp(14px, 1.4vw, 18px);
+  line-height: 1.55;
+  max-width: 860px;
+  padding-inline: 6px;
+  overflow-wrap: anywhere;
+}
+
+.ai-solutions-section .solutions-card {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  align-items: stretch !important;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden !important;
+}
+
+.ai-solutions-section .card-left,
+.ai-solutions-section .card-right {
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ai-solutions-section .card-left .solutions-diagram {
+  width: 100% !important;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+}
+
+.ai-solutions-section .card-right {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1.2vw, 12px);
+  padding: clamp(12px, 1.8vw, 22px) clamp(14px, 2vw, 26px) clamp(12px, 1.8vw, 20px) clamp(10px, 1.4vw, 18px);
+  overflow: hidden;
+}
+
+.ai-solutions-section .automation-title-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(8px, 1.2vw, 12px);
+  min-width: 0;
+}
+
+.ai-solutions-section .card-title {
+  min-width: 0;
+  font-size: clamp(16px, 1.5vw, 20px);
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.ai-solutions-section .card-description {
+  font-size: clamp(12px, 1.1vw, 14px);
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.ai-solutions-section .capabilities-heading {
+  font-size: clamp(13px, 1.1vw, 14px);
+  line-height: 1.35;
+}
+
+.ai-solutions-section .card-right .capabilities-list {
+  gap: clamp(6px, 1vw, 10px);
+}
+
+.ai-solutions-section .card-right .capabilities-list li {
+  font-size: clamp(12px, 1vw, 13px);
+  line-height: 1.4;
+}
+
+@media (max-width: 1200px) {
+  .ai-solutions-section {
+    margin-top: 28px;
+  }
+
+  .ai-solutions-section .solutions-card .automation-title-lottie {
+    width: 52px;
+    height: 52px;
+  }
+}
+
+@media (max-width: 968px) {
+  .ai-solutions-section {
+    margin-top: 20px;
+  }
+
+  .ai-solutions-section .solutions-card {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    padding: 18px 14px !important;
+  }
+
+  .ai-solutions-section .card-left {
+    border-radius: 14px;
+    height: auto;
+  }
+
+  .ai-solutions-section .solutions-diagram-frame {
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .ai-solutions-section .card-left .solutions-diagram {
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .ai-solutions-section .card-right {
+    padding: 0;
+  }
+
+  .ai-solutions-section .solutions-card .automation-title-lottie {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ai-solutions-section {
+    margin-top: 14px;
+  }
+
+  .ai-solutions-section .section-headline {
+    font-size: clamp(26px, 7vw, 36px);
+    line-height: 1.15;
+  }
+
+  .ai-solutions-section .section-description {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 28px;
+  }
+
+  .ai-solutions-section .solutions-card {
+    padding: 16px 12px !important;
+    gap: 14px !important;
+  }
+
+  .ai-solutions-section .solutions-card .automation-title-lottie {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ai-solutions-section {
+    margin-top: 10px;
+  }
+
+  .ai-solutions-section .section-container {
+    padding: 0 2px;
+  }
+
+  .ai-solutions-section .section-headline {
+    font-size: clamp(24px, 8.2vw, 30px);
+    line-height: 1.14;
+  }
+
+  .ai-solutions-section .section-description {
+    font-size: 13px;
+    line-height: 1.45;
+    margin-bottom: 22px;
+  }
+
+  .ai-solutions-section .solutions-card {
+    padding: 14px 10px !important;
+    gap: 12px !important;
+    border-radius: 18px;
+  }
+
+  .ai-solutions-section .card-left,
+  .ai-solutions-section .solutions-diagram-frame {
+    border-radius: 12px;
+  }
+
+  .ai-solutions-section .card-title {
+    font-size: 16px;
+  }
+
+  .ai-solutions-section .card-description {
+    font-size: 12px;
+    line-height: 1.42;
+  }
+
+  .ai-solutions-section .card-right .capabilities-list li {
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .ai-solutions-section .solutions-card .automation-title-lottie {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 360px) {
+  .ai-solutions-section .solutions-card {
+    padding: 12px 8px !important;
+  }
+
+  .ai-solutions-section .section-headline {
+    font-size: 23px;
+  }
+
+  .ai-solutions-section .section-description {
+    font-size: 12px;
   }
 }
 

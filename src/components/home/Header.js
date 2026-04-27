@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
 import logo from '../../assets/header-logo.svg';
@@ -15,6 +15,15 @@ const Header = () => {
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
+
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+    document.body.classList.toggle('mobile-menu-open', isMenuOpen);
+    return () => {
+      document.body.style.overflow = '';
+      document.body.classList.remove('mobile-menu-open');
+    };
+  }, [isMenuOpen]);
 
   // Handle smooth scrolling for anchor links
   const handleAnchorClick = (e, anchorId) => {
@@ -41,7 +50,7 @@ const Header = () => {
   return (
 
 
-    <header className="Header">
+    <header className={`Header ${isMenuOpen ? 'menu-open' : ''}`}>
       <div className="header-container">
         <Link to="/" className="logo">
           <img src={logo} alt="Databiqs" />

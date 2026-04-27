@@ -1150,6 +1150,17 @@
 .automation-left .capabilities-list li {
   font-size: 13px;
   line-height: 1.35;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding-left: 0 !important;
+}
+
+.automation-left .capabilities-list li::before,
+.ai-automation-section .capabilities-list li::before {
+  position: static !important;
+  margin-top: 0.45em;
+  flex: 0 0 6px;
 }
 
 .automation-left .automation-title-lottie {
