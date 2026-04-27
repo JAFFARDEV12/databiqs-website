@@ -1,6 +1,6 @@
 .tools-audits-section {
   padding: 80px 40px 100px;
-  background: #ffffff;
+  background: #ffffff !important;
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   position: relative;
@@ -40,13 +40,13 @@
   gap: 28px;
   max-width: 1100px;
   margin: 0 auto;
-  
+  background-color: white !important;
   align-items: start;
 }
 
 .tools-card {
   position: relative;
-  background: #9C16C80D;
+  background: #9C16C80D !important;
   border-radius: 28px;
   padding: 32px 32px 28px;
   box-shadow: 0 8px 32px rgba(17, 24, 39, 0.06);
@@ -156,7 +156,9 @@
 @media (max-width: 900px) {
   .tools-audits-grid {
     grid-template-columns: 1fr;
+    background-color: white !important;
     max-width: 560px;
+   
   }
 
   .tools-card {
@@ -283,10 +285,12 @@
 .tools-audits-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  background-color: white !important;
   gap: clamp(14px, 2.2vw, 28px);
   width: 100%;
   /* Same row, different copy lengths: don’t stretch the shorter card to row height */
   align-items: start;
+ 
 }
 
 .tools-card {
@@ -353,6 +357,7 @@
     grid-template-columns: 1fr;
     max-width: 620px;
     margin: 0 auto;
+   
   }
 }
 
