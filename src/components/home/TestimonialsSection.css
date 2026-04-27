@@ -478,6 +478,9 @@
   }
   
   .testimonial-card.featured {
+    width: 100%;
+    max-width: 400px;
+    height: 320px;
     transform: scale(1);
   }
   

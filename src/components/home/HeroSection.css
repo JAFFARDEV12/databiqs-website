@@ -915,6 +915,8 @@
   letter-spacing: 0;
   margin: 0;
   text-transform: capitalize;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 @media (max-width: 968px) {
@@ -1174,11 +1176,15 @@
   .hero-card.top-card {
     width: 216px;
     left: -64px;
+    height: auto;
+    min-height: 76px;
   }
 
   .hero-card.bottom-card {
     width: 186px;
     right: -52px;
+    height: auto;
+    min-height: 76px;
   }
 }
 
