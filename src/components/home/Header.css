@@ -19,15 +19,15 @@
   }
 }
 
-.Header{
-   padding: 20px 100px;
-   position: relative;
-    z-index: 1000;
-     width: 100%;
-
-  transform: translateZ(0);
-  will-change: transform;
- 
+/* No transform on .Header: transform creates a fixed-position containing block
+   and breaks viewport-fixed mobile nav (drawer would size/clip to the header). */
+.Header {
+  padding: 20px 100px;
+  position: relative;
+  z-index: 1000;
+  width: 100%;
+  box-sizing: border-box;
+  isolation: isolate;
 }
 
 .Header.menu-open {
@@ -321,13 +321,6 @@
   }
 }
 
-@media (max-width: 968px) {
-  .Header.menu-open .nav {
-    transform: translateX(0);
-  }
-}
-
-
 @media (max-width: 480px) {
   .header {
     padding: 10px 15px;
@@ -459,15 +452,22 @@
 
   .Header .nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
+    inset: 0;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
     height: 100dvh;
+    min-height: 100dvh;
+    max-height: 100dvh;
     padding: 88px 18px 22px;
     box-sizing: border-box;
+    overflow-x: hidden;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     background: #ffffff;
-    transform: translateX(-100%);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    transform: translate3d(-100%, 0, 0);
     transition: transform 0.28s ease;
     z-index: 10000;
     display: flex;
@@ -475,10 +475,13 @@
     align-items: center;
     justify-content: flex-start;
     gap: 22px;
+    pointer-events: none;
   }
 
-  .Header .nav.nav-open {
-    transform: translateX(0);
+  .Header .nav.nav-open,
+  .Header.menu-open .nav {
+    transform: translate3d(0, 0, 0);
+    pointer-events: auto;
   }
 
   .Header .nav a {

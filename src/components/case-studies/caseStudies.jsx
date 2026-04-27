@@ -229,8 +229,9 @@ const CaseStudies = () => {
     </figure>
 </div>
 
-<MoreCaseStudiesCarousel />
+
 </section>
+<MoreCaseStudiesCarousel />
 
             {/* <Header /> */}
            

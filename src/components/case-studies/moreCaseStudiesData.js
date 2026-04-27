@@ -5,77 +5,53 @@
  * Optional per item: `imageSrc` (imported asset) — overrides the default card illustration
  * (`message.svg`) when you need a different image for a case study.
  */
+const FIGMA_LINE_BREAKS_EXAMPLE =
+  'Chatpro Was Developed Solely\nBy Databiqs.\nAn AI Powered Chatbot Helping\nMillions Of Customers\nFor An Ecommerce Website.';
+
 export const MORE_CASE_STUDIES = [
   {
     id: 'chatpro',
-    description:
-      'Chatpro Was Developed Solely By Databiqs. An AI Powered Chatbot Helping Millions Of Customers For An Ecommerce Website.',
+    description: FIGMA_LINE_BREAKS_EXAMPLE,
     href: '/case-studies',
   },
   {
     id: 'liquidity-mesh',
-    description:
-      'Predictive Liquidity Mesh Reduced Slippage And Latency For A Global Fintech—Routing Capital Through Neural-Optimized Channels.',
+    description: FIGMA_LINE_BREAKS_EXAMPLE,
     href: '/case-studies',
   },
   {
     id: 'retail-support',
-    description:
-      'Unified Omnichannel AI Support For A Retail Leader—Cutting Average Handle Time While Improving CSAT Across Regions.',
+    description: FIGMA_LINE_BREAKS_EXAMPLE,
     href: '/case-studies',
   },
   {
     id: 'logistics-forecast',
-    description:
-      'Demand Sensing And Route Intelligence For A Logistics Network—Fewer Stockouts And Faster Fulfillment Windows.',
+    description: FIGMA_LINE_BREAKS_EXAMPLE,
     href: '/case-studies',
   },
   {
     id: 'healthcare-triage',
-    description:
-      'Clinical Triage Assist For A Health System—Safer Prioritization And Reduced Clinician Admin Load.',
+    description: FIGMA_LINE_BREAKS_EXAMPLE,
     href: '/case-studies',
   },
   {
     id: 'finance-compliance',
-    description:
-      'Automated Surveillance And Policy Checks For A Financial Institution—Faster Reviews With Auditable Trails.',
+    description: FIGMA_LINE_BREAKS_EXAMPLE,
     href: '/case-studies',
   },
   {
     id: 'manufacturing-quality',
-    description:
-      'Vision-Based Defect Detection On The Line—Less Scrap And More Consistent Output For A Manufacturer.',
+    description: FIGMA_LINE_BREAKS_EXAMPLE,
     href: '/case-studies',
   },
   {
     id: 'saas-onboarding',
-    description:
-      'Intelligent Onboarding And Adoption For A SaaS Platform—Higher Activation And Lower Time-To-Value.',
+    description: FIGMA_LINE_BREAKS_EXAMPLE,
     href: '/case-studies',
   },
   {
     id: 'enterprise-search',
-    description:
-      'Enterprise Knowledge Search Across Siloed Systems—One Query Surface For Support And Operations Teams.',
-    href: '/case-studies',
-  },
-  {
-    id: 'energy-ops',
-    description:
-      'Predictive Maintenance For Energy Assets—Fewer Outages And Optimized Crew Dispatch Across Sites.',
-    href: '/case-studies',
-  },
-  {
-    id: 'energy-ops',
-    description:
-      'Predictive Maintenance For Energy Assets—Fewer Outages And Optimized Crew Dispatch Across Sites.',
-    href: '/case-studies',
-  },
-  {
-    id: 'energy-ops',
-    description:
-      'Predictive Maintenance For Energy Assets—Fewer Outages And Optimized Crew Dispatch Across Sites.',
+    description: FIGMA_LINE_BREAKS_EXAMPLE,
     href: '/case-studies',
   },
 ];

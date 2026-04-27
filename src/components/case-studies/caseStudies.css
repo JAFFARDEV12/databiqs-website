@@ -10,18 +10,17 @@
     overflow-x: hidden;
     width: 100%;
     box-sizing: border-box;
-    background: #ffffff;
+    background: #ffffff !important;
     position: relative;
     z-index: 0;
   }
   
   .case-study-page-header-section {
-    /* Pull left, right, and top to bleed outside parent's padding */
-    margin: -12px calc(-1 * var(--case-study-page-pad-x)) 0;
-    /* Re-add the same padding so inner content stays aligned */
+    margin-top: -12px;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
     padding: 12px var(--case-study-page-pad-x) clamp(16px, 3vw, 32px);
-    /* Expand width to cover the bled-out margins */
-    width: calc(100% + 2 * var(--case-study-page-pad-x));
+    width: 100vw;
     box-sizing: border-box;
     background: linear-gradient(
       180deg,

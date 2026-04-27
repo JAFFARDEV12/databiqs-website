@@ -1,12 +1,27 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useSyncExternalStore } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
 import logo from '../../assets/header-logo.svg';
 /* import arrowIcon from '../../assets/rightarrow.svg'; */
 import arrowIcon from '../../assets/rightarrow.svg';
+
+const NARROW_MQ = '(max-width: 968px)';
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isNarrowLayout = useSyncExternalStore(
+    (onStoreChange) => {
+      const mq = window.matchMedia(NARROW_MQ);
+      mq.addEventListener('change', onStoreChange);
+      return () => mq.removeEventListener('change', onStoreChange);
+    },
+    () => window.matchMedia(NARROW_MQ).matches,
+    () => false
+  );
   const location = useLocation();
+
+  // inert/aria-hidden only for off-canvas mobile drawer when closed; desktop nav must stay interactive
+  const mobileDrawerInert = isNarrowLayout && !isMenuOpen;
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -56,7 +71,12 @@ const Header = () => {
           <img src={logo} alt="Databiqs" />
         </Link>
 
-        <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
+        <nav
+          id="primary-navigation"
+          className={`nav ${isMenuOpen ? 'nav-open' : ''}`}
+          aria-hidden={mobileDrawerInert}
+          inert={mobileDrawerInert}
+        >
           {isHomePage ? (
             <>
               <a href="/" onClick={closeMenu} className={activeClass(isAboutActive)}>Home</a>
@@ -108,7 +128,14 @@ const Header = () => {
           </div>
         </button>
 
-        <button className="hamburger" onClick={toggleMenu} aria-label="Menu">
+        <button
+          type="button"
+          className="hamburger"
+          onClick={toggleMenu}
+          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isMenuOpen}
+          aria-controls="primary-navigation"
+        >
           <span className={`hamburger-line ${isMenuOpen ? 'active' : ''}`}></span>
           <span className={`hamburger-line ${isMenuOpen ? 'active' : ''}`}></span>
           <span className={`hamburger-line ${isMenuOpen ? 'active' : ''}`}></span>
