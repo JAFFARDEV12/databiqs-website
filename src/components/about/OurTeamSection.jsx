@@ -4,14 +4,14 @@ import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import ceoImg from "../../assets/ceo.png";
 import avatarIcon from "../../assets/user.svg";
 import teamlead from "../../assets/team/team-lead.png"
-import projectmanager from "../../assets/team/project-manager.png"
+import projectmanager from "../../assets/team/project-manager&AI-Developer.png"
 import softwareengineer from "../../assets/team/software-engineer.png"
 import softwareengineer2 from "../../assets/team/software-engineer2.png"
 import softwareengineer3 from "../../assets/team/software-engineer3.png"
 import businessdevelopmentexecutive from "../../assets/team/business-development-executive.png"
 import marketingmanager from "../../assets/team/marketing-manager.png"
 import uiuxdesigner from "../../assets/team/ui-ux-designer.png"
-import fullstackaideveloper from "../../assets/team/full-stack-ai-developer.png"
+import fullstackaideveloper from "../../assets/team/project-manager&AI-Developer.png"
 import cto from "../../assets/team/CTO.png"
 
 const TEAM_MEMBERS = [
@@ -24,7 +24,7 @@ const TEAM_MEMBERS = [
   { name: "Abdullah Anjum", role: "Marketing Manager", image: marketingmanager ,featured: true},
   { name: "Maarij Ali", role: "Project Manager", image: projectmanager ,featured: true},
   { name: "Irum Shahzadi", role: "Software Engineer"},
-  { name: "Ali Raza", role: "AssociateSoftware Engineer", image: softwareengineer3 ,featured: true},
+  { name: "Ali Raza", role: "Software Engineer", image: softwareengineer3 ,featured: true},
   { name: "Saad Bin Abi Usama", role: "Software Engineer", image: softwareengineer2 ,featured: true},
   { name: "Hamza Mumtaz", role: "UI UX Designer", image: uiuxdesigner ,featured: true},
   { name: "Faizan Ahmed", role: "Software Engineer", image: softwareengineer ,featured: true},
