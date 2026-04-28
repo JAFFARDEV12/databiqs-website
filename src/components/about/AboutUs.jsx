@@ -24,6 +24,12 @@ export default function AboutUs() {
 
 
   const section2Ref = useScrollAnimation({ threshold: 0.2 });
+  const statsItems = [
+    "TRUSTED BY 1,500+ CLIENTS",
+    "98% CLIENT SATISFACTION",
+    "12 YEARS OF INDUSTRY EXCELLENCE",
+    "150+ SUCCESSFULLY DELIVERED PROJECTS",
+  ];
 
   return (
     <div className="au-page">
@@ -80,36 +86,19 @@ export default function AboutUs() {
   </div>
 
   <div className="au-stats">
-  <div className="au-stats__track">
-    <div className="au-stats__inner">
-      <img src={starIcon} className="au-star" alt="" />
-      TRUSTED BY 1,500+ CLIENTS
-
-      <img src={starIcon} className="au-star" alt="" />
-      98% CLIENT SATISFACTION
-
-      <img src={starIcon} className="au-star" alt="" />
-      12 YEARS OF INDUSTRY EXCELLENCE
-
-      <img src={starIcon} className="au-star" alt="" />
-      150+ SUCCESSFULLY DELIVERED PROJECTS
-    </div>
-
-    <div className="au-stats__inner">
-      <img src={starIcon} className="au-star" alt="" />
-      TRUSTED BY 1,500+ CLIENTS
-
-      <img src={starIcon} className="au-star" alt="" />
-      98% CLIENT SATISFACTION
-
-      <img src={starIcon} className="au-star" alt="" />
-      12 YEARS OF INDUSTRY EXCELLENCE
-
-      <img src={starIcon} className="au-star" alt="" />
-      150+ SUCCESSFULLY DELIVERED PROJECTS
+    <div className="au-stats__track">
+      {[0, 1, 2, 3].map((groupIdx) => (
+        <div className="au-stats__inner" key={groupIdx}>
+          {statsItems.map((item, itemIdx) => (
+            <div className="au-stats__item" key={`${groupIdx}-${itemIdx}`}>
+              <img src={starIcon} className="au-star" alt="" />
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+      ))}
     </div>
   </div>
-</div>
 
 
 </section>

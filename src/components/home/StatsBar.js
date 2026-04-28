@@ -19,7 +19,7 @@ const StatsBar = () => {
     <section className="stats-bar-section" ref={sectionRef}>
       <div className="stats-bar-container">
         <div className="stats-bar-track">
-          {[0, 1].map((groupIdx) => (
+          {[0, 1, 2, 3].map((groupIdx) => (
             <div className="stats-bar-group" key={groupIdx}>
               {stats.map((stat, index) => (
                 <React.Fragment key={`${groupIdx}-${index}`}>

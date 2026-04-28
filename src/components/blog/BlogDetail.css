@@ -537,7 +537,7 @@
 .bdp__leadBar {
   width: 6.88px;              /* exact figma width */
   min-width: 6.88px;
-  height: 123px;             /* exact figma height */
+  height: 73px;             /* exact figma height */
   border-radius: 99px;       /* rounded ends */
   background: #8f2cff;
   display: block;
@@ -547,7 +547,7 @@
 .bdp__lead {
   margin: 0;
   font-size: 20px;
-  line-height: 50px;
+  line-height: 30px;
   color: #3f3f3f;
 }
 

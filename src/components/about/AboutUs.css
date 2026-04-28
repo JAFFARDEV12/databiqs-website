@@ -1141,14 +1141,25 @@ width: 100%;
 /* ===== Each content block ===== */
 .au-stats__inner {
   display: flex;
-  gap: 50px;
-  padding-right: 50px;
+  align-items: center;
+  gap: clamp(16px, 2.8vw, 40px);
+  width: max-content;
+  max-width: none;
+  margin: 0;
+  flex: 0 0 auto;
 
   font-family: Questrial;
   font-size: 13px;
   text-transform: uppercase;
   color: #202020;
   white-space: nowrap;
+}
+
+.au-stats__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
 }
 
 /* ===== Conveyor animation ===== */
@@ -1438,9 +1449,9 @@ width: 100%;
   }
 
   .au-page .au-stats__inner {
-    justify-content: center;
+    justify-content: flex-start;
     gap: 14px;
-    padding-inline: 12px;
+    padding-inline: 0;
   }
 
   .au-page .au2-section {
