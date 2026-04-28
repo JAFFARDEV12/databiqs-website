@@ -100,6 +100,12 @@
   align-items: center;
   opacity: 1;
   transform: translateY(0);
+  transition:
+    transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease,
+    filter 0.35s ease;
+  isolation: isolate;
 }
 
 .our-team-card__stage {
@@ -113,6 +119,7 @@
     radial-gradient(circle at 8% 35%, rgba(230, 93, 255, 0.26), transparent 40%),
     radial-gradient(circle at 84% 30%, rgba(129, 58, 255, 0.24), transparent 42%),
     linear-gradient(155deg, #190737 0%, #0d0623 70%, #0a051a 100%);
+  transition: transform 0.4s ease;
 }
 
 .our-team-card__mesh {
@@ -124,6 +131,7 @@
   background-size: 64px 64px;
   background-position: 20px 0, 0 14px;
   pointer-events: none;
+  transition: opacity 0.35s ease;
 }
 
 .our-team-card__hex {
@@ -139,6 +147,10 @@
   box-shadow:
     0 0 0 2px rgba(224, 181, 255, 0.46),
     0 14px 28px rgba(172, 39, 255, 0.32);
+  transition:
+    transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 0.35s ease,
+    filter 0.35s ease;
 }
 
 .our-team-card__hex::before {
@@ -163,6 +175,10 @@
   place-items: center;
   overflow: hidden;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.36);
+  transition:
+    transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
 }
 
 .our-team-card__avatar {
@@ -170,6 +186,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center top;
+  transition: transform 0.45s ease, filter 0.45s ease;
 }
 
 .our-team-card__avatar-fallback {
@@ -214,6 +231,27 @@
   align-content: center;
   justify-items: center;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.our-team-card__nameplate::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-120%);
+  background: linear-gradient(
+    105deg,
+    transparent 24%,
+    rgba(255, 255, 255, 0.65) 48%,
+    transparent 72%
+  );
+  transition: transform 0.55s ease;
+  pointer-events: none;
 }
 
 .our-team-card__name {
@@ -225,6 +263,7 @@
   overflow-wrap: anywhere;
   font-weight: 700;
   font-style: italic;
+  transition: letter-spacing 0.3s ease, color 0.3s ease;
 }
 
 .our-team-card__role {
@@ -235,11 +274,66 @@
   line-height: 1.35;
   overflow-wrap: anywhere;
   font-weight: 600;
+  transition: color 0.3s ease;
 }
 
 .our-team-card--featured {
   border-color: #be8fff;
   box-shadow: 0 18px 40px rgba(119, 34, 199, 0.28);
+}
+
+.our-team-card:hover {
+  transform: translateY(-8px);
+  border-color: #ca9cff;
+  box-shadow:
+    0 24px 46px rgba(66, 24, 116, 0.32),
+    0 0 0 1px rgba(206, 162, 255, 0.25);
+  filter: saturate(1.06);
+}
+
+.our-team-card:hover .our-team-card__stage {
+  transform: translateY(-2px);
+}
+
+.our-team-card:hover .our-team-card__mesh {
+  opacity: 0.78;
+}
+
+.our-team-card:hover .our-team-card__hex {
+  transform: translateX(-50%) translateY(-2px) scale(1.04);
+  box-shadow:
+    0 0 0 2px rgba(236, 208, 255, 0.68),
+    0 18px 34px rgba(185, 58, 255, 0.42);
+  filter: brightness(1.08);
+}
+
+.our-team-card:hover .our-team-card__media {
+  transform: translateY(-3px) scale(1.03);
+  border-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.42);
+}
+
+.our-team-card:hover .our-team-card__avatar {
+  transform: scale(1.08);
+  filter: saturate(1.08) contrast(1.03);
+}
+
+.our-team-card:hover .our-team-card__nameplate {
+  border-color: #c9b4ea;
+  box-shadow: 0 10px 20px rgba(125, 57, 202, 0.16);
+}
+
+.our-team-card:hover .our-team-card__nameplate::before {
+  transform: translateX(120%);
+}
+
+.our-team-card:hover .our-team-card__name {
+  letter-spacing: 0.01em;
+  color: #9b39f4;
+}
+
+.our-team-card:hover .our-team-card__role {
+  color: #2f2f2f;
 }
 
 .our-team-card--spotlight {
@@ -322,8 +416,36 @@
   animation-play-state: paused;
 }
 
+@media (hover: none), (pointer: coarse) {
+  .our-team-card:hover {
+    transform: none;
+    filter: none;
+  }
+
+  .our-team-card:hover .our-team-card__stage,
+  .our-team-card:hover .our-team-card__hex,
+  .our-team-card:hover .our-team-card__media,
+  .our-team-card:hover .our-team-card__avatar,
+  .our-team-card:hover .our-team-card__nameplate,
+  .our-team-card:hover .our-team-card__nameplate::before {
+    transform: none;
+    filter: none;
+    box-shadow: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .our-team__track {
     animation: none;
+  }
+
+  .our-team-card,
+  .our-team-card__stage,
+  .our-team-card__hex,
+  .our-team-card__media,
+  .our-team-card__avatar,
+  .our-team-card__nameplate,
+  .our-team-card__nameplate::before {
+    transition: none;
   }
 }
