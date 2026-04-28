@@ -3,17 +3,32 @@ import "./OurTeamSection.css";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import ceoImg from "../../assets/ceo.png";
 import avatarIcon from "../../assets/user.svg";
+import teamlead from "../../assets/team/team-lead.png"
+import projectmanager from "../../assets/team/project-manager.png"
+import softwareengineer from "../../assets/team/software-engineer.png"
+import softwareengineer2 from "../../assets/team/software-engineer2.png"
+import softwareengineer3 from "../../assets/team/software-engineer3.png"
+import businessdevelopmentexecutive from "../../assets/team/business-development-executive.png"
+import marketingmanager from "../../assets/team/marketing-manager.png"
+import uiuxdesigner from "../../assets/team/ui-ux-designer.png"
+import fullstackaideveloper from "../../assets/team/full-stack-ai-developer.png"
+import cto from "../../assets/team/CTO.png"
 
 const TEAM_MEMBERS = [
   { name: "Jaffar Ali Chaudhary", role: "CEO", image: ceoImg, featured: true },
-  { name: "Ahsan Raza", role: "CTO" },
-  { name: "Hamza Khan", role: "Team Lead" },
-  { name: "Sara Ahmed", role: "Project Manager" },
-  { name: "Abdullah Noor", role: "Software Engineer" },
-  { name: "Hira Malik", role: "Business Development Executive" },
-  { name: "Usman Tariq", role: "Marketing Manager" },
-  { name: "Areeba Iqbal", role: "UI UX Designer" },
-  { name: "Talha Bin Faisal", role: "Full Stack AI Developer" },
+  { name: "Jawad Afzal", role: "Chief Technology Officer (CTO)", image: cto ,featured: true},
+  { name: "Maudood Fareed", role: "Team Lead", image: teamlead ,featured: true},
+  { name: "Alishba Aslam", role: "HR Manager"},
+  { name: "Shamim", role: "Senior UI UX Designer"},
+  { name: "Wali ullah", role: "Business Development Executive", image: businessdevelopmentexecutive ,featured: true},
+  { name: "Abdullah Anjum", role: "Marketing Manager", image: marketingmanager ,featured: true},
+  { name: "Maarij Ali", role: "Project Manager", image: projectmanager ,featured: true},
+  { name: "Irum Shahzadi", role: "Software Engineer"},
+  { name: "Ali Raza", role: "AssociateSoftware Engineer", image: softwareengineer3 ,featured: true},
+  { name: "Saad Bin Abi Usama", role: "Software Engineer", image: softwareengineer2 ,featured: true},
+  { name: "Hamza Mumtaz", role: "UI UX Designer", image: uiuxdesigner ,featured: true},
+  { name: "Faizan Ahmed", role: "Software Engineer", image: softwareengineer ,featured: true},
+  { name: "Talha Bin Faisal", role: "Full Stack AI Developer", image: fullstackaideveloper ,featured: true},
 ];
 
 const getInitials = (name) =>
