@@ -1,14 +1,25 @@
-.top-gradient-wrapper {
+.contact-page {
+  --contact-page-pad-x: clamp(10px, 2.8vw, 32px);
   width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  background: #ffffff;
+}
+
+.contact-page .top-gradient-wrapper {
+  margin: -12px calc(-1 * var(--contact-page-pad-x)) 0;
+  padding: 12px var(--contact-page-pad-x) clamp(16px, 3vw, 32px);
+  width: calc(100% + 2 * var(--contact-page-pad-x));
+  box-sizing: border-box;
   background: linear-gradient(
     180deg,
-    rgba(178, 131, 255, 0.08) 0%,
-    rgba(245, 242, 255, 0.35) 30%,
-    #ffffff 100%
+    rgba(178, 131, 255, 0.22) 0%,
+    #ffffff 65%
   );
 }
 
-.decorative-ellipse-1 {
+.contact-page .decorative-ellipse-1 {
   position: fixed;
   width: 180px;
   height: 180px;
@@ -29,7 +40,7 @@
 }
 
 @media (max-width: 1440px) {
-  .decorative-ellipse-1 {
+  .contact-page .decorative-ellipse-1 {
     right: 0%;
     top: 55%;
   }

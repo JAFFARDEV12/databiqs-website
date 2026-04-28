@@ -9,20 +9,43 @@ import { useNavigate } from 'react-router-dom';
 const CaseStudiesSection = () => {
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isTransitionEnabled, setIsTransitionEnabled] = useState(true);
   const totalSlides = 5; // 5 pairs of cards
+  const transitionMs = 650;
 
   const goToSlide = (index) => {
+    setIsTransitionEnabled(true);
     setCurrentSlide(index);
   };
 
-  // Auto-play slideshow every 5 seconds
+  // Always move forward; never reverse direction.
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % totalSlides);
-    }, 5000);
+    const timer = setTimeout(() => {
+      setCurrentSlide((prev) => prev + 1);
+    }, 4500);
 
-    return () => clearInterval(interval);
-  }, [totalSlides]);
+    return () => clearTimeout(timer);
+  }, [currentSlide]);
+
+  // When we reach the cloned first slide, snap back to real first slide without animation.
+  useEffect(() => {
+    if (currentSlide !== totalSlides) return undefined;
+
+    let restoreTransitionTimer;
+    const resetTimer = setTimeout(() => {
+      setIsTransitionEnabled(false);
+      setCurrentSlide(0);
+
+      restoreTransitionTimer = setTimeout(() => {
+        setIsTransitionEnabled(true);
+      }, 40);
+    }, transitionMs);
+
+    return () => {
+      clearTimeout(resetTimer);
+      if (restoreTransitionTimer) clearTimeout(restoreTransitionTimer);
+    };
+  }, [currentSlide, totalSlides]);
 
   const CaseStudyCard = () => (
     <div className="case-study-card" >
@@ -70,7 +93,12 @@ const CaseStudiesSection = () => {
           <div className="case-studies-viewport">
             <div 
               className="case-studies-track" 
-              style={{ transform: `translateX(calc(-${currentSlide * 100}% - ${currentSlide * 30}px))` }}
+              style={{
+                transform: `translateX(calc(-${currentSlide * 100}% - ${currentSlide * 30}px))`,
+                transition: isTransitionEnabled
+                  ? `transform ${transitionMs}ms cubic-bezier(0.22, 0.61, 0.36, 1)`
+                  : 'none',
+              }}
             >
               {[...Array(totalSlides * 2)].map((_, index) => (
                 <div key={index} className="case-study-slide-item">
@@ -85,7 +113,7 @@ const CaseStudiesSection = () => {
           {[...Array(totalSlides)].map((_, index) => (
             <div
               key={index}
-              className={`nav-dot ${index === currentSlide ? 'active' : ''}`}
+              className={`nav-dot ${index === currentSlide % totalSlides ? 'active' : ''}`}
               onClick={() => goToSlide(index)}
             />
           ))}

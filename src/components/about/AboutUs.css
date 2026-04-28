@@ -1,21 +1,19 @@
 /* ===== Page (gradient from index.css – same as landing header/hero) ===== */
 .au-page {
-  min-height: 100vh;
-  font-family: Questrial, system-ui, Arial, sans-serif;
-  transform: translateZ(0);
-  will-change: transform;
-    
- 
-}
-.top-gradient-wrapper {
+  --about-page-pad-x: clamp(10px, 2.8vw, 32px);
   width: 100%;
   overflow-x: hidden;
-   background: linear-gradient(
-  180deg,
-  rgba(178, 131, 255, 0.2) 0%, 
-  #ffffff 100%
-); 
+  background: #ffffff;
+  transform: translateZ(0);
+  will-change: transform;
+  position: relative;
+  min-height: 100vh;
+
+ 
+ 
 }
+
+
 
 /* ===== Frame (transparent so page gradient shows like hero) ===== */
 .au-frame {
@@ -43,7 +41,7 @@
   max-width: 1200px;
   margin: 0 auto;
 
-  background: #ffffff;
+ 
   border-radius: 80px;
   padding: 14px 28px;
 
@@ -166,26 +164,38 @@
 }
 
 /* Pill */
-.au-pill {
-  display: inline-block;
-  padding: 10px 18px;
-  border-radius: 80px;
-  background: #ffffff;
-  border: 1px solid #E0E0E0;
+/* SAME SIZE AS hero-tag
+   keep original colors/style */
 
-  font-family: Questrial;
-  font-size: 14px;
-  font-weight: 400;
-  color: #000000;
-
-
-  margin-bottom: 20px;
-  opacity: 0;
-}
-
-.au-hero.animate .au-pill {
-  animation: fadeInUp 0.4s ease-out 0.05s forwards;
-}
+   .au-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  
+    height: 40px;           /* same height */
+    padding: 10px 18px;     /* same spacing */
+    margin-bottom: 20px;
+  
+    border-radius: 80px;
+    border: 1px solid #E0E0E0;
+    background: #ffffff;
+  
+    font-family: 'Questrial', sans-serif;
+    font-size: 14px;        /* same font size */
+    font-weight: 400;
+    line-height: 1;
+    color: #000000;
+  
+    width: fit-content;
+    max-width: 100%;
+    white-space: nowrap;
+  
+    opacity: 0;
+  }
+  
+  .au-hero.animate .au-pill {
+    animation: fadeInUp 0.4s ease-out 0.05s forwards;
+  }
 
 /* Heading */
 .au-title {
@@ -268,6 +278,12 @@
   padding-right: 14px;
 
   background: linear-gradient(119.69deg, #ae0dff 12.36%, #401371 85.46%);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.au-btnSchedule:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(64, 19, 113, 0.35);
 }
 
 .au-btnSchedule__text {
@@ -433,16 +449,23 @@
   align-items: center;
   justify-content: center;
 
-  padding: 10px 18px;
-  border-radius: 80px;
+  height: 40px;           /* same height */
+  padding: 10px 18px;     /* same spacing */
 
+  border-radius: 80px;
   background: #ffffff;
   border: 1px solid #E0E0E0;
 
-  font-family: Questrial;
-  font-size: 14px;
+  font-family: 'Questrial', sans-serif;
+  font-size: 14px;        /* same font size */
   font-weight: 400;
+  line-height: 1;
   color: #000000;
+
+  width: fit-content;
+  max-width: 100%;
+  white-space: nowrap;
+
   opacity: 0;
 }
 
@@ -488,7 +511,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  /* gap: 20px; */
   flex-wrap: nowrap;
   width: fit-content;
   max-width: 100%;
@@ -1118,14 +1141,25 @@ width: 100%;
 /* ===== Each content block ===== */
 .au-stats__inner {
   display: flex;
-  gap: 50px;
-  padding-right: 50px;
+  align-items: center;
+  gap: clamp(16px, 2.8vw, 40px);
+  width: max-content;
+  max-width: none;
+  margin: 0;
+  flex: 0 0 auto;
 
   font-family: Questrial;
   font-size: 13px;
   text-transform: uppercase;
   color: #202020;
   white-space: nowrap;
+}
+
+.au-stats__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
 }
 
 /* ===== Conveyor animation ===== */
@@ -1142,6 +1176,10 @@ width: 100%;
 
 /* Pause on hover */
 .au-stats:hover .au-stats__track {
+  animation-play-state: paused;
+}
+
+.au-frame:hover .au-stats__track {
   animation-play-state: paused;
 }
 
@@ -1162,27 +1200,40 @@ width: 100%;
   margin-top: 50px;
 } */
 
-.decorative-ellipse-1 {
+.au-page .top-gradient-wrapper {
+  margin: -12px calc(-1 * var(--about-page-pad-x)) 0;
+  padding: 12px var(--about-page-pad-x) clamp(16px, 3vw, 32px);
+  width: calc(100% + 2 * var(--about-page-pad-x));
+  box-sizing: border-box;
+  background: linear-gradient(
+    180deg,
+    rgba(178, 131, 255, 0.22) 0%,
+    #ffffff 65%
+  );
+}
+
+.au-page .decorative-ellipse-1 {
   position: fixed;
-  width: 232px;
-  height: 232px;
-  background: rgba(137, 76, 251, 0.8);
+  width: 180px;
+  height: 180px;
+  background: rgba(137, 76, 251, 0.22); /* much lighter */
   border-radius: 50%;
-  filter: blur(694px);
-  -webkit-filter: blur(694px);
+
+  filter: blur(260px);
+  -webkit-filter: blur(260px);
+
   pointer-events: none;
   z-index: 0;
-  /* Positioned based on Figma coordinates (x: 917, y: 2166) */
-  /* Adjusted for responsive viewport - appears in lower right area */
-  top: 50%;
-  right: 5%;
+
+  top: 52%;
+  right: 3%;
   transform: translate(50%, -50%);
-  opacity: 0.8;
-  will-change: transform;
+
+  opacity: 0.45;
 }
 
 @media (max-width: 1440px) {
-  .decorative-ellipse-1 {
+  .au-page .decorative-ellipse-1 {
     right: 0%;
     top: 55%;
   }
@@ -1208,5 +1259,371 @@ width: 100%;
   /* Kill invisible overflow source */
   .decorative-ellipse-1 {
     display: none;
+  }
+}
+
+/* ===== About page consistency lock (300px - 1400px) ===== */
+.au-page {
+  overflow-x: hidden;
+}
+
+.au-page .au-frame,
+.au-page .au2-inner,
+.au-page .testimonials-section .section-container,
+.au-page .contact-content,
+.au-page .footer-container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+
+.au-page .au-hero__inner {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+
+.au-page .au-actions {
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.au-page .au-btnSchedule {
+  width: fit-content;
+  min-width: 240px;
+}
+
+.au-page .au-right {
+  width: 100%;
+  justify-content: center;
+}
+
+.au-page .au-ceoBox {
+  width: 100%;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.au-page .au-ceoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.au-page .au2-cards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(8px, 1vw, 14px);
+  align-items: stretch;
+}
+
+.au-page .au2-card {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  height: 100%;
+}
+
+/* About-only testimonial wrapper normalization (shared component untouched) */
+.au-page .testimonials-section {
+  padding-inline: clamp(12px, 2.6vw, 32px);
+}
+
+.au-page .testimonials-section .section-container {
+  max-width: 1200px;
+}
+
+@media (max-width: 1200px) {
+  .au-page .au2-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+
+@media (max-width: 900px) {
+  .au-page .au-hero__inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .au-page .au-title {
+    font-size: clamp(34px, 7.6vw, 44px);
+    line-height: 1.15;
+  }
+
+  .au-page .au-paragraph {
+    min-height: 0;
+    margin-bottom: 24px;
+  }
+
+  .au-page .au-p1,
+  .au-page .au-p2 {
+    line-height: 1.8;
+  }
+
+  .au-page .au2-cards {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 16px;
+  }
+
+  .au-page .au2-card {
+    width: min(100%, 420px) !important;
+    max-width: 420px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .au-page .au-hero {
+    padding: 16px 0 8px;
+  }
+
+  .au-page .au-actions {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .au-page .au-btnSchedule {
+    width: min(100%, 320px);
+    min-width: 0;
+  }
+
+  .au-page .au-ceoBox {
+    width: min(100%, 400px);
+    padding: 20px 14px 16px;
+  }
+
+  .au-page .au-ceoImg {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+  }
+
+  .au-page .au2-section {
+    padding: 44px 12px;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .au-page .au-hero {
+    padding: 14px 10px 8px;
+  }
+
+  .au-page .au-hero__inner {
+    gap: 18px;
+    padding: 0 10px;
+  }
+
+  .au-page .au-paragraph {
+    margin-bottom: 18px;
+  }
+
+  .au-page .au-p1,
+  .au-page .au-p2 {
+    line-height: 1.7;
+  }
+
+  .au-page .au-actions {
+    width: 100%;
+  }
+
+  .au-page .au-btnSchedule {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .au-page .au-ceoBox {
+    width: 100%;
+    max-width: 360px;
+    border-radius: 28px;
+    padding: 16px 12px 12px;
+  }
+
+  .au-page .au-ceoImg {
+    max-height: 280px;
+  }
+
+  .au-page .au-stats__inner {
+    justify-content: flex-start;
+    gap: 14px;
+    padding-inline: 0;
+  }
+
+  .au-page .au2-section {
+    padding: 36px 12px;
+  }
+
+  .au-page .au2-title {
+    font-size: clamp(30px, 7vw, 38px);
+    line-height: 1.15;
+    margin: 16px 0 18px;
+    text-align: center;
+  }
+
+  .au-page .au2-subtitle {
+    max-width: 96%;
+    line-height: 1.55;
+  }
+
+  .au-page .au2-cards {
+    gap: 14px;
+    justify-items: center;
+    align-items: stretch;
+  }
+
+  .au-page .au2-card {
+    max-width: 360px !important;
+    margin-inline: auto;
+    border-radius: 22px;
+    padding: 20px 14px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .au-page .au2-card-title,
+  .au-page .au2-card-description {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .au-page .au-frame,
+  .au-page .au2-inner {
+    padding-inline: 10px;
+  }
+
+  .au-page .au-title {
+    font-size: clamp(30px, 8.6vw, 36px);
+  }
+
+  .au-page .au-btnSchedule {
+    width: 100%;
+  }
+}
+
+/* ===== Final About page layout hardening (300px - 1400px) ===== */
+.au-page {
+  overflow-x: clip;
+}
+
+.au-page > * {
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Recommended flow:
+   Header + Meet Our CEO + Stats -> About Us cards -> Our Team -> Testimonials -> Contact -> Footer */
+.au-page .top-gradient-wrapper {
+  margin: 0;
+  padding-bottom: clamp(14px, 2.2vw, 28px);
+}
+
+.au-page .au-frame {
+  margin-bottom: 0;
+}
+
+.au-page .au-stats {
+  margin-bottom: 0;
+}
+
+.au-page .au2-section {
+  margin-top: 0 !important;
+  padding: clamp(42px, 5.8vw, 84px) clamp(12px, 2.2vw, 28px) !important;
+}
+
+.au-page .our-team {
+  padding-block: clamp(44px, 6.2vw, 88px);
+}
+
+.au-page .testimonials-section {
+  margin-top: 0;
+  padding-top: clamp(44px, 6vw, 80px);
+  padding-bottom: clamp(44px, 6vw, 80px);
+}
+
+.au-page .contact-section {
+  margin-top: 0;
+  padding-top: clamp(44px, 6vw, 80px);
+}
+
+.au-page .footer {
+  margin-top: 0;
+}
+
+/* Guardrails against accidental overflow in nested sections/components */
+.au-page img,
+.au-page svg,
+.au-page video,
+.au-page canvas {
+  max-width: 100%;
+}
+
+.au-page .au2-title,
+.au-page .au2-subtitle,
+.au-page .au2-card-title,
+.au-page .au2-card-description,
+.au-page .au-title,
+.au-page .au-paragraph {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 1100px) {
+  .au-page .au2-section {
+    padding-top: clamp(40px, 7vw, 64px) !important;
+    padding-bottom: clamp(40px, 7vw, 70px) !important;
+  }
+
+  .au-page .our-team,
+  .au-page .testimonials-section,
+  .au-page .contact-section {
+    padding-top: clamp(38px, 6vw, 64px);
+  }
+}
+
+@media (max-width: 768px) {
+  .au-page .top-gradient-wrapper {
+    padding-bottom: 12px;
+  }
+
+  .au-page .au-hero {
+    margin-top: 0;
+  }
+
+  .au-page .au-stats {
+    margin-bottom: 0;
+  }
+
+  .au-page .au2-section {
+    padding: clamp(34px, 7.5vw, 48px) 12px !important;
+  }
+
+  .au-page .our-team {
+    padding-block: clamp(34px, 7.2vw, 52px);
+  }
+
+  .au-page .testimonials-section,
+  .au-page .contact-section {
+    padding-top: clamp(34px, 7.2vw, 52px);
+    padding-bottom: clamp(34px, 7.2vw, 52px);
+  }
+}
+
+@media (max-width: 480px) {
+  .au-page .au-frame,
+  .au-page .au2-inner {
+    padding-inline: 8px;
+  }
+
+  .au-page .au2-section {
+    padding-inline: 8px !important;
+  }
+
+  .au-page .our-team {
+    padding-inline: 8px;
   }
 }

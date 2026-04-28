@@ -17,13 +17,19 @@ import approachIcon from "../../assets/approach.svg";
 // NEW: Testimonials section
 import TestimonialsSection from "../home/TestimonialsSection";
 import arrowIcon from "../../assets/rightarrow.svg";
-import ColourfulText from "../colorfull-text/ColourfulText";
+import OurTeamSection from "./OurTeamSection";
 
 export default function AboutUs() {
   const heroRef = useScrollAnimation({ threshold: 0.2 });
 
 
   const section2Ref = useScrollAnimation({ threshold: 0.2 });
+  const statsItems = [
+    "TRUSTED BY 1,500+ CLIENTS",
+    "98% CLIENT SATISFACTION",
+    "12 YEARS OF INDUSTRY EXCELLENCE",
+    "150+ SUCCESSFULLY DELIVERED PROJECTS",
+  ];
 
   return (
     <div className="au-page">
@@ -62,7 +68,7 @@ export default function AboutUs() {
 
         <div className="au-actions">
           <button className="au-btnSchedule" type="button">
-            <span className="au-btnSchedule__text">Schedule An Appointment</span>
+            <span className="au-btnSchedule__text">Book a Consultation</span>
             <span className="au-btnSchedule__icon">
               <img src={arrowIcon} alt="Arrow" />
             </span>
@@ -80,36 +86,19 @@ export default function AboutUs() {
   </div>
 
   <div className="au-stats">
-  <div className="au-stats__track">
-    <div className="au-stats__inner">
-      <img src={starIcon} className="au-star" alt="" />
-      TRUSTED BY 1,500+ CLIENTS
-
-      <img src={starIcon} className="au-star" alt="" />
-      98% CLIENT SATISFACTION
-
-      <img src={starIcon} className="au-star" alt="" />
-      12 YEARS OF INDUSTRY EXCELLENCE
-
-      <img src={starIcon} className="au-star" alt="" />
-      150+ SUCCESSFULLY DELIVERED PROJECTS
-    </div>
-
-    <div className="au-stats__inner">
-      <img src={starIcon} className="au-star" alt="" />
-      TRUSTED BY 1,500+ CLIENTS
-
-      <img src={starIcon} className="au-star" alt="" />
-      98% CLIENT SATISFACTION
-
-      <img src={starIcon} className="au-star" alt="" />
-      12 YEARS OF INDUSTRY EXCELLENCE
-
-      <img src={starIcon} className="au-star" alt="" />
-      150+ SUCCESSFULLY DELIVERED PROJECTS
+    <div className="au-stats__track">
+      {[0, 1, 2, 3].map((groupIdx) => (
+        <div className="au-stats__inner" key={groupIdx}>
+          {statsItems.map((item, itemIdx) => (
+            <div className="au-stats__item" key={`${groupIdx}-${itemIdx}`}>
+              <img src={starIcon} className="au-star" alt="" />
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+      ))}
     </div>
   </div>
-</div>
 
 
 </section>
@@ -126,7 +115,8 @@ export default function AboutUs() {
             <div className="au2-pill">About Us</div>
 
            {/*  <h2 className="au2-title">INNOVATING THE FUTURE OF BUSINESS TECHNOLOGY</h2> */}
-            <ColourfulText text="INNOVATING THE FUTURE OF BUSINESS TECHNOLOGY" />
+           {/*  <ColourfulText text="INNOVATING THE FUTURE OF BUSINESS TECHNOLOGY" /> */}
+           <h2 className="au2-title">INNOVATING THE FUTURE OF BUSINESS TECHNOLOGY</h2>
 
             <p className="au2-subtitle">
               We&apos;re A Team Of Passionate Technologists Committed To Helping Businesses Unlock
@@ -173,7 +163,7 @@ export default function AboutUs() {
       </section>
        
 
-       
+      <OurTeamSection />
 
       {/* ===== SECTION 3 (Testimonials) ===== */}
       <TestimonialsSection />

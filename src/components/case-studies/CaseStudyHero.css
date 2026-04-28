@@ -16,12 +16,41 @@
     flex-wrap: wrap;
     gap: 8px;
     margin-bottom: 20px;
+   
   }
-  
-  .case-study-page-pill {
+  .case-study-page-pill,
+.case-study-page-pill-solid {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 40px;              /* same visual height as hero-tag */
+  padding: 10px 18px;        /* same spacing */
+  border-radius: 80px;
+
+  font-size: 14px;           /* same as hero-tag */
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+  width: fit-content;
+}
+.case-study-page-pill {
+  background: #ffffff;
+  color: #9c16c8;
+  border: 1px solid #9c16c8;
+}
+
+/* Filled Pill */
+.case-study-page-pill-solid {
+  background: #9c16c8;
+  color: #ffffff;
+  border: 1px solid #9c16c8;
+}
+ /*  .case-study-page-pill {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    background-color: green;
     border: 1px solid #9c16c8;
     color: #9c16c8;
     border-radius: 999px;
@@ -36,7 +65,7 @@
     color: #ffffff;
     border-color: #9c16c8;
     padding: 7px 20px;
-  }
+  } */
   
   /* ── Title ── */
   .case-study-page-title {
@@ -66,10 +95,11 @@
   .case-study-page-intro {
     max-width: 400px;
     margin: 0;
-    padding: clamp(12px, 2vw, 20px);
-    font-size: clamp(14px, 1.6vw, 18px);
+    
+    font-size: clamp(14px, 1.6vw, 16px);
     font-weight: 400;
     line-height: 1.6;
+  
     color: #666666;
     text-align: justify;
     text-justify: inter-word;

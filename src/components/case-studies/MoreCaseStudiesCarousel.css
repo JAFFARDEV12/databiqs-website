@@ -1,4 +1,11 @@
 .more-cs {
+  /* Figma — card + constant horizontal gap (sync MORE_CS_GAP in JSX) */
+  --more-cs-card-w: 254px !important;
+  --more-cs-card-h: 394px;
+  --more-cs-card-gap: 20px;
+  /* Inner card padding: equal top & bottom, max 30px; shrinks on narrow viewports */
+  --more-cs-card-pad-y: clamp(16px, 3.2vw, 30px);
+  --more-cs-card-pad-x: clamp(14px, 3.2vw, 22px);
   margin-top: 0;
   padding: clamp(48px, 7vw, 88px) 0 clamp(56px, 7vw, 96px);
   border-radius: 0;
@@ -6,6 +13,8 @@
   position: relative;
   z-index: 1;
   width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   /* Figma-like: pure white base; very soft “low purple” only in the middle (behind cards) */
   background-color: #ffffff;
   background-image: radial-gradient(
@@ -18,31 +27,42 @@
 }
 
 .more-cs-inner {
-  max-width: 1220px;
+  width: 100%;
+  max-width: min(1220px, 100%);
   margin: 0 auto;
-  padding: 0 clamp(16px, 4vw, 32px);
+  padding: 0 clamp(12px, 3.5vw, 32px);
   box-sizing: border-box;
+ 
 }
 
 .more-cs-head {
   text-align: center;
   margin-bottom: clamp(32px, 5vw, 48px);
+
 }
 
 .more-cs-pill {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 44px;
-  padding: 10px 20px;
+
+  height: 40px;           /* same height */
+  padding: 10px 18px;     /* same spacing */
   margin-bottom: 20px;
+
   border: 1px solid #e0e0e0;
-  border-radius: 60px;
+  border-radius: 80px;
+
   background: #ffffff;
   color: #1a1a1a;
-  font-size: 14px;
+
+  font-size: 14px;        /* same font size */
   font-weight: 400;
   line-height: 1;
+
+  width: fit-content;
+  max-width: 100%;
+  white-space: nowrap;
 }
 
 .more-cs-title {
@@ -58,9 +78,9 @@
 
 .more-cs-sub {
   margin: 0 auto;
- 
+  max-width: 52ch;
   font-size: clamp(15px, 2vw, 16px);
-  line-height: 26px;
+  line-height: 1.6;
   font-weight: 400;
   color: #5c5c5c;
 }
@@ -71,6 +91,8 @@
   align-items: center;
   gap: 0;
   width: 100%;
+  min-width: 0;
+ 
 }
 
 .more-cs-viewport {
@@ -78,6 +100,11 @@
   min-width: 0;
   overflow: hidden;
   --more-cs-pages: 1;
+ 
+  padding-bottom: 20px !important;
+  /* Inset track: room for arrows so they don’t sit on card content */
+  padding: 0 clamp(48px, 8vw, 72px);
+  box-sizing: border-box;
 }
 
 .more-cs-track {
@@ -85,6 +112,7 @@
   width: calc(var(--more-cs-pages, 1) * 100%);
   transition: transform 0.45s cubic-bezier(0.25, 0.1, 0.25, 1);
   will-change: transform;
+  
 }
 
 .more-cs-page {
@@ -92,93 +120,142 @@
   box-sizing: border-box;
   display: flex;
   flex-wrap: nowrap;
-  gap: clamp(16px, 2vw, 24px);
+  /* s = (W − n·264)/(n+1): same space left, between, and right (set in JSX) */
+  gap: var(--more-cs-uniform-gap, var(--more-cs-card-gap));
+  padding: 0 var(--more-cs-uniform-gap, 0px);
   justify-content: flex-start;
   align-items: stretch;
-  padding: 0 clamp(4px, 1vw, 8px);
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+ 
 }
 
 .more-cs-card {
-  flex: 1 1 0;
+  flex: 0 0 var(--more-cs-card-w);
+  width: var(--more-cs-card-w);
   min-width: 0;
-  max-width: 280px;
+  max-width: var(--more-cs-card-w);
+  min-height: 0;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   background: #ffffff;
   border: 1px solid #e8dff5;
-  border-radius: 32px;
-  padding: clamp(24px, 3vw, 36px);
+  border-radius: 30px;
+  opacity: 1;
+  height: auto;
+  max-height: var(--more-cs-card-h);
+  align-self: stretch;
+  /* Same top & bottom; responsive inners */
+  padding: var(--more-cs-card-pad-y) var(--more-cs-card-pad-x);
   box-sizing: border-box;
   box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
-}
-
-@media (min-width: 1024px) {
-  .more-cs-card {
-    max-width: none;
-  }
-}
-
-.more-cs-card-visual {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
-  max-width: 280px;
-
-  margin: 0 0 20px;
-  padding: clamp(14px, 2vw, 20px) clamp(12px, 2vw, 16px);
-  min-height: 148px;
-  border-radius: 12px;
   overflow: hidden;
-  box-sizing: border-box;
+}
+
+/* One card: fit narrow viewports, keep Figma cap */
+.more-cs[data-cards-per-view='1'] .more-cs-page {
+  align-items: stretch;
+  justify-content: center;
+}
+
+.more-cs[data-cards-per-view='1'] .more-cs-card {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: var(--more-cs-card-w);
+  min-width: 0;
+  height: auto;
+  min-height: min(320px, 85vh);
+  max-height: var(--more-cs-card-h);
+  align-self: center;
+}
+
+/* Figma: full-width top block; icon sits on same horizontal grid as text */
+.more-cs-card-visual {
   
+ 
+
 }
 
 .more-cs-card-message-img {
-  min-width: 0;
-  max-width: 280px;
-  max-width: min(200px, 100%);
-  height: auto;
-  max-height: 128px;
-  display: block;
-  margin: 0 auto;
-  object-fit: contain;
-  object-position: center;
-}
-
-.more-cs-card-content {
-  flex: 1 1 auto;
+ 
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: flex-start;
-  min-height: 0;
+ 
+  min-width: 0;
   width: 100%;
+  min-height: 120px;
+  max-height: 128px;
+  margin: 0 0 14px;
+ 
+  border-radius: 12px;
+ 
+  box-sizing: border-box;
+  display: block;
+ 
+  object-fit: contain;
   
 }
 
+.more-cs-card-content {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  /* stretch: text + CTA use full card width; Figma left edge matches */
+  align-items: stretch;
+  justify-content: flex-start;
+  row-gap: 0;
+  min-height: 0;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* Figma: Title Case, left, line breaks from \n in data (pre-line) */
 .more-cs-card-text {
-  margin: 0 0 20px;
-  flex: 1 1 auto;
+  margin: 0 0 8px;
+  width: 100%;
+  flex: 0 1 auto;
+  min-width: 0;
+  max-height: 200px;
+  font-family: inherit;
   font-size: 14px;
-  line-height: 1.55;
-  color: #111827;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: #1a1a1a;
+  font-weight: 400;
   text-align: left;
+  white-space: pre-line;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: manual;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Single-card mobile: a bit more room for copy */
+.more-cs[data-cards-per-view='1'] .more-cs-card-text {
+  max-height: 220px;
 }
 
 .more-cs-card-cta {
-  display: inline-flex;
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 10px;
-
-  margin-top: auto;
-  margin-left: auto;   /* pushes button to right side */
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  margin-top: 20px;
+  flex: 0 0 auto;
+  line-height: 1.2;
+  text-align: left;
 
   font-size: 14px;
   font-weight: 600;
-  line-height: 1.25;
   color: #9c16c8;
   text-decoration: none;
   transition: color 0.2s ease;
@@ -284,32 +361,40 @@
 }
 
 @media (max-width: 1023px) {
+  .more-cs-viewport {
+    padding: 0 clamp(44px, 7.5vw, 64px);
+  }
+
   .more-cs-arrow--prev {
-    left: 4px;
+    left: 2px;
   }
 
   .more-cs-arrow--next {
-    right: 4px;
+    right: 2px;
   }
 }
 
-@media (max-width: 639px) {
+@media (max-width: 899px) {
   .more-cs-title {
     line-height: 1.2;
   }
+}
 
-  .more-cs-page {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .more-cs-card {
-    max-width: 100%;
-    width: 100%;
-  }
-
+/* Narrow phones: keep arrows tappable, gap comes from .more-cs-page + fixed card width above */
+@media (max-width: 639px) {
   .more-cs-arrow {
     width: 40px;
     height: 40px;
+  }
+}
+
+@media (max-width: 420px) {
+  .more-cs-pill {
+    white-space: normal;
+    min-height: 40px;
+    height: auto;
+    line-height: 1.35;
+    padding: 10px 14px;
+    text-align: center;
   }
 }

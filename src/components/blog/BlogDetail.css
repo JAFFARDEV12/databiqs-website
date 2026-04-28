@@ -184,6 +184,7 @@
   width: 1200px;
   margin: 0 auto;
   padding-bottom: 80px; /*  Figma gap to footer */
+ 
 }
 
 /* Distance from last blog line to RELATED BLOGS title = 95px (per your screenshot) */
@@ -287,12 +288,13 @@
   display: flex;
   align-items: center;
   width: 100%;
+
 }
 
 .bdp__readLink {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content:flex-end;
   background: transparent;
   border: none;
   padding: 0;
@@ -535,7 +537,7 @@
 .bdp__leadBar {
   width: 6.88px;              /* exact figma width */
   min-width: 6.88px;
-  height: 123px;             /* exact figma height */
+  height: 73px;             /* exact figma height */
   border-radius: 99px;       /* rounded ends */
   background: #8f2cff;
   display: block;
@@ -545,7 +547,7 @@
 .bdp__lead {
   margin: 0;
   font-size: 20px;
-  line-height: 50px;
+  line-height: 30px;
   color: #3f3f3f;
 }
 

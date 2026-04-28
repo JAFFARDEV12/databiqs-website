@@ -29,9 +29,7 @@
   margin-top: 50px;
   
 }
-.automation-right{
-  background-color: green;
-}
+
 
 .automation-left {
   display: flex;
@@ -47,14 +45,22 @@
   gap: 12px;              /* space between icon & text */
 }
 .automation-title-lottie {
-  width: 100px;
-  height: 100px;
+  width: 50px !important;      /* smaller, square dimensions */
+  height: 50px !important; 
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   background: rgba(122, 90, 248, 0.12);
   border-radius: 50%;
+}
+.automation-title-lottie > * {
+  width: auto !important;
+  height: auto !important;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0 auto;
+  display: block;
 }
 @keyframes lottieFloat {
   0%, 100% { transform: translateY(0); }
@@ -1142,6 +1148,17 @@
 .automation-left .capabilities-list li {
   font-size: 13px;
   line-height: 1.35;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding-left: 0 !important;
+}
+
+.automation-left .capabilities-list li::before,
+.ai-automation-section .capabilities-list li::before {
+  position: static !important;
+  margin-top: 0.45em;
+  flex: 0 0 6px;
 }
 
 .automation-left .automation-title-lottie {

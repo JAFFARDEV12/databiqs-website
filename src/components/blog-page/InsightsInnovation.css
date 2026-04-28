@@ -1,0 +1,55 @@
+
+.insights-innovation-page{
+  --case-study-page-pad-x: clamp(16px, 4vw, 32px);
+  width: 100%;
+  overflow-x: hidden;
+  background: #ffffff;
+  transform: translateZ(0);
+  will-change: transform;
+  position: relative;
+  min-height: 100vh;
+
+ 
+}
+
+
+.insights-innovation-page .top-gradient-wrapper {
+  margin: -12px calc(-1 * var(--case-study-page-pad-x)) 0;
+  /* Re-add the same padding so inner content stays aligned */
+  padding: 12px var(--case-study-page-pad-x) clamp(16px, 3vw, 32px);
+  /* Expand width to cover the bled-out margins */
+  width: calc(100% + 2 * var(--case-study-page-pad-x));
+  box-sizing: border-box;
+  background: linear-gradient(
+    180deg,
+    rgba(178, 131, 255, 0.22) 0%,
+    #ffffff 65%
+  );
+}
+
+.insights-innovation-page .decorative-ellipse-1 {
+  position: fixed;
+  width: 180px;
+  height: 180px;
+  background: rgba(137, 76, 251, 0.22); /* much lighter */
+  border-radius: 50%;
+
+  filter: blur(260px);
+  -webkit-filter: blur(260px);
+
+  pointer-events: none;
+  z-index: 0;
+
+  top: 52%;
+  right: 3%;
+  transform: translate(50%, -50%);
+
+  opacity: 0.45;
+}
+
+@media (max-width: 1440px) {
+  .insights-innovation-page .decorative-ellipse-1 {
+    right: 0%;
+    top: 55%;
+  }
+}

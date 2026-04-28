@@ -14,7 +14,9 @@ const AIAutomationSection = () => {
           <div className="automation-left">
             <div className="automation-title-row">
               <div className="automation-title-lottie">
-                <Lottie animationData={aiAutomationAnimation} loop autoplay />
+                <Lottie animationData={aiAutomationAnimation} loop autoplay 
+                 style={{ width: 'auto', height: 'auto', maxWidth: '100%', maxHeight: '100%' }}
+                />
               </div>
               <h3 className="automation-title">AI Automation</h3>
             </div>

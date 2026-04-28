@@ -116,7 +116,7 @@ const CaseStudies = () => {
                 <img
                     src={phaseExecutionImg}
                     alt="Abstract visualization of high-speed data routing and infrastructure"
-                    className="case-study-page-phase-image"
+                    className="case-study-page-phase-image "
                     loading="lazy"
                     decoding="async"
                 />
@@ -229,8 +229,9 @@ const CaseStudies = () => {
     </figure>
 </div>
 
-<MoreCaseStudiesCarousel />
+
 </section>
+<MoreCaseStudiesCarousel />
 
             {/* <Header /> */}
            

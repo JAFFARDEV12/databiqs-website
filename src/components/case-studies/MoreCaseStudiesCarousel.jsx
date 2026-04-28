@@ -1,32 +1,82 @@
-import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
+import { useState, useEffect, useLayoutEffect, useCallback, useMemo, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './MoreCaseStudiesCarousel.css';
 import arrowIcon from '../../assets/Vector-right.svg';
 import cardMessageImage from '../../assets/message.svg';
 import { MORE_CASE_STUDIES } from './moreCaseStudiesData';
 
-function getCardsPerView(width) {
-  if (width < 640) return 1;
-  if (width < 1024) return 2;
-  return 4;
+/** Figma: 264px cards; gaps between & left/right are equal: s = (W - n*264) / (n+1) */
+const MORE_CS_CARD = 264;
+const MORE_CS_GAP = 20;
+const MORE_CS_MAX_VISIBLE = 4;
+
+/** How many 264px cards fit with equal edge + between gaps: s = (W − n·264)/(n+1) ≥ 0. */
+function cardsPerViewForViewportWidth(w) {
+  if (w <= 0) return 1;
+  let n = Math.min(
+    MORE_CS_MAX_VISIBLE,
+    Math.max(1, Math.floor(w / MORE_CS_CARD))
+  );
+  while (n > 1) {
+    const s = (w - n * MORE_CS_CARD) / (n + 1);
+    if (s >= 0) return n;
+    n -= 1;
+  }
+  return 1;
+}
+
+/**
+ * Space so left, between, and right gaps are equal: n*Wcard + (n+1)*s = contentWidth.
+ * Single card: s = (W - min(264, W)) / 2.
+ */
+function uniformGapPx(contentW, nCards) {
+  if (contentW <= 0) return MORE_CS_GAP;
+  if (nCards <= 0) return MORE_CS_GAP;
+  if (nCards === 1) {
+    const wCard = Math.min(MORE_CS_CARD, contentW);
+    return Math.max(0, (contentW - wCard) / 2);
+  }
+  return Math.max(0, (contentW - nCards * MORE_CS_CARD) / (nCards + 1));
 }
 
 const MoreCaseStudiesCarousel = () => {
   const items = MORE_CASE_STUDIES;
-  const [cardsPerView, setCardsPerView] = useState(() =>
-    getCardsPerView(typeof window !== 'undefined' ? window.innerWidth : 1200)
-  );
+  const viewportRef = useRef(null);
+  const [cardsPerView, setCardsPerView] = useState(1);
+  const [contentWidth, setContentWidth] = useState(0);
   const [page, setPage] = useState(0);
   const [autoplayKey, setAutoplayKey] = useState(0);
 
   const resetAutoplay = useCallback(() => setAutoplayKey((k) => k + 1), []);
   const touchStartX = useRef(null);
 
-  useEffect(() => {
-    const onResize = () => setCardsPerView(getCardsPerView(window.innerWidth));
-    onResize();
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
+  useLayoutEffect(() => {
+    const el = viewportRef.current;
+    if (!el) return;
+    const getViewportContentWidth = () => {
+      const st = getComputedStyle(el);
+      const pl = parseFloat(st.paddingLeft) || 0;
+      const pr = parseFloat(st.paddingRight) || 0;
+      return el.clientWidth - pl - pr;
+    };
+    const apply = (w) => {
+      setContentWidth(w);
+      setCardsPerView(cardsPerViewForViewportWidth(w));
+    };
+    const fromEl = () => apply(getViewportContentWidth());
+    fromEl();
+    const ro = new ResizeObserver((entries) => {
+      for (const e of entries) {
+        apply(e.contentRect.width);
+        return;
+      }
+    });
+    ro.observe(el);
+    window.addEventListener('resize', fromEl);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('resize', fromEl);
+    };
   }, []);
 
   const totalPages = useMemo(() => Math.max(1, Math.ceil(items.length / cardsPerView)), [items.length, cardsPerView]);
@@ -61,7 +111,11 @@ const MoreCaseStudiesCarousel = () => {
   }, [items, cardsPerView]);
 
   return (
-    <section className="more-cs" aria-labelledby="more-cs-heading">
+    <section
+      className="more-cs"
+      aria-labelledby="more-cs-heading"
+      data-cards-per-view={cardsPerView}
+    >
       <div className="more-cs-inner">
         <div className="more-cs-head">
           <span className="more-cs-pill">More Case Studies</span>
@@ -85,8 +139,9 @@ const MoreCaseStudiesCarousel = () => {
           </button>
 
           <div
+            ref={viewportRef}
             className="more-cs-viewport"
-            style={{ '--more-cs-pages': totalPages }}
+            style={{ '--more-cs-pages': String(totalPages) }}
             onTouchStart={(e) => {
               touchStartX.current = e.touches[0].clientX;
             }}
@@ -105,10 +160,20 @@ const MoreCaseStudiesCarousel = () => {
                 transform: `translateX(-${(page * 100) / totalPages}%)`,
               }}
             >
-              {pages.map((chunk, pageIndex) => (
-                <div key={`page-${pageIndex}`} className="more-cs-page">
-                  {chunk.map((item) => (
-                    <article key={item.id} className="more-cs-card">
+              {pages.map((chunk, pageIndex) => {
+                const k = chunk.length;
+                const s = uniformGapPx(contentWidth, k);
+                return (
+                <div
+                  key={`page-${pageIndex}`}
+                  className="more-cs-page"
+                  style={{ '--more-cs-uniform-gap': `${s}px` }}
+                >
+                  {chunk.map((item, cardIndex) => (
+                    <article
+                      key={`${pageIndex}-${item.id}-${cardIndex}`}
+                      className="more-cs-card"
+                    >
                       <div className="more-cs-card-visual">
                         <img
                           src={item.imageSrc || cardMessageImage}
@@ -130,7 +195,8 @@ const MoreCaseStudiesCarousel = () => {
                     </article>
                   ))}
                 </div>
-              ))}
+                );
+              })}
             </div>
           </div>
 

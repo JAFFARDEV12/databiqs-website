@@ -13,27 +13,26 @@ const StatsBar = () => {
     { text: '12 YEARS OF INDUSTRY EXCELLENCE', icon: experienceIcon },
   ];
 
-  // Duplicate items for seamless loop
-  const duplicatedStats = [...stats, ...stats, ...stats];
-
   const sectionRef = useScrollAnimation({ threshold: 0.1 });
 
   return (
     <section className="stats-bar-section" ref={sectionRef}>
       <div className="stats-bar-container">
         <div className="stats-bar-track">
-          {duplicatedStats.map((stat, index) => (
-            <React.Fragment key={index}>
-              <div className="stat-item">
-                <img src={stat.icon} alt={stat.text} className="stat-icon" />
-                <span className="stat-text">{stat.text}</span>
-              </div>
-              {index < duplicatedStats.length - 1 && (
-                <span className="stat-divider">
-  <img src={starIcon} alt="divider star" className="star-icon" />
-</span>
-)}
-            </React.Fragment>
+          {[0, 1, 2, 3].map((groupIdx) => (
+            <div className="stats-bar-group" key={groupIdx}>
+              {stats.map((stat, index) => (
+                <React.Fragment key={`${groupIdx}-${index}`}>
+                  <div className="stat-item">
+                    <img src={stat.icon} alt={stat.text} className="stat-icon" />
+                    <span className="stat-text">{stat.text}</span>
+                  </div>
+                  <span className="stat-divider">
+                    <img src={starIcon} alt="divider star" className="star-icon" />
+                  </span>
+                </React.Fragment>
+              ))}
+            </div>
           ))}
         </div>
       </div>

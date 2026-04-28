@@ -89,8 +89,8 @@
 
 .phone-icon {
   width: 100%;
-  max-width: 300px;
-  height: auto;
+  max-width: 300px !important;
+  height: 200px !important;
   object-fit: contain;
   opacity: 0;
 }
