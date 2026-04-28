@@ -17,7 +17,7 @@ import approachIcon from "../../assets/approach.svg";
 // NEW: Testimonials section
 import TestimonialsSection from "../home/TestimonialsSection";
 import arrowIcon from "../../assets/rightarrow.svg";
-import ColourfulText from "../colorfull-text/ColourfulText";
+import OurTeamSection from "./OurTeamSection";
 
 export default function AboutUs() {
   const heroRef = useScrollAnimation({ threshold: 0.2 });
@@ -163,7 +163,7 @@ export default function AboutUs() {
       </section>
        
 
-       
+      <OurTeamSection />
 
       {/* ===== SECTION 3 (Testimonials) ===== */}
       <TestimonialsSection />
