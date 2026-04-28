@@ -2,7 +2,6 @@ import { useEffect, useState, useSyncExternalStore } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
 import logo from '../../assets/header-logo.svg';
-/* import arrowIcon from '../../assets/rightarrow.svg'; */
 import arrowIcon from '../../assets/rightarrow.svg';
 
 const NARROW_MQ = '(max-width: 968px)';
@@ -58,7 +57,6 @@ const Header = () => {
   const isServicesActive = isHomePage && hash === '#services';
   const isCaseStudiesActive = location.pathname === '/case-studies';
   const isInsightsActive = location.pathname === '/blog-page';
-  const isContactActive = location.pathname === '/contact';
 
   const activeClass = (active) => (active ? ' nav-link-active' : '');
 
