@@ -361,6 +361,7 @@
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-bottom: 32px;
+  margin-top: 20px;
   opacity: 0;
 
   /* ✅ Full viewport width white background */
