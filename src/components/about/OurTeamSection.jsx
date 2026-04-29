@@ -11,7 +11,7 @@ import softwareengineer3 from "../../assets/team/software-engineer3.png"
 import businessdevelopmentexecutive from "../../assets/team/business-development-executive.png"
 import marketingmanager from "../../assets/team/marketing-manager.png"
 import uiuxdesigner from "../../assets/team/ui-ux-designer.png"
-import fullstackaideveloper from "../../assets/team/project-manager&AI-Developer.png"
+import fullstackaideveloper from "../../assets/team/fullstack-AI-Engineer.png"
 import cto from "../../assets/team/CTO.png"
 
 const TEAM_MEMBERS = [
