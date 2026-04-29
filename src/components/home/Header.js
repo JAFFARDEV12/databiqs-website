@@ -93,7 +93,7 @@ const Header = () => {
               <Link to="/services" onClick={(e) => {
                 e.preventDefault();
                 closeMenu();
-                window.location.href = '/#services';
+                window.location.href = '/services';
                 setTimeout(() => {
                   const element = document.querySelector('/services');
                   if (element) {
