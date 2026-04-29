@@ -179,3 +179,101 @@
     --home-page-pad-x: 8px;
   }
 }
+
+/* ===== Home CTA consistency lock (300px - 1400px) ===== */
+.home {
+  --home-cta-height: 50px;
+  --home-cta-font-size: 16px;
+  --home-cta-arrow-size: 32px;
+  --home-cta-arrow-icon-size: 14px;
+}
+
+.home :where(
+  .hero-cta,
+  .case-study-cta,
+  .tools-card__cta,
+  .meeting-banner__cta,
+  .cta-button,
+  .newsletter-button
+) {
+  height: var(--home-cta-height);
+  min-height: var(--home-cta-height);
+  font-size: var(--home-cta-font-size);
+  line-height: 1;
+  box-sizing: border-box;
+}
+
+.home :where(
+  .cta-icon,
+  .case-study-arrow,
+  .tools-card__cta-arrow,
+  .meeting-banner__cta-arrow,
+  .cta-icon-circle
+) {
+  width: var(--home-cta-arrow-size);
+  height: var(--home-cta-arrow-size);
+  min-width: var(--home-cta-arrow-size);
+  min-height: var(--home-cta-arrow-size);
+}
+
+.home :where(
+  .cta-icon img,
+  .case-study-arrow img,
+  .tools-card__cta-arrow img,
+  .meeting-banner__cta-arrow img,
+  .cta-icon-circle img
+) {
+  width: var(--home-cta-arrow-icon-size);
+  height: var(--home-cta-arrow-icon-size);
+}
+
+/* Hero-specific equal width lock (prevents uneven CTA pills on some widths) */
+.home .hero-cta-group {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+  width: min(100%, 560px) !important;
+}
+
+.home .hero-cta {
+  width: 100% !important;
+  min-width: 0 !important;
+  justify-content: center !important;
+  padding-right: 46px !important;
+}
+
+.home .hero-cta .cta-icon {
+  right: 8px !important;
+}
+
+@media (max-width: 968px) {
+  .home {
+    --home-cta-height: 46px;
+    --home-cta-font-size: 15px;
+    --home-cta-arrow-size: 30px;
+    --home-cta-arrow-icon-size: 13px;
+  }
+}
+
+@media (max-width: 600px) {
+  .home {
+    --home-cta-height: 44px;
+    --home-cta-font-size: 14px;
+    --home-cta-arrow-size: 28px;
+    --home-cta-arrow-icon-size: 12px;
+  }
+
+  .home .hero-cta-group {
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .home {
+    --home-cta-height: 42px;
+    --home-cta-font-size: 13px;
+    --home-cta-arrow-size: 26px;
+    --home-cta-arrow-icon-size: 11px;
+  }
+}

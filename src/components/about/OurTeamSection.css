@@ -79,7 +79,7 @@
   display: flex;
   width: max-content;
   gap: clamp(12px, 1.8vw, 22px);
-  animation: teamMarquee 34s linear infinite;
+  animation: teamMarquee 48s linear infinite;
   will-change: transform;
 }
 
@@ -359,7 +359,7 @@
 
 @media (max-width: 1100px) {
   .our-team__track {
-    animation-duration: 30s;
+    animation-duration: 42s;
   }
 
   .our-team-card__stage {
@@ -386,7 +386,7 @@
   }
 
   .our-team__track {
-    animation-duration: 24s;
+    animation-duration: 34s;
   }
 
   .our-team-card--spotlight {
@@ -408,7 +408,7 @@
 
 @media (max-width: 360px) {
   .our-team__track {
-    animation-duration: 21s;
+    animation-duration: 30s;
   }
 
   .our-team-card__nameplate {

@@ -7,7 +7,7 @@ import MeetingBannerSection from '../home/MeetingBannerSection';
 import CoreCapabilities from './CoreCapabilities';
 const Services = () => {
     return (
-        <div className="case-study-page">
+        <div className="services-page case-study-page">
            
     
             <section className="case-study-page-header-section"> 
