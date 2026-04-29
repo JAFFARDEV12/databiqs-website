@@ -1,4 +1,5 @@
 
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/home/Home';
 import AboutUs from './components/about/AboutUs';
@@ -13,6 +14,69 @@ import InsightsInnovation from './components/blog-page/InsightsInnovation';
 import Services from './components/services/Services';
 
 function App() {
+  useEffect(() => {
+    if (typeof window === 'undefined') return undefined;
+
+    const root = document.documentElement;
+
+    const isTextInput = (el) =>
+      el instanceof HTMLElement &&
+      el.matches(
+        'input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="button"]):not([type="submit"]):not([type="reset"]), textarea, [contenteditable="true"]'
+      );
+
+    const updateKeyboardOffset = () => {
+      if (!window.visualViewport) {
+        root.style.setProperty('--keyboard-offset', '0px');
+        return;
+      }
+
+      const viewport = window.visualViewport;
+      const keyboardHeight = Math.max(
+        0,
+        window.innerHeight - viewport.height - viewport.offsetTop
+      );
+      root.style.setProperty('--keyboard-offset', `${keyboardHeight}px`);
+    };
+
+    const handleFocusIn = (event) => {
+      if (!isTextInput(event.target)) return;
+      document.body.classList.add('keyboard-open');
+      updateKeyboardOffset();
+
+      setTimeout(() => {
+        if (event.target instanceof HTMLElement) {
+          event.target.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        }
+      }, 120);
+    };
+
+    const handleFocusOut = () => {
+      setTimeout(() => {
+        if (!isTextInput(document.activeElement)) {
+          document.body.classList.remove('keyboard-open');
+          root.style.setProperty('--keyboard-offset', '0px');
+        }
+      }, 120);
+    };
+
+    window.addEventListener('focusin', handleFocusIn);
+    window.addEventListener('focusout', handleFocusOut);
+    window.addEventListener('resize', updateKeyboardOffset);
+    window.visualViewport?.addEventListener('resize', updateKeyboardOffset);
+    window.visualViewport?.addEventListener('scroll', updateKeyboardOffset);
+
+    return () => {
+      window.removeEventListener('focusin', handleFocusIn);
+      window.removeEventListener('focusout', handleFocusOut);
+      window.removeEventListener('resize', updateKeyboardOffset);
+      window.visualViewport?.removeEventListener('resize', updateKeyboardOffset);
+      window.visualViewport?.removeEventListener('scroll', updateKeyboardOffset);
+      root.style.setProperty('--keyboard-offset', '0px');
+      document.body.classList.remove('keyboard-open');
+    };
+  }, []);
+
   return (
     <>
       <Router>

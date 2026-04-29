@@ -54,7 +54,7 @@ const Header = () => {
   const hash = location.hash || '';
 
   const isAboutActive = location.pathname === '/about-us';
-  const isServicesActive = isHomePage && hash === '#services';
+  const isServicesActive = isHomePage && hash === '/services';
   const isCaseStudiesActive = location.pathname === '/case-studies';
   const isInsightsActive = location.pathname === '/blog-page';
 
@@ -78,7 +78,8 @@ const Header = () => {
           {isHomePage ? (
             <>
               <a href="/" onClick={closeMenu} className={activeClass(isAboutActive)}>Home</a>
-              <a href="#services" onClick={(e) => handleAnchorClick(e, '#services')} className={activeClass(isServicesActive)}>Services</a>
+             {/*  <a href="/services" onClick={(e) => handleAnchorClick(e, '/services')} className={activeClass(isServicesActive)}>Services</a> */}
+              <a href="/services" onClick={closeMenu} className={activeClass(isAboutActive)}>Services</a>
               <Link to="/case-studies" onClick={closeMenu} className={activeClass(isCaseStudiesActive)}>Case Studies</Link>
               <a href="/about-us" onClick={closeMenu} className={activeClass(isAboutActive)}>About Us</a>
 
@@ -94,7 +95,7 @@ const Header = () => {
                 closeMenu();
                 window.location.href = '/#services';
                 setTimeout(() => {
-                  const element = document.querySelector('#services');
+                  const element = document.querySelector('/services');
                   if (element) {
                     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                   }
