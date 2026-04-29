@@ -14,11 +14,9 @@
 
 
 .insights-innovation-page .top-gradient-wrapper {
-  margin: -12px calc(-1 * var(--case-study-page-pad-x)) 0;
-  /* Re-add the same padding so inner content stays aligned */
-  padding: 12px var(--case-study-page-pad-x) clamp(16px, 3vw, 32px);
-  /* Expand width to cover the bled-out margins */
-  width: calc(100% + 2 * var(--case-study-page-pad-x));
+  margin: 0;
+  padding: 12px 0 clamp(16px, 3vw, 32px);
+  width: 100%;
   box-sizing: border-box;
   background: linear-gradient(
     180deg,

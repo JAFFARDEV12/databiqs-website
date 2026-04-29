@@ -8,9 +8,9 @@
 }
 
 .contact-page .top-gradient-wrapper {
-  margin: -12px calc(-1 * var(--contact-page-pad-x)) 0;
-  padding: 12px var(--contact-page-pad-x) clamp(16px, 3vw, 32px);
-  width: calc(100% + 2 * var(--contact-page-pad-x));
+  margin: 0;
+  padding: 12px 0 clamp(16px, 3vw, 32px);
+  width: 100%;
   box-sizing: border-box;
   background: linear-gradient(
     180deg,

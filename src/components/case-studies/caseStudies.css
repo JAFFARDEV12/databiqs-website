@@ -17,10 +17,11 @@
   
   .case-study-page-header-section {
     margin-top: -12px;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-    padding: 12px var(--case-study-page-pad-x) clamp(16px, 3vw, 32px);
-    width: 100vw;
+    margin-left: calc(-1 * var(--case-study-page-pad-x));
+    margin-right: calc(-1 * var(--case-study-page-pad-x));
+    padding: 12px 0 clamp(16px, 3vw, 32px);
+    width: calc(100% + (2 * var(--case-study-page-pad-x)));
+    max-width: none;
     box-sizing: border-box;
     background: linear-gradient(
       180deg,
@@ -42,8 +43,20 @@
   .case-study-page-container {
     max-width: 1220px;
     margin: 0 auto;
-    margin-top: clamp(24px, 4vw, 44px);
+    margin-top: 0;
     box-sizing: border-box;
+  }
+
+  .case-study-page-header-section .case-study-page-container {
+    margin-top: clamp(16px, 2.6vw, 28px);
+    padding-inline: var(--case-study-page-pad-x);
+    width: 100%;
+    max-width: calc(1220px + (2 * var(--case-study-page-pad-x)));
+    box-sizing: border-box;
+  }
+
+  .case-study-page > .case-study-page-container {
+    margin-top: clamp(22px, 3.2vw, 38px);
   }
   
   /* ── Section spacing ── */
@@ -649,6 +662,10 @@
     .case-study-page {
       --case-study-page-pad-x: 16px;
     }
+
+    .case-study-page-header-section .case-study-page-container {
+      padding-inline: 16px;
+    }
   
     .case-study-page-ltsv-grid {
       grid-template-columns: 1fr;
@@ -717,6 +734,10 @@
     .case-study-page {
       --case-study-page-pad-x: 12px;
     }
+
+    .case-study-page-header-section .case-study-page-container {
+      padding-inline: 12px;
+    }
   
     .case-study-page-challenge-heading {
       font-size: 19px;
@@ -736,29 +757,5 @@
   
     .case-study-page-testimonial-quote {
       font-size: 13px;
-    }
-  }
-  @media (max-width: 640px) {
-    .case-study-page {
-      --case-study-page-pad-x: 16px;
-    }
-  
-    /* Recalculate bleed with updated variable */
-    .case-study-page-header-section {
-      margin: -12px -16px 0;
-      padding: 12px 16px 20px;
-      width: calc(100% + 32px);
-    }
-  }
-  
-  @media (max-width: 360px) {
-    .case-study-page {
-      --case-study-page-pad-x: 12px;
-    }
-  
-    .case-study-page-header-section {
-      margin: -12px -12px 0;
-      padding: 12px 12px 20px;
-      width: calc(100% + 24px);
     }
   }
