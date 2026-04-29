@@ -39,22 +39,9 @@ const Header = () => {
     };
   }, [isMenuOpen]);
 
-  // Handle smooth scrolling for anchor links
-  const handleAnchorClick = (e, anchorId) => {
-    e.preventDefault();
-    closeMenu();
-    const element = document.querySelector(anchorId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
-
-  // Check if we're on the home page for anchor links
   const isHomePage = location.pathname === '/';
-  const hash = location.hash || '';
-
   const isAboutActive = location.pathname === '/about-us';
-  const isServicesActive = isHomePage && hash === '/services';
+  const isServicesActive = location.pathname === '/services';
   const isCaseStudiesActive = location.pathname === '/case-studies';
   const isInsightsActive = location.pathname === '/blog-page';
 
@@ -75,41 +62,14 @@ const Header = () => {
           aria-hidden={mobileDrawerInert}
           inert={mobileDrawerInert}
         >
-          {isHomePage ? (
-            <>
-              <a href="/" onClick={closeMenu} className={activeClass(isAboutActive)}>Home</a>
-             {/*  <a href="/services" onClick={(e) => handleAnchorClick(e, '/services')} className={activeClass(isServicesActive)}>Services</a> */}
-              <a href="/services" onClick={closeMenu} className={activeClass(isAboutActive)}>Services</a>
-              <Link to="/case-studies" onClick={closeMenu} className={activeClass(isCaseStudiesActive)}>Case Studies</Link>
-              <a href="/about-us" onClick={closeMenu} className={activeClass(isAboutActive)}>About Us</a>
-
-
-              <Link to="/blog-page" onClick={closeMenu} className={activeClass(isInsightsActive)}>Blog</Link>
-              {/* <Link to="/contact" onClick={closeMenu} className={activeClass(isContactActive)}>Contact Us</Link> */}
-            </>
-          ) : (
-            <>
-              <Link to="/" onClick={closeMenu} className={activeClass(isAboutActive)}>Home</Link>
-              <Link to="/services" onClick={(e) => {
-                e.preventDefault();
-                closeMenu();
-                window.location.href = '/services';
-                setTimeout(() => {
-                  const element = document.querySelector('/services');
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  }
-                }, 100);
-              }} className={activeClass(isServicesActive)}>Services</Link>
-
-
-              <Link to="/case-studies" onClick={closeMenu} className={activeClass(isCaseStudiesActive)}>Case Studies</Link>
-              <Link to="/about-us" onClick={closeMenu} className={activeClass(isAboutActive)}>About Us</Link>
-              <Link to="/blog-page" onClick={closeMenu} className={activeClass(isInsightsActive)}>Blog</Link>
-              {/*  <Link to="/contact" onClick={closeMenu} className={activeClass(isContactActive)}>Contact Us</Link> */}
-
-            </>
-          )}
+          <>
+            <Link to="/" onClick={closeMenu} className={activeClass(isHomePage)}>Home</Link>
+            <Link to="/services" onClick={closeMenu} className={activeClass(isServicesActive)}>Services</Link>
+            <Link to="/case-studies" onClick={closeMenu} className={activeClass(isCaseStudiesActive)}>Case Studies</Link>
+            <Link to="/about-us" onClick={closeMenu} className={activeClass(isAboutActive)}>About Us</Link>
+            <Link to="/blog-page" onClick={closeMenu} className={activeClass(isInsightsActive)}>Blog</Link>
+            {/* <Link to="/contact" onClick={closeMenu} className={activeClass(isContactActive)}>Contact Us</Link> */}
+          </>
 
           <button className="cta-button mobile-only">
             <span>Book a Consultation</span>
