@@ -1,17 +1,16 @@
 
-import { useEffect } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './components/home/Home';
-import AboutUs from './components/about/AboutUs';
-import Contact from './components/contact/Contact';
-import BlogDetail from './components/blog/BlogDetail';
-
-import Chatbot from './components/Chatbot/Chatbot';
 import './App.css';
 import ScrollToTop from './components/home/ScrollToTop';
-import CaseStudies from './components/case-studies/caseStudies';
-import InsightsInnovation from './components/blog-page/InsightsInnovation';
-import Services from './components/services/Services';
+const Home = lazy(() => import('./components/home/Home'));
+const AboutUs = lazy(() => import('./components/about/AboutUs'));
+const Contact = lazy(() => import('./components/contact/Contact'));
+const BlogDetail = lazy(() => import('./components/blog/BlogDetail'));
+const CaseStudies = lazy(() => import('./components/case-studies/caseStudies'));
+const InsightsInnovation = lazy(() => import('./components/blog-page/InsightsInnovation'));
+const Services = lazy(() => import('./components/services/Services'));
+const Chatbot = lazy(() => import('./components/Chatbot/Chatbot'));
 
 function App() {
   useEffect(() => {
@@ -82,21 +81,23 @@ function App() {
       <Router>
          <ScrollToTop />
         <div className="App">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about-us" element={<AboutUs />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/blog/:id" element={<BlogDetail />} />
-            <Route path="/blog-detail/:id" element={<BlogDetail />} />
-            <Route path="/blog-page" element={<InsightsInnovation />} />
-            <Route path="/case-studies" element={<CaseStudies />} /> {/* Placeholder for Case Studies page */}
-            <Route path="/services" element={<Services />} />
-              
-
-          </Routes>
+          <Suspense fallback={null}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about-us" element={<AboutUs />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/blog/:id" element={<BlogDetail />} />
+              <Route path="/blog-detail/:id" element={<BlogDetail />} />
+              <Route path="/blog-page" element={<InsightsInnovation />} />
+              <Route path="/case-studies" element={<CaseStudies />} />
+              <Route path="/services" element={<Services />} />
+            </Routes>
+          </Suspense>
         </div>
       </Router>
-      <Chatbot />
+      <Suspense fallback={null}>
+        <Chatbot />
+      </Suspense>
     </>
   );
 }

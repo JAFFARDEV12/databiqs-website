@@ -16,7 +16,7 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-left">
             <div className="footer-logo">
-              <img src={chatbotIcon} alt="Chatbot" className="footer-logo-icon" />
+              <img src={chatbotIcon} alt="Chatbot" className="footer-logo-icon" loading="lazy" decoding="async" />
               <span className="footer-logo-text">atabiqs</span>
             </div>
             <p className="footer-tagline">
@@ -33,7 +33,7 @@ const Footer = () => {
     style={{ "--i": "#0A66C2", "--j": "#004182" }}
   >
     <span className="icon">
-      <img src={linkedinSvg} alt="" aria-hidden="true" />
+      <img src={linkedinSvg} alt="" aria-hidden="true" loading="lazy" decoding="async" />
     </span>
     <span className="title">LinkedIn</span>
   </a>
@@ -47,7 +47,7 @@ const Footer = () => {
     style={{ "--i": "#1877F2", "--j": "#0F5DC4" }}
   >
     <span className="icon">
-      <img src={facebookSvg} alt="" aria-hidden="true" />
+      <img src={facebookSvg} alt="" aria-hidden="true" loading="lazy" decoding="async" />
     </span>
     <span className="title">Facebook</span>
   </a>
@@ -61,7 +61,7 @@ const Footer = () => {
     style={{ "--i": "#FF5F6D", "--j": "#FFC371" }}
   >
     <span className="icon">
-      <img src={instaSvg} alt="" aria-hidden="true" />
+      <img src={instaSvg} alt="" aria-hidden="true" loading="lazy" decoding="async" />
     </span>
     <span className="title">Instagram</span>
   </a>

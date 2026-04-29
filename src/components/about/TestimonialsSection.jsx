@@ -91,7 +91,7 @@ function VideoCard() {
         ref={videoRef}
         className="about-testimonial-videoMedia"
         poster={testimonialVideo}
-        preload="metadata"
+        preload="none"
         playsInline
         muted
         controls={false}
