@@ -68,6 +68,8 @@ const OurTeamSection = () => {
                       src={ceoMember.image}
                       alt={ceoMember.name}
                       className="our-team-card__avatar"
+                      loading="lazy"
+                      decoding="async"
                     />
                   ) : (
                     <div className="our-team-card__avatar-fallback" aria-label={ceoMember.name}>
@@ -103,6 +105,8 @@ const OurTeamSection = () => {
                             src={member.image}
                             alt={member.name}
                             className="our-team-card__avatar"
+                            loading="lazy"
+                            decoding="async"
                           />
                         ) : (
                           <div className="our-team-card__avatar-fallback" aria-label={member.name}>

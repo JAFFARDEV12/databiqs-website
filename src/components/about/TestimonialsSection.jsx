@@ -49,6 +49,8 @@ function TestimonialCard({ avatar, quote, name, role }) {
           src={avatar}
           alt={`${name} avatar`}
           draggable="false"
+          loading="lazy"
+          decoding="async"
         />
 
         <p className="about-testimonial-quote">{quote}</p>
@@ -89,7 +91,7 @@ function VideoCard() {
         ref={videoRef}
         className="about-testimonial-videoMedia"
         poster={testimonialVideo}
-        preload="auto"
+        preload="metadata"
         playsInline
         muted
         controls={false}
@@ -112,6 +114,8 @@ function VideoCard() {
         src={avatarEmily}
         alt="Emily Scott"
         draggable="false"
+        loading="lazy"
+        decoding="async"
       />
 
       {/* Play button (center, 72x40) */}
@@ -124,7 +128,7 @@ function VideoCard() {
         {isPlaying ? (
           <span className="about-testimonial-pauseIcon" aria-hidden />
         ) : (
-          <img src={playButton} alt="" draggable="false" />
+          <img src={playButton} alt="" draggable="false" loading="lazy" decoding="async" />
         )}
       </button>
     </div>

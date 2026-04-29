@@ -6,6 +6,7 @@ import {
   Brain,
   Target
 } from 'lucide-react';
+import arrowRight from '../../assets/gif/arrow.svg';
 
 const capabilities = [
   {
@@ -72,7 +73,7 @@ const CoreCapabilities = () => {
 
                 <button className="core-card__link">
                   Learn More
-                  <span>→</span>
+                  <span><img src={arrowRight} alt="Arrow" /></span>
                 </button>
               </article>
             );

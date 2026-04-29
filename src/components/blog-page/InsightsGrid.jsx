@@ -10,7 +10,6 @@ import img3 from "../../assets/3.png";
 import img4 from "../../assets/4.png";
 import img5 from "../../assets/5.png";
 import img6 from "../../assets/6.png";
-import ColourfulText from "../colorfull-text/ColourfulText";
 import PurpleCTAButton from "../buttons/PurpleCTAButton";
 const InsightsGrid = () => {
   const sectionRef = useScrollAnimation({ threshold: 0.2 });

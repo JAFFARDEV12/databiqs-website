@@ -146,6 +146,22 @@
   overflow-x: hidden;
 }
 
+/* Defer offscreen section rendering for smoother initial load */
+.home-content > :where(
+  .numbers-stats-section,
+  .ai-solutions-section,
+  .ai-automation-section,
+  .testimonials-section,
+  .stats-bar-section,
+  .case-studies-section,
+  .tools-audits-section,
+  .meeting-banner-section,
+  .footer
+) {
+  content-visibility: auto;
+  contain-intrinsic-size: 900px;
+}
+
 @media (max-width: 1200px) {
   .home {
     --home-page-pad-x: clamp(12px, 3vw, 24px);

@@ -58,7 +58,6 @@ const Header = () => {
   const isServicesActive = isHomePage && hash === '#services';
   const isCaseStudiesActive = location.pathname === '/case-studies';
   const isInsightsActive = location.pathname === '/blog-page';
-  const isContactActive = location.pathname === '/contact';
 
   const activeClass = (active) => (active ? ' nav-link-active' : '');
 

@@ -50,7 +50,13 @@ const CaseStudiesSection = () => {
   const CaseStudyCard = () => (
     <div className="case-study-card" >
       <div className="case-study-image-container">
-        <img src={caseStudyImage} alt="AI Support Engine Flow" className="case-study-image" />
+        <img
+          src={caseStudyImage}
+          alt="AI Support Engine Flow"
+          className="case-study-image"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
       <h3 className="case-study-title">AI-Powered Customer Support</h3>
       <p className="case-study-description">

@@ -3,8 +3,6 @@ import './ContactSection.css';
 import phoneIcon from '../../assets/phoneicon.png';
 import arrowIcon from '../../assets/rightarrow.svg';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-import costumeanimation from '../../assets/Contact.json';
-import Lottie from 'lottie-react';
 const ContactSection = () => {
   const [formData, setFormData] = useState({
     fullName: '',
@@ -40,7 +38,7 @@ const ContactSection = () => {
               Have Questions Or Want To Start A Project?<br />Our Team Is Ready To Help You Unlock The<br />Power Of Al For Your Business.
             </p>
             <div className="phone-icon-container">
-              <img src={phoneIcon} alt="Phone" className="phone-icon" />
+              <img src={phoneIcon} alt="Phone" className="phone-icon" loading="lazy" decoding="async" />
             </div>
             <p className="privacy-notice">
               We Value Your Privacy And Will Never Share Your Information.<br />Expect A Response From Our Team Within 24-48 Hours.
