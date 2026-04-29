@@ -13,8 +13,8 @@
   .case-study-page-header-section {
     /* Pull left, right, and top to bleed outside parent's padding */
     margin: -12px calc(-1 * var(--case-study-page-pad-x)) 0;
-    /* Re-add the same padding so inner content stays aligned */
-    padding: 12px var(--case-study-page-pad-x) clamp(16px, 3vw, 32px);
+    /* Keep header spacing controlled only by Header.css for consistency */
+    padding: 12px 0 clamp(16px, 3vw, 32px);
     /* Expand width to cover the bled-out margins */
     width: calc(100% + 2 * var(--case-study-page-pad-x));
     box-sizing: border-box;

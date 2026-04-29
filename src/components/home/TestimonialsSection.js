@@ -48,8 +48,8 @@ const TestimonialsSection = () => {
           <div className="testimonials-grid">
             {/* Card 1 */}
             <div className="testimonial-card card-bg-1" style={{ backgroundImage: `url(${card1Picture})` }}>
-              <img src={avatar1} alt="Robert Wilson" className="testimonial-avatar" />
-              <img src={apostrophySvg} alt="" className="quote-icon" aria-hidden="true" />
+              <img src={avatar1} alt="Robert Wilson" className="testimonial-avatar" loading="lazy" decoding="async" />
+              <img src={apostrophySvg} alt="" className="quote-icon" aria-hidden="true" loading="lazy" decoding="async" />
               <p className="testimonial-quote">
                 "Databiqs Delivered An Al Solution That Significantly Improved Our Customer Response Time And Operational Efficiency. Their Approach Was Strategic, Professional, And Results-Driven."
               </p>
@@ -65,7 +65,7 @@ const TestimonialsSection = () => {
                 ref={videoRef}
                 className="testimonial-video-inline"
                 poster={testimonialVideoBg}
-                preload="auto"
+                preload="metadata"
                 playsInline
                 muted
                 controls={false}
@@ -78,7 +78,7 @@ const TestimonialsSection = () => {
               >
                 <source src={testimonialVideoMp4} type="video/mp4" />
               </video>
-              <img src={avatar2} alt="Emily Scott" className="testimonial-avatar" />
+              <img src={avatar2} alt="Emily Scott" className="testimonial-avatar" loading="lazy" decoding="async" />
               <div className="featured-video-overlay" />
               <div
                 className="play-button"
@@ -88,11 +88,11 @@ const TestimonialsSection = () => {
                 tabIndex={0}
                 aria-label={isPlaying ? 'Pause testimonial video' : 'Play testimonial video'}
               >
-                <img src={bgPlayButtonSvg} alt="" className="play-button-bg" aria-hidden="true" />
+                <img src={bgPlayButtonSvg} alt="" className="play-button-bg" aria-hidden="true" loading="lazy" decoding="async" />
                 {isPlaying ? (
                   <span className="play-button-pause" aria-hidden />
                 ) : (
-                  <img src={playButtonSvg} alt="Play" className="play-button-icon" />
+                  <img src={playButtonSvg} alt="Play" className="play-button-icon" loading="lazy" decoding="async" />
                 )}
               </div>
               <div className="testimonial-author">
@@ -103,8 +103,8 @@ const TestimonialsSection = () => {
 
             {/* Card 3 */}
             <div className="testimonial-card card-bg-3" style={{ backgroundImage: `url(${card3Picture})` }}>
-              <img src={avatar3} alt="David Turner" className="testimonial-avatar" />
-              <img src={apostrophySvg} alt="" className="quote-icon" aria-hidden="true" />
+              <img src={avatar3} alt="David Turner" className="testimonial-avatar" loading="lazy" decoding="async" />
+              <img src={apostrophySvg} alt="" className="quote-icon" aria-hidden="true" loading="lazy" decoding="async" />
               <p className="testimonial-quote">
                 "The Al Automation Implemented By Databigs Streamlined Our Internal Workflows And Reduced Manual Effort Across Teams. Their Expertise With Intelligent Systems Truly Stands Out"
               </p>
@@ -116,8 +116,8 @@ const TestimonialsSection = () => {
 
             {/* Card 4 */}
             <div className="testimonial-card card-bg-4" style={{ backgroundImage: `url(${card4Picture})` }}>
-              <img src={avatar4} alt="Michael Hayes" className="testimonial-avatar" />
-              <img src={apostrophySvg} alt="" className="quote-icon" aria-hidden="true" />
+              <img src={avatar4} alt="Michael Hayes" className="testimonial-avatar" loading="lazy" decoding="async" />
+              <img src={apostrophySvg} alt="" className="quote-icon" aria-hidden="true" loading="lazy" decoding="async" />
               <p className="testimonial-quote">
                 "Databiqs Delivered An Al Solution That Significantly Improved Our Customer Response Time And Operational Efficiency. Their Approach Was Strategic, Professional, And Results-Driven"
               </p>

@@ -1519,8 +1519,11 @@ width: 100%;
 /* Recommended flow:
    Header + Meet Our CEO + Stats -> About Us cards -> Our Team -> Testimonials -> Contact -> Footer */
 .au-page .top-gradient-wrapper {
-  margin: 0;
-  padding-bottom: clamp(14px, 2.2vw, 28px);
+  margin: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 12px 0 clamp(14px, 2.2vw, 28px) !important;
+  box-sizing: border-box;
 }
 
 .au-page .au-frame {
@@ -1587,7 +1590,9 @@ width: 100%;
 
 @media (max-width: 768px) {
   .au-page .top-gradient-wrapper {
-    padding-bottom: 12px;
+    margin: 0 !important;
+    width: 100% !important;
+    padding: 10px 0 12px !important;
   }
 
   .au-page .au-hero {
@@ -1614,6 +1619,12 @@ width: 100%;
 }
 
 @media (max-width: 480px) {
+  .au-page .top-gradient-wrapper {
+    margin: 0 !important;
+    width: 100% !important;
+    padding: 8px 0 10px !important;
+  }
+
   .au-page .au-frame,
   .au-page .au2-inner {
     padding-inline: 8px;
