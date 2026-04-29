@@ -65,7 +65,7 @@ const TestimonialsSection = () => {
                 ref={videoRef}
                 className="testimonial-video-inline"
                 poster={testimonialVideoBg}
-                preload="metadata"
+                preload="none"
                 playsInline
                 muted
                 controls={false}

@@ -1,4 +1,5 @@
 
+import { useEffect } from 'react';
 import Header from './Header';
 import HeroSection from './HeroSection';
 import AISolutionsSection from './AISolutionsSection';
@@ -7,14 +8,10 @@ import TestimonialsSection from './TestimonialsSection';
 import StatsBar from './StatsBar';
 import CaseStudiesSection from './CaseStudiesSection';
 import NumbersStatsSection from './NumbersStatsSection';
-
 import ToolsAuditsSection from './ToolsAuditsSection';
 import MeetingBannerSection from './MeetingBannerSection';
 import Footer from './Footer';
 import { useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
-
-
 import './Home.css';
 
 
@@ -45,9 +42,7 @@ useEffect(() => {
       </div>
 
       <NumbersStatsSection />
-      
 
-      
         <AISolutionsSection />
         <AIAutomationSection />
         <TestimonialsSection />

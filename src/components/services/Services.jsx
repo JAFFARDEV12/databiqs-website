@@ -30,8 +30,9 @@ const Services = () => {
             </section>
             <div className="case-study-page-container">
               <CoreCapabilities/>
-              <MeetingBannerSection />
             </div>
+            <MeetingBannerSection />
+            
 
             <Footer />
 
