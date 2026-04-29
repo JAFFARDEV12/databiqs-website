@@ -50,6 +50,7 @@
   /* ===== Services page consistency layer (300px - 1400px) ===== */
   .services-page {
     overflow-x: clip;
+    padding-bottom: 0;
   }
 
   .services-page .case-study-page-container {
@@ -72,6 +73,18 @@
     padding: clamp(44px, 6.2vw, 84px) 0;
   }
 
+  /* Keep footer full-bleed and consistent on Services page */
+  .services-page > .footer {
+    width: calc(100% + (2 * var(--case-study-page-pad-x)));
+    margin-left: calc(-1 * var(--case-study-page-pad-x));
+    margin-right: calc(-1 * var(--case-study-page-pad-x));
+    margin-top: clamp(24px, 4vw, 44px);
+  }
+
+  .services-page > .footer .footer-container {
+    max-width: 1200px;
+  }
+
   @media (max-width: 900px) {
     .services-page .case-study-page > .case-study-page-container {
       margin-top: 24px;
@@ -83,6 +96,10 @@
   @media (max-width: 600px) {
     .services-page .case-study-page-header-section {
       padding-bottom: 18px;
+    }
+
+    .services-page > .footer {
+      margin-top: 20px;
     }
 
   }
