@@ -126,16 +126,14 @@
 
   .services-page :where(
     .cta-icon-circle,
-    .core-card__link span,
-    .meeting-banner__cta-arrow
+    .core-card__link span
   ) {
     transition: transform 0.25s ease;
   }
 
   .services-page :where(
     .cta-button:hover .cta-icon-circle,
-    .core-card__link:hover span,
-    .meeting-banner__cta:hover .meeting-banner__cta-arrow
+    .core-card__link:hover span
   ) {
     transform: translateX(2px);
   }
