@@ -304,6 +304,7 @@
   color: #232323;
 }
 
+/* Portal renders under document.body so position:fixed is viewport-relative (#root uses transform, which breaks fixed children). */
 .book-modal {
   position: fixed;
   inset: 0;
@@ -311,7 +312,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: max(12px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px))
+    max(12px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
 }
 
 .book-modal__overlay {
@@ -325,7 +331,11 @@
   position: relative;
   width: min(620px, 100%);
   max-height: min(86vh, 760px);
-  overflow: auto;
+  max-height: min(86dvh, 760px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   border-radius: 22px;
   padding: clamp(16px, 2.8vw, 28px);
   background: #ffffff;

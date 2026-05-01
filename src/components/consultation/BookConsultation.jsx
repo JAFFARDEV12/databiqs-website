@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { createPortal } from 'react-dom';
 import Header from '../home/Header';
 import Footer from '../home/Footer';
 import './BookConsultation.css';
@@ -237,63 +238,65 @@ const BookConsultation = () => {
           </div>
         </section>
       </div>
-      {isSlotModalOpen && (
-        <div className="book-modal" role="dialog" aria-modal="true" aria-label="Select session details">
-          <div className="book-modal__overlay" onClick={() => setIsSlotModalOpen(false)} />
-          <div className="book-modal__panel">
-            <div className="book-modal__header">
-              <h3>Finalize Your Session</h3>
-              <button
-                type="button"
-                className="book-modal__close"
-                aria-label="Close session details modal"
-                onClick={() => setIsSlotModalOpen(false)}
-              >
-                ×
+      {isSlotModalOpen &&
+        createPortal(
+          <div className="book-modal" role="dialog" aria-modal="true" aria-label="Select session details">
+            <div className="book-modal__overlay" onClick={() => setIsSlotModalOpen(false)} />
+            <div className="book-modal__panel">
+              <div className="book-modal__header">
+                <h3>Finalize Your Session</h3>
+                <button
+                  type="button"
+                  className="book-modal__close"
+                  aria-label="Close session details modal"
+                  onClick={() => setIsSlotModalOpen(false)}
+                >
+                  ×
+                </button>
+              </div>
+              <p className="book-modal__sub">
+                {selectedDate ? formatDateLabel(selectedDate) : 'Select a date'} - Choose mode and time
+              </p>
+
+              <div className="book-consultation__selector">
+                <h4>Session Mode</h4>
+                <div className="book-consultation__chips">
+                  {SESSION_MODES.map((mode) => (
+                    <button
+                      key={mode}
+                      type="button"
+                      className={`book-chip ${selectedMode === mode ? 'is-active' : ''}`}
+                      onClick={() => setSelectedMode(mode)}
+                    >
+                      {mode}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="book-consultation__selector">
+                <h4>Time Slot</h4>
+                <div className="book-consultation__chips">
+                  {TIME_SLOTS.map((slot) => (
+                    <button
+                      key={slot}
+                      type="button"
+                      className={`book-chip ${selectedTime === slot ? 'is-active' : ''}`}
+                      onClick={() => setSelectedTime(slot)}
+                    >
+                      {slot}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <button type="button" className="book-modal__done" onClick={() => setIsSlotModalOpen(false)}>
+                Save Session Details
               </button>
             </div>
-            <p className="book-modal__sub">
-              {selectedDate ? formatDateLabel(selectedDate) : 'Select a date'} - Choose mode and time
-            </p>
-
-            <div className="book-consultation__selector">
-              <h4>Session Mode</h4>
-              <div className="book-consultation__chips">
-                {SESSION_MODES.map((mode) => (
-                  <button
-                    key={mode}
-                    type="button"
-                    className={`book-chip ${selectedMode === mode ? 'is-active' : ''}`}
-                    onClick={() => setSelectedMode(mode)}
-                  >
-                    {mode}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="book-consultation__selector">
-              <h4>Time Slot</h4>
-              <div className="book-consultation__chips">
-                {TIME_SLOTS.map((slot) => (
-                  <button
-                    key={slot}
-                    type="button"
-                    className={`book-chip ${selectedTime === slot ? 'is-active' : ''}`}
-                    onClick={() => setSelectedTime(slot)}
-                  >
-                    {slot}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <button type="button" className="book-modal__done" onClick={() => setIsSlotModalOpen(false)}>
-              Save Session Details
-            </button>
-          </div>
-        </div>
-      )}
+          </div>,
+          document.body
+        )}
       <Footer />
     </div>
   );
