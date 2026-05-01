@@ -1755,3 +1755,132 @@ width: 100%;
     overflow: visible;
   }
 }
+
+/* ===== About global layout system lock (safe overrides) ===== */
+.au-page {
+  --au-container-max: 1200px;
+  --au-container-pad: 16px;
+  overflow-x: clip;
+}
+
+@media (min-width: 768px) {
+  .au-page {
+    --au-container-pad: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .au-page {
+    --au-container-pad: 32px;
+  }
+}
+
+/* Standardized container behavior for About sections */
+.au-page :where(.au-frame, .au2-inner, .our-team__container, .section-container, .contact-container) {
+  width: min(100%, var(--au-container-max));
+  margin-inline: auto;
+  padding-inline: var(--au-container-pad);
+  box-sizing: border-box;
+}
+
+/* Section rhythm consistency */
+.au-page :where(.au2-section, .our-team, .testimonials-section, .contact-section) {
+  padding-block: clamp(44px, 6vw, 84px);
+}
+
+/* Mission / Vision / Approach cards: stable, equal, no weird gaps */
+.au-page .au2-cards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)) !important;
+  gap: clamp(14px, 1.8vw, 22px) !important;
+  align-items: stretch;
+  justify-items: stretch;
+}
+
+.au-page .au2-card {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  min-height: 332px;
+  height: 100%;
+  margin: 0;
+  padding: clamp(22px, 2.4vw, 30px) clamp(14px, 1.8vw, 22px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.au-page .au2-card-title {
+  min-height: 2.5em;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.au-page .au2-card-description {
+  width: 100%;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 900px) {
+  .au-page .au2-card {
+    min-height: 0;
+  }
+}
+
+/* Fix odd centering around 651px and below */
+@media (max-width: 651px) {
+  .au-page .au2-cards {
+    grid-template-columns: 1fr !important;
+    justify-items: center !important;
+    align-items: start;
+    gap: 14px !important;
+  }
+
+  .au-page .au2-card {
+    width: min(100%, 360px) !important;
+    max-width: 360px !important;
+    margin-inline: auto !important;
+    min-height: 0;
+  }
+}
+
+/* ===== About-only testimonials grid consistency ===== */
+.au-page .testimonials-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(12px, 1.4vw, 18px);
+  align-items: stretch;
+}
+
+.au-page .testimonial-card,
+.au-page .testimonial-card.featured {
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0;
+  height: 320px;
+  min-height: 320px;
+}
+
+@media (max-width: 1023px) {
+  .au-page .testimonials-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .au-page .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .au-page .testimonial-card,
+  .au-page .testimonial-card.featured {
+    width: min(100%, 360px) !important;
+    margin-inline: auto;
+  }
+}
