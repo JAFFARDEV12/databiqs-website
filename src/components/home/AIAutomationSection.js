@@ -5,7 +5,7 @@ import aiAutomationAnimation from '../../assets/Robot-Futuristic-Ai-animated.jso
 import Lottie from 'lottie-react';
 
 const AIAutomationSection = () => {
-  const sectionRef = useScrollAnimation({ threshold: 0.1 });
+  const sectionRef = useScrollAnimation({ threshold: 0.05, rootMargin: '220px 0px' });
 
   return (
     <section className="ai-automation-section" ref={sectionRef}>
@@ -39,6 +39,9 @@ const AIAutomationSection = () => {
                 src={bgTwoRectangles1}
                 alt="AI automation workflow animation"
                 className="automation-gif"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
             </div>
           </div>

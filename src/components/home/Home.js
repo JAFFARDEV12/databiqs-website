@@ -13,6 +13,8 @@ import MeetingBannerSection from './MeetingBannerSection';
 import Footer from './Footer';
 import { useLocation } from 'react-router-dom';
 import './Home.css';
+import aiSolutionsGif from '../../assets/gif/Databiqas-Animation1.gif';
+import aiAutomationGif from '../../assets/gif/Databiqas-Animation.gif';
 
 
 const Home = () => {
@@ -29,6 +31,18 @@ useEffect(() => {
     }
   }
 }, [location]);
+
+useEffect(() => {
+  const preloadImage = (src) => {
+    const img = new Image();
+    img.src = src;
+    img.decoding = 'async';
+    img.fetchPriority = 'high';
+  };
+
+  preloadImage(aiSolutionsGif);
+  preloadImage(aiAutomationGif);
+}, []);
 
   return (
     <div className="home">

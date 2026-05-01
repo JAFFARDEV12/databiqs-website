@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './AISolutionsSection.css';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import bgTwoRectangles1 from '../../assets/gif/Databiqas-Animation1.gif';
@@ -6,7 +6,27 @@ import aiCustomerAnimation from '../../assets/Customer-Support.json';
 import Lottie from 'lottie-react';
 
 const AISolutionsSection = () => {
-  const sectionRef = useScrollAnimation({ threshold: 0.2, rootMargin: '0px' });
+  const sectionRef = useScrollAnimation({ threshold: 0.05, rootMargin: '220px 0px' });
+  const [animationCycle, setAnimationCycle] = useState(0);
+  const restartTimerRef = useRef(null);
+
+  useEffect(() => {
+    return () => {
+      if (restartTimerRef.current) {
+        clearTimeout(restartTimerRef.current);
+      }
+    };
+  }, []);
+
+  const handleAnimationComplete = () => {
+    if (restartTimerRef.current) {
+      clearTimeout(restartTimerRef.current);
+    }
+
+    restartTimerRef.current = setTimeout(() => {
+      setAnimationCycle((prev) => prev + 1);
+    }, 1000);
+  };
 
   return (
     <section className="ai-solutions-section" id="services" ref={sectionRef}>
@@ -27,11 +47,17 @@ const AISolutionsSection = () => {
                 alt=""
                 aria-hidden="true"
                 className="solutions-diagram-fill"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
               <img
                 src={bgTwoRectangles1}
                 alt="AI Solutions Diagram"
                 className="solutions-diagram"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
             </div>
           </div>
@@ -40,9 +66,11 @@ const AISolutionsSection = () => {
             <div className="automation-title-row">
             <div className="automation-title-lottie">
   <Lottie
+    key={animationCycle}
     animationData={aiCustomerAnimation}
-    loop
+    loop={false}
     autoplay
+    onComplete={handleAnimationComplete}
     style={{ width: 'auto', height: 'auto', maxWidth: '100%', maxHeight: '100%' }}
   />
             </div>

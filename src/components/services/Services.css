@@ -10,80 +10,6 @@
   z-index: 0;
 }
 
-/* Particle Canvas */
-.particle-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.6;
-}
-
-/* Floating 3D Shapes */
-.floating-shapes {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.shape {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(60px);
-  opacity: 0.3;
-  animation: float 20s infinite ease-in-out;
-}
-
-.shape-1 {
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(156,22,200,0.4), rgba(64,19,113,0.2));
-  top: 10%;
-  left: -100px;
-  animation-delay: 0s;
-}
-
-.shape-2 {
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(174,13,255,0.3), rgba(64,19,113,0.1));
-  bottom: 10%;
-  right: -150px;
-  animation-delay: 5s;
-}
-
-.shape-3 {
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(156,22,200,0.5), rgba(174,13,255,0.2));
-  top: 50%;
-  left: 20%;
-  animation-delay: 10s;
-}
-
-.shape-4 {
-  width: 250px;
-  height: 250px;
-  background: radial-gradient(circle, rgba(64,19,113,0.4), rgba(156,22,200,0.2));
-  bottom: 20%;
-  left: 30%;
-  animation-delay: 15s;
-}
-
-@keyframes float {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  33% { transform: translate(30px, -30px) rotate(5deg); }
-  66% { transform: translate(-20px, 20px) rotate(-3deg); }
-}
-
 .case-study-page-header-section {
   margin: -12px calc(-1 * var(--case-study-page-pad-x)) 0;
   padding: 12px 0 clamp(16px, 3vw, 32px);
@@ -221,17 +147,6 @@
   transform: scale(1.02);
 }
 
-.hero-visual-glow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 50% 50%, rgba(156, 22, 200, 0.2), transparent);
-  pointer-events: none;
-  z-index: 2;
-}
-
 /* Services Page Specific */
 .services-page {
   overflow-x: clip;
@@ -259,33 +174,6 @@
   z-index: 2;
 }
 
-/* Decorative Ellipses */
-.decorative-ellipse-1,
-.decorative-ellipse-2 {
-  position: fixed;
-  border-radius: 50%;
-  filter: blur(180px);
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.4;
-}
-
-.decorative-ellipse-1 {
-  width: 400px;
-  height: 400px;
-  background: rgba(137, 76, 251, 0.25);
-  top: 20%;
-  right: -100px;
-}
-
-.decorative-ellipse-2 {
-  width: 500px;
-  height: 500px;
-  background: rgba(174, 13, 255, 0.15);
-  bottom: 10%;
-  left: -150px;
-}
-
 /* Responsive */
 @media (max-width: 1024px) {
   .case-study-page-intro {
@@ -297,15 +185,6 @@
   .case-study-page-hero {
       grid-template-columns: 1fr;
       gap: 32px;
-  }
-  
-  .floating-shapes {
-      display: none;
-  }
-  
-  .decorative-ellipse-1,
-  .decorative-ellipse-2 {
-      display: none;
   }
 }
 
