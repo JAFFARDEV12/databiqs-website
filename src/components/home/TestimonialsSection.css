@@ -1,5 +1,5 @@
 .testimonials-section {
-  padding: 10px 40px 40px 20px;
+  padding: clamp(36px, 5vw, 56px) clamp(16px, 4vw, 40px) clamp(36px, 5vw, 56px);
 /*   background: #ffffff; */
  background: #ffffff;
   backdrop-filter: blur(20px) saturate(180%);
@@ -411,41 +411,6 @@
   color: #7B2CBF;
   font-size: 20px;
 }
-@media (max-width:768px){
-
-  .testimonial-card.featured{
-    width: 100%;
-    max-width: 360px;
-    height: 520px;
-    border-radius: 34px;
-  }
-
-  .testimonial-video-inline,
-  .featured-video-overlay{
-    border-radius: 34px;
-  }
-
-  .testimonial-card.featured .testimonial-avatar{
-    top: 18px;
-    left: 18px;
-    width: 46px;
-    height: 46px;
-  }
-
-  .testimonial-card.featured .author-name{
-    font-size: 18px;
-  }
-
-  .testimonial-card.featured .author-title{
-    font-size: 14px;
-  }
-
-  .testimonial-card.featured .testimonial-author{
-    left: 20px;
-    bottom: 20px;
-  }
-}
-
 /* -------- SMALL MOBILE -------- */
 @media (max-width:480px){
 
@@ -464,35 +429,111 @@
     transform: translate(-50%, -50%) scale(.9) !important;
   }
 }
-@media (max-width: 968px) {
+/* Tablet / small laptop: two cards per row, aligned to section rail */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .testimonials-section {
+    padding: clamp(44px, 5vw, 72px) clamp(14px, 3.2vw, 24px) clamp(36px, 5vw, 56px);
+    box-sizing: border-box;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(14px, 2vw, 22px);
+    justify-content: stretch;
+    align-items: stretch;
+    margin-bottom: 20px;
+  }
+
+  .testimonial-card,
+  .testimonial-card.featured {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    height: 320px;
+    min-height: 320px;
+  }
+
+  .section-headline {
+    font-size: clamp(28px, 3.6vw, 36px);
+    line-height: 1.15;
+  }
+
+  .section-description {
+    margin-bottom: clamp(36px, 4vw, 48px);
+  }
+
+  .stats-section {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .stat-divider {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .testimonial-card.featured {
+    width: 100%;
+    max-width: 360px;
+    height: 520px;
+    border-radius: 34px;
+  }
+
+  .testimonial-video-inline,
+  .featured-video-overlay {
+    border-radius: 34px;
+  }
+
+  .testimonial-card.featured .testimonial-avatar {
+    top: 18px;
+    left: 18px;
+    width: 46px;
+    height: 46px;
+  }
+
+  .testimonial-card.featured .author-name {
+    font-size: 18px;
+  }
+
+  .testimonial-card.featured .author-title {
+    font-size: 14px;
+  }
+
+  .testimonial-card.featured .testimonial-author {
+    left: 20px;
+    bottom: 20px;
+  }
+
   .testimonials-grid {
     flex-direction: column;
     align-items: center;
     gap: 24px;
   }
-  
+
   .testimonial-card {
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
   }
-  
+
   .testimonial-card.featured {
     width: 100%;
     max-width: 400px;
     height: 320px;
     transform: scale(1);
   }
-  
+
   .section-headline {
     font-size: 32px;
   }
-  
+
   .stats-section {
     flex-direction: column;
     gap: 30px;
   }
-  
+
   .stat-divider {
     display: none;
   }
@@ -511,43 +552,6 @@
   .section-description {
     font-size: 14px;
     line-height: 22px;
-  }
-  
-  .testimonials-grid {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  .testimonial-card {
-    width: 100%;
-    max-width: 360px;
-    height: auto;
-    min-height: 340px;
-    padding: 24px;
-  }
-  
-  .testimonial-card.featured {
-    min-height: 320px;
-  }
-  
-  .testimonial-card.featured .testimonial-author {
-    margin-top: 140px;
-  }
-  
-  .testimonial-card.featured .play-button {
-    top: calc(50% + 50px);
-    transform: translate(-50%, 220%);
-  }
-  
-  .testimonial-card.featured .play-button:hover {
-    transform: translate(-50%, -50%) scale(1.1);
-  }
-  
-  .testimonial-quote {
-    font-size: 15px;
-    line-height: 22px;
-    margin-top: 70px;
   }
 }
 
@@ -588,19 +592,16 @@
     min-height: 280px;
   }
   
-  .testimonial-card.featured .testimonial-author {
-    margin-top: 160px;
-  }
-  
   .testimonial-card.featured .play-button {
     width: 56px;
     height: 32px;
-    top: calc(50% + 50px);
-    transform: translate(-50%, 220%);
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) scale(0.9) !important;
   }
   
   .testimonial-card.featured .play-button:hover {
-    transform: translate(-50%, -50%) scale(1.1);
+    transform: translate(-50%, -50%) scale(0.95) !important;
   }
   
   .testimonial-card.featured .play-button-bg {
@@ -753,18 +754,6 @@
   transform: translate(-50%, -50%) scale(1.05);
 }
 
-/* Keep existing responsive rules for the card itself */
-@media (max-width: 768px) {
-  .testimonial-card.featured .play-button {
-    top: calc(50% + 50px);
-    transform: translate(-50%, 220%);
-  }
-  
-  .testimonial-card.featured .play-button:hover {
-    transform: translate(-50%, 220%) scale(1.05);
-  }
-}
-
 /* ===== Inline featured video: force in-card playback ===== */
 .testimonial-card.featured {
   background: #000 !important;
@@ -839,13 +828,16 @@
   align-items: stretch;
 }
 
-.testimonial-card,
-.testimonial-card.featured {
-  width: 100%;
-  max-width: 264px;
-  height: 320px;
-  min-height: 320px;
-  box-sizing: border-box;
+/* Desktop: keep the original fixed card width + wrap layout */
+@media (min-width: 1025px) {
+  .testimonial-card,
+  .testimonial-card.featured {
+    width: 100%;
+    max-width: 264px;
+    height: 320px;
+    min-height: 320px;
+    box-sizing: border-box;
+  }
 }
 
 .testimonial-card.featured .testimonial-author {
@@ -862,25 +854,12 @@
   transform: translate(-50%, -50%) !important;
 }
 
-@media (max-width: 968px) {
-  .testimonials-grid {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
+/* Tablet band: two-up grid; cards fill their columns (no 264px cap) */
+@media (min-width: 641px) and (max-width: 1024px) {
   .testimonial-card,
   .testimonial-card.featured {
-    max-width: 400px;
-    height: 320px;
-    min-height: 320px;
-  }
-}
-
-@media (max-width: 768px) {
-  .testimonial-card,
-  .testimonial-card.featured {
-    max-width: 360px;
+    max-width: none;
+    width: 100%;
     height: 320px;
     min-height: 320px;
   }

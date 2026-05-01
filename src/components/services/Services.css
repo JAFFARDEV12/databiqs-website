@@ -1,5 +1,6 @@
 /* Services.css */
-.case-study-page {
+.case-study-page,
+.services-page {
   --case-study-page-pad-x: clamp(16px, 4vw, 32px);
   padding: 12px var(--case-study-page-pad-x) clamp(40px, 8vw, 80px);
   overflow-x: hidden;
@@ -165,6 +166,20 @@
   padding: clamp(44px, 6.2vw, 84px) 0;
 }
 
+/* Align meeting banner with services content rails */
+.services-page .meeting-banner-section {
+  padding-left: var(--case-study-page-pad-x);
+  padding-right: var(--case-study-page-pad-x);
+}
+
+.services-page .meeting-banner-section__wrap {
+  max-width: 1220px;
+}
+
+.services-page .meeting-banner {
+  max-width: 1220px;
+}
+
 .services-page > .footer {
   width: calc(100% + (2 * var(--case-study-page-pad-x)));
   margin-left: calc(-1 * var(--case-study-page-pad-x));
@@ -176,6 +191,10 @@
 
 /* Responsive */
 @media (max-width: 1024px) {
+  .services-page {
+      --case-study-page-pad-x: clamp(14px, 3.2vw, 24px);
+  }
+
   .case-study-page-intro {
       max-width: 100%;
   }
@@ -189,6 +208,15 @@
 }
 
 @media (max-width: 640px) {
+  .services-page {
+      --case-study-page-pad-x: 14px;
+  }
+
+  .services-page .meeting-banner-section {
+      padding-left: var(--case-study-page-pad-x);
+      padding-right: var(--case-study-page-pad-x);
+  }
+
   .hero-cta-button {
       padding: 12px 24px;
       font-size: 14px;
@@ -207,6 +235,15 @@
 }
 
 @media (max-width: 480px) {
+  .services-page {
+      --case-study-page-pad-x: 12px;
+  }
+
+  .services-page .meeting-banner-section {
+      padding-left: var(--case-study-page-pad-x);
+      padding-right: var(--case-study-page-pad-x);
+  }
+
   .case-study-page-title-top {
       font-size: 28px;
   }

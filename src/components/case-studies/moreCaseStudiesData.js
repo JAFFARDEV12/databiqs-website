@@ -40,18 +40,20 @@ export const MORE_CASE_STUDIES = [
     href: '/case-studies',
   },
   {
-    id: 'manufacturing-quality',
+    id: 'logistics-forecast',
     description: FIGMA_LINE_BREAKS_EXAMPLE,
     href: '/case-studies',
   },
   {
-    id: 'saas-onboarding',
+    id: 'healthcare-triage',
     description: FIGMA_LINE_BREAKS_EXAMPLE,
     href: '/case-studies',
   },
   {
-    id: 'enterprise-search',
+    id: 'finance-compliance',
     description: FIGMA_LINE_BREAKS_EXAMPLE,
     href: '/case-studies',
   },
+ 
+ 
 ];

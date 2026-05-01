@@ -5,12 +5,14 @@ import arrowIcon from '../../assets/Vector-right.svg';
 import cardMessageImage from '../../assets/message.svg';
 import { MORE_CASE_STUDIES } from './moreCaseStudiesData';
 
-/** Figma: 264px cards; gaps between & left/right are equal: s = (W - n*264) / (n+1) */
+/** Figma: 264px cards; gaps between & left/right are equal: s = (W - n*264) / (n+1) — keep in sync with --more-cs-card-w in CSS */
 const MORE_CS_CARD = 264;
 const MORE_CS_GAP = 20;
 const MORE_CS_MAX_VISIBLE = 4;
+/** Minimum uniform gutter (px) before dropping to fewer columns — avoids cramped / peeking slides */
+const MORE_CS_MIN_UNIFORM_GAP = 12;
 
-/** How many 264px cards fit with equal edge + between gaps: s = (W − n·264)/(n+1) ≥ 0. */
+/** How many 264px cards fit with equal edge + between gaps: s = (W − n·264)/(n+1) ≥ min gap. */
 function cardsPerViewForViewportWidth(w) {
   if (w <= 0) return 1;
   let n = Math.min(
@@ -19,7 +21,7 @@ function cardsPerViewForViewportWidth(w) {
   );
   while (n > 1) {
     const s = (w - n * MORE_CS_CARD) / (n + 1);
-    if (s >= 0) return n;
+    if (s >= MORE_CS_MIN_UNIFORM_GAP) return n;
     n -= 1;
   }
   return 1;
@@ -65,11 +67,9 @@ const MoreCaseStudiesCarousel = () => {
     };
     const fromEl = () => apply(getViewportContentWidth());
     fromEl();
-    const ro = new ResizeObserver((entries) => {
-      for (const e of entries) {
-        apply(e.contentRect.width);
-        return;
-      }
+    /** Always use the same inner width as padding-aware layout math — contentRect.width can disagree with clientWidth − padding. */
+    const ro = new ResizeObserver(() => {
+      requestAnimationFrame(fromEl);
     });
     ro.observe(el);
     window.addEventListener('resize', fromEl);

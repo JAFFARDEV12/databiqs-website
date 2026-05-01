@@ -306,3 +306,49 @@
     font-size: 10px;
   }
 }
+
+/* ≤360px: hero copy + CTA must fit inside the card; banner min-height was clipping the button */
+@media (max-width: 360px) {
+  .heroBlog {
+    padding: 16px 12px 0;
+  }
+
+  .heroBlog__banner {
+    min-height: 560px;
+  }
+
+  .heroBlog__img {
+    min-height: 560px;
+  }
+
+  .heroBlog__overlay {
+    left: 12px;
+    right: 12px;
+    padding: 18px 14px 20px;
+  }
+
+  .heroBlog__title {
+    font-size: 26px;
+    line-height: 1.08;
+    margin-bottom: 10px;
+  }
+
+  .heroBlog__desc {
+    margin-bottom: 14px;
+    font-size: 10px;
+    line-height: 1.55;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .heroBlog__ctaRow {
+    justify-content: stretch;
+  }
+
+  .heroBlog__ctaRow > * {
+    width: 100%;
+    max-width: 100%;
+  }
+}
