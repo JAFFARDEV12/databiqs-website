@@ -111,7 +111,7 @@
 
 .cta-button {
   background: linear-gradient(119.69deg, #AE0DFF 12.36%, #401371 85.46%);
-  color: white;
+  color: #ffffff;
   border: none;
   padding: 6px 8px 6px 18px;
   border-radius: 999px;
@@ -120,6 +120,7 @@
   cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   white-space: nowrap;
+  text-decoration: none;
 
   display: inline-flex;
   align-items: center;
@@ -137,7 +138,7 @@
 .cta-icon-circle {
   width: 28px;
   height: 28px;
-  background: white;
+  background: #ffffff;
   color: #2d2140;
   border-radius: 50%;
 
@@ -428,8 +429,14 @@
   }
 
   .Header .cta-button.desktop-only {
-    font-size: 13px;
+    font-size: 13px !important;
     padding: 6px 8px 6px 14px;
+  }
+  
+  .cta-button.mobile-only {
+    font-size: 14px !important;
+    padding: 10px 16px;
+    
   }
 }
 
@@ -485,7 +492,7 @@
   }
 
   .Header .nav a {
-    font-size: clamp(28px, 2.4vw, 24px);
+    font-size: clamp(18px, 2.1vw, 19px);
     line-height: 1.2;
   }
 
@@ -496,8 +503,14 @@
   .Header .mobile-only {
     display: inline-flex !important;
     margin-top: 10px;
-    font-size: 15px;
-    padding: 10px 12px 10px 16px;
+    font-size: 13px;
+    padding: 9px 11px 9px 14px;
+  }
+
+  .Header .nav a.cta-button.mobile-only,
+  .Header .nav a.cta-button.mobile-only:visited,
+  .Header .nav a.cta-button.mobile-only span {
+    color: #ffffff !important;
   }
 
   .Header .hamburger {
@@ -521,6 +534,10 @@
   .Header .logo img {
     height: 26px;
   }
+
+  .Header .nav a {
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 360px) {
@@ -534,5 +551,9 @@
 
   .Header .logo img {
     height: 24px;
+  }
+
+  .Header .nav a {
+    font-size: 15px;
   }
 }

@@ -71,21 +71,21 @@ const Header = () => {
             {/* <Link to="/contact" onClick={closeMenu} className={activeClass(isContactActive)}>Contact Us</Link> */}
           </>
 
-          <button className="cta-button mobile-only">
+          <Link to="/book-consultation" onClick={closeMenu} className="cta-button mobile-only" aria-label="Book a consultation">
             <span>Book a Consultation</span>
             <div className="cta-icon-circle">
               <img src={arrowIcon} alt="Arrow" />
             </div>
-          </button>
+          </Link>
 
         </nav>
 
-        <button className="cta-button desktop-only">
+        <Link to="/book-consultation" className="cta-button desktop-only" aria-label="Book a consultation">
           <span>Book a Consultation</span>
           <div className="cta-icon-circle">
             <img src={arrowIcon} alt="Arrow" />
           </div>
-        </button>
+        </Link>
 
         <button
           type="button"

@@ -6,6 +6,38 @@
   overflow: hidden;
   position: relative;
   box-sizing: border-box;
+  isolation: isolate;
+}
+
+.stats-bar-section::before,
+.stats-bar-section::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: clamp(12px, 1.8vw, 22px);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.stats-bar-section::before {
+  top: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(130, 64, 221, 0.12) 0%,
+    rgba(130, 64, 221, 0.05) 45%,
+    rgba(130, 64, 221, 0) 100%
+  );
+}
+
+.stats-bar-section::after {
+  bottom: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(130, 64, 221, 0.12) 0%,
+    rgba(130, 64, 221, 0.05) 45%,
+    rgba(130, 64, 221, 0) 100%
+  );
 }
 
 .stats-bar-container {
@@ -71,7 +103,8 @@
   }
 }
 
-.stats-bar-section:hover .stats-bar-track {
+.stats-bar-section:hover .stats-bar-track,
+.stats-bar-section.is-paused .stats-bar-track {
   animation-play-state: paused;
 }
 

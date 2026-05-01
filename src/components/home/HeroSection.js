@@ -1,5 +1,6 @@
 
 import './HeroSection.css';
+import { Link } from 'react-router-dom';
 import triangleImage from '../../assets/Triangle-herosection-revoleaboverectangle.png';
 import rectangleImage from '../../assets/herosection-rectangle-rightside.png';
 import arrowIcon from '../../assets/rightarrow.svg';
@@ -37,12 +38,12 @@ const HeroSection = () => {
             Intelligent Chatbots, And Seamless Automation Workflows.
           </p>
           <div className="hero-cta-group">
-            <button className="hero-cta hero-cta-primary">
+            <Link to="/book-consultation" className="hero-cta hero-cta-primary" aria-label="Book a consultation">
               Book a Consultation
               <span className="cta-icon">
                 <img src={arrowIcon} alt="Arrow" />
               </span>
-            </button>
+            </Link>
             <button className="hero-cta hero-cta-secondary">
               View Case Studies
               <span className="cta-icon">

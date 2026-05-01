@@ -1,5 +1,6 @@
 
 import "./AboutUs.css";
+import { Link } from "react-router-dom";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import Footer from "../home/Footer";
 import Header from "../home/Header";
@@ -67,12 +68,12 @@ export default function AboutUs() {
         </div>
 
         <div className="au-actions">
-          <button className="au-btnSchedule" type="button">
+          <Link className="au-btnSchedule" to="/book-consultation" aria-label="Book a consultation">
             <span className="au-btnSchedule__text">Book a Consultation</span>
             <span className="au-btnSchedule__icon">
               <img src={arrowIcon} alt="Arrow" />
             </span>
-          </button>
+          </Link>
         </div>
       </div>
 

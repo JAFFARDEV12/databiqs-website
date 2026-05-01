@@ -19,7 +19,7 @@ const MeetingBannerSection = () => {
             <p className="meeting-banner__sub">
               Setup A 30 Minutes Consultation Call With Our Experts. No Sales Pitch, Just Pure Engineering Strategy.
             </p>
-            <Link to="/contact" className="meeting-banner__cta">
+            <Link to="/book-consultation" className="meeting-banner__cta">
               <span className="meeting-banner__cta-text">Setup a consultation call</span>
               <span className="meeting-banner__cta-arrow" aria-hidden>
                 <img src={arrowIcon} alt="" />

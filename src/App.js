@@ -11,6 +11,7 @@ import CaseStudies from './components/case-studies/caseStudies';
 import InsightsInnovation from './components/blog-page/InsightsInnovation';
 import Services from './components/services/Services';
 import Chatbot from './components/Chatbot/Chatbot';
+import BookConsultation from './components/consultation/BookConsultation';
 
 function App() {
   useEffect(() => {
@@ -90,6 +91,7 @@ function App() {
             <Route path="/blog-page" element={<InsightsInnovation />} />
             <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/book-consultation" element={<BookConsultation />} />
           </Routes>
         </div>
       </Router>
