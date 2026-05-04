@@ -139,7 +139,7 @@
   margin: 0;
   font-size: 18px;
   font-weight: 600;
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .chatbot-header-brand {
@@ -161,7 +161,7 @@
 .chatbot-brand-text {
   font-size: 18px;
   font-weight: 600;
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Inter', sans-serif;
   color: white;
   letter-spacing: 0.5px;
 }
@@ -263,7 +263,7 @@
   border: 1px solid #E0E0E0;
   border-radius: 24px;
   font-size: 14px;
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Inter', sans-serif;
   outline: none;
   transition: border-color 0.2s ease;
 }
@@ -281,7 +281,7 @@
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Inter', sans-serif;
   transition: background 0.2s ease;
 }
 

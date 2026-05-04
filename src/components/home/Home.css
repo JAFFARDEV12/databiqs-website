@@ -1,3 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap");
+
+/* All <p> in Home main content: Inter 400 regular; font-size/line-height stay from section CSS */
+.home .home-content p {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+}
+
 .home {
   --home-page-pad-x: clamp(10px, 2.8vw, 32px);
   width: 100%;

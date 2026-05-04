@@ -80,7 +80,7 @@
   padding: 10px 22px;
   background: #ffffff;
   border-radius: 999px;
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.02em;
@@ -110,7 +110,7 @@
 }
 
 .meeting-banner__sub {
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   color: #111111;
   margin: 4px 0 0;
@@ -159,7 +159,7 @@
   background: linear-gradient(90deg, #b026ff 0%, #7c1fc9 45%, #3a0d59 100%);
   color: #ffffff;
   text-decoration: none;
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.01em;

@@ -79,7 +79,7 @@
 
 
 .automation-title {
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 32px;
   font-weight: 700;
   color: #1a1a1a;
@@ -89,7 +89,7 @@
 }
 
 .automation-description {
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   color: #666666;
   line-height: 1.7;
@@ -99,7 +99,7 @@
 }
 
 .capabilities-heading {
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 400;
   color: #1a1a1a;
@@ -130,7 +130,7 @@
 
 .automation-left .capabilities-list li,
 .ai-automation-section .capabilities-list li {
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
  color: #7F768D;
   padding-left: 20px;

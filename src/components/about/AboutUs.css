@@ -1,6 +1,9 @@
 /* ===== Page (gradient from index.css – same as landing header/hero) ===== */
 .au-page {
   --about-page-pad-x: clamp(10px, 2.8vw, 32px);
+  --about-font-ui: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--about-font-ui);
+  font-style: normal;
   width: 100%;
   overflow-x: hidden;
   background: #ffffff;
@@ -70,7 +73,7 @@
 
 .au-header__nav a,
 .au-header__nav Link {
-  font-family: Questrial;
+  font-family: var(--about-font-ui);
   font-size: 14px;
   font-weight: 400;
   color: #8a8a8a;
@@ -180,7 +183,7 @@
     border: 1px solid #E0E0E0;
     background: #ffffff;
   
-    font-family: 'Questrial', sans-serif;
+    font-family: var(--about-font-ui);
     font-size: 14px;        /* same font size */
     font-weight: 400;
     line-height: 1;
@@ -201,7 +204,7 @@
 .au-title {
   width: 100%;
 
-  font-family: "Bebas Neue";
+  font-family: "Bebas Neue", sans-serif;
   font-weight: 400;
   font-size: 50px;
   line-height: 71px;
@@ -222,7 +225,7 @@
   width: 100%;
   min-height: 218px;
 
-  font-family: Questrial;
+  font-family: var(--about-font-ui);
   font-weight: 400;
   font-size: 16px;
   letter-spacing: 0%;
@@ -288,7 +291,7 @@
 }
 
 .au-btnSchedule__text {
-  font-family: Questrial;
+  font-family: var(--about-font-ui);
   font-size: 16px;
   font-weight: 400;
   line-height: 16px;
@@ -385,7 +388,7 @@
   justify-content: center;
   gap: 50px;
 
-  font-family: Questrial;
+  font-family: var(--about-font-ui);
   font-size: 13px;
   text-transform: uppercase;
   color: #202020;
@@ -458,7 +461,7 @@
   background: #ffffff;
   border: 1px solid #E0E0E0;
 
-  font-family: 'Questrial', sans-serif;
+  font-family: var(--about-font-ui);
   font-size: 14px;        /* same font size */
   font-weight: 400;
   line-height: 1;
@@ -478,7 +481,7 @@
 .au2-title {
   margin: 20px 0 32px;
 
-  font-family: "Bebas Neue";
+  font-family: "Bebas Neue", sans-serif;
   font-weight: 400;
   font-size: 44px;
   line-height: 56px;
@@ -495,7 +498,7 @@
   margin: 0;
   max-width: 827px;
 
-  font-family: Questrial;
+  font-family: var(--about-font-ui);
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
@@ -597,7 +600,7 @@
 }
 
 .au2-card-title {
-  font-family: 'Questrial', sans-serif;
+  font-family: var(--about-font-ui);
   font-weight: 700;
   font-size: 18px;
   line-height: 1.2;
@@ -607,7 +610,7 @@
 }
 
 .au2-card-description {
-  font-family: 'Questrial', sans-serif;
+  font-family: var(--about-font-ui);
   font-weight: 400;
   font-size: 13px;
   line-height: 20px;
@@ -734,7 +737,7 @@ width: 100%;
   background: #ffffff;
   border: 1px solid rgba(32, 32, 32, 0.18);
 
-  font-family: Questrial;
+  font-family: var(--about-font-ui);
   font-size: 14px;
   color: #202020;
 
@@ -749,7 +752,7 @@ width: 100%;
 .au4-title {
   margin: 20px 0 11px;
 
-  font-family: "Bebas Neue";
+  font-family: "Bebas Neue", sans-serif;
   font-weight: 400;
   font-size: 44px;
   line-height: 56px;
@@ -765,7 +768,7 @@ width: 100%;
 .au4-subtitle {
   margin: 0;
 
-  font-family: Questrial;
+  font-family: var(--about-font-ui);
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
@@ -799,7 +802,7 @@ width: 100%;
 .au4-privacy {
   margin: 18px 0 0;
 
-  font-family: Questrial;
+  font-family: var(--about-font-ui);
   font-weight: 400;
   font-size: 12px;
   line-height: 18px;
@@ -1081,7 +1084,7 @@ width: 100%;
 }
 .au-page {
   min-height: 100vh;
-  font-family: Questrial, system-ui, Arial, sans-serif;
+  font-family: var(--about-font-ui);
 
   /* ✅ SINGLE SOURCE OF TRUTH */
 
@@ -1150,7 +1153,7 @@ width: 100%;
   margin: 0;
   flex: 0 0 auto;
 
-  font-family: Questrial;
+  font-family: var(--about-font-ui);
   font-size: 13px;
   text-transform: uppercase;
   color: #202020;

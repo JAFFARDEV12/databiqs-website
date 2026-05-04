@@ -1,9 +1,12 @@
 /* ===== Testimonials Section (NEW) ===== */
 
 .about-testimonials {
+  --about-testimonials-font-ui: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   width: 100%;
   background: #ffffff;
   padding: 100px 0 0; /* matches the 100px gap you showed from previous section */
+  font-family: var(--about-testimonials-font-ui);
+  font-style: normal;
 }
 
 .about-testimonials-inner {
@@ -20,7 +23,7 @@
   border: 1px solid #E0E0E0;
   border-radius: 80px;
   background: #ffffff;
-  font-family: Questrial, sans-serif;
+  font-family: var(--about-testimonials-font-ui);
   font-size: 14px;
   font-weight: 400;
   color: #000000;
@@ -49,7 +52,7 @@
 .about-testimonials-subtitle {
   margin: 0 auto;
   max-width: 676px; /* matches your 676 width label */
-  font-family: Questrial, sans-serif;
+  font-family: var(--about-testimonials-font-ui);
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
@@ -121,7 +124,7 @@
 
 .about-testimonial-quote {
   margin: 14px 0 0; /* keep tight like figma hug flow */
-  font-family: Questrial, sans-serif;
+  font-family: var(--about-testimonials-font-ui);
   font-weight: 400;
   font-size: 14px; /* confirmed in your panel */
   line-height: 24px; /* confirmed */
@@ -137,7 +140,7 @@
 }
 
 .about-testimonial-name {
-  font-family: Questrial, sans-serif;
+  font-family: var(--about-testimonials-font-ui);
   font-size: 14px;
   font-weight: 700;
   color: #202020;
@@ -146,7 +149,7 @@
 
 .about-testimonial-role {
   margin-top: 4px;
-  font-family: Questrial, sans-serif;
+  font-family: var(--about-testimonials-font-ui);
   font-size: 12px;
   font-weight: 400;
   color: #8a8396;

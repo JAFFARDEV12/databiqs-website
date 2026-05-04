@@ -10,7 +10,7 @@ import Header from '../home/Header';
 import Footer from '../home/Footer';
 const CaseStudies = () => {
     return (
-        <div className=''>
+        <div className="case-studies-page">
              <section className="case-study-page">
                 <div className="case-study-page-header-section">
                     <Header/>

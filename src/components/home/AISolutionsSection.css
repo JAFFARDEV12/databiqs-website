@@ -338,7 +338,7 @@
 }
 
 .process-step {
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 8px;
@@ -499,7 +499,7 @@
   color: #000000;
   text-align: left;
   margin: 0;
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 /* Customer Card Specific Styles */
@@ -519,7 +519,7 @@
 }
 
 .customer-title-text {
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-style: normal;
   font-size: 12px;
@@ -814,7 +814,7 @@
 }
 
 .chatbot-label {
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 800;
   font-style: normal;
   font-size: 20px;
@@ -1493,7 +1493,7 @@
 }
 
 .chatbot-label {
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
@@ -1732,7 +1732,7 @@
 
 
 .card-title {
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 20px;
@@ -1746,7 +1746,7 @@
 }
 
 .card-description {
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 14px;
@@ -1760,7 +1760,7 @@
 }
 
 .capabilities-heading {
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 14px;
@@ -1795,7 +1795,7 @@
 
 .card-right .capabilities-list li,
 .ai-solutions-section .capabilities-list li {
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 13px;

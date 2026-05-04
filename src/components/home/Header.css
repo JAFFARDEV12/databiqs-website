@@ -1,3 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap");
+
+/* ===== Header typography (Inter 400 regular; sizes unchanged) ===== */
+.Header,
+.Header .header-container,
+.Header .nav,
+.Header .nav a,
+.Header .nav a:visited,
+.Header .cta-button,
+.Header .cta-button span {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
 
 /* ===== Default Visibility ===== */
 .desktop-only {
@@ -106,7 +120,7 @@
 .nav a.nav-link-active,
 .nav a.nav-link-active:hover {
   color: #000000;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .cta-button {
@@ -147,7 +161,7 @@
   justify-content: center;
 
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 400;
   flex-shrink: 0;
 }
 
@@ -257,7 +271,7 @@
   
   .nav a {
     font-size: 24px;
-    font-weight: 500;
+    font-weight: 400;
     opacity: 1;
     animation: none;
   }
@@ -494,6 +508,7 @@
   .Header .nav a {
     font-size: clamp(18px, 2.1vw, 19px);
     line-height: 1.2;
+    font-weight: 400;
   }
 
   .Header .desktop-only {

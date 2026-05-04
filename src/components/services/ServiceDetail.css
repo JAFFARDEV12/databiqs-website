@@ -1,0 +1,120 @@
+.service-detail-page {
+  background: #ffffff;
+}
+
+.service-detail-main {
+  padding-bottom: clamp(36px, 5vw, 72px);
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.service-detail-main.animate {
+  animation: serviceDetailFadeUp 0.55s ease-out 0.06s forwards;
+}
+
+.service-detail-section {
+  margin-top: clamp(20px, 3.2vw, 34px);
+}
+
+.service-detail-section__pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(156, 22, 200, 0.22);
+  background: rgba(156, 22, 200, 0.06);
+  color: #8f25d4;
+  font-size: 13px;
+  font-family: "Inter", sans-serif;
+}
+
+.service-detail-section__title {
+  margin: 14px 0 18px;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(30px, 4.4vw, 46px);
+  font-weight: 400;
+  line-height: 1.1;
+  color: #171717;
+}
+
+.service-detail-section__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(12px, 2vw, 20px);
+}
+
+.service-detail-card {
+  background: linear-gradient(150deg, #ffffff 0%, #f7f1ff 100%);
+  border: 1px solid rgba(156, 22, 200, 0.14);
+  box-shadow: 0 14px 28px rgba(78, 33, 135, 0.09);
+  border-radius: 18px;
+  padding: clamp(16px, 2.2vw, 22px);
+}
+
+.service-detail-card p {
+  margin: 0;
+  color: #4a4a4a;
+  line-height: 1.65;
+  font-size: clamp(14px, 1.15vw, 16px);
+}
+
+.service-detail-process {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(12px, 2vw, 20px);
+}
+
+.service-detail-process__step {
+  border-radius: 18px;
+  background: #120727;
+  border: 1px solid rgba(207, 167, 255, 0.28);
+  box-shadow: 0 18px 32px rgba(36, 14, 65, 0.28);
+  color: #f1e7ff;
+  padding: clamp(16px, 2.2vw, 22px);
+}
+
+.service-detail-process__index {
+  display: inline-flex;
+  margin-bottom: 10px;
+  color: #d497ff;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.08em;
+}
+
+.service-detail-process__step p {
+  margin: 0;
+  line-height: 1.65;
+  font-size: clamp(14px, 1.15vw, 16px);
+}
+
+.service-detail-back-btn {
+  text-decoration: none;
+}
+
+@media (max-width: 1000px) {
+  .service-detail-section__grid,
+  .service-detail-process {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .service-detail-section__grid,
+  .service-detail-process {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes serviceDetailFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

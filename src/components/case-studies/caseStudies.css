@@ -3,6 +3,48 @@
    Breakpoints: 320 | 480 | 640 | 820 | 900 | 1024 | 1220+
    ===================================================== */
 
+/* Case studies route (see caseStudies.jsx root): all <p> Inter 400 regular; font-size from existing rules */
+.case-studies-page p {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  box-sizing: border-box;
+}
+
+/* Keep long copy inside layout (grids / carousel) */
+.case-studies-page .case-study-page,
+.case-studies-page .case-study-page-container,
+.case-studies-page .case-study-page-challenge-section,
+.case-studies-page .case-study-page-challenge-grid,
+.case-studies-page .case-study-page-phase,
+.case-studies-page .case-study-page-impact,
+.case-studies-page .case-study-page-impact-metrics,
+.case-studies-page .case-study-page-metric-card,
+.case-studies-page .case-study-page-ltsv,
+.case-studies-page .case-study-page-ltsv-grid,
+.case-studies-page .case-study-page-value-card,
+.case-studies-page .case-study-page-testimonial,
+.case-studies-page .more-cs,
+.case-studies-page .more-cs-inner,
+.case-studies-page .more-cs-head,
+.case-studies-page .more-cs-card,
+.case-studies-page .more-cs-card-content {
+  min-width: 0;
+}
+
+.case-studies-page .case-study-page,
+.case-studies-page .more-cs {
+  overflow-x: hidden;
+}
+
+.case-studies-page .case-study-page-hero,
+.case-studies-page .case-study-page-hero-content {
+  min-width: 0;
+}
+
    .case-study-page {
     --case-study-page-pad-x: clamp(16px, 4vw, 32px);
   

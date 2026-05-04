@@ -1,4 +1,48 @@
-/* Services.css */
+/* Services.css — Inter loaded globally via src/index.css */
+
+/* All <p> on Services + Service detail: Inter 400 regular; font-size/line-height stay from existing rules */
+.services-page p {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  box-sizing: border-box;
+}
+
+/* Keep copy inside sections: grid/flex children can shrink (text must not spill out) */
+.services-page .case-study-page-hero,
+.services-page .case-study-page-hero-content,
+.services-page .case-study-page-container,
+.services-page .core-capabilities,
+.services-page .core-capabilities__container,
+.services-page .core-capabilities__grid,
+.services-page .core-card,
+.services-page .service-detail-main,
+.services-page .service-detail-section,
+.services-page .service-detail-section__grid,
+.services-page .service-detail-process,
+.services-page .service-detail-card,
+.services-page .service-detail-process__step {
+  min-width: 0;
+}
+
+.services-page .case-study-page-hero > *,
+.services-page .service-detail-section__grid > *,
+.services-page .service-detail-process > * {
+  min-width: 0;
+}
+
+.services-page .core-capabilities,
+.services-page .service-detail-main,
+.services-page .meeting-banner-section,
+.services-page .meeting-banner-section__wrap,
+.services-page .meeting-banner {
+  overflow-x: hidden;
+  min-width: 0;
+}
+
 .case-study-page,
 .services-page {
   --case-study-page-pad-x: clamp(16px, 4vw, 32px);
@@ -127,25 +171,77 @@
   box-shadow: 0 12px 28px rgba(64, 19, 113, 0.4);
 }
 
-.case-study-page-hero-visual-wrapper {
+.services-page .case-study-page-hero-visual-wrapper,
+.service-detail-page .case-study-page-hero-visual-wrapper {
   position: relative;
   border-radius: 24px;
   overflow: hidden;
 }
 
-.case-study-page-hero-visual {
+.services-page .case-study-page-hero-slider,
+.service-detail-page .case-study-page-hero-slider {
+  position: relative;
+  min-height: clamp(220px, 40vw, 400px);
+  border-radius: 24px;
+  overflow: hidden;
+  background: radial-gradient(circle at 20% 20%, #b04eff 0%, #2a0d4b 55%, #130826 100%);
+}
+
+.services-page .case-study-page-hero-content,
+.services-page .case-study-page-hero-visual-wrapper,
+.service-detail-page .case-study-page-hero-content,
+.service-detail-page .case-study-page-hero-visual-wrapper {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.services-page .case-study-page-header-section.animate .case-study-page-hero-content,
+.service-detail-page .case-study-page-header-section.animate .case-study-page-hero-content {
+  animation: servicesFadeUp 0.5s ease-out 0.05s forwards;
+}
+
+.services-page .case-study-page-header-section.animate .case-study-page-hero-visual-wrapper,
+.service-detail-page .case-study-page-header-section.animate .case-study-page-hero-visual-wrapper {
+  animation: servicesFadeUp 0.55s ease-out 0.12s forwards;
+}
+
+/* Slider images only — do not target CaseStudyHero single <img> on case-studies page */
+.services-page .case-study-page-hero-slider .case-study-page-hero-visual,
+.service-detail-page .case-study-page-hero-slider .case-study-page-hero-visual {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
   min-height: clamp(220px, 40vw, 400px);
   border-radius: 24px;
   object-fit: cover;
-  position: relative;
+  opacity: 0;
+  transform: scale(1.03);
   z-index: 1;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s ease, opacity 0.6s ease;
 }
 
-.case-study-page-hero-visual-wrapper:hover .case-study-page-hero-visual {
+.services-page .case-study-page-hero-slider .case-study-page-hero-visual.is-active,
+.service-detail-page .case-study-page-hero-slider .case-study-page-hero-visual.is-active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 2;
+}
+
+.services-page .case-study-page-hero-visual-wrapper:hover .case-study-page-hero-slider .case-study-page-hero-visual.is-active,
+.service-detail-page .case-study-page-hero-visual-wrapper:hover .case-study-page-hero-slider .case-study-page-hero-visual.is-active {
   transform: scale(1.02);
+}
+
+@keyframes servicesFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Services Page Specific */
@@ -232,6 +328,7 @@
       font-size: 12px;
       height: 32px;
   }
+
 }
 
 @media (max-width: 480px) {

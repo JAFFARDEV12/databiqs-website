@@ -22,7 +22,7 @@
   border-radius: 80px;
   background: #ffffff;
   color: #000000;
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.4;
@@ -87,7 +87,7 @@
 }
 
 .tools-card__title {
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 22px;
   line-height: 1.2;
@@ -97,7 +97,7 @@
 }
 
 .tools-card__body {
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 26px;
@@ -121,7 +121,7 @@
   background: linear-gradient(119.69deg, #ae0dff 12.36%, #401371 85.46%);
   color: #ffffff;
   text-decoration: none;
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 600;
   transition: transform 0.25s ease, box-shadow 0.25s ease;

@@ -10,6 +10,7 @@ import ScrollToTop from './components/home/ScrollToTop';
 import CaseStudies from './components/case-studies/caseStudies';
 import InsightsInnovation from './components/blog-page/InsightsInnovation';
 import Services from './components/services/Services';
+import ServiceDetail from './components/services/ServiceDetail';
 import Chatbot from './components/Chatbot/Chatbot';
 import BookConsultation from './components/consultation/BookConsultation';
 
@@ -91,6 +92,7 @@ function App() {
             <Route path="/blog-page" element={<InsightsInnovation />} />
             <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/services/:slug" element={<ServiceDetail />} />
             <Route path="/book-consultation" element={<BookConsultation />} />
           </Routes>
         </div>
