@@ -3,7 +3,8 @@ import { createPortal } from 'react-dom';
 import Header from '../home/Header';
 import Footer from '../home/Footer';
 import './BookConsultation.css';
-
+import vectorleft from '../../assets/Vector-left.svg';
+import vectorright from '../../assets/Vector-right.svg';
 const TIME_SLOTS = [
   '10:00 AM',
   '11:00 AM',
@@ -115,11 +116,11 @@ const BookConsultation = () => {
                     <h3>Choose Your Date</h3>
                     <div className="book-calendar__nav">
                       <button type="button" onClick={() => changeMonth(-1)} aria-label="Previous month">
-                        &#8249;
+                        <img src={vectorleft} alt="Vector left" className="book-calendar__nav-icon" />
                       </button>
                       <span>{formatMonthLabel(visibleMonth)}</span>
                       <button type="button" onClick={() => changeMonth(1)} aria-label="Next month">
-                        &#8250;
+                        <img src={vectorright} alt="Vector right" className="book-calendar__nav-icon" />
                       </button>
                     </div>
                   </div>

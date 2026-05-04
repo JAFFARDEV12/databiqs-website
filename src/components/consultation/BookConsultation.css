@@ -289,7 +289,10 @@
   color: #ffffff;
   font-size: 12px;
 }
-
+.book-calendar__nav-icon{
+   width:8px;
+   height:8px;
+}
 .book-success h2 {
   margin: 14px 0 8px;
   font-family: 'Bebas Neue', sans-serif;
