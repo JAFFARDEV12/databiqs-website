@@ -343,6 +343,11 @@
   flex: 0 0 auto;
 }
 
+/* CEO spotlight: space between portrait and nameplate */
+.our-team-card--spotlight .our-team-card__media {
+  margin-bottom: clamp(16px, 2.5vw, 24px);
+}
+
 .our-team-card--compact {
   width: clamp(232px, 21vw, 280px);
   flex: 0 0 auto;
