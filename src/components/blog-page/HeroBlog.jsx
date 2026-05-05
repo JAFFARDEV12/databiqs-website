@@ -1,10 +1,8 @@
 import React from "react";
 import "./HeroBlog.css";
-import heroImg from "../../assets/main.png";
-/* import arrowIcon from "../../assets/rightarrow.svg"; */
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
-/* import { Link } from "react-router-dom"; */
-import PurpleCTAButton from "../buttons/PurpleCTAButton";
+import { Link } from "react-router-dom";
+import arrowIcon from "../../assets/rightarrow.svg";
 
 const HeroBlog = () => {
   const sectionRef = useScrollAnimation({ threshold: 0.2 });
@@ -13,39 +11,35 @@ const HeroBlog = () => {
     <section className="heroBlog" ref={sectionRef}>
       <div className="heroBlog__container">
         <div className="heroBlog__banner">
-          
-          <img className="heroBlog__img" src={heroImg} alt="Blog hero" />
+          <div className="heroBlog__intro">
+            <h2 className="heroBlog__introTitle">Ideas that move business forward</h2>
+            <p className="heroBlog__introDesc">
+              In-depth articles and expert analysis on AI, automation, and technology
+              strategies shaping the future of business.
+            </p>
+          </div>
 
-          <div className="heroBlog__overlay">
-            {/* ADDED: Our Latest Article badge */}
-            <div className="heroBlog__badge">
-              Our Latest Article
-            </div>
+          <article className="heroBlog__featureCard">
+            <span className="heroBlog__badge">Our Feature Article</span>
 
-            <h1 className="heroBlog__title">
-              HOW AI CHATBOTS ARE REDEFINING ENTERPRISE CUSTOMER SUPPORT
-            </h1>
-
-            <div className="heroBlog__meta">
-              <span>September 04, 2025</span>
-              <span className="heroBlog__dot"></span>
-              <span>12 Minutes</span>
-            </div>
+            <Link className="heroBlog__titleLink" to="/blog-detail/1">
+              <h3 className="heroBlog__title">
+                How AI Chatbots are influencing the Customer Support of SaaS platforms
+              </h3>
+            </Link>
 
             <p className="heroBlog__desc">
-              The phone rings at 3 AM. A customer in Tokyo needs urgent help.
-              Another in London has a billing question. Simultaneously, someone
-              in New York is trying to track their order. Your support team is
-              asleep...
+              NovaTech&apos;s 14 person support team was overwhelmed. With tickets doubling every quarter and
+              CSAT declining, they needed a smarter approach - not more headcount.
             </p>
-            <div className="heroBlog__ctaRow">
-  <PurpleCTAButton
-    to="/blog-detail/1"
-    text="Read Full Blog"
-  />
-</div>
 
-          </div>
+            <Link to="/blog-detail/1" className="heroBlog__readLink">
+              <span className="heroBlog__readText">Read Full Article</span>
+              <span className="heroBlog__readIcon">
+                <img src={arrowIcon} alt="" aria-hidden="true" />
+              </span>
+            </Link>
+          </article>
         </div>
       </div>
     </section>

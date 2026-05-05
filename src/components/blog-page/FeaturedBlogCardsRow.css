@@ -1,0 +1,407 @@
+.featuredBlogRow {
+  padding: 24px 80px 0;
+  background: #ffffff;
+}
+
+.featuredBlogRow__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.featuredBlogRow__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 36px;
+}
+
+.featuredBlogCard {
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 26px 24px 20px;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.featuredBlogCard:hover {
+  border-color: #7b2cbf;
+  box-shadow: 0 2px 18px -4px rgba(123, 44, 191, 0.4);
+  transform: translateY(-2px);
+}
+
+.featuredBlogCard__tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #8f63ff;
+  border-radius: 999px;
+  padding: 7px 18px;
+  color: #7c3aed;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 22px;
+  text-transform: capitalize;
+  transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.featuredBlogCard:hover .featuredBlogCard__tag {
+  border-color: #7b2cbf;
+  background: rgba(123, 44, 191, 0.06);
+  box-shadow: 0 2px 10px -2px rgba(123, 44, 191, 0.2);
+}
+
+.featuredBlogCard__titleLink {
+  display: block;
+  margin: 18px 0 10px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.featuredBlogCard__titleLink:focus-visible {
+  outline: 2px solid #7b2cbf;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.featuredBlogCard__title {
+  margin: 0;
+  color: #101010;
+  font-family: "Sora", "Inter", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 31.2px;
+  transition: color 0.25s ease;
+}
+
+.featuredBlogCard:hover .featuredBlogCard__title {
+  color: #7b2cbf;
+}
+
+.featuredBlogCard__desc {
+  margin: 0;
+  color: #838383;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.featuredBlogCard__link {
+  margin-top: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #7c3aed;
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.featuredBlogCard__link:hover {
+  color: #9b59d0;
+  transform: translateY(-1px);
+}
+
+.featuredBlogCard__icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #f2ebff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.featuredBlogCard__link:hover .featuredBlogCard__icon {
+  background: rgba(123, 44, 191, 0.2);
+  transform: translateX(2px);
+}
+
+.featuredBlogCard__icon img {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  transform: rotate(-45deg);
+  transition: transform 0.25s ease;
+}
+
+.featuredBlogCard__link:hover .featuredBlogCard__icon img {
+  transform: rotate(0deg);
+}
+
+.featuredBlogCard__meta {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: #8a8a8a;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.featuredBlogCard__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #d2d2d2;
+  display: inline-block;
+}
+
+.featuredBlogRow__pagination {
+  margin-top: clamp(24px, 3vw, 36px);
+  padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.featuredBlogRow__pagination-summary {
+  margin: 0;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #737373;
+  text-align: center;
+}
+
+.featuredBlogRow__pagination-current {
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.featuredBlogRow__pagination-bar {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 8px;
+  border-radius: 16px;
+  border: 1px solid rgba(64, 19, 113, 0.1);
+  background: linear-gradient(180deg, #fcfbfe 0%, #f5f3fa 100%);
+  box-shadow:
+    0 1px 2px rgba(26, 26, 26, 0.04),
+    0 8px 24px rgba(64, 19, 113, 0.06);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.featuredBlogRow__pagination-bar:hover {
+  border-color: rgba(123, 44, 191, 0.28);
+  box-shadow:
+    0 2px 18px -4px rgba(123, 44, 191, 0.22),
+    0 8px 24px rgba(64, 19, 113, 0.06);
+}
+
+.featuredBlogRow__pagination-iconBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  padding: 0;
+  border-radius: 12px;
+  border: 1px solid rgba(64, 19, 113, 0.12);
+  background: #ffffff;
+  color: #3d2f55;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.featuredBlogRow__pagination-iconBtn:hover:not(:disabled) {
+  color: #6b3bc2;
+  border-color: rgba(137, 76, 251, 0.35);
+  box-shadow: 0 2px 8px rgba(137, 76, 251, 0.12);
+}
+
+.featuredBlogRow__pagination-iconBtn:focus-visible {
+  outline: 2px solid #894cfb;
+  outline-offset: 2px;
+}
+
+.featuredBlogRow__pagination-iconBtn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.featuredBlogRow__pagination-arrowImg {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  display: block;
+  transform: rotate(-45deg);
+}
+
+.featuredBlogRow__pagination-arrowImg--prev {
+  transform: scaleX(-1) rotate(-45deg);
+}
+
+.featuredBlogRow__pagination-pages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0 4px;
+}
+
+.featuredBlogRow__pagination-pages li {
+  display: flex;
+  align-items: center;
+}
+
+.featuredBlogRow__pagination-num {
+  min-width: 40px;
+  height: 40px;
+  padding: 0 8px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #4a4a4a;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.featuredBlogRow__pagination-num:hover:not(.is-active) {
+  color: #6b3bc2;
+  background: rgba(137, 76, 251, 0.08);
+}
+
+.featuredBlogRow__pagination-num:focus-visible {
+  outline: 2px solid #894cfb;
+  outline-offset: 2px;
+}
+
+.featuredBlogRow__pagination-num.is-active {
+  background: #7c3aed;
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(64, 19, 113, 0.22);
+}
+
+@media (max-width: 1400px) {
+  .featuredBlogRow {
+    padding: 24px 50px 0;
+  }
+}
+
+@media (max-width: 1200px) {
+  .featuredBlogRow {
+    padding: 16px 32px 0;
+  }
+
+  .featuredBlogRow__grid {
+    gap: 20px;
+  }
+
+  .featuredBlogCard__title {
+    font-size: 24px;
+  }
+
+  .featuredBlogCard__desc {
+    font-size: 16px;
+  }
+
+  .featuredBlogCard__link {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .featuredBlogRow {
+    padding: 16px 24px 0;
+  }
+
+  .featuredBlogRow__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .featuredBlogRow {
+    padding: 14px 20px 0;
+  }
+
+  .featuredBlogCard {
+    padding: 20px 16px 16px;
+  }
+
+  .featuredBlogCard__title {
+    font-size: 22px;
+  }
+
+  .featuredBlogCard__desc {
+    font-size: 16px;
+  }
+
+  .featuredBlogCard__link {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .featuredBlogRow {
+    padding: 10px 16px 0;
+  }
+
+  .featuredBlogRow__pagination {
+    margin-top: 24px;
+    gap: 10px;
+  }
+
+  .featuredBlogRow__pagination-summary {
+    font-size: 12px;
+  }
+
+  .featuredBlogRow__pagination-bar {
+    padding: 5px 6px;
+    gap: 4px;
+    border-radius: 14px;
+  }
+
+  .featuredBlogRow__pagination-iconBtn {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .featuredBlogRow__pagination-num {
+    min-width: 36px;
+    height: 36px;
+    font-size: 13px;
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 360px) {
+  .featuredBlogRow {
+    padding: 8px 12px 0;
+  }
+}

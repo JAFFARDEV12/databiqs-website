@@ -6,7 +6,32 @@ import related1 from "../../assets/1.png";
 import related2 from "../../assets/2.png";
 import arrowIcon from "../../assets/rightarrow.svg";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
+import "../blog-page/FeaturedBlogCardsRow.css";
 import "./BlogDetail.css";
+
+/** Matches slugs in this file (`1`–`3`). */
+const blogDetailPath = (cardId) => `/blog-detail/${((cardId - 1) % 3) + 1}`;
+
+const RELATED_FEATURED_CARDS = [
+  {
+    id: 1,
+    tag: "AI Automation",
+    title: "How AI chatbots are redefining enterprise customer support in 2025",
+    desc: "The phone rings at 3 AM. A customer in Tokyo needs urgent help. Another in London has a billing question. Your support team is asleep - but your AI isn't. Here's how the best teams are building always-on support that actually works.",
+    author: "Jaffar Ali",
+    date: "September 04, 2025",
+    readTime: "12 Minutes Read",
+  },
+  {
+    id: 2,
+    tag: "AI Automation",
+    title: "How AI chatbots are redefining enterprise customer support in 2025",
+    desc: "The phone rings at 3 AM. A customer in Tokyo needs urgent help. Another in London has a billing question. Your support team is asleep - but your AI isn't. Here's how the best teams are building always-on support that actually works.",
+    author: "Jaffar Ali",
+    date: "September 04, 2025",
+    readTime: "12 Minutes Read",
+  },
+];
 
 const BlogDetail = () => {
   const { id } = useParams();
@@ -262,70 +287,35 @@ const BlogDetail = () => {
               RELATED BLOGS
             </h2>
 
-            <div className="bdp__relatedRow">
-              {/* Card 1 */}
-              <article ref={card1Ref} className="bdp__relatedCard scroll-reveal">
-                <div className="bdp__cardImgWrap">
-                  <img className="bdp__cardImg" src={blog.relatedBlogs[0].image} alt={blog.relatedBlogs[0].title} />
-                </div>
+            <div className="featuredBlogRow__grid bdp__relatedFeaturedGrid">
+              {RELATED_FEATURED_CARDS.map((card, idx) => (
+                <article
+                  key={card.id}
+                  ref={idx === 0 ? card1Ref : idx === 1 ? card2Ref : undefined}
+                  className="featuredBlogCard scroll-reveal"
+                >
+                  <span className="featuredBlogCard__tag">{card.tag}</span>
+                  <Link className="featuredBlogCard__titleLink" to={blogDetailPath(card.id)}>
+                    <h3 className="featuredBlogCard__title">{card.title}</h3>
+                  </Link>
+                  <p className="featuredBlogCard__desc">{card.desc}</p>
 
-                <div className="bdp__cardBody">
-                  <h3 className="bdp__cardTitle">
-                    {blog.relatedBlogs[0].title}
-                  </h3>
+                  <Link to={blogDetailPath(card.id)} className="featuredBlogCard__link">
+                    <span>Read Full Blog</span>
+                    <span className="featuredBlogCard__icon">
+                      <img src={arrowIcon} alt="" aria-hidden="true" />
+                    </span>
+                  </Link>
 
-                  <p className="bdp__cardDesc">
-                    {blog.relatedBlogs[0].desc}
-                  </p>
-
-                  <div className="bdp__cardMeta">
-                    <span>{blog.relatedBlogs[0].date}</span>
-                    <span className="bdp__dot"></span>
-                    <span>{blog.relatedBlogs[0].readTime}</span>
+                  <div className="featuredBlogCard__meta">
+                    <span>{card.author}</span>
+                    <span className="featuredBlogCard__dot" />
+                    <span>{card.date}</span>
+                    <span className="featuredBlogCard__dot" />
+                    <span>{card.readTime}</span>
                   </div>
-
-                  <div className="bdp__cardBottom">
-                    <Link to={`/blog-detail/${blog.relatedBlogs[0].id}`} className="bdp__readLink">
-                      <span className="bdp__readLinkText">Read Full Blog</span>
-                      <span className="bdp__readLinkArrow">
-                        <img src={arrowIcon} alt="Arrow" />
-                      </span>
-                    </Link>
-                  </div>
-                </div>
-              </article>
-
-              {/* Card 2 */}
-              <article ref={card2Ref} className="bdp__relatedCard scroll-reveal">
-                <div className="bdp__cardImgWrap">
-                  <img className="bdp__cardImg" src={blog.relatedBlogs[1].image} alt={blog.relatedBlogs[1].title} />
-                </div>
-
-                <div className="bdp__cardBody">
-                  <h3 className="bdp__cardTitle">
-                    {blog.relatedBlogs[1].title}
-                  </h3>
-
-                  <p className="bdp__cardDesc">
-                    {blog.relatedBlogs[1].desc}
-                  </p>
-
-                  <div className="bdp__cardMeta">
-                    <span>{blog.relatedBlogs[1].date}</span>
-                    <span className="bdp__dot"></span>
-                    <span>{blog.relatedBlogs[1].readTime}</span>
-                  </div>
-
-                  <div className="bdp__cardBottom">
-                    <Link to={`/blog-detail/${blog.relatedBlogs[1].id}`} className="bdp__readLink">
-                      <span className="bdp__readLinkText">Read Full Blog</span>
-                      <span className="bdp__readLinkArrow">
-                        <img src={arrowIcon} alt="Arrow" />
-                      </span>
-                    </Link>
-                  </div>
-                </div>
-              </article>
+                </article>
+              ))}
             </div>
           </section>
 
