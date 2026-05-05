@@ -55,6 +55,23 @@
   transform: rotate(0deg);
 }
 
+/* Case studies hero: pill sized to content (no stretched middle gap) */
+.purpleBtn--pill.purpleBtn--cs-hero-wide {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  width: auto;
+  max-width: 100%;
+  padding: 15px 28px 15px 32px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  .purpleBtn--pill.purpleBtn--cs-hero-wide {
+    max-width: 100%;
+  }
+}
+
 /* ================================================= */
 /* BLOG CARD STYLE (your screenshot right column) */
 /* ================================================= */

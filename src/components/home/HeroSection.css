@@ -246,6 +246,34 @@
   animation-delay: 2.25s;
 }
 
+/* ----- Case Studies listing (reuses hero grid + gradient) ----- */
+.hero-section--case-studies-page .hero-visual--case-studies-static {
+  height: auto;
+  min-height: 0;
+}
+
+.hero-visual--case-studies-static img {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  height: auto;
+  border-radius: clamp(12px, 2vw, 20px);
+  box-shadow: 0 12px 40px rgba(123, 44, 191, 0.12);
+}
+
+.hero-headline--case-studies {
+  font-size: clamp(32px, 4.8vw, 52px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 1024px) {
+  .hero-section--case-studies-page .hero-visual--case-studies-static {
+    order: -1;
+  }
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 1400px) {
   .hero-section {

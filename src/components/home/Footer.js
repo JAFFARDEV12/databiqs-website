@@ -70,7 +70,7 @@ const Footer = () => {
           </div>
 
           <div className="footer-middle">
-            <h4 className="footer-heading">Links</h4>
+            <h2 className="footer-heading">Links</h2>
             <ul className="footer-links">
               <li><Link to="/about-us">About</Link></li>
               <li><Link to="/services">Services</Link></li>
@@ -80,7 +80,7 @@ const Footer = () => {
           </div>
 
           <div className="footer-right">
-            <h4 className="footer-heading">Join Our Newsletter</h4>
+            <h2 className="footer-heading">Join Our Newsletter</h2>
             <form className="newsletter-form">
               <input 
                 type="email" 

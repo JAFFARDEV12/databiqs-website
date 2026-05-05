@@ -10,50 +10,38 @@ const FIGMA_LINE_BREAKS_EXAMPLE =
 
 export const MORE_CASE_STUDIES = [
   {
-    id: 'chatpro',
+    id: 'carousel-novatech',
     description: FIGMA_LINE_BREAKS_EXAMPLE,
-    href: '/case-studies',
+    href: '/case-studies/novatech',
   },
   {
-    id: 'liquidity-mesh',
+    id: 'carousel-workflow',
     description: FIGMA_LINE_BREAKS_EXAMPLE,
-    href: '/case-studies',
+    href: '/case-studies/workflow-14',
   },
   {
-    id: 'retail-support',
+    id: 'carousel-ml',
     description: FIGMA_LINE_BREAKS_EXAMPLE,
-    href: '/case-studies',
+    href: '/case-studies/ml-forecast',
   },
   {
-    id: 'logistics-forecast',
+    id: 'carousel-strategy',
     description: FIGMA_LINE_BREAKS_EXAMPLE,
-    href: '/case-studies',
+    href: '/case-studies/strategy-lumen',
   },
   {
-    id: 'healthcare-triage',
+    id: 'carousel-health',
     description: FIGMA_LINE_BREAKS_EXAMPLE,
-    href: '/case-studies',
+    href: '/case-studies/chatbot-support',
   },
   {
-    id: 'finance-compliance',
+    id: 'carousel-finance',
     description: FIGMA_LINE_BREAKS_EXAMPLE,
-    href: '/case-studies',
+    href: '/case-studies/auto-finance',
   },
   {
-    id: 'logistics-forecast',
+    id: 'carousel-aether',
     description: FIGMA_LINE_BREAKS_EXAMPLE,
-    href: '/case-studies',
+    href: '/case-studies/project-aether',
   },
-  {
-    id: 'healthcare-triage',
-    description: FIGMA_LINE_BREAKS_EXAMPLE,
-    href: '/case-studies',
-  },
-  {
-    id: 'finance-compliance',
-    description: FIGMA_LINE_BREAKS_EXAMPLE,
-    href: '/case-studies',
-  },
- 
- 
 ];

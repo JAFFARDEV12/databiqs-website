@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import './CaseStudyHero.css';
+import arrowIcon from '../../assets/rightarrow.svg';
 
 /**
  * Two-column case study hero: tags + title + intro on the left, image on the right.
@@ -32,6 +34,13 @@ const CaseStudyHero = ({
         <p className="case-study-page-intro" lang="en">
           {description}
         </p>
+        <Link to="/book-consultation" className="cta-button mg-top" aria-label="Book a consultation">
+        
+        <span>Book a Consultation</span>
+        <div className="cta-icon-circle">
+          <img src={arrowIcon} alt="Arrow" />
+        </div>
+      </Link>
       </div>
 
       <img src={imageSrc} alt={imageAlt} className="case-study-page-hero-visual" />

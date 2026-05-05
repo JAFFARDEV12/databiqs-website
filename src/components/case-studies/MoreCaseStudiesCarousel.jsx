@@ -41,8 +41,12 @@ function uniformGapPx(contentW, nCards) {
   return Math.max(0, (contentW - nCards * MORE_CS_CARD) / (nCards + 1));
 }
 
-const MoreCaseStudiesCarousel = () => {
-  const items = MORE_CASE_STUDIES;
+const MoreCaseStudiesCarousel = ({ excludeSlug = null }) => {
+  const items = useMemo(() => {
+    if (!excludeSlug) return MORE_CASE_STUDIES;
+    const path = `/case-studies/${excludeSlug}`;
+    return MORE_CASE_STUDIES.filter((item) => item.href !== path);
+  }, [excludeSlug]);
   const viewportRef = useRef(null);
   const [cardsPerView, setCardsPerView] = useState(1);
   const [contentWidth, setContentWidth] = useState(0);

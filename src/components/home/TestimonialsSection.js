@@ -39,7 +39,7 @@ const SLIDES = [
   ],
 ];
 
-const TestimonialsSection = () => {
+const TestimonialsSection = ({ sectionId = 'case-studies' } = {}) => {
   const sectionRef = useScrollAnimation({ threshold: 0.2 });
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -71,7 +71,7 @@ const TestimonialsSection = () => {
 
   return (
     <>
-      <section className="testimonials-section" id="case-studies" ref={sectionRef}>
+      <section className="testimonials-section" id={sectionId} ref={sectionRef}>
         <div className="section-container">
           <h2 className="section-headline">
             Trusted by <span className="headline-purple">Forward-Thinking</span> Businesses

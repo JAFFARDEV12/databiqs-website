@@ -3,6 +3,12 @@
    Breakpoints: 320 | 480 | 640 | 820 | 900 | 1024 | 1220+
    ===================================================== */
 
+/* Page rhythm: shared by main article + More Case Studies carousel (inherits on .case-studies-page) */
+.case-studies-page {
+  --case-study-page-pad-x: clamp(16px, 4vw, 32px);
+  --case-study-section-gap: clamp(40px, 6.5vw, 72px);
+}
+
 /* Case studies route (see caseStudies.jsx root): all <p> Inter 400 regular; font-size from existing rules */
 .case-studies-page p {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
@@ -12,6 +18,16 @@
   overflow-wrap: anywhere;
   word-break: break-word;
   box-sizing: border-box;
+}
+
+/* Case studies route: selected headings use Sora at 40px (phase titles keep Bebas via scoped classes) */
+.case-studies-page h1,
+
+.case-studies-page h5 {
+  font-family: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-size: 40px !important;
+  line-height: 1.15 !important;
+  font-weight: 700 !important;
 }
 
 /* Keep long copy inside layout (grids / carousel) */
@@ -46,9 +62,7 @@
 }
 
    .case-study-page {
-    --case-study-page-pad-x: clamp(16px, 4vw, 32px);
-  
-    padding: 12px var(--case-study-page-pad-x) clamp(40px, 8vw, 80px);
+    padding: 12px var(--case-study-page-pad-x) 0;
     overflow-x: hidden;
     width: 100%;
     box-sizing: border-box;
@@ -72,15 +86,6 @@
     );
   }
   
-  /* ── Full-bleed "More Case Studies" carousel ── */
-  .case-study-page > .more-cs {
-    margin-left: calc(-1 * var(--case-study-page-pad-x));
-    margin-right: calc(-1 * var(--case-study-page-pad-x));
-    width: calc(100% + 2 * var(--case-study-page-pad-x));
-    max-width: none;
-    box-sizing: border-box;
-  }
-  
   /* ── Centered content wrapper ── */
   .case-study-page-container {
     max-width: 1220px;
@@ -97,15 +102,18 @@
     box-sizing: border-box;
   }
 
+  /* Main column only (not hero) — even vertical rhythm between sections */
   .case-study-page > .case-study-page-container {
-    margin-top: clamp(22px, 3.2vw, 38px);
+    margin-top: var(--case-study-section-gap);
+    display: flex;
+    flex-direction: column;
+    gap: var(--case-study-section-gap);
   }
   
-  /* ── Section spacing ── */
+  /* ── Section spacing (vertical rhythm from container gap) ── */
   .case-study-page-challenge-section,
   .case-study-page-tech-section {
-    margin-top: clamp(40px, 7vw, 76px);
-   
+    margin-top: 0;
   }
   
   /* ── Pill labels (section labels) ── */
@@ -156,10 +164,10 @@
   
   .case-study-page-challenge-heading {
     margin: 0;
-    font-size: clamp(22px, 3.2vw, 50px);
+    font-size: clamp(22px, 3.2vw, 35px) !important;
     line-height: 60px;
-    font-weight: 400;
-    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+   
     color: #101010;
   }
   
@@ -235,7 +243,7 @@
     margin-top: 10px;
     width: 100%;
     border-radius: 16px;
-   background-color: #FFE2FF33;
+   background-color: #7C3AED26;
     border: 1px solid #eee4ff;
     padding: clamp(14px, 2.4vw, 24px);
     display: flex;
@@ -301,10 +309,10 @@
   
   /* ── Phase rows ── */
   .case-study-page-phases {
-    margin-top: clamp(48px, 8vw, 96px);
+    margin-top: 0;
     display: flex;
     flex-direction: column;
-    gap: clamp(40px, 6vw, 96px);
+    gap: var(--case-study-section-gap);
   }
   
   .case-study-page-phase {
@@ -316,9 +324,15 @@
   
   .case-study-page-phase-copy {
     min-width: 0;
+    width: min(586.1383666992188px, 100%);
+    min-height: 316px;
     display: flex;
     flex-direction: column;
+    gap: 16px;
     align-items: flex-start;
+    justify-self: start;
+    container-type: inline-size;
+    container-name: case-study-phase-copy;
   }
   
   .case-study-page-phase-pill {
@@ -347,9 +361,9 @@
   }
   
   .case-study-page-phase-title {
-    margin: 0 0 clamp(12px, 1.8vw, 20px);
+    margin: 0;
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(24px, 3.5vw, 50px);
+    font-size: clamp(24px, 3.5vw, 40px);
     font-weight: 400;
     line-height: 1.18;
     text-transform: uppercase;
@@ -358,7 +372,8 @@
   
   .case-study-page-phase-body {
     margin: 0;
-    max-width: 52ch;
+    max-width: none;
+    width: 100%;
     font-size: clamp(15px, 2vw, 16px);
     font-weight: 400;
     line-height: 1.55;
@@ -368,47 +383,27 @@
   .case-study-page-phase-figure {
     margin: 0;
     min-width: 0;
-    border-radius: clamp(10px, 1.5vw, 18px);
+    width: min(470px, 100%);
+    height: 357px;
+    border-radius: 12px;
     overflow: hidden;
     background: #f0f0f2;
-    aspect-ratio: 16 / 10;
-    align-self: stretch;
+    aspect-ratio: 470 / 357;
+    align-self: start;
+    justify-self: start;
   }
   
   .case-study-page-phase-image {
     display: block;
     width: 100%;
     height: 100%;
-    min-height: 180px;
     object-fit: cover;
     object-position: center;
-  }
-  
-  /* Phase 1 constrained image */
-  .case-study-page-phase-figure--prediction {
-    width: min(470px, 100%);
-    max-width: 470px;
-    aspect-ratio: 470 / 357;
-    height: auto;
-    min-height: 0;
-    border-radius: 12px;
-    overflow: hidden;
-    align-self: start;
-    justify-self: end;
-  }
-  
-  .case-study-page-phase-image--prediction {
-    width: 100%;
-    height: 100%;
-    min-height: 0;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 12px;
   }
   
   /* ── Strategic Impact ── */
   .case-study-page-impact {
-    margin-top: clamp(48px, 8vw, 96px);
+    margin-top: 0;
   }
   
   .case-study-page-impact-intro {
@@ -451,7 +446,7 @@
     flex-direction: column;
     min-height: clamp(180px, 24vw, 280px);
     padding: clamp(20px, 3.5vw, 40px);
-    background: #9C16C80D;
+    background:#7C3AED26;
     border-radius: clamp(16px, 2.5vw, 28px);
     box-sizing: border-box;
   }
@@ -500,41 +495,45 @@
   .case-study-page-ltsv-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: clamp(12px, 2vw, 20px);
+    gap: clamp(10px, 1.4vw, 16px);
     align-items: stretch;
   }
   
   .case-study-page-value-card {
-    padding: clamp(18px, 2.5vw, 28px) clamp(16px, 2vw, 24px);
-    background: #9C16C80D;
-    border-radius: clamp(12px, 2vw, 20px);
+    padding: clamp(12px, 1.2vw, 16px) clamp(12px, 1.2vw, 16px);
+    background: #7C3AED26;
+    border-radius: 14px;
     box-sizing: border-box;
+    min-height: clamp(112px, 9vw, 138px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
   
   .case-study-page-value-card--watchouts {
-    background: #EF1A1A0D;
+    background: #EF1A1A26;
   }
   
   .case-study-page-value-card-title {
-    margin: 0 0 clamp(10px, 1.5vw, 16px);
-    font-size: clamp(16px, 1.8vw, 24px);
+    margin: 0 0 8px;
+    font-size: clamp(16px, 1.1vw, 20px) !important;
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.25;
     color: #1a1a1a;
   }
   
   .case-study-page-value-card-text {
     margin: 0;
-    font-size: clamp(13px, 1.2vw, 14px);
-    line-height: 1.65;
+    font-size: clamp(12px, 0.5vw + 10px, 13px);
+    line-height: 1.45;
     color: #5c5c5c;
   }
   
   .case-study-page-value-card-list {
     margin: 0;
     padding-left: 1.15em;
-    font-size: clamp(13px, 1.2vw, 15px);
-    line-height: 1.65;
+    font-size: clamp(12px, 0.5vw + 10px, 13px);
+    line-height: 1.4;
     color: #5c5c5c;
     list-style-type: disc;
   }
@@ -551,7 +550,7 @@
   .case-study-page-testimonial {
     display: flex;
     flex-direction: column;
-    margin: clamp(40px, 7vw, 80px) 0 0;
+    margin: 0;
     padding: clamp(28px, 5vw, 80px);
     background: #ffffff;
     border: 1px solid #f0f0f0;
@@ -643,6 +642,10 @@
       grid-template-columns: 1fr 1fr;
       gap: 14px;
     }
+
+    .case-study-page-value-card {
+      min-height: 120px;
+    }
   
     /* Watch-outs card spans full width at this size */
     .case-study-page-value-card--watchouts {
@@ -656,6 +659,19 @@
       grid-template-columns: 1fr;
       gap: 20px;
     }
+
+    .case-study-page-phase-copy {
+      width: 100%;
+      min-height: 0;
+      gap: 12px;
+    }
+
+    .case-study-page-phase-figure {
+      width: 100%;
+      max-width: 470px;
+      height: auto;
+      aspect-ratio: 470 / 357;
+    }
   
     /* Phase 2: reorder image to appear below text on mobile */
     .case-study-page-phase--execution .case-study-page-phase-figure {
@@ -666,8 +682,8 @@
     }
   
     .case-study-page-phases {
-      margin-top: 48px;
-      gap: 48px;
+      margin-top: 0;
+      gap: var(--case-study-section-gap);
     }
   
     .case-study-page-phase-title {
@@ -680,13 +696,9 @@
       font-size: clamp(15px, 3vw, 18px);
       max-width: none;
     }
-  
-    .case-study-page-phase-figure--prediction {
-      max-width: 100%;
-      width: 100%;
-      justify-self: stretch;
-      aspect-ratio: 16 / 10;
-      height: auto;
+
+    .case-study-page-phase-body .case-study-page-phase-br {
+      display: none;
     }
   
     .case-study-page-challenge-grid {
@@ -713,7 +725,7 @@
   
   /* ── 640px and below ── */
   @media (max-width: 640px) {
-    .case-study-page {
+    .case-studies-page {
       --case-study-page-pad-x: 16px;
     }
 
@@ -723,6 +735,11 @@
   
     .case-study-page-ltsv-grid {
       grid-template-columns: 1fr;
+    }
+
+    .case-study-page-value-card {
+      min-height: 0;
+      padding: 14px 12px;
     }
   
     .case-study-page-value-card--watchouts {
@@ -785,7 +802,7 @@
   
   /* ── Tiny: 360px ── */
   @media (max-width: 360px) {
-    .case-study-page {
+    .case-studies-page {
       --case-study-page-pad-x: 12px;
     }
 
