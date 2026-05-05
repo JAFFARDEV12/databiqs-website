@@ -63,6 +63,7 @@
   align-items: center;
   gap: 8px;
   margin-left: auto; /* push right */
+  transition: transform 0.25s ease;
 }
 
 .purpleBtn--inline .purpleBtn__text {
@@ -83,6 +84,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: transform 0.25s ease, background 0.25s ease;
 }
 
 .purpleBtn--inline .purpleBtn__icon img {
@@ -91,12 +93,17 @@
   filter: brightness(0) invert(1);
 }
 
+.purpleBtn--inline:hover {
+  transform: translateY(-2px);
+}
+
 .purpleBtn--inline:hover .purpleBtn__text {
   color: #9B59D0;
 }
 
 .purpleBtn--inline:hover .purpleBtn__icon {
   transform: scale(1.08);
+  background: #9b59d0;
 }
 
 /* responsive */

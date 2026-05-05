@@ -1,0 +1,122 @@
+.browseByTopic {
+  padding: clamp(36px, 5vw, 56px) clamp(16px, 5vw, 80px) clamp(40px, 6vw, 64px);
+  background: #ffffff;
+}
+
+.browseByTopic__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.browseByTopic__title {
+  margin: 0 0 clamp(18px, 3vw, 28px);
+  font-family: "Sora", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 60px;
+  letter-spacing: 0;
+  text-align: center;
+  text-transform: capitalize;
+  color: #000000;
+}
+
+.browseByTopic__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.browseByTopic__card {
+  min-height: 122px;
+  padding: 18px 22px;
+  border: 1px solid #ececec;
+  border-radius: 12px;
+  background: #ffffff;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  box-sizing: border-box;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.browseByTopic__card:focus-visible {
+  outline: 2px solid #7b2cbf;
+  outline-offset: 2px;
+}
+
+.browseByTopic__card:hover {
+  border-color: #7b2cbf;
+  box-shadow: 0 2px 18px -4px rgba(123, 44, 191, 0.4);
+  transform: translateY(-2px);
+}
+
+.browseByTopic__icon {
+  width: 27px;
+  height: 27px;
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+.browseByTopic__card:hover .browseByTopic__icon {
+  transform: scale(1.06);
+}
+
+.browseByTopic__name {
+  margin: 14px 0 6px;
+  max-width: 169px;
+  font-family: "Sora", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 0;
+  color: #000000;
+  transition: color 0.25s ease;
+}
+
+.browseByTopic__card:hover .browseByTopic__name {
+  color: #7b2cbf;
+}
+
+.browseByTopic__count {
+  margin: 0;
+  width: 72px;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0;
+  color: #838383;
+}
+
+@media (max-width: 900px) {
+  .browseByTopic__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .browseByTopic__title {
+    font-size: 26px;
+    line-height: 1.35;
+    margin-bottom: 16px;
+  }
+
+  .browseByTopic__grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .browseByTopic__card {
+    padding: 16px 18px;
+    min-height: 110px;
+  }
+
+  .browseByTopic__name {
+    font-size: 18px;
+    line-height: 1.35;
+    margin-top: 12px;
+  }
+}

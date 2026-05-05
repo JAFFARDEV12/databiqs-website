@@ -1,22 +1,10 @@
-/* Transparent so page gradient shows (same as landing header/hero) */
 .heroBlog {
-  padding: 0px 40px 0;
+  padding: 20px 80px 0;
+  margin-top: 40px;
   position: relative;
   z-index: 1;
   transform: translateZ(0);
   will-change: transform;
-}
-
-/* Inter for body copy (<p>, <span>); headings stay Bebas Neue */
-.heroBlog p,
-.heroBlog span {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-style: normal;
-}
-
-.header,
-.site-header {
-  background: transparent;
 }
 
 .heroBlog__container {
@@ -24,338 +12,270 @@
   margin: 0 auto;
 }
 
-/* main image block */
 .heroBlog__banner {
-  position: relative;
-  width: 100%;
-  height: 424px;
-  border-radius: 30px;
-  overflow: hidden;
-}
-
-.heroBlog__banner::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(178, 131, 255, 0.18) 0%,
-    rgba(255, 255, 255, 0) 55%
-  );
-  z-index: 1;
-  pointer-events: none;
-}
-
-.heroBlog__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  border-radius: 30px;
-  position: relative;
-  z-index: 0;
-}
-
-/* overlay card */
-.heroBlog__overlay {
-  position: absolute;
-  left: 40px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 365px;
-  background-color: white;
-  border-radius: 24px;
-  padding: 26px 22px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  z-index: 2;
-  opacity: 0;
-}
-
-/* NEW: Badge styling for "Our Latest Article" */
-.heroBlog__badge {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #9C16C8;
-  margin-bottom: 12px;
-  opacity: 0;
-  transform: translateY(10px);
-}
-
-/* Title */
-.heroBlog__title {
-  font-family: "Bebas Neue", sans-serif;
-  font-weight: 400;
-  font-size: 38px;
-  line-height: 1.05;
-  color: #1a1a1a;
-  margin: 0 0 14px 0;
-  opacity: 0;
-  transform: translateY(10px);
-}
-
-.heroBlog__meta {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) minmax(430px, 1.08fr);
+  gap: 48px;
   align-items: center;
-  gap: 10px;
-  color: #36343A;
-  margin-bottom: 10px;
-  font-size: 14px;
-  font-weight: 400;
-  opacity: 0;
-  transform: translateY(10px);
+  min-height: 330px;
 }
 
-.heroBlog__dot {
-  width: 6px;
-  height: 6px;
-  display: inline-block;
-  background-color: #7F7F7F;
-  border-radius: 50%;
+.heroBlog__introTitle {
+  margin: 0;
+  max-width: 475px;
+  min-height: 120px;
+  font-family: "Sora", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 40px;
+  line-height: 60px;
+  font-weight: 700;
+  letter-spacing: -0.96px;
+  color: #000000;
+}
+
+.heroBlog__introDesc {
+  margin: 22px 0 0;
+  max-width: 475px;
+  min-height: 87px;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 18px;
+  line-height: 28.8px;
+  color: #838383;
+}
+
+.heroBlog__featureCard {
+  background: #ffffff;
+  border: 1px solid #ece7f8;
+  border-radius: 16px;
+  padding: 30px 36px;
+  box-shadow: 0 5px 18px rgba(57, 17, 124, 0.08);
+  width: calc(100% - 50px);
+  margin-left: auto;
+  margin-right: 0;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.heroBlog__featureCard:hover {
+  border-color: #7b2cbf;
+  box-shadow: 0 2px 18px -4px rgba(123, 44, 191, 0.4);
+  transform: translateY(-2px);
+}
+
+.heroBlog__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 179px;
+  height: 38px;
+  gap: 10px;
+  padding: 8px 24px;
+  border: 1px solid #9747ff;
+  border-radius: 99px;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 22px;
+  color: #7c3aed;
+  text-transform: capitalize;
+  white-space: nowrap;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.heroBlog__featureCard:hover .heroBlog__badge {
+  border-color: #7b2cbf;
+  box-shadow: 0 2px 10px -2px rgba(123, 44, 191, 0.25);
+  background: rgba(123, 44, 191, 0.04);
+}
+
+.heroBlog__titleLink {
+  display: block;
+  margin: 24px 0 14px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.heroBlog__titleLink:focus-visible {
+  outline: 2px solid #7b2cbf;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.heroBlog__title {
+  margin: 0;
+  font-family: "Sora", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 24px;
+  line-height: 31.2px;
+  font-weight: 700;
+  color: #111111;
+  transition: color 0.25s ease;
+}
+
+.heroBlog__featureCard:hover .heroBlog__title {
+  color: #7b2cbf;
 }
 
 .heroBlog__desc {
-  font-size: 11px;
-  line-height: 1.6;
-  color: #838383;
-  margin: 0 0 18px 0;
-  opacity: 0;
-  transform: translateY(10px);
+  margin: 0 0 22px;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: #8b8793;
 }
 
-/* bottom row - button on the right side */
-.heroBlog__ctaRow {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-
-  width: 100%;
-  opacity: 0;
-  transform: translateY(10px);
-}
-
-.heroBlog__cta {
+.heroBlog__readLink {
   display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 14px;
- color: white;
-  width: auto;               /* was 100% */
-  min-width: 160px;
-  padding: 8px 8px 8px 18px;
-
-  background: #894CFB;
-  border-radius: 999px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.heroBlog__ctaText {
-  font-family: "Inter", sans-serif;
-  font-size: 14px;
+  gap: 10px;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
   line-height: 1;
-  color: #ffffff !important;           /* white text */
-  margin: 0;
+  color: #7c3aed;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.25s ease, transform 0.25s ease;
 }
 
-.heroBlog__ctaArrow {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: #ffffff;      /* white circle */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.heroBlog__ctaArrow img {
-  width: 12px;
-  height: 12px;
-  filter: none; 
-}
-.heroBlog__cta:hover {
-  background: #6B3BC2;
-  color: #ffffff !important;
+.heroBlog__readLink:hover {
+  color: #9b59d0;
   transform: translateY(-1px);
 }
 
-/* animate eyebrow too */
-.heroBlog.animate .heroBlog__eyebrow {
-  animation: fadeInUp 0.4s ease-out 0.05s forwards;
-}
-.heroBlog__ctaText {
-  color: #6B3BC2;
+.heroBlog__readText {
+  white-space: nowrap;
 }
 
-.heroBlog__cta:hover .heroBlog__ctaArrow {
-  transform: scale(1.1);
+.heroBlog__readIcon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #f2ebff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s ease, transform 0.25s ease;
 }
 
-/* FIX: overlay animation must preserve translateY(-50%) */
-@keyframes heroOverlayIn {
-  from {
-    opacity: 0;
-    transform: translateY(-50%) translateY(14px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(-50%) translateY(0);
-  }
+.heroBlog__readLink:hover .heroBlog__readIcon {
+  background: rgba(123, 44, 191, 0.2);
+  transform: translateX(2px);
 }
 
-/* animations using your existing "animate" class pattern */
-.heroBlog.animate .heroBlog__overlay {
-  animation: heroOverlayIn 0.4s ease-out 0.05s forwards;
+.heroBlog__readIcon img {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  transform: rotate(-45deg);
+  transition: transform 0.25s ease;
 }
 
-.heroBlog.animate .heroBlog__badge {
-  animation: fadeInUp 0.4s ease-out 0s forwards;
+.heroBlog__readLink:hover .heroBlog__readIcon img {
+  transform: rotate(0deg);
 }
 
-.heroBlog.animate .heroBlog__title {
-  animation: fadeInUp 0.4s ease-out 0.05s forwards;
-}
-
-.heroBlog.animate .heroBlog__meta {
-  animation: fadeInUp 0.4s ease-out 0.1s forwards;
-}
-
-.heroBlog.animate .heroBlog__desc {
-  animation: fadeInUp 0.4s ease-out 0.15s forwards;
-}
-
-.heroBlog.animate .heroBlog__ctaRow {
-  animation: fadeInUp 0.4s ease-out 0.2s forwards;
-}
-
-/* Make sure fadeInUp animation exists */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* responsive rules */
-@media (max-width: 1100px) {
+@media (max-width: 1400px) {
   .heroBlog {
-    padding: 35px 26px 0;
+    padding: 20px 50px 0;
+  }
+}
+
+@media (max-width: 1200px) {
+  .heroBlog {
+    padding: 16px 32px 0;
   }
 
   .heroBlog__banner {
-    height: 380px;
+    gap: 30px;
+    grid-template-columns: 1fr 1fr;
   }
 
-  .heroBlog__overlay {
-    left: 26px;
-    width: 340px;
-    padding: 22px 18px;
+  .heroBlog__introTitle {
+    font-size: 44px;
+  }
+
+  .heroBlog__introDesc {
+    font-size: 22px;
   }
 
   .heroBlog__title {
-    font-size: 34px;
+    font-size: 36px;
+  }
+
+  .heroBlog__desc {
+    font-size: 20px;
+  }
+
+  .heroBlog__readLink {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .heroBlog {
+    padding: 16px 24px 0;
   }
 }
 
 @media (max-width: 768px) {
   .heroBlog {
-    padding: 28px 20px 0;
+    padding: 14px 20px 0;
   }
 
   .heroBlog__banner {
-    height: auto;
-    min-height: 420px;
+    grid-template-columns: 1fr;
+    min-height: unset;
   }
 
-  .heroBlog__img {
-    min-height: 420px;
+  .heroBlog__featureCard {
+    padding: 22px 20px;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
   }
 
-  /* mobile overlay placement */
-  .heroBlog__overlay {
-    position: absolute;
-    left: 16px;
-    right: 16px;
-    width: auto;
-    top: 22px;
-    transform: none;
+  .heroBlog__introTitle {
+    font-size: 34px;
   }
 
-  /* mobile animation */
-  @keyframes heroOverlayInMobile {
-    from {
-      opacity: 0;
-      transform: translateY(14px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .heroBlog__introDesc {
+    font-size: 17px;
+    margin-top: 14px;
   }
 
-  .heroBlog.animate .heroBlog__overlay {
-    animation: heroOverlayInMobile 0.4s ease-out 0.05s forwards;
-  }
-
-  .heroBlog__title {
-    font-size: 32px;
-  }
-  
   .heroBlog__badge {
-    font-size: 10px;
-  }
-}
-
-/* ≤360px: hero copy + CTA must fit inside the card; banner min-height was clipping the button */
-@media (max-width: 360px) {
-  .heroBlog {
-    padding: 16px 12px 0;
+    font-size: 14px;
+    padding: 8px 14px;
   }
 
-  .heroBlog__banner {
-    min-height: 560px;
-  }
-
-  .heroBlog__img {
-    min-height: 560px;
-  }
-
-  .heroBlog__overlay {
-    left: 12px;
-    right: 12px;
-    padding: 18px 14px 20px;
+  .heroBlog__titleLink {
+    margin-top: 16px;
+    margin-bottom: 14px;
   }
 
   .heroBlog__title {
-    font-size: 26px;
-    line-height: 1.08;
-    margin-bottom: 10px;
+    font-size: 28px;
   }
 
   .heroBlog__desc {
+    font-size: 16px;
     margin-bottom: 14px;
-    font-size: 10px;
-    line-height: 1.55;
-    display: -webkit-box;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
   }
 
-  .heroBlog__ctaRow {
-    justify-content: stretch;
+  .heroBlog__readLink {
+    font-size: 16px;
   }
+}
 
-  .heroBlog__ctaRow > * {
-    width: 100%;
-    max-width: 100%;
+@media (max-width: 480px) {
+  .heroBlog {
+    padding: 10px 16px 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .heroBlog {
+    padding: 8px 12px 0;
   }
 }

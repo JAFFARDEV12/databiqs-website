@@ -6,7 +6,7 @@ import chatbotIcon from '../../assets/chatbotlogo.svg';
 const API_URL = 'https://databiqs-website-backend-production.up.railway.app/api/prompt';
 
 const Chatbot = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
   const [messages, setMessages] = useState([
@@ -114,15 +114,34 @@ const Chatbot = () => {
           <div className="chatbot-body">
             <div className="chatbot-messages">
               {messages.map((msg, i) => (
-                <div key={i} className={`chatbot-message ${msg.role}${msg.error ? ' error' : ''}`}>
-                  <p>{msg.text}</p>
+                <div
+                  key={i}
+                  className={`chatbot-row chatbot-row--${msg.role}${msg.error ? ' chatbot-row--error' : ''}`}
+                >
+                  {msg.role === 'bot' && (
+                    <div className="chatbot-avatar" aria-hidden>
+                      <img src={chatbotIcon} alt="" />
+                    </div>
+                  )}
+                  <div
+                    className={`chatbot-bubble chatbot-bubble--${msg.role}${msg.error ? ' chatbot-bubble--error' : ''}`}
+                  >
+                    <p>{msg.text}</p>
+                  </div>
                 </div>
               ))}
 
               {loading && (
-                <div className="chatbot-message bot">
-                  <div className="chatbot-typing">
-                    <span /><span /><span />
+                <div className="chatbot-row chatbot-row--bot">
+                  <div className="chatbot-avatar" aria-hidden>
+                    <img src={chatbotIcon} alt="" />
+                  </div>
+                  <div className="chatbot-bubble chatbot-bubble--bot chatbot-bubble--typing">
+                    <div className="chatbot-typing">
+                      <span />
+                      <span />
+                      <span />
+                    </div>
                   </div>
                 </div>
               )}

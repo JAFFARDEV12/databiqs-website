@@ -1,0 +1,286 @@
+.blogNewsletter {
+  padding: 0 clamp(14px, 4vw, 40px) clamp(56px, 8vw, 100px);
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.blogNewsletter__wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.blogNewsletter__card {
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  container-type: inline-size;
+  container-name: blognl;
+  border-radius: 40px;
+  background: linear-gradient(99.67deg, #d5a2f9 0%, #ebe2ff 100%);
+  padding: clamp(48px, 6vw, 90px) clamp(20px, min(5vw, 80px), 120px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.blogNewsletter__card:hover {
+  box-shadow: 0 4px 28px -6px rgba(123, 44, 191, 0.45);
+  transform: translateY(-2px);
+}
+
+.blogNewsletter.animate .blogNewsletter__card {
+  animation: fadeInUp 0.45s ease-out 0.08s forwards;
+}
+
+.blogNewsletter__decor {
+  position: absolute;
+  border-radius: 50%;
+  border: 12px solid rgba(255, 255, 255, 0.38);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blogNewsletter__decor--bl {
+  width: min(360px, 55cqw);
+  height: min(360px, 55cqw);
+  left: -9%;
+  bottom: -40%;
+}
+
+.blogNewsletter__decor--tr {
+  width: min(280px, 48cqw);
+  height: min(280px, 48cqw);
+  right: -10%;
+  top: -22%;
+}
+
+.blogNewsletter__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: clamp(16px, 2.2vw, 28px);
+}
+
+.blogNewsletter__title {
+  margin: 0;
+  max-width: 900px;
+  font-family: "Sora", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 700;
+  font-size: clamp(28px, 5vw, 40px);
+  line-height: 1.1;
+  letter-spacing: 0;
+  text-align: center;
+  color: #000000;
+}
+
+@media (min-width: 769px) {
+  .blogNewsletter__title {
+    line-height: 91px;
+  }
+}
+
+.blogNewsletter__sub {
+  margin: 0;
+  max-width: 640px;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: 0;
+  text-align: center;
+  text-transform: capitalize;
+  color: #000000;
+}
+
+.blogNewsletter__keepCase {
+  text-transform: none;
+}
+
+.blogNewsletter__form {
+  --blogNewsletter-control-height: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: clamp(4px, 1vw, 8px);
+}
+
+.blogNewsletter__label {
+  display: block;
+  margin: 0;
+  flex: 0 0 auto;
+  width: 380px;
+  max-width: 100%;
+}
+
+.blogNewsletter__visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.blogNewsletter__input {
+  box-sizing: border-box;
+  width: 100%;
+  height: var(--blogNewsletter-control-height);
+  min-height: var(--blogNewsletter-control-height);
+  padding: 14px 20px;
+  border-radius: 60px;
+  border: 1px solid rgba(17, 17, 17, 0.12);
+  background: #ffffff;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #111111;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blogNewsletter__input::placeholder {
+  color: #9ca3af;
+}
+
+.blogNewsletter__input:hover:not(:focus):not(:disabled) {
+  border-color: rgba(123, 44, 191, 0.28);
+}
+
+.blogNewsletter__input:focus {
+  border-color: rgba(123, 44, 191, 0.45);
+  box-shadow: 0 0 0 3px rgba(123, 44, 191, 0.15);
+}
+
+.blogNewsletter__submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  width: 230px;
+  max-width: 100%;
+  height: var(--blogNewsletter-control-height);
+  min-height: var(--blogNewsletter-control-height);
+  padding: 14px 18px 14px 20px;
+  border-radius: 60px;
+  border: none;
+  background: #7b2cbf;
+  color: #ffffff;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.blogNewsletter__submit:hover {
+  background: #9b59d0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px -2px rgba(123, 44, 191, 0.45);
+}
+
+.blogNewsletter__submit:hover .blogNewsletter__submitArrow {
+  transform: translateX(2px);
+}
+
+.blogNewsletter__submit:hover .blogNewsletter__submitArrow img {
+  transform: rotate(0deg);
+}
+
+.blogNewsletter__submitText {
+  white-space: nowrap;
+}
+
+.blogNewsletter__submitArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: #ffffff;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.blogNewsletter__submitArrow img {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  transform: rotate(-45deg);
+  transition: transform 0.25s ease;
+}
+
+@container blognl (max-width: 36rem) {
+  .blogNewsletter__title {
+    line-height: 1.15;
+  }
+
+  .blogNewsletter__sub {
+    font-size: 15px;
+    line-height: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .blogNewsletter__form {
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: stretch;
+    max-width: none;
+  }
+
+  .blogNewsletter__label {
+    flex: none;
+    width: 100%;
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .blogNewsletter__input {
+    width: 100%;
+  }
+
+  .blogNewsletter__submit {
+    flex: none;
+    width: min(100%, 230px);
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .blogNewsletter__card {
+    border-radius: 26px;
+    padding: 40px 16px;
+  }
+}
