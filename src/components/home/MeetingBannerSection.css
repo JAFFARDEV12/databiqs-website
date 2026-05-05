@@ -22,6 +22,7 @@
   container-name: meeting;
   border-radius: 40px;
   background: linear-gradient(99.67deg, #D5A2F9 0%, #EBE2FF 100%);
+  
   padding: clamp(64px, 6.5vw, 90px) clamp(20px, min(5vw, 80px), 120px);
   display: flex;
   align-items: center;
@@ -93,7 +94,7 @@
 .meeting-banner__title {
   font-family: 'Bebas Neue', sans-serif;
   font-family: 'Bebas Neue', sans-serif;
-  font-weight: 400;
+  font-weight: 700;
   font-style: normal;
   line-height: 1.12;
   letter-spacing: 0;
@@ -105,8 +106,9 @@
   text-transform: uppercase;
 
   width: 100%;
-  font-size: clamp(36px, 4.2vw, 50px);
+  font-size: clamp(28px, 2.2vw + 16px, 40px);
   max-width: 980px;
+  text-wrap: balance;
 }
 
 .meeting-banner__sub {
@@ -120,7 +122,7 @@
   line-height: 1.45;
   white-space: normal;
   text-wrap: balance;
-  font-size: clamp(13px, 1.2vw, 24px);
+  font-size: clamp(14px, 0.8vw + 11px, 20px);
 }
 
 /* Narrow card: allow wrap + readable sizes (full responsiveness) */
@@ -132,14 +134,14 @@
   }
 
   .meeting-banner__title {
-    font-size: clamp(1.65rem, 6.5cqi + 0.85rem, 1.05rem);
+    font-size: clamp(1.2rem, 5.2cqi + 0.55rem, 1.9rem);
     letter-spacing: 0.03em;
     line-height: 1.2;
    
   }
 
   .meeting-banner__sub {
-    font-size: clamp(0.8125rem, 3.1cqi + 0.45rem, 1rem);
+    font-size: clamp(0.82rem, 2.2cqi + 0.45rem, 1rem);
     line-height: 1.55;
     margin-top: 2px;
     max-width: 30ch;
@@ -160,7 +162,7 @@
   color: #ffffff;
   text-decoration: none;
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
+  font-size: clamp(14px, 0.6vw + 12px, 16px);
   font-weight: 400;
   letter-spacing: 0.01em;
   box-sizing: border-box;
@@ -251,19 +253,19 @@
   }
 
   .meeting-banner__title {
-    font-size: 30px;
-    line-height: 1.08;
+    font-size: clamp(24px, 7.8vw, 30px);
+    line-height: 1.12;
    
   }
 
   .meeting-banner__sub {
-    font-size: 16px;
-    line-height: 1.45;
+    font-size: clamp(13px, 4vw, 15px);
+    line-height: 1.5;
     max-width: 22ch;
   }
 
   .meeting-banner__cta {
-    font-size: 14px;
+    font-size: 13px;
     min-height: 44px;
     padding: 12px 46px 12px 16px;
   }
@@ -272,5 +274,28 @@
     width: 28px;
     height: 28px;
     right: 8px;
+  }
+}
+
+@media (max-width: 360px) {
+  .meeting-banner {
+    border-radius: 20px;
+    padding: 28px 12px;
+  }
+
+  .meeting-banner__title {
+    font-size: clamp(21px, 8.2vw, 24px);
+    letter-spacing: 0.01em;
+  }
+
+  .meeting-banner__sub {
+    font-size: 12px;
+    line-height: 1.45;
+    max-width: 24ch;
+  }
+
+  .meeting-banner__cta {
+    font-size: 12px;
+    padding: 11px 42px 11px 14px;
   }
 }

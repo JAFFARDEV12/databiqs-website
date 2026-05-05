@@ -11,9 +11,19 @@
   box-sizing: border-box;
 }
 
+/* All heading tags on Services listing + Service detail: Sora (overrides Bebas on section/card titles) */
+.services-page h1,
+.services-page h2,
+.services-page h3,
+.services-page h4,
+.services-page h5,
+.services-page h6 {
+  font-family: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+}
+
 /* Keep copy inside sections: grid/flex children can shrink (text must not spill out) */
-.services-page .case-study-page-hero,
-.services-page .case-study-page-hero-content,
+.services-page .services-hero__copy,
+.services-page .services-hero__container,
 .services-page .case-study-page-container,
 .services-page .core-capabilities,
 .services-page .core-capabilities__container,
@@ -28,7 +38,6 @@
   min-width: 0;
 }
 
-.services-page .case-study-page-hero > *,
 .services-page .service-detail-section__grid > *,
 .services-page .service-detail-process > * {
   min-width: 0;
@@ -68,29 +77,136 @@
 .case-study-page-container {
   max-width: 1220px;
   margin: 0 auto;
-  margin-top: clamp(24px, 4vw, 44px);
   box-sizing: border-box;
   position: relative;
   z-index: 2;
 }
 
-/* Hero Section Enhanced */
-.case-study-page-hero {
+/* ——— Services listing hero: Sora (heading) + Inter (lede), 300px–1600+ ——— */
+.services-page .services-hero-section {
+  margin: -12px calc(-1 * var(--case-study-page-pad-x)) 0;
+  padding: 12px 0 clamp(8px, 1.5vw, 18px);
+  width: calc(100% + 2 * var(--case-study-page-pad-x));
+  box-sizing: border-box;
+  /* Figma-like: soft lilac base + stronger horizontal violet (readable, not flat white) */
+  background-color: #f8f5ff;
+  background-image: linear-gradient(
+    90deg,
+    rgba(124, 58, 237, 0.14) 0%,
+    rgba(139, 92, 246, 0.08) 45%,
+    rgba(91, 33, 182, 0.13) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.services-page .services-hero__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: min(1220px, 100%);
+  margin: clamp(20px, 3.5vw, 44px) auto 0;
+  padding-inline: var(--case-study-page-pad-x);
+  padding-block: clamp(8px, 2vw, 20px) clamp(4px, 1vw, 12px);
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+ 
+}
+
+.services-page .services-hero__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: min(900px, 100%);
+  margin-inline: auto;
+  min-width: 0;
+  opacity: 0;
+  transform: translateY(18px);
+  text-wrap: balance;
+}
+
+.services-page .services-hero__title {
+  margin: 0 0 clamp(12px, 2.2vw, 20px);
+  max-width: 100%;
+  font-family: "Sora", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: clamp(18px, 0.55rem + 3.6vw, 46px);
+  line-height: clamp(26px, 0.65rem + 4.5vw, 60px);
+  letter-spacing: 0;
+  color: #000000;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Optional line break after “drive”: off on narrow phones so copy reflows freely */
+.services-page .services-hero__lede-br {
+  display: none;
+}
+
+.services-page .services-hero__lede {
+  margin: 0;
+  max-width: min(920px, 100%);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  font-size: clamp(14px, 0.5rem + 2.1vw, 18px);
+  line-height: clamp(20px, 0.55rem + 2.5vw, 30px);
+  letter-spacing: 0;
+  text-align: center;
+  vertical-align: middle;
+  color: #666666;
+}
+
+/* Tablet/desktop: screenshot-style line lengths (lede 2 lines; wider rail) */
+@media (min-width: 768px) {
+  .services-page .services-hero__copy {
+    max-width: min(980px, calc(100vw - 2 * var(--case-study-page-pad-x)));
+  }
+
+  .services-page .services-hero__lede-br {
+    display: block;
+  }
+
+  .services-page .services-hero__lede {
+    max-width: min(920px, calc(100vw - 2 * var(--case-study-page-pad-x)));
+  }
+}
+
+/* Large desktop: full title on one line (needs ~1180px+ at 46px Sora) */
+@media (min-width: 1180px) {
+  .services-page .services-hero__copy {
+    max-width: min(1160px, calc(100vw - 2 * var(--case-study-page-pad-x)));
+  }
+}
+
+.services-page .services-hero-section.animate .services-hero__copy {
+  animation: servicesFadeUp 0.5s ease-out 0.05s forwards;
+}
+
+/* ——— Service detail hero (legacy class names; Sora title + pills) ——— */
+.service-detail-page .case-study-page-hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: clamp(20px, 3vw, 36px);
   align-items: center;
 }
 
-.case-study-page-tags {
+.service-detail-page .case-study-page-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   margin-bottom: 24px;
 }
 
-.case-study-page-pill,
-.case-study-page-pill-solid {
+.service-detail-page .case-study-page-pill,
+.service-detail-page .case-study-page-pill-solid {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -104,36 +220,36 @@
   transition: all 0.3s ease;
 }
 
-.case-study-page-pill {
+.service-detail-page .case-study-page-pill {
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
   color: #9c16c8;
   border: 1px solid rgba(156, 22, 200, 0.3);
 }
 
-.case-study-page-pill-solid {
+.service-detail-page .case-study-page-pill-solid {
   background: linear-gradient(135deg, #9c16c8, #401371);
   color: #ffffff;
   border: none;
   box-shadow: 0 4px 15px rgba(156, 22, 200, 0.3);
 }
 
-.case-study-page-title {
+.service-detail-page .case-study-page-title {
   margin: 0 0 20px;
   color: #000;
   font-size: clamp(32px, 5vw, 56px);
   font-weight: 400;
   line-height: 1.2;
   text-transform: uppercase;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Sora", sans-serif;
 }
 
-.case-study-page-title-top {
+.service-detail-page .case-study-page-title-top {
   display: block;
   font-size: clamp(28px, 4vw, 50px);
 }
 
-.case-study-page-title-bottom {
+.service-detail-page .case-study-page-title-bottom {
   display: block;
   font-size: clamp(38px, 6vw, 72px);
   background: linear-gradient(135deg, #9c16c8, #401371);
@@ -142,7 +258,7 @@
   color: transparent;
 }
 
-.case-study-page-intro {
+.service-detail-page .case-study-page-intro {
   max-width: 480px;
   margin: 0 0 32px;
   font-size: clamp(15px, 1.6vw, 18px);
@@ -171,14 +287,12 @@
   box-shadow: 0 12px 28px rgba(64, 19, 113, 0.4);
 }
 
-.services-page .case-study-page-hero-visual-wrapper,
 .service-detail-page .case-study-page-hero-visual-wrapper {
   position: relative;
   border-radius: 24px;
   overflow: hidden;
 }
 
-.services-page .case-study-page-hero-slider,
 .service-detail-page .case-study-page-hero-slider {
   position: relative;
   min-height: clamp(220px, 40vw, 400px);
@@ -187,26 +301,21 @@
   background: radial-gradient(circle at 20% 20%, #b04eff 0%, #2a0d4b 55%, #130826 100%);
 }
 
-.services-page .case-study-page-hero-content,
-.services-page .case-study-page-hero-visual-wrapper,
 .service-detail-page .case-study-page-hero-content,
 .service-detail-page .case-study-page-hero-visual-wrapper {
   opacity: 0;
   transform: translateY(18px);
 }
 
-.services-page .case-study-page-header-section.animate .case-study-page-hero-content,
 .service-detail-page .case-study-page-header-section.animate .case-study-page-hero-content {
   animation: servicesFadeUp 0.5s ease-out 0.05s forwards;
 }
 
-.services-page .case-study-page-header-section.animate .case-study-page-hero-visual-wrapper,
 .service-detail-page .case-study-page-header-section.animate .case-study-page-hero-visual-wrapper {
   animation: servicesFadeUp 0.55s ease-out 0.12s forwards;
 }
 
-/* Slider images only — do not target CaseStudyHero single <img> on case-studies page */
-.services-page .case-study-page-hero-slider .case-study-page-hero-visual,
+/* Slider images — service detail page only */
 .service-detail-page .case-study-page-hero-slider .case-study-page-hero-visual {
   position: absolute;
   inset: 0;
@@ -221,14 +330,12 @@
   transition: transform 0.6s ease, opacity 0.6s ease;
 }
 
-.services-page .case-study-page-hero-slider .case-study-page-hero-visual.is-active,
 .service-detail-page .case-study-page-hero-slider .case-study-page-hero-visual.is-active {
   opacity: 1;
   transform: scale(1);
   z-index: 2;
 }
 
-.services-page .case-study-page-hero-visual-wrapper:hover .case-study-page-hero-slider .case-study-page-hero-visual.is-active,
 .service-detail-page .case-study-page-hero-visual-wrapper:hover .case-study-page-hero-slider .case-study-page-hero-visual.is-active {
   transform: scale(1.02);
 }
@@ -256,10 +363,17 @@
   max-width: 1220px;
   margin-inline: auto;
   box-sizing: border-box;
+  padding-inline: clamp(0px, 0.8vw, 8px);
 }
 
+/* Only the CoreCapabilities wrapper (direct child under Services) */
+.services-page > .case-study-page-container {
+  margin-top: 0;
+}
+
+/* Tight gap under hero: ~10–20px to “Core Capabilities” (Figma) */
 .services-page .core-capabilities {
-  padding: clamp(44px, 6.2vw, 84px) 0;
+  padding: clamp(10px, 1.5vw, 20px) 0 clamp(40px, 5vw, 72px);
 }
 
 /* Align meeting banner with services content rails */
@@ -291,13 +405,13 @@
       --case-study-page-pad-x: clamp(14px, 3.2vw, 24px);
   }
 
-  .case-study-page-intro {
+  .service-detail-page .case-study-page-intro {
       max-width: 100%;
   }
 }
 
 @media (max-width: 820px) {
-  .case-study-page-hero {
+  .service-detail-page .case-study-page-hero {
       grid-template-columns: 1fr;
       gap: 32px;
   }
@@ -313,17 +427,32 @@
       padding-right: var(--case-study-page-pad-x);
   }
 
+  .services-page .services-hero__container {
+    margin-top: clamp(14px, 4vw, 24px);
+    padding-block: 8px 6px;
+  }
+
+  .services-page .services-hero__title {
+    font-size: clamp(24px, 8vw, 34px);
+    line-height: 1.16;
+  }
+
+  .services-page .services-hero__lede {
+    font-size: clamp(14px, 4vw, 16px);
+    line-height: 1.48;
+  }
+
   .hero-cta-button {
       padding: 12px 24px;
       font-size: 14px;
   }
   
-  .case-study-page-tags {
+  .service-detail-page .case-study-page-tags {
       gap: 8px;
   }
   
-  .case-study-page-pill,
-  .case-study-page-pill-solid {
+  .service-detail-page .case-study-page-pill,
+  .service-detail-page .case-study-page-pill-solid {
       padding: 6px 14px;
       font-size: 12px;
       height: 32px;
@@ -341,11 +470,37 @@
       padding-right: var(--case-study-page-pad-x);
   }
 
-  .case-study-page-title-top {
+  .services-page .core-capabilities {
+    padding-top: clamp(6px, 2.5vw, 12px);
+    padding-bottom: clamp(24px, 8vw, 44px);
+  }
+
+  .service-detail-page .case-study-page-title-top {
       font-size: 28px;
   }
   
-  .case-study-page-title-bottom {
+  .service-detail-page .case-study-page-title-bottom {
       font-size: 36px;
+  }
+}
+
+/* Very narrow phones: comfortable hero rhythm */
+@media (max-width: 380px) {
+  .services-page {
+    --case-study-page-pad-x: 10px;
+  }
+
+  .services-page .services-hero__container {
+    padding-inline: 10px;
+  }
+
+  .services-page .services-hero__title {
+    font-size: clamp(21px, 7.2vw, 25px);
+    line-height: 1.2;
+  }
+
+  .services-page .services-hero__lede {
+    font-size: clamp(13px, 4.3vw, 14px);
+    line-height: 1.45;
   }
 }

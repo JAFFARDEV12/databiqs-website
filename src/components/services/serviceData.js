@@ -51,7 +51,7 @@ export const services = [
     title: "AI Automation",
     shortDescription:
       "End-to-end intelligent process automation. Streamline operations, reduce manual errors, and accelerate throughput.",
-    features: ["Workflow Optimization", "Cost Reduction", "Scalable"],
+    features: ["NLP", "Support Automation", "CRM Integration"],
     heroTag: "Automation Excellence",
     heroSubtitle: "Automate complex operations with precision and reliability",
     overview:
