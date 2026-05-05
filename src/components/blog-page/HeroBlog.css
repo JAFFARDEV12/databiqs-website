@@ -7,6 +7,13 @@
   will-change: transform;
 }
 
+/* Inter for body copy (<p>, <span>); headings stay Bebas Neue */
+.heroBlog p,
+.heroBlog span {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-style: normal;
+}
+
 .header,
 .site-header {
   background: transparent;
@@ -67,7 +74,7 @@
 
 /* NEW: Badge styling for "Our Latest Article" */
 .heroBlog__badge {
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 12px;
   font-weight: 500;
   text-transform: uppercase;
@@ -147,7 +154,7 @@
 }
 
 .heroBlog__ctaText {
-  font-family: "Questrial", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   line-height: 1;
   color: #ffffff !important;           /* white text */

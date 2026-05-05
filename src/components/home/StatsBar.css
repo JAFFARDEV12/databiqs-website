@@ -80,7 +80,7 @@
 }
 
 .stat-text {
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: clamp(10px, 1.1vw, 16px);
   font-weight: 400;
   color: #1a1a1a;

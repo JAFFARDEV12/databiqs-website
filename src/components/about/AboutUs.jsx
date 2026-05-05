@@ -19,6 +19,8 @@ import approachIcon from "../../assets/approach.svg";
 import TestimonialsSection from "../home/TestimonialsSection";
 import arrowIcon from "../../assets/rightarrow.svg";
 import OurTeamSection from "./OurTeamSection";
+import BookConsultation from "../consultation/BookConsultation";
+import BookConsultationSection from "../consultation/BookConsultationSection";
 
 export default function AboutUs() {
   const heroRef = useScrollAnimation({ threshold: 0.2 });
@@ -59,7 +61,7 @@ export default function AboutUs() {
             delays, uncertainty, and technical complexity that slow down innovation.
           </p>
 
-          <p className="au-p2">
+          <p className="au-p1">
             With deep expertise across AI development, full-stack engineering, and enterprise
             architecture, Jaffar has spent his career solving one of the hardest challenges in
             tech: how to go from concept to scalable product quickly, without compromising on
@@ -167,10 +169,10 @@ export default function AboutUs() {
       <OurTeamSection />
 
       {/* ===== SECTION 3 (Testimonials) ===== */}
-      <TestimonialsSection />
-
+     
       {/* ===== SECTION 4 (Contact) ===== */}
-      <ContactSection />
+      <BookConsultationSection />
+      {/* <ContactSection /> */}
 
       {/* Footer */}
       <Footer />

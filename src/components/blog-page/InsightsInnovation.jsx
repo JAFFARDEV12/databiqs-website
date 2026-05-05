@@ -34,7 +34,8 @@ const InsightsInnovation = () => {
       <HeroBlog />
 
        </div>
-      {showInsightsGrid && <InsightsGrid />}
+      {showInsightsGrid && 
+      <InsightsGrid />}
       {/* <TestimonialsSection /> */}
       <Footer />
     </div>

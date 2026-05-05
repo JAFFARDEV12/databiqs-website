@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import "./InsightsGrid.css";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 /* import { Link } from "react-router-dom";
@@ -11,10 +11,31 @@ import img4 from "../../assets/4.png";
 import img5 from "../../assets/5.png";
 import img6 from "../../assets/6.png";
 import PurpleCTAButton from "../buttons/PurpleCTAButton";
-const InsightsGrid = () => {
-  const sectionRef = useScrollAnimation({ threshold: 0.2 });
 
-  const cards = [
+const PAGE_SIZE = 4;
+
+/** Compact page list with ellipses for many pages (e.g. 1 … 4 5 6 … 12). */
+const buildPaginationItems = (currentPage, totalPages) => {
+  if (totalPages <= 1) return [];
+  if (totalPages <= 7) {
+    return Array.from({ length: totalPages }, (_, i) => i + 1);
+  }
+  const pages = new Set([1, totalPages]);
+  for (let i = currentPage - 1; i <= currentPage + 1; i += 1) {
+    if (i >= 1 && i <= totalPages) pages.add(i);
+  }
+  const sorted = [...pages].sort((a, b) => a - b);
+  const out = [];
+  let prev = 0;
+  sorted.forEach((p) => {
+    if (prev && p - prev > 1) out.push("ellipsis");
+    out.push(p);
+    prev = p;
+  });
+  return out;
+};
+
+const BLOG_CARDS = [
     {
       id: 1,
       image: img1,
@@ -59,7 +80,58 @@ const InsightsGrid = () => {
       desc: "Why The Most Successful Support Teams Blend AI Automation With Human Empathy...",
       blogId: 3,
     },
+    {
+      id: 7,
+      image: img6,
+      title:
+        "The Future Of Customer Support Isn't Replacement, It's Collaboration",
+      desc: "Why The Most Successful Support Teams Blend AI Automation With Human Empathy...",
+      blogId: 3,
+    },
+    {
+      id: 8,
+      image: img6,
+      title:
+        "The Future Of Customer Support Isn't Replacement, It's Collaboration",
+      desc: "Why The Most Successful Support Teams Blend AI Automation With Human Empathy...",
+      blogId: 3,
+    },
+
+
+
+   
   ];
+
+const InsightsGrid = () => {
+  const sectionRef = useScrollAnimation({ threshold: 0.2 });
+  const gridTopRef = useRef(null);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const totalPages = Math.max(1, Math.ceil(BLOG_CARDS.length / PAGE_SIZE));
+
+  useEffect(() => {
+    setCurrentPage((p) => Math.min(p, totalPages));
+  }, [totalPages]);
+
+  const safePage = Math.min(currentPage, totalPages);
+  const pageIndex = safePage - 1;
+  const visibleCards = useMemo(
+    () => BLOG_CARDS.slice(pageIndex * PAGE_SIZE, pageIndex * PAGE_SIZE + PAGE_SIZE),
+    [pageIndex]
+  );
+
+  const paginationItems = useMemo(
+    () => buildPaginationItems(safePage, totalPages),
+    [safePage, totalPages]
+  );
+
+  const goToPage = (page) => {
+    const next = Math.min(Math.max(1, page), totalPages);
+    setCurrentPage(next);
+    requestAnimationFrame(() => {
+      gridTopRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  };
 
   return (
     <section className="insGrid" ref={sectionRef}>
@@ -74,8 +146,8 @@ const InsightsGrid = () => {
           Technology Strategies Shaping The Future Of Business.
         </p>
 
-        <div className="insGrid__grid">
-          {cards.map((c, idx) => (
+        <div className="insGrid__grid" ref={gridTopRef}>
+          {visibleCards.map((c, idx) => (
             <div
               className="insCard"
               key={c.id}
@@ -115,6 +187,52 @@ const InsightsGrid = () => {
             </div>
           ))}
         </div>
+
+        {totalPages > 1 && (
+          <nav className="insGrid__pagination" aria-label="Blog posts pagination">
+            <button
+              type="button"
+              className="insGrid__pagination-nav"
+              onClick={() => goToPage(safePage - 1)}
+              disabled={safePage <= 1}
+              aria-label="Previous page"
+            >
+              Previous
+            </button>
+
+            <ul className="insGrid__pagination-pages">
+              {paginationItems.map((item, i) =>
+                item === "ellipsis" ? (
+                  <li key={`e-${i}`} className="insGrid__pagination-ellipsis" aria-hidden>
+                    …
+                  </li>
+                ) : (
+                  <li key={item}>
+                    <button
+                      type="button"
+                      className={`insGrid__pagination-num${item === safePage ? " is-active" : ""}`}
+                      onClick={() => goToPage(item)}
+                      aria-label={`Page ${item}`}
+                      aria-current={item === safePage ? "page" : undefined}
+                    >
+                      {item}
+                    </button>
+                  </li>
+                )
+              )}
+            </ul>
+
+            <button
+              type="button"
+              className="insGrid__pagination-nav"
+              onClick={() => goToPage(safePage + 1)}
+              disabled={safePage >= totalPages}
+              aria-label="Next page"
+            >
+              Next
+            </button>
+          </nav>
+        )}
       </div>
     </section>
   );
