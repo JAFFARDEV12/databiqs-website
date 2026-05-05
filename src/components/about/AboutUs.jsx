@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import Footer from "../home/Footer";
 import Header from "../home/Header";
-import ContactSection from "../home/ContactSection";
 import starIcon from "../../assets/star.svg";
 
 // Assets (hero)
@@ -15,11 +14,8 @@ import missionIcon from "../../assets/mission.svg";
 import visionIcon from "../../assets/vision.svg";
 import approachIcon from "../../assets/approach.svg";
 
-// NEW: Testimonials section
-import TestimonialsSection from "../home/TestimonialsSection";
 import arrowIcon from "../../assets/rightarrow.svg";
 import OurTeamSection from "./OurTeamSection";
-import BookConsultation from "../consultation/BookConsultation";
 import BookConsultationSection from "../consultation/BookConsultationSection";
 
 export default function AboutUs() {
