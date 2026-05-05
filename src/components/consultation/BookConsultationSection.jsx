@@ -3,7 +3,11 @@ import { createPortal } from 'react-dom';
 import './BookConsultation.css';
 import vectorleft from '../../assets/Vector-left.svg';
 import vectorright from '../../assets/Vector-right.svg';
+import emailjs from '@emailjs/browser';
 
+const EMAILJS_SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID || 'service_rij8xrc';
+const EMAILJS_TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || 'template_bmxi77f';
+const EMAILJS_PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || 'wpl35VnksY_DS5v2V';
 const TIME_SLOTS = [
   '10:00 AM',
   '11:00 AM',
@@ -64,6 +68,7 @@ const BookConsultationSection = ({
   const [selectedMode, setSelectedMode] = useState(SESSION_MODES[0]);
   const [isSlotModalOpen, setIsSlotModalOpen] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [form, setForm] = useState({
     fullName: '',
     email: '',
@@ -94,17 +99,79 @@ const BookConsultationSection = ({
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+
+    if (!selectedDate) {
+      alert('Please select a date');
+      return;
+    }
+
+    const fullName = form.fullName.trim();
+    const email = form.email.trim();
+    const company = form.company.trim();
+    const goals = form.goals.trim();
+
+    if (!fullName || !email || !company || !goals) {
+      alert('Please complete all required fields.');
+      return;
+    }
+
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      alert('Email service is not configured. Please contact support.');
+      return;
+    }
+
     const bookingData = {
-      ...form,
-      date: selectedDate ? formatDateLabel(selectedDate) : '',
+      fullName,
+      email,
+      company,
+      goals,
+      date: formatDateLabel(selectedDate),
       time: selectedTime,
       mode: selectedMode,
-      createdAt: new Date().toISOString(),
     };
-    localStorage.setItem('databiqs_consultation_request', JSON.stringify(bookingData));
-    setIsSubmitted(true);
+
+    const templateParams = {
+      fullName: bookingData.fullName,
+      date: bookingData.date,
+      time: bookingData.time,
+      mode: bookingData.mode,
+      company: bookingData.company,
+      goals: bookingData.goals,
+      email: bookingData.email,
+      reply_to: bookingData.email,
+    };
+
+    setIsSubmitting(true);
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
+
+      // optional: save locally
+      localStorage.setItem(
+        'databiqs_consultation_request',
+        JSON.stringify({
+          ...bookingData,
+          createdAt: new Date().toISOString(),
+        })
+      );
+
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      const message =
+        typeof error?.text === 'string' && error.text
+          ? error.text
+          : 'Something went wrong while sending your request. Please try again.';
+      alert(message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const fullNameId = `${formId}-fullName`;
@@ -170,7 +237,7 @@ const BookConsultationSection = ({
                   type="button"
                   className="book-open-modal-btn"
                   onClick={() => setIsSlotModalOpen(true)}
-                  disabled={!selectedDate}
+                  disabled={!selectedDate || isSubmitting}
                 >
                   Select Session Mode & Time Slot
                 </button>
@@ -241,8 +308,8 @@ const BookConsultationSection = ({
                   placeholder="Share your project goals, challenges, and desired outcomes"
                 />
 
-                <button type="submit" className="book-form__submit">
-                  Confirm Consultation Request
+                <button type="submit" className="book-form__submit" disabled={isSubmitting}>
+                  {isSubmitting ? 'Sending...' : 'Confirm Consultation Request'}
                 </button>
               </form>
             )}

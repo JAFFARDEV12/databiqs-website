@@ -16,7 +16,7 @@ import approachIcon from "../../assets/approach.svg";
 
 import arrowIcon from "../../assets/rightarrow.svg";
 import OurTeamSection from "./OurTeamSection";
-import BookConsultationSection from "../consultation/BookConsultationSection";
+import MeetingBannerSection from "../home/MeetingBannerSection";
 
 export default function AboutUs() {
   const heroRef = useScrollAnimation({ threshold: 0.2 });
@@ -165,9 +165,19 @@ export default function AboutUs() {
       <OurTeamSection />
 
       {/* ===== SECTION 3 (Testimonials) ===== */}
+
+      {/* ===== SECTION 4 (Reusable CTA) ===== */}
+      <MeetingBannerSection
+        id="about-contact-cta"
+        className="au-meeting-banner-section"
+        title="Ready to discuss your idea with our team?"
+        subtitle="If you are exploring AI automation, product strategy, or custom software, you can connect with us directly from this page and book a focused consultation session."
+        ctaText="Book a Consultation"
+        ctaTo="/book-consultation"
+        showBadge={false}
+      />
+
      
-      {/* ===== SECTION 4 (Contact) ===== */}
-      <BookConsultationSection />
       {/* <ContactSection /> */}
 
       {/* Footer */}

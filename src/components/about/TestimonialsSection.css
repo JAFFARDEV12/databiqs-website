@@ -9,6 +9,21 @@
   font-style: normal;
 }
 
+/* Heading + copy typography consistency */
+.about-testimonials h1,
+.about-testimonials h2,
+.about-testimonials h3,
+.about-testimonials h4,
+.about-testimonials h5,
+.about-testimonials h6 {
+  font-family: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+}
+
+.about-testimonials p,
+.about-testimonials button {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+}
+
 .about-testimonials-inner {
   width: 1200px;
   margin: 0 auto;

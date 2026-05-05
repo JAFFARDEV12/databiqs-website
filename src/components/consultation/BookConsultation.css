@@ -13,6 +13,28 @@
   --book-text-muted: #5a5a5a;
 }
 
+/* Consultation typography lock */
+.book-consultation h1,
+.book-consultation h2,
+.book-consultation h3,
+.book-consultation h4,
+.book-consultation h5,
+.book-consultation h6,
+.book-modal h1,
+.book-modal h2,
+.book-modal h3,
+.book-modal h4,
+.book-modal h5,
+.book-modal h6 {
+  font-family: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-weight: 700 !important;
+}
+
+.book-consultation p,
+.book-modal p {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+}
+
 .book-consultation-page {
   background: #ffffff;
 }
@@ -74,9 +96,9 @@
 .book-consultation__title {
   margin: 16px 0 10px;
   font-family: var(--book-font-heading);
-  font-weight: 400;
-  font-size: clamp(30px, 3.8vw, 46px);
-  line-height: 1.06;
+  font-weight: 700 ;
+  font-size: clamp(30px, 3.8vw, 36px);
+  line-height: 40px !important;
   letter-spacing: 0.02em;
 }
 
@@ -313,7 +335,7 @@
   margin: 0 0 16px;
   font-family: var(--book-font-heading);
   font-weight: 400;
-  font-size: clamp(30px, 4vw, 42px);
+  font-size: clamp(30px, 4vw, 36px);
   line-height: 1;
 }
 
