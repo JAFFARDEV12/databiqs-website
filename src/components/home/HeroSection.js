@@ -17,7 +17,14 @@ const CheckIcon = () => (
   </svg>
 );
 
-const HeroSection = () => {
+const HeroSection = ({
+  variant = 'home',
+  /** Case Studies page: ReactNode inside a single headline */
+  caseStudiesHeadline,
+  caseStudiesDescription,
+  caseStudiesCta,
+  caseStudiesVisual,
+}) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
@@ -26,6 +33,21 @@ const HeroSection = () => {
       setTimeout(() => setCopied(false), 2000);
     });
   };
+
+  if (variant === 'case-studies') {
+    return (
+      <section className="hero-section hero-section--case-studies-page" aria-label="Case studies introduction">
+        <div className="hero-container">
+          <div className="hero-content">
+            <h1 className="hero-headline hero-headline--case-studies">{caseStudiesHeadline}</h1>
+            <p className="hero-description">{caseStudiesDescription}</p>
+            {caseStudiesCta}
+          </div>
+          <div className="hero-visual hero-visual--case-studies-static">{caseStudiesVisual}</div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="hero-section">

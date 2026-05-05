@@ -125,6 +125,17 @@
   font-size: clamp(14px, 0.8vw + 11px, 20px);
 }
 
+/* Case Studies listing (`.case-studies-page` root): heading Sora, body Inter — not Bebas */
+.case-studies-page .meeting-banner__title {
+  font-family: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 700;
+}
+
+.case-studies-page .meeting-banner__sub {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 400;
+}
+
 /* Narrow card: allow wrap + readable sizes (full responsiveness) */
 @container meeting (max-width: 36rem) {
   .meeting-banner__title,
