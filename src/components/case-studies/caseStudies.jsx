@@ -6,14 +6,12 @@ import phasePredictionImg from '../../assets/phase1-prediction.svg';
 import phaseExecutionImg from '../../assets/phase2-prediction.svg';
 import apostropheMark from '../../assets/appostrophy.svg';
 import testimonialAvatar from '../../assets/Michael-Hayes.svg';
-import Header from '../home/Header';
 import Footer from '../home/Footer';
 const CaseStudies = () => {
     return (
         <div className="case-studies-page">
              <section className="case-study-page">
                 <div className="case-study-page-header-section">
-                    <Header/>
                     <div className="case-study-page-container">
                         <CaseStudyHero
                             imageSrc={caseStudyImage}

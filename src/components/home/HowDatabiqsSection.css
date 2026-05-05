@@ -1,0 +1,183 @@
+.how-databiqs-section {
+  width: 100%;
+  padding: clamp(60px, 8vw, 100px) clamp(20px, 5vw, 80px);
+  background: #ffffff;
+}
+
+.how-databiqs-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.how-databiqs-heading {
+  font-family: 'Sora', sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 4vw, 52px);
+  line-height: 1.15;
+  color: #1a1a1a;
+  margin: 0;
+  opacity: 0;
+}
+
+.how-databiqs-section.animate .how-databiqs-heading {
+  animation: fadeInUp 0.5s ease-out 0.1s forwards;
+}
+
+.how-databiqs-purple {
+  color: #7B2CBF;
+}
+
+.how-databiqs-description {
+  font-family: 'Sora', sans-serif;
+  font-weight: 400;
+  font-size: clamp(14px, 1.4vw, 17px);
+  line-height: 1.8;
+  color: #555555;
+  max-width: 860px;
+  margin: -24px auto 0;
+  opacity: 0;
+}
+
+.how-databiqs-section.animate .how-databiqs-description {
+  animation: fadeInUp 0.5s ease-out 0.2s forwards;
+}
+
+/* Grid */
+.how-databiqs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  text-align: left;
+  opacity: 0;
+}
+
+.how-databiqs-section.animate .how-databiqs-grid {
+  animation: fadeInUp 0.5s ease-out 0.3s forwards;
+}
+
+/* ===== Card ===== */
+.how-databiqs-card {
+  background: #ffffff;
+  border: 1px solid #E8E8E8;
+  border-radius: 20px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ===== Corner accent (hidden by default, shown on hover) ===== */
+.hd-corner-accent {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 56px;
+  height: 56px;
+  background: #7B2CBF;
+  border-radius: 0 20px 0 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* ===== Icon box ===== */
+.hd-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #F3F0F8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7B2CBF;
+  flex-shrink: 0;
+  transition: background 0.3s ease;
+}
+
+/* ===== Title ===== */
+.hd-card-title {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #1a1a1a;
+  margin: 0;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+/* ===== Description ===== */
+.hd-card-desc {
+  font-family: 'Sora', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #666666;
+  margin: 0;
+}
+
+/* ===== Hover state ===== */
+.how-databiqs-card:hover {
+  border-color: #7B2CBF;
+  background: #ffffff;
+  box-shadow: 0 4px 24px -4px rgba(123, 44, 191, 0.2);
+}
+
+.how-databiqs-card:hover .hd-corner-accent {
+  opacity: 1;
+}
+
+.how-databiqs-card:hover .hd-icon-box {
+  background: rgba(123, 44, 191, 0.15);
+}
+
+.how-databiqs-card:hover .hd-card-title {
+  color: #7B2CBF;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .how-databiqs-grid {
+    gap: 16px;
+  }
+
+  .how-databiqs-card {
+    padding: 24px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .how-databiqs-section {
+    padding: 48px 20px;
+  }
+
+  .how-databiqs-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .how-databiqs-container {
+    gap: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .how-databiqs-section {
+    padding: 40px 16px;
+  }
+
+  .hd-card-title {
+    font-size: 16px;
+  }
+
+  .hd-card-desc {
+    font-size: 13px;
+  }
+}

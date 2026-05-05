@@ -1,78 +1,83 @@
-
+import { useState } from 'react';
 import './HeroSection.css';
-import { Link } from 'react-router-dom';
-import triangleImage from '../../assets/Triangle-herosection-revoleaboverectangle.png';
-import rectangleImage from '../../assets/herosection-rectangle-rightside.png';
-import arrowIcon from '../../assets/rightarrow.svg';
-import { useScrollAnimation } from '../../hooks/useScrollAnimation';
+import GlobeCanvas from './GlobeCanvas';
+
+const EMAIL = 'contact@databiqs.com';
+
+const CopyIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+  </svg>
+);
+
+const CheckIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="20 6 9 17 4 12"></polyline>
+  </svg>
+);
 
 const HeroSection = () => {
-  const sectionRef = useScrollAnimation({ threshold: 0.2 });
-  
+  const [copied, setCopied] = useState(false);
 
- 
+  const handleCopy = () => {
+    navigator.clipboard.writeText(EMAIL).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
   return (
-    <section className="hero-section" ref={sectionRef}>
-
-     {/*  <div className="animatecostume">
-    <Lottie
-      animationData={costumeanimation}
-      loop
-      style={{ width: '100%', height: '100%' }}
-    />
-  </div> */}
-       
+    <section className="hero-section">
       <div className="hero-container">
+
         <div className="hero-content">
-          <div className="hero-tag">AI-Powered Innovation</div>
           <h1 className="hero-headline">
-            PUSHING THE BOUNDARIES OF{' '}
-            <span className="technology-highlight">TECHNOLOGY</span>{' '}
-            <span className="innovation-text">& INNOVATION</span>
+            Engineering<br />
+            <span className="headline-purple">Reliable<br />
+            Innovation</span><br />for the<br />
+            Enterprise.
           </h1>
-          <h2 className="hero-subheadline">
-            Unleashing Limitless Innovation For A Smarter Future.
-          </h2>
           <p className="hero-description">
-            Empowering Businesses With Cutting-Edge AI Solutions,<br />
-            Intelligent Chatbots, And Seamless Automation Workflows.
+            High-precision, scaleable software. We bridge innovation and
+            stability to deliver transformation with clarity.
           </p>
-          <div className="hero-cta-group">
-            <Link to="/book-consultation" className="hero-cta hero-cta-primary" aria-label="Book a consultation">
-              Book a Consultation
-              <span className="cta-icon">
-                <img src={arrowIcon} alt="Arrow" />
+
+          <button className="hero-cta-email" onClick={handleCopy}>
+            <span className="cta-email-default">{EMAIL}</span>
+            <span className="cta-email-hover">
+              {copied ? 'Copied!' : 'click to copy'}
+              <span className="cta-copy-icon">
+                {copied ? <CheckIcon /> : <CopyIcon />}
               </span>
-            </Link>
-            <button className="hero-cta hero-cta-secondary">
-              View Case Studies
-              <span className="cta-icon">
-                <img src={arrowIcon} alt="Arrow" />
-              </span>
-            </button>
+            </span>
+          </button>
+        </div>
+
+        <div className="hero-visual">
+          <div className="hero-sphere-wrapper">
+            <GlobeCanvas />
+          </div>
+
+          <div className="hero-label hero-label--left-top">
+            <span className="hero-label-dot"></span>
+            Machine Learning
+          </div>
+          <div className="hero-label hero-label--left-bottom">
+            <span className="hero-label-dot"></span>
+            AI Strategy/Consultation
+          </div>
+          <div className="hero-label hero-label--right-top">
+            <span className="hero-label-dot"></span>
+            AI Automation/Implementation
+          </div>
+          <div className="hero-label hero-label--right-bottom">
+            <span className="hero-label-dot"></span>
+            AI Chatbot /Conversational
           </div>
         </div>
-      <div className="hero-illustration">
-          <img src={triangleImage} alt="Triangle" className="triangle-bg" />
-          <div className="hero-cards">
-            <div className="hero-card top-card">
-              <h3>Chatbots & Customer Support</h3>
-              <p>AI-Driven Customer Interaction Solutions Enhancing Efficiency And Scalability.</p>
-            </div>
-            <div className="hero-card bottom-card">
-              <h3>AI Automation</h3>
-              <p>Automate Workflows Using NBN For Efficient Business Operations.</p>
-            </div>
-          </div>
-          <img src={rectangleImage} alt="Rectangle" className="rectangle-bg" />
-        </div> 
-        
-      </div>
-      <div className="scroll-indicator">
-       
-      </div>
-    
 
+      </div>
     </section>
   );
 };

@@ -1,4 +1,3 @@
-// PurpleCTAButton.jsx
 import React from "react";
 import { Link } from "react-router-dom";
 import "./PurpleCTAButton.css";
@@ -8,18 +7,33 @@ const PurpleCTAButton = ({
   to = "/",
   text = "Read Full Blog",
   className = "",
-  variant = "pill", // pill | inline
+  variant = "pill",
+  onClick,
 }) => {
-  return (
-    <Link
-      to={to}
-      className={`purpleBtn purpleBtn--${variant} ${className}`}
-    >
+  const inner = (
+    <>
       <span className="purpleBtn__text">{text}</span>
-
       <span className="purpleBtn__icon">
         <img src={arrowIcon} alt="Arrow" />
       </span>
+    </>
+  );
+
+  if (onClick) {
+    return (
+      <button
+        type="button"
+        className={`purpleBtn purpleBtn--${variant} ${className}`}
+        onClick={onClick}
+      >
+        {inner}
+      </button>
+    );
+  }
+
+  return (
+    <Link to={to} className={`purpleBtn purpleBtn--${variant} ${className}`}>
+      {inner}
     </Link>
   );
 };

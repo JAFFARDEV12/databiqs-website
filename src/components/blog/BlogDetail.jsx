@@ -1,6 +1,5 @@
 
 import { useParams, Link } from "react-router-dom";
-import Header from "../home/Header";
 import Footer from "../home/Footer";
 import mainImg from "../../assets/main.png";
 import related1 from "../../assets/1.png";
@@ -100,8 +99,6 @@ const BlogDetail = () => {
     <>
    <div className="decorative-ellipse-1"></div>
     <div className="top-gradient-wrapper-blog">
-  <Header />
-
   <main className="bdp">
     <div className="bdp__container">
 

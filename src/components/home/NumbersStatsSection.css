@@ -1,30 +1,24 @@
 .numbers-stats-section {
   width: 100%;
-  padding: 8px 40px 32px;
+  padding: clamp(24px, 4vw, 48px) 0;
   background: transparent;
   transform: translateZ(0);
   will-change: transform;
-  background-color: white !important;
 }
 
 .numbers-stats-section__wrap {
-  max-width: 1288px;
+  width: 90%;
+  max-width: 90%;
   margin: 0 auto;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 32px 40px;
 }
 
 .numbers-stats-card {
-  box-sizing: border-box;
-  width: 100%;
-  min-height: 165px;
-  border-radius: 12px;
-  padding: 30px clamp(24px, 6vw, 90px);
-  background: rgba(255, 226, 255, 0.2);
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(32px, 6vw, 90px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
   opacity: 0;
 }
 
@@ -32,23 +26,34 @@
   animation: fadeInUp 0.45s ease-out 0.06s forwards;
 }
 
+/* Individual stat card — mirrors testimonial-card */
 .numbers-stat {
-  flex: 1 1 180px;
-  max-width: 229px;
-  min-height: 105px;
+  background: #ffffff;
+  border-radius: 30px;
+  border: 1px solid #E0E0E0;
+  padding: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 6px;
+  gap: 10px;
+  cursor: pointer;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.numbers-stat:hover {
+  border-color: #7B2CBF;
+  box-shadow: 0 2px 18px -4px rgba(123, 44, 191, 0.4);
 }
 
 .numbers-stat__value {
   font-family: 'Bebas Neue', sans-serif;
   font-weight: 400;
   font-size: 48px;
-  line-height: 50px;
+  line-height: 1;
   letter-spacing: 0;
   color: rgba(32, 32, 32, 1);
 }
@@ -56,8 +61,8 @@
 .numbers-stat__label {
   font-family: 'Bebas Neue', sans-serif;
   font-weight: 400;
-  font-size: clamp(16px, 1.5vw, 48px);
-  line-height: 50px;
+  font-size: clamp(14px, 1.2vw, 18px);
+  line-height: 1.2;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: rgba(32, 32, 32, 1);
@@ -66,50 +71,40 @@
 
 @media (max-width: 1024px) {
   .numbers-stats-card {
-    min-height: 0;
-    padding: 28px clamp(20px, 5vw, 64px);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 }
 
 @media (max-width: 768px) {
   .numbers-stats-section {
-    padding: 8px 20px 28px;
+    padding: 0;
+  }
+
+  .numbers-stats-section__wrap {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    padding: 24px 20px;
   }
 
   .numbers-stats-card {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(24px, 5vw, 40px) clamp(16px, 4vw, 32px);
-    justify-items: center;
-  }
-
-  .numbers-stat {
-    flex: none;
-    max-width: 100%;
-    width: 100%;
-    min-height: 0;
-  }
-
-  .numbers-stat__value {
-    font-size: 40px;
-    line-height: 44px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
   }
 }
 
 @media (max-width: 480px) {
   .numbers-stats-card {
     grid-template-columns: 1fr;
-    gap: 28px;
-    padding: 24px 20px;
+    gap: 12px;
   }
 
   .numbers-stat__value {
     font-size: 36px;
-    line-height: 40px;
   }
 
   .numbers-stat__label {
     font-size: 13px;
-    max-width: 24ch;
   }
 }

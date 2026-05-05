@@ -1,0 +1,138 @@
+.clients-section {
+  width: 100%;
+  padding: 48px 0 40px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.clients-heading {
+  text-align: center;
+  font-family: 'Sora', sans-serif;
+  font-weight: 800;
+  font-size: clamp(32px, 4vw, 50px);
+  color: #1a1a1a;
+  margin: 0 0 36px;
+  letter-spacing: -0.3px;
+  line-height: 40px;
+}
+
+.clients-heading-purple {
+  color: #7B2CBF;
+}
+
+/* Marquee track */
+.clients-marquee-wrapper {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  overflow: hidden;
+  position: relative;
+  padding: 30px 0;
+}
+
+/* Fade edges */
+.clients-marquee-wrapper::before,
+.clients-marquee-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 120px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.clients-marquee-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, #ffffff, transparent);
+}
+
+.clients-marquee-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, #ffffff, transparent);
+}
+
+.clients-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: clients-scroll 32s linear infinite;
+  will-change: transform;
+}
+
+.clients-marquee-wrapper:hover .clients-track {
+  animation-play-state: paused;
+}
+
+.clients-group {
+  display: flex;
+  align-items: center;
+  gap: clamp(28px, 4vw, 64px);
+  padding: 0 clamp(14px, 2vw, 32px);
+  flex-shrink: 0;
+}
+
+.client-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  color: #9B59D0;
+  opacity: 0.75;
+  transition: opacity 0.2s ease;
+}
+
+.client-item:hover {
+  opacity: 1;
+}
+
+.client-icon {
+  width: clamp(18px, 1.6vw, 24px);
+  height: clamp(18px, 1.6vw, 24px);
+  flex-shrink: 0;
+}
+
+.client-name {
+  font-family: 'Questrial', sans-serif;
+  font-size: clamp(13px, 1.1vw, 17px);
+  font-weight: 600;
+  color: #3a3a3a;
+  white-space: nowrap;
+}
+
+@keyframes clients-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+  .clients-section {
+    padding: 36px 0 28px;
+  }
+
+  .clients-track {
+    animation-duration: 24s;
+  }
+
+  .clients-group {
+    gap: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .clients-section {
+    padding: 28px 0 20px;
+  }
+
+  .clients-track {
+    animation-duration: 20s;
+  }
+
+  .clients-group {
+    gap: 20px;
+  }
+
+  .clients-marquee-wrapper::before,
+  .clients-marquee-wrapper::after {
+    width: 60px;
+  }
+}

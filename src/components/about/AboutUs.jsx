@@ -3,7 +3,6 @@ import "./AboutUs.css";
 import { Link } from "react-router-dom";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import Footer from "../home/Footer";
-import Header from "../home/Header";
 import starIcon from "../../assets/star.svg";
 
 // Assets (hero)
@@ -35,7 +34,6 @@ export default function AboutUs() {
 
        <div className="decorative-ellipse-1"></div> 
        <div className="top-gradient-wrapper">
-        <Header />
          <section className="au-frame" ref={heroRef}>
   {/* Hero */}
   <div className="au-hero" id="about">

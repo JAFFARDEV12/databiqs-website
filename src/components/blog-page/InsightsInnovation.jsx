@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Header from '../home/Header';
 import Footer from '../home/Footer';
 /* import TestimonialsSection from '../home/TestimonialsSection'; */
 import HeroBlog from './HeroBlog';
@@ -30,7 +29,6 @@ const InsightsInnovation = () => {
 
      
        <div className="top-gradient-wrapper">
-        <Header />
       <HeroBlog />
 
        </div>

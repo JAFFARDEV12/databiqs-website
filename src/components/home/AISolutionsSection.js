@@ -25,13 +25,12 @@ const AISolutionsSection = () => {
 
     restartTimerRef.current = setTimeout(() => {
       setAnimationCycle((prev) => prev + 1);
-    }, 1000);
+    }, 0);
   };
 
   return (
     <section className="ai-solutions-section" id="services" ref={sectionRef}>
       <div className="section-container">
-        <div className="section-tag">AI-Powered Solutions</div>
         <h2 className="section-headline">
           Intelligent <span className="highlight">AI Solutions</span> Built for Scalable Growth
         </h2>
@@ -70,6 +69,7 @@ const AISolutionsSection = () => {
     animationData={aiCustomerAnimation}
     loop={false}
     autoplay
+    speed={7}
     onComplete={handleAnimationComplete}
     style={{ width: 'auto', height: 'auto', maxWidth: '100%', maxHeight: '100%' }}
   />

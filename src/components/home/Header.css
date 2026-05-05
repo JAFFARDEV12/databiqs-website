@@ -36,12 +36,15 @@
 /* No transform on .Header: transform creates a fixed-position containing block
    and breaks viewport-fixed mobile nav (drawer would size/clip to the header). */
 .Header {
-  padding: 20px 100px;
-  position: relative;
-  z-index: 1000;
+  padding: 4px 80px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
   width: 100%;
   box-sizing: border-box;
-  isolation: isolate;
+  background: #ffffff;
 }
 
 .Header.menu-open {
@@ -49,16 +52,13 @@
 }
 
 .header-container {
-  max-width: 1500px;
+  max-width: 1400px;
   margin: 0 auto;
-  background: #ffffff;
-  padding: 12px 50px;
-  border-radius: 50px;
+  padding: 0 28px;
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 40px;
-  /* border: 1px solid #E0E0E0; */
+  gap: 28px;
 }
 
 .logo {
@@ -69,15 +69,21 @@
 }
 
 .logo img {
-  height: 35px;
+  height: 44px;
   width: auto;
 }
 
 .nav {
   display: flex;
-  gap: 40px;
+  gap: 20px;
   align-items: center;
   justify-content: center;
+  border: 1.5px solid #7B2CBF;
+  border-radius: 999px;
+  height: 40px;
+  padding: 0 16px;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .nav a {
@@ -108,50 +114,54 @@
 .nav a {
   text-decoration: none;
   color: #202020;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 400;
-  transition: color 0.3s ease;
+  padding: 6px 10px;
+  border-radius: 999px;
+  transition: background 0.25s ease, color 0.25s ease;
 }
 
 .nav a:hover {
-  color: #7B2CBF;
+  background: #7B2CBF;
+  color: #ffffff;
 }
 
-.nav a.nav-link-active,
-.nav a.nav-link-active:hover {
-  color: #000000;
-  font-weight: 400;
+.nav a.nav-link-active {
+  background: none;
+  color: #7B2CBF;
+  font-weight: 500;
 }
 
 .cta-button {
-  background: linear-gradient(119.69deg, #AE0DFF 12.36%, #401371 85.46%);
+  background: #7B2CBF;
   color: #ffffff;
   border: none;
-  padding: 6px 8px 6px 18px;
+  height: 40px;
+  padding: 0 12px 0 22px;
   border-radius: 999px;
-  font-size: 14px;
+  font-size: 14px !important;
   font-weight: 400;
   cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: background 0.25s ease, transform 0.25s ease;
   white-space: nowrap;
   text-decoration: none;
 
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
 
   animation: fadeIn 0.3s ease-out 0.15s forwards;
   opacity: 0;
 }
 
 .cta-button:hover {
+  background: #9B59D0;
   transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(64, 19, 113, 0.35);
 }
 
 .cta-icon-circle {
-  width: 28px;
-  height: 28px;
+  width: 22px;
+  height: 22px;
   background: #ffffff;
   color: #2d2140;
   border-radius: 50%;
@@ -160,9 +170,18 @@
   align-items: center;
   justify-content: center;
 
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 12px;
+  font-weight: 700;
   flex-shrink: 0;
+}
+
+.cta-icon-circle img {
+  transform: rotate(-45deg);
+  transition: transform 0.25s ease;
+}
+
+.cta-button:hover .cta-icon-circle img {
+  transform: rotate(0deg);
 }
 
 /* Hamburger Menu */
@@ -218,8 +237,8 @@
 
 @media (max-width: 600px) {
   .cta-button {
-    font-size: 13px;
-    padding: 6px 8px 6px 14px;
+    font-size: 11px;
+    padding: 1px 10px 1px 18px;
   }
 
   .cta-icon-circle {
@@ -296,8 +315,8 @@
   }
   
   .cta-button {
-    padding: 10px 20px;
-    font-size: 14px;
+    padding: 3px 22px;
+    font-size: 12px;
   }
 }
 @media (max-width: 600px) {
@@ -322,7 +341,7 @@
   .mobile-only {
     display: inline-flex;
     margin-top: 20px;
-    font-size: 16px;
+    font-size: 14px;
     padding: 12px 28px;
   }
 
@@ -351,8 +370,8 @@
   }
   
   .cta-button {
-    padding: 8px 16px;
-    font-size: 12px;
+    padding: 2px 18px;
+    font-size: 10px;
   }
   
   .nav-menu {
@@ -385,6 +404,31 @@
   filter: brightness(0) saturate(100%) invert(15%) sepia(79%) saturate(4007%) hue-rotate(270deg) brightness(87%) contrast(101%) !important;
 } */
 
+/* ===== Scrolled state: only nav pill floats ===== */
+.Header.scrolled {
+  background: transparent;
+  box-shadow: none;
+}
+
+.Header.scrolled .logo,
+.Header.scrolled .cta-button.desktop-only {
+  display: none;
+}
+
+.Header.scrolled .header-container {
+  grid-template-columns: 1fr;
+  padding: 10px;
+  gap: 0;
+}
+
+.Header.scrolled .nav {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(24px) saturate(200%) brightness(1.1);
+  -webkit-backdrop-filter: blur(24px) saturate(200%) brightness(1.1);
+  box-shadow: 0 8px 32px rgba(123, 44, 191, 0.15), 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+}
+
 /* ===== Final responsive lock: Header (300px - 1400px) ===== */
 .Header {
   width: 100%;
@@ -406,7 +450,7 @@
 
 @media (max-width: 1400px) {
   .Header {
-    padding: 18px 36px;
+    padding: 3px 36px;
   }
 
   .Header .header-container {
@@ -425,7 +469,7 @@
   }
 
   .Header .header-container {
-    padding: 10px 20px;
+    padding: 3px 22px;
     gap: 16px;
     grid-template-columns: auto 1fr auto auto;
   }
@@ -443,14 +487,12 @@
   }
 
   .Header .cta-button.desktop-only {
-    font-size: 13px !important;
-    padding: 6px 8px 6px 14px;
+    padding: 1px 10px 1px 18px;
   }
-  
+
   .cta-button.mobile-only {
-    font-size: 14px !important;
     padding: 10px 16px;
-    
+
   }
 }
 
@@ -458,6 +500,7 @@
   .Header {
     padding: 12px 16px !important;
     z-index: 10000;
+    position: relative;
   }
 
   .Header .header-container {
@@ -472,6 +515,7 @@
   }
 
   .Header .nav {
+    /* full-screen overlay */
     position: fixed;
     inset: 0;
     width: 100%;
@@ -480,22 +524,30 @@
     height: 100dvh;
     min-height: 100dvh;
     max-height: 100dvh;
-    padding: 88px 18px 22px;
     box-sizing: border-box;
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    background: #ffffff;
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    transform: translate3d(-100%, 0, 0);
-    transition: transform 0.28s ease;
-    z-index: 10000;
+
+    /* reset desktop pill styles */
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 100px 24px 40px;
+
+    /* layout */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    gap: 22px;
+    gap: 6px;
+
+    /* visual */
+    background: #ffffff;
+
+    /* slide-in animation */
+    transform: translate3d(-100%, 0, 0);
+    transition: transform 0.28s ease;
+    z-index: 10000;
     pointer-events: none;
   }
 
@@ -505,27 +557,38 @@
     pointer-events: auto;
   }
 
+  /* nav links */
   .Header .nav a {
-    font-size: clamp(18px, 2.1vw, 19px);
+    font-size: 18px;
+    font-weight: 500;
     line-height: 1.2;
-    font-weight: 400;
+    padding: 14px 24px;
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+    border-radius: 12px;
   }
 
   .Header .desktop-only {
     display: none !important;
   }
 
+  /* Book a Consultation button inside menu */
   .Header .mobile-only {
     display: inline-flex !important;
-    margin-top: 10px;
-    font-size: 13px;
-    padding: 9px 11px 9px 14px;
+    margin-top: 24px;
+    font-size: 15px !important;
+    padding: 10px 10px 10px 22px !important;
+    width: 100%;
+    max-width: 320px;
+    justify-content: space-between;
   }
 
   .Header .nav a.cta-button.mobile-only,
   .Header .nav a.cta-button.mobile-only:visited,
   .Header .nav a.cta-button.mobile-only span {
     color: #ffffff !important;
+    font-size: 15px !important;
   }
 
   .Header .hamburger {
@@ -551,7 +614,7 @@
   }
 
   .Header .nav a {
-    font-size: 16px;
+    font-size: 17px;
   }
 }
 

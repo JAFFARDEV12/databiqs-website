@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../home/Header';
 import ContactSection from './ContactSection';
 import MapSection from './MapSection';
 import Footer from '../home/Footer';
@@ -11,7 +10,6 @@ const Contact = () => {
 
         <div className="decorative-ellipse-1"></div> 
        <div className="top-gradient-wrapper">
-         <Header />
          <ContactSection />
          <MapSection />
        </div>

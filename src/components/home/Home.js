@@ -1,14 +1,14 @@
 
 import { useEffect } from 'react';
-import Header from './Header';
 import HeroSection from './HeroSection';
 import AISolutionsSection from './AISolutionsSection';
 import AIAutomationSection from './AIAutomationSection';
 import TestimonialsSection from './TestimonialsSection';
-import StatsBar from './StatsBar';
+import ClientsMarquee from './ClientsMarquee';
 import CaseStudiesSection from './CaseStudiesSection';
+import WhyAISection from './WhyAISection';
+import HowDatabiqsSection from './HowDatabiqsSection';
 import NumbersStatsSection from './NumbersStatsSection';
-import ToolsAuditsSection from './ToolsAuditsSection';
 import MeetingBannerSection from './MeetingBannerSection';
 import Footer from './Footer';
 import { useLocation } from 'react-router-dom';
@@ -51,18 +51,19 @@ useEffect(() => {
       
       <div className="home-content">
          <div className="top-gradient-wrapper">
-        <Header />
         <HeroSection />
       </div>
+
+      <ClientsMarquee />
+      <TestimonialsSection />
 
       <NumbersStatsSection />
 
         <AISolutionsSection />
         <AIAutomationSection />
-        <TestimonialsSection />
-        <StatsBar />
         <CaseStudiesSection />
-        <ToolsAuditsSection />
+        <WhyAISection />
+        <HowDatabiqsSection />
         <MeetingBannerSection />
         <Footer />
       </div>

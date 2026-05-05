@@ -79,7 +79,7 @@
 
 
 .automation-title {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Sora', sans-serif;
   font-size: 32px;
   font-weight: 700;
   color: #1a1a1a;
@@ -89,9 +89,9 @@
 }
 
 .automation-description {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: #666666;
+  font-family: 'Sora', sans-serif;
+  font-size: 22px;
+  color: #1a1a1a;
   line-height: 1.7;
   margin: 0;
   text-transform: capitalize;
@@ -99,9 +99,9 @@
 }
 
 .capabilities-heading {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Sora', sans-serif;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 700;
   color: #1a1a1a;
   margin-top: 8px;
   text-transform: capitalize;
@@ -130,9 +130,9 @@
 
 .automation-left .capabilities-list li,
 .ai-automation-section .capabilities-list li {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
- color: #7F768D;
+  font-family: 'Sora', sans-serif;
+  font-size: 19px;
+ color: #1a1a1a;
   padding-left: 20px;
   margin-left: 0 !important;
   padding-top: 0;

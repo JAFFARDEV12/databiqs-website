@@ -8,6 +8,13 @@ const NARROW_MQ = '(max-width: 968px)';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   const isNarrowLayout = useSyncExternalStore(
     (onStoreChange) => {
       const mq = window.matchMedia(NARROW_MQ);
@@ -50,7 +57,7 @@ const Header = () => {
   return (
 
 
-    <header className={`Header ${isMenuOpen ? 'menu-open' : ''}`}>
+    <header className={`Header ${isMenuOpen ? 'menu-open' : ''} ${isScrolled ? 'scrolled' : ''}`}>
       <div className="header-container">
         <Link to="/" className="logo">
           <img src={logo} alt="Databiqs" />

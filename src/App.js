@@ -1,6 +1,7 @@
 
 import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/home/Header';
 import Home from './components/home/Home';
 import AboutUs from './components/about/AboutUs';
 import Contact from './components/contact/Contact';
@@ -81,7 +82,8 @@ function App() {
   return (
     <>
       <Router>
-         <ScrollToTop />
+        <ScrollToTop />
+        <Header />
         <div className="App">
           <Routes>
             <Route path="/" element={<Home />} />

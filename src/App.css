@@ -2,8 +2,21 @@
   width: 100%;
   margin: 0;
   padding: 0;
+  padding-top: 90px;
   position: relative;
   min-height: 100vh;
+}
+
+@media (max-width: 1400px) {
+  .App {
+    padding-top: 76px;
+  }
+}
+
+@media (max-width: 968px) {
+  .App {
+    padding-top: 0;
+  }
 }
 
 /* Ensure chatbot is not affected by App container */
