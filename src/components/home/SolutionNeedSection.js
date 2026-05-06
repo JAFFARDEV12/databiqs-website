@@ -1,7 +1,6 @@
 import { useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Bot, Brain, Lightbulb, Workflow } from 'lucide-react';
-import videoAutomation from '../../assets/8087075-uhd_2160_3840_25fps.mp4';
 import videoChatbots from '../../assets/8501993-uhd_2160_3840_25fps.mp4';
 import videoMl from '../../assets/8328106-uhd_2160_3840_25fps.mp4';
 import videoStrategy from '../../assets/7688618-uhd_2160_4096_24fps.mp4';
@@ -22,7 +21,7 @@ const SOLUTION_OPTIONS = [
     ],
     ctaTo: '/services/ai-automation',
     Icon: Workflow,
-    videoSrc: videoAutomation,
+    videoSrc: videoMl,
   },
   {
     id: 'chatbots',
