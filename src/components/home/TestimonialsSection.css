@@ -32,7 +32,7 @@
 
 .testimonials-section .section-headline {
   font-weight: 900 !important;
-  font-size: clamp(32px, 4vw, 50px);
+  font-size: clamp(27px, 4vw, 50px);
 }
 
 .section-headline .headline-purple {

@@ -152,6 +152,26 @@
   transform: translateY(0);
 }
 
+/* Touch devices: disable hover-swap so it always shows the email */
+@media (hover: none) and (pointer: coarse) {
+  /* Default: show email */
+  .cta-email-hover {
+    display: none;
+  }
+
+  /* When tapped + copied: show "Copied!" briefly (driven by JS class) */
+  .hero-cta-email.is-copied .cta-email-default {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  .hero-cta-email.is-copied .cta-email-hover {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ===== Right Visual ===== */
 .hero-visual {
   position: relative;
@@ -323,6 +343,20 @@
     padding: 14px 20px 36px;
   }
 
+  .hero-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-headline {
+    text-align: center;
+  }
+
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .hero-visual {
     height: 460px;
   }
@@ -368,12 +402,12 @@
   }
 
   .hero-headline {
-    font-size: clamp(32px, 8vw, 44px);
-    line-height: 40px;
+    font-size: clamp(44px, 10.5vw, 62px);
+    line-height: 1.05;
   }
 
   .hero-visual {
-    height: 380px;
+    height: 231px;
   }
 
   .hero-sphere-wrapper {
@@ -401,8 +435,8 @@
   }
 
   .hero-headline {
-    font-size: 30px;
-    line-height: 40px;
+    font-size: 44px;
+    line-height: 1.30;
   }
 
   .hero-sphere-wrapper {

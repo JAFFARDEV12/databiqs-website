@@ -227,10 +227,6 @@
     gap: 18px;
   }
 
-  .meeting-banner__title {
-   
-  }
-
   .meeting-banner__sub {
     max-width: 33ch;
     font-size: 14px;
@@ -302,6 +298,6 @@
 
   .meeting-banner__cta {
     font-size: 12px;
-    padding: 11px 42px 11px 14px;
+    padding: 11px 15px 11px 14px;
   }
 }

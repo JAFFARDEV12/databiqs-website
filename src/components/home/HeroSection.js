@@ -27,11 +27,14 @@ const HeroSection = ({
 }) => {
   const [copied, setCopied] = useState(false);
 
-  const handleCopy = () => {
+  const handleCopy = (e) => {
     navigator.clipboard.writeText(EMAIL).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     });
+    // On mobile Safari/Chrome, tap can leave elements in a sticky hover/focus state.
+    // Blurring ensures the button returns to its default label.
+    e?.currentTarget?.blur?.();
   };
 
   if (variant === 'case-studies') {
@@ -65,7 +68,7 @@ const HeroSection = ({
             stability to deliver transformation with clarity.
           </p>
 
-          <button className="hero-cta-email" onClick={handleCopy}>
+          <button className={`hero-cta-email${copied ? ' is-copied' : ''}`} onClick={handleCopy}>
             <span className="cta-email-default">{EMAIL}</span>
             <span className="cta-email-hover">
               {copied ? 'Copied!' : 'click to copy'}

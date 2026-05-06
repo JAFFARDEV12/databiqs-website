@@ -64,7 +64,7 @@ useEffect(() => {
         <CaseStudiesSection />
         <WhyAISection />
         <HowDatabiqsSection />
-        <MeetingBannerSection />
+        <MeetingBannerSection showBadge={false} />
         <Footer />
       </div>
     </div>

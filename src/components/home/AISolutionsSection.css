@@ -2618,6 +2618,12 @@
     border-radius: 18px;
   }
 
+  /* Extra breathing room between the top visual and the title/text on mobile */
+  .ai-solutions-section .card-right {
+    margin-top: 4px;
+    padding-top: 12px;
+  }
+
   .ai-solutions-section .card-left,
   .ai-solutions-section .solutions-diagram-frame {
     border-radius: 12px;

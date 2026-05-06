@@ -97,9 +97,9 @@
 }
 
 .core-card:hover {
-  box-shadow: none;
-  border-color: rgba(var(--accent-rgb), 0.22);
-  transform: translateY(-2px);
+  border-color: #7B2CBF;
+  box-shadow: 0 2px 18px -4px rgba(123, 44, 191, 0.4);
+  transform: none;
 }
 
 /* Lottie frame: caps at 80×80 / 60×60 on large screens; scales down on narrow viewports */

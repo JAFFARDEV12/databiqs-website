@@ -412,13 +412,15 @@
 
 .Header.scrolled .logo,
 .Header.scrolled .cta-button.desktop-only {
-  display: none;
+  /* Keep their space reserved so the nav pill doesn't shift horizontally */
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .Header.scrolled .header-container {
-  grid-template-columns: 1fr;
-  padding: 10px;
-  gap: 0;
+  /* Keep the same grid geometry as default state */
+  grid-template-columns: auto 1fr auto;
+  gap: 28px;
 }
 
 .Header.scrolled .nav {
@@ -458,6 +460,10 @@
     gap: 24px;
   }
 
+  .Header.scrolled .header-container {
+    padding: 12px 28px;
+  }
+
   .Header .nav {
     gap: 28px;
   }
@@ -472,6 +478,10 @@
     padding: 3px 22px;
     gap: 16px;
     grid-template-columns: auto 1fr auto auto;
+  }
+
+  .Header.scrolled .header-container {
+    padding: 3px 22px;
   }
 
   .Header .logo img {

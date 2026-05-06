@@ -22,7 +22,7 @@
 
 .case-studies-section .section-headline {
   font-family: 'Sora', sans-serif;
-  font-size: clamp(32px, 4vw, 54px);
+  font-size: clamp(27px, 4vw, 54px);
   font-weight: 900 !important;
   line-height: 1.15;
   color: #1a1a1a;
@@ -172,6 +172,7 @@
   opacity: 0;
   transform: translateY(18px);
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
 }
 
 .case-studies-section.animate .case-study-card {
@@ -192,22 +193,30 @@
 }
 
 .case-study-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  top: calc(50% - 20px);
-  background: rgba(245, 245, 250, 0.95);
-  backdrop-filter: blur(294px);
-  -webkit-backdrop-filter: blur(294px);
-  z-index: 0;
-  border-radius: 0 0 20px 20px;
+  /* Keep the full card white (no half silver band). */
+  display: none;
 }
 
 .case-study-card > * {
   position: relative;
   z-index: 1;
+}
+
+/* Tag chip (e.g. "AI Chatbot") */
+.cs-tag {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid #7B2CBF;
+  background: #ffffff;
+  color: #7B2CBF;
+  font-family: 'Sora', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;
 }
 
 
