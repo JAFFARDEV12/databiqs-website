@@ -1,40 +1,91 @@
 .blogNewsletter {
   padding: 0 clamp(14px, 4vw, 40px) clamp(56px, 8vw, 100px);
-  transform: translateZ(0);
-  will-change: transform;
+  position: relative;
+  /* Avoid clipping focused controls / scroll-into-view; decorative glow is contained in ::before */
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+.blogNewsletter::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  right: -110px;
+  bottom: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(156, 22, 200, 0.18) 0%, rgba(156, 22, 200, 0) 70%);
+  filter: blur(44px);
+  pointer-events: none;
+  z-index: 0;
+  animation: newsletterBgPulse 12s ease-in-out infinite alternate;
 }
 
 .blogNewsletter__wrap {
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .blogNewsletter__card {
   position: relative;
   box-sizing: border-box;
-  overflow: hidden;
+  /* Content must NOT sit under overflow:hidden (Chromium clips scroll-into-view for focused inputs). */
+  overflow: visible;
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
   container-type: inline-size;
   container-name: blognl;
   border-radius: 40px;
-  background: linear-gradient(99.67deg, #d5a2f9 0%, #ebe2ff 100%);
-  padding: clamp(48px, 6vw, 90px) clamp(20px, min(5vw, 80px), 120px);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   opacity: 0;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  transition: box-shadow 0.3s ease;
+  transform: none;
+}
+
+/* Gradient + decorative rings live here only; clipping applies to background, not to form/text */
+.blogNewsletter__cardBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background: linear-gradient(99.67deg, #d5a2f9 0%, #ebe2ff 100%);
+  overflow: hidden;
+  pointer-events: none;
 }
 
 .blogNewsletter__card:hover {
   box-shadow: 0 4px 28px -6px rgba(123, 44, 191, 0.45);
-  transform: translateY(-2px);
 }
 
 .blogNewsletter.animate .blogNewsletter__card {
-  animation: fadeInUp 0.45s ease-out 0.08s forwards;
+  animation: newsletterCardReveal 0.45s ease-out 0.08s forwards;
+}
+
+/* Opacity-only reveal: avoids transform layers re-compositing when the input is focused */
+.blogNewsletter__title,
+.blogNewsletter__sub,
+.blogNewsletter__form {
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.blogNewsletter.animate .blogNewsletter__title,
+.blogNewsletter.animate .blogNewsletter__sub,
+.blogNewsletter.animate .blogNewsletter__form {
+  opacity: 1;
+}
+
+.blogNewsletter.animate .blogNewsletter__sub {
+  transition-delay: 0.16s;
+}
+
+.blogNewsletter.animate .blogNewsletter__form {
+  transition-delay: 0.32s;
 }
 
 .blogNewsletter__decor {
@@ -65,6 +116,8 @@
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
+  box-sizing: border-box;
+  padding: clamp(48px, 6vw, 90px) clamp(20px, min(5vw, 80px), 120px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -86,7 +139,7 @@
 
 @media (min-width: 769px) {
   .blogNewsletter__title {
-    line-height: 91px;
+    line-height: 1.12;
   }
 }
 
@@ -109,6 +162,7 @@
 
 .blogNewsletter__form {
   --blogNewsletter-control-height: 50px;
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -121,7 +175,7 @@
   margin-top: clamp(4px, 1vw, 8px);
 }
 
-.blogNewsletter__label {
+.blogNewsletter__field {
   display: block;
   margin: 0;
   flex: 0 0 auto;
@@ -137,6 +191,7 @@
   margin: -1px;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
 }
@@ -151,7 +206,8 @@
   border: 1px solid rgba(17, 17, 17, 0.12);
   background: #ffffff;
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 15px;
+  /* 16px minimum avoids iOS Safari focus-zoom and layout jump */
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.2;
   color: #111111;
@@ -169,7 +225,8 @@
 
 .blogNewsletter__input:focus {
   border-color: rgba(123, 44, 191, 0.45);
-  box-shadow: 0 0 0 3px rgba(123, 44, 191, 0.15);
+  box-shadow: inset 0 0 0 1px rgba(123, 44, 191, 0.35);
+  scroll-margin-block: 24px;
 }
 
 .blogNewsletter__submit {
@@ -257,7 +314,7 @@
     max-width: none;
   }
 
-  .blogNewsletter__label {
+  .blogNewsletter__field {
     flex: none;
     width: 100%;
     max-width: 380px;
@@ -281,6 +338,35 @@
 @media (max-width: 480px) {
   .blogNewsletter__card {
     border-radius: 26px;
+  }
+
+  .blogNewsletter__inner {
     padding: 40px 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blogNewsletter::before {
+    animation: none;
+  }
+}
+
+@keyframes newsletterBgPulse {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate3d(-18px, -20px, 0) scale(1.08);
+    opacity: 0.55;
+  }
+}
+
+@keyframes newsletterCardReveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

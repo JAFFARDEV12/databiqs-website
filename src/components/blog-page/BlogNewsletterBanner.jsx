@@ -14,8 +14,10 @@ const BlogNewsletterBanner = () => {
     <section className="blogNewsletter" ref={sectionRef} aria-label="Newsletter signup">
       <div className="blogNewsletter__wrap">
         <div className="blogNewsletter__card">
-          <div className="blogNewsletter__decor blogNewsletter__decor--bl" aria-hidden />
-          <div className="blogNewsletter__decor blogNewsletter__decor--tr" aria-hidden />
+          <div className="blogNewsletter__cardBg" aria-hidden="true">
+            <div className="blogNewsletter__decor blogNewsletter__decor--bl" />
+            <div className="blogNewsletter__decor blogNewsletter__decor--tr" />
+          </div>
           <div className="blogNewsletter__inner">
             <h2 className="blogNewsletter__title">Never Miss an insight</h2>
             <p className="blogNewsletter__sub">
@@ -27,8 +29,10 @@ const BlogNewsletterBanner = () => {
               month.
             </p>
             <form className="blogNewsletter__form" onSubmit={handleSubmit} noValidate>
-              <label className="blogNewsletter__label" htmlFor="blog-newsletter-email">
-                <span className="blogNewsletter__visuallyHidden">Email address</span>
+              <label htmlFor="blog-newsletter-email" className="blogNewsletter__visuallyHidden">
+                Email address
+              </label>
+              <div className="blogNewsletter__field">
                 <input
                   id="blog-newsletter-email"
                   className="blogNewsletter__input"
@@ -37,7 +41,7 @@ const BlogNewsletterBanner = () => {
                   placeholder="Enter your email"
                   autoComplete="email"
                 />
-              </label>
+              </div>
               <button type="submit" className="blogNewsletter__submit">
                 <span className="blogNewsletter__submitText">Subscribe, It&apos;s Free</span>
                 <span className="blogNewsletter__submitArrow" aria-hidden>

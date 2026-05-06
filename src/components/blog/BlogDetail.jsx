@@ -1,37 +1,81 @@
 
-import { useParams, Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Footer from "../home/Footer";
-import mainImg from "../../assets/main.png";
-import related1 from "../../assets/1.png";
-import related2 from "../../assets/2.png";
 import arrowIcon from "../../assets/rightarrow.svg";
+import relatedStillCover from "../../assets/main.png";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
+import { BLOG_POSTS, BLOG_POSTS_BY_ID } from "./blogPostsData";
 import "../blog-page/FeaturedBlogCardsRow.css";
 import "./BlogDetail.css";
 
-/** Matches slugs in this file (`1`–`3`). */
-const blogDetailPath = (cardId) => `/blog-detail/${((cardId - 1) % 3) + 1}`;
+const blogDetailPath = (cardId) => `/blog-detail/${cardId}`;
 
-const RELATED_FEATURED_CARDS = [
-  {
-    id: 1,
-    tag: "AI Automation",
-    title: "How AI chatbots are redefining enterprise customer support in 2025",
-    desc: "The phone rings at 3 AM. A customer in Tokyo needs urgent help. Another in London has a billing question. Your support team is asleep - but your AI isn't. Here's how the best teams are building always-on support that actually works.",
-    author: "Jaffar Ali",
-    date: "September 04, 2025",
-    readTime: "12 Minutes Read",
-  },
-  {
-    id: 2,
-    tag: "AI Automation",
-    title: "How AI chatbots are redefining enterprise customer support in 2025",
-    desc: "The phone rings at 3 AM. A customer in Tokyo needs urgent help. Another in London has a billing question. Your support team is asleep - but your AI isn't. Here's how the best teams are building always-on support that actually works.",
-    author: "Jaffar Ali",
-    date: "September 04, 2025",
-    readTime: "12 Minutes Read",
-  },
-];
+const isVideoAssetUrl = (src) => typeof src === "string" && src.toLowerCase().includes(".mp4");
+
+/** Rank by category/tag match, then pick one MP4 card + one static-image card (always distinct). */
+const getRelatedVideoAndStill = (current, posts) => {
+  const others = posts.filter((p) => p.id !== current.id);
+  const relevance = (p) =>
+    (p.category === current.category ? 2 : 0) + (p.tag === current.tag ? 1 : 0);
+  const ranked = [...others].sort((a, b) => relevance(b) - relevance(a) || a.id - b.id);
+
+  const withVideo = ranked.filter((p) => isVideoAssetUrl(p.image));
+  const withoutVideo = ranked.filter((p) => !isVideoAssetUrl(p.image));
+
+  const videoPost = withVideo[0] || ranked[0];
+  let stillPost =
+    withoutVideo.find((p) => p.id !== videoPost.id) ||
+    withoutVideo[0] ||
+    ranked.find((p) => p.id !== videoPost.id);
+
+  if (!stillPost || stillPost.id === videoPost.id) {
+    stillPost = ranked.find((p) => p.id !== videoPost.id);
+  }
+
+  return [
+    { post: videoPost, variant: "video" },
+    { post: stillPost, variant: "still" },
+  ];
+};
+
+const renderAccentVideoTitle = (title) => {
+  const words = title.trim().split(/\s+/);
+  if (words.length < 3) return title;
+  const normalPart = words.slice(0, -2).join(" ");
+  const accentPart = words.slice(-2).join(" ");
+  return (
+    <>
+      {normalPart} <span className="featuredBlogCard__titleAccent">{accentPart}</span>
+    </>
+  );
+};
+
+const renderContentBlock = (line, idx) => {
+  const trimmed = line.trim();
+  if (!trimmed) return null;
+
+  if (trimmed.startsWith("## ")) {
+    return <h2 key={`h2-${idx}`}>{trimmed.replace("## ", "")}</h2>;
+  }
+
+  if (trimmed.startsWith("- ")) {
+    return (
+      <p key={`li-${idx}`} className="bdp-startpara">
+        {trimmed.replace("- ", "• ")}
+      </p>
+    );
+  }
+
+  if (/^\d+\)/.test(trimmed) || /^\d+\./.test(trimmed)) {
+    return (
+      <p key={`num-${idx}`} className="bdp-startpara">
+        {trimmed}
+      </p>
+    );
+  }
+
+  return <p key={`p-${idx}`}>{trimmed}</p>;
+};
 
 const BlogDetail = () => {
   const { id } = useParams();
@@ -39,86 +83,10 @@ const BlogDetail = () => {
   const card1Ref = useScrollAnimation({ threshold: 0.2 });
   const card2Ref = useScrollAnimation({ threshold: 0.2 });
 
-  // Blog data - hardcoded content matching the design
-  const blogPosts = {
-    '1': {
-      id: 1,
-      title: 'HOW AI CHATBOTS ARE REDEFINING ENTERPRISE CUSTOMER SUPPORT',
-      date: 'September 04, 2025',
-      readTime: '12 Minutes',
-      image: mainImg,
-      relatedBlogs: [
-        {
-          id: 2,
-          image: related1,
-          title: 'Automating Business Workflows With N8n: A Smarter Way To Scale',
-          desc: 'Explore How Intelligent Chatbots Are Revolutionizing Customer Support...',
-          date: 'September 04, 2025',
-          readTime: '12 Minutes'
-        },
-        {
-          id: 1,
-          image: related2,
-          title: 'How AI Chatbots Are Redefining Enterprise Customer Support In 2025',
-          desc: 'From 24/7 Availability To Intelligent Routing discover How Conversational AI...',
-          date: 'September 04, 2025',
-          readTime: '12 Minutes'
-        }
-      ]
-    },
-    '2': {
-      id: 2,
-      title: 'AUTOMATING BUSINESS WORKFLOWS WITH N8N: A SMARTER WAY TO SCALE',
-      date: 'September 04, 2025',
-      readTime: '12 Minutes',
-      image: mainImg,
-      relatedBlogs: [
-        {
-          id: 1,
-          image: related1,
-          title: 'How AI Chatbots Are Redefining Enterprise Customer Support',
-          desc: 'Explore How Intelligent Chatbots Are Revolutionizing Customer Support...',
-          date: 'September 04, 2025',
-          readTime: '12 Minutes'
-        },
-        {
-          id: 3,
-          image: related2,
-          title: 'Transforming Customer Engagement With AI Chatbots',
-          desc: 'From 24/7 Availability To Intelligent Routing discover How Conversational AI...',
-          date: 'September 04, 2025',
-          readTime: '12 Minutes'
-        }
-      ]
-    },
-    '3': {
-      id: 3,
-      title: 'TRANSFORMING CUSTOMER ENGAGEMENT WITH AI CHATBOTS',
-      date: 'September 04, 2025',
-      readTime: '12 Minutes',
-      image: mainImg,
-      relatedBlogs: [
-        {
-          id: 1,
-          image: related1,
-          title: 'How AI Chatbots Are Redefining Enterprise Customer Support',
-          desc: 'Explore How Intelligent Chatbots Are Revolutionizing Customer Support...',
-          date: 'September 04, 2025',
-          readTime: '12 Minutes'
-        },
-        {
-          id: 2,
-          image: related2,
-          title: 'Automating Business Workflows With N8n: A Smarter Way To Scale',
-          desc: 'From 24/7 Availability To Intelligent Routing discover How Conversational AI...',
-          date: 'September 04, 2025',
-          readTime: '12 Minutes'
-        }
-      ]
-    }
-  };
-
-  const blog = blogPosts[id] || blogPosts['1'];
+  const blog = BLOG_POSTS_BY_ID[String(id)] || BLOG_POSTS_BY_ID["1"];
+  const relatedPair = getRelatedVideoAndStill(blog, BLOG_POSTS);
+  const contentLines = blog.content.split("\n");
+  const isVideoCover = isVideoAssetUrl(blog.image);
 
   return (
     <>
@@ -136,10 +104,22 @@ const BlogDetail = () => {
       </div>
 
       <h1 className="bdp__title">{blog.title}</h1>
-
-      {/*  HERO IMAGE IS STILL INSIDE GRADIENT */}
-      <div className="bdp__hero">
-        <img className="bdp__heroImg" src={blog.image} alt="Blog main" />
+      <div className={`bdp__hero${isVideoCover ? " bdp__hero--video" : ""}`}>
+        {isVideoCover ? (
+          <video
+            className="bdp__heroImg"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            aria-label={blog.title}
+          >
+            <source src={blog.image} type="video/mp4" />
+          </video>
+        ) : (
+          <img className="bdp__heroImg" src={blog.image} alt={blog.title} />
+        )}
       </div>
 
     </div>
@@ -153,166 +133,84 @@ const BlogDetail = () => {
       
 
 <article className="bdp__article">
-
-  <span className="bdp__badge">Enterprise AI</span>
-
-  <h1 className="bdp__articleTitle">
-    How AI Chatbots Are Transforming Enterprise Customer Support
-  </h1>
-
+  <span className="bdp__badge">{blog.tag}</span>
+  <h1 className="bdp__articleTitle">{blog.title}</h1>
   <div className="bdp__leadWrap">
     <div className="bdp__leadBar"></div>
-
-    <p className="bdp__lead">
-      From 3 AM unanswered calls to always-on intelligent service — the shift
-      from automation novelty to business necessity is already here.
-    </p>
+    <p className="bdp__lead">{blog.excerpt}</p>
   </div>
-
   <div className="bdp__articleMeta">
-    <span>Customer Experience</span>
+    <span>{blog.category}</span>
     <span className="purple"></span>
-    <span>8 Min Read</span>
+    <span>{blog.readTime}</span>
     <span className="purple"></span>
-    <span>Enterprise</span>
+    <span>{blog.tag}</span>
   </div>
+  <div className="bdp__copy">{contentLines.map((line, idx) => renderContentBlock(line, idx))}</div>
 
-  <div className="bdp__copy">
-    <p>
-      The phone rings at 3 AM. A customer in Tokyo needs urgent help resolving a
-      payment issue. Another in London has a billing question. Simultaneously,
-      someone in New York is trying to track a delayed shipment. Your support
-      team is asleep. Your customers are frustrated, waiting in digital queues.
-    </p>
-
-    <p>
-      This was the stark reality of enterprise customer support just five years
-      ago — a constant, exhausting battle against time zones, staffing
-      limitations, and the seemingly impossible demand of being everywhere at
-      once.
-    </p>
-
-    <p>
-      Today, that reality is transforming. Not gradually. Dramatically. AI
-      chatbots have evolved from experimental novelties into business
-      necessities, fundamentally reshaping how enterprises approach customer
-      support.
-    </p>
-  </div>
-
-  <section className="bdp__miniSection">
-    <h2>Cost Efficiency At Scale</h2>
-
-    <div className="bdp__statGrid">
-      <div className="bdp__statCard">
-        <h3>Traditional</h3>
-        <strong className="">2-3</strong>
-      
-        <p>New agents needed per 1,000 customers. At $40k–$60k each annually.</p>
-      </div>
-
-      <div className="bdp__statCard">
-        <h3>AI Powered</h3>
-        <strong className="">0</strong>
-        <p>Incremental cost per interaction — 1,000+ simultaneous conversations</p>
-      </div>
-
-      <div className="bdp__statCard">
-        <h3>Real-World Result</h3>
-        <strong>$2.4M</strong>
-        <p>Saved annually by one e-commerce enterprise with 50,000 daily interactions</p>
-      </div>
-    </div>
-  </section>
-
-  <section className="bdp__miniSection">
-    <h2>True 24/7 Global Coverage</h2>
-
-    <div className="bdp__compareGrid">
-      <div className="bdp__compareCard">
-        <h3>Traditional Support</h3>
-        <p>
-          Requires 3 full shifts across time zones, complex scheduling, 3–4x
-          staffing overhead
-        </p>
-      </div>
-
-      <div className="bdp__compareCard bdp__compareCard--accent">
-        <h3>AI-Powered Support</h3>
-        <p>
-          Always available, never tired, instantly scales during traffic spikes
-        </p>
-      </div>
-    </div>
-  </section>
-  <div className="bdp__leadWrap margin-top-custom ">
-    <div className="bdp__leadBar"></div>
-
-    <p className="bdp__lead">
-    A global financial services company eliminated their entire nightshift support teams — saving $800K annually — while paradoxically improving overnight response quality and resolution rates.
-    </p>
-  </div>
- 
-
-<section className="bdp__miniSection">
-  <h2>Consistency And Accuracy</h2>
-
-  <div className="bdp__consistencyCopy">
-    <p>
-      Traditional support quality varies based on agent experience, training
-      recency, mood, and fatigue. Errors occur. Information becomes outdated.
-    </p>
-
-    <p>
-      With AI-powered support, every customer receives identical, accurate
-      information based on the latest product documentation and policy updates
-      — maintained centrally in real-time.
-    </p>
-  </div>
-</section>
-
-<section className="bdp__miniSection bdp__assistantSection">
-  <h2>AI Assistant — Triggered By 12 Pricing Page Visits</h2>
-
-  <div className="bdp__assistantBox">
-    <p>
-      Hi! I noticed you're exploring our Enterprise plan. I'm here to answer
-      any questions about pricing, implementation, or custom features.
-    </p>
-  </div>
-</section>
-  {/*  arictle link */}
     <section className="bdp__related">
             <h2 ref={relatedTitleRef} className="bdp__relatedTitle scroll-reveal">
               RELATED BLOGS
             </h2>
 
             <div className="featuredBlogRow__grid bdp__relatedFeaturedGrid">
-              {RELATED_FEATURED_CARDS.map((card, idx) => (
+              {relatedPair.map(({ post: card, variant }, idx) => (
                 <article
-                  key={card.id}
+                  key={`${variant}-${card.id}`}
                   ref={idx === 0 ? card1Ref : idx === 1 ? card2Ref : undefined}
-                  className="featuredBlogCard scroll-reveal"
+                  className={`featuredBlogCard scroll-reveal${
+                    variant === "video" ? " featuredBlogCard--video" : " featuredBlogCard--still"
+                  }`}
                 >
-                  <span className="featuredBlogCard__tag">{card.tag}</span>
-                  <Link className="featuredBlogCard__titleLink" to={blogDetailPath(card.id)}>
-                    <h3 className="featuredBlogCard__title">{card.title}</h3>
-                  </Link>
-                  <p className="featuredBlogCard__desc">{card.desc}</p>
+                  {variant === "video" && isVideoAssetUrl(card.image) && (
+                    <>
+                      <video
+                        className="featuredBlogCard__videoBg"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        preload="metadata"
+                        aria-hidden="true"
+                      >
+                        <source src={card.image} type="video/mp4" />
+                      </video>
+                      <div className="featuredBlogCard__videoOverlay" aria-hidden="true" />
+                    </>
+                  )}
+                  {variant === "still" && (
+                    <>
+                      <img
+                        className="featuredBlogCard__stillBg"
+                        src={relatedStillCover}
+                        alt=""
+                        aria-hidden="true"
+                      />
+                      <div className="featuredBlogCard__stillOverlay" aria-hidden="true" />
+                    </>
+                  )}
 
-                  <Link to={blogDetailPath(card.id)} className="featuredBlogCard__link">
-                    <span>Read Full Blog</span>
-                    <span className="featuredBlogCard__icon">
-                      <img src={arrowIcon} alt="" aria-hidden="true" />
-                    </span>
-                  </Link>
+                  <div className="featuredBlogCard__content">
+                    <span className="featuredBlogCard__tag">{card.tag}</span>
+                    <Link className="featuredBlogCard__titleLink" to={blogDetailPath(card.id)}>
+                      <h3 className="featuredBlogCard__title">{renderAccentVideoTitle(card.title)}</h3>
+                    </Link>
+                    <p className="featuredBlogCard__desc">{card.excerpt}</p>
 
-                  <div className="featuredBlogCard__meta">
-                    <span>{card.author}</span>
-                    <span className="featuredBlogCard__dot" />
-                    <span>{card.date}</span>
-                    <span className="featuredBlogCard__dot" />
-                    <span>{card.readTime}</span>
+                    <Link to={blogDetailPath(card.id)} className="featuredBlogCard__link">
+                      <span>Read Full Blog</span>
+                      <span className="featuredBlogCard__icon">
+                        <img src={arrowIcon} alt="" aria-hidden="true" />
+                      </span>
+                    </Link>
+
+                    <div className="featuredBlogCard__meta">
+                      <span>Databiqs Team</span>
+                      <span className="featuredBlogCard__dot" />
+                      <span>{card.date}</span>
+                      <span className="featuredBlogCard__dot" />
+                      <span>{card.readTime}</span>
+                    </div>
                   </div>
                 </article>
               ))}
