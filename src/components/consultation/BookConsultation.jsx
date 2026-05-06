@@ -6,7 +6,7 @@ const BookConsultation = () => {
   return (
     <div className="book-consultation-page">
       <div className="book-consultation-page__heroWrap">
-        <Header />
+    
         <BookConsultationSection />
       </div>
       <Footer />

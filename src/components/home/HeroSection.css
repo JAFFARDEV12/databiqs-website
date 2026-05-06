@@ -282,6 +282,13 @@
   box-shadow: 0 12px 40px rgba(123, 44, 191, 0.12);
 }
 
+.hero-visual--case-studies-static .hero-lottie--case-studies {
+  display: block;
+  width: min(100%, 560px);
+  height: clamp(260px, 30vw, 430px);
+  margin: 0 auto;
+}
+
 .hero-headline--case-studies {
   font-size: clamp(32px, 4.8vw, 52px);
   line-height: 1.12;
@@ -291,6 +298,24 @@
 @media (max-width: 1024px) {
   .hero-section--case-studies-page .hero-visual--case-studies-static {
     order: -1;
+  }
+
+  .hero-visual--case-studies-static .hero-lottie--case-studies {
+    width: min(100%, 540px);
+    height: clamp(250px, 42vw, 390px);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-visual--case-studies-static .hero-lottie--case-studies {
+    width: 100%;
+    height: clamp(210px, 58vw, 320px);
+  }
+}
+
+@media (max-width: 420px) {
+  .hero-visual--case-studies-static .hero-lottie--case-studies {
+    height: clamp(190px, 64vw, 270px);
   }
 }
 
