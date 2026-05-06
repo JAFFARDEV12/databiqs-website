@@ -44,7 +44,8 @@
   z-index: 9999;
   width: 100%;
   box-sizing: border-box;
-  background: #ffffff;
+
+  margin-top: 20px;
 }
 
 .Header.menu-open {
