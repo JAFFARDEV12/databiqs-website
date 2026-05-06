@@ -5,6 +5,7 @@ import AISolutionsSection from './AISolutionsSection';
 import AIAutomationSection from './AIAutomationSection';
 import TestimonialsSection from './TestimonialsSection';
 import ClientsMarquee from './ClientsMarquee';
+import SolutionNeedSection from './SolutionNeedSection';
 import CaseStudiesSection from './CaseStudiesSection';
 import WhyAISection from './WhyAISection';
 import HowDatabiqsSection from './HowDatabiqsSection';
@@ -53,9 +54,11 @@ useEffect(() => {
          <div className="top-gradient-wrapper">
         <HeroSection />
       </div>
+      <SolutionNeedSection />
 
-      <ClientsMarquee />
+     {/*  <ClientsMarquee /> */}
       <TestimonialsSection />
+      
 
       <NumbersStatsSection />
 

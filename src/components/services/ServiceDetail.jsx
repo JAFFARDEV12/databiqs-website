@@ -8,7 +8,7 @@ import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import "./Services.css";
 import "./ServiceDetail.css";
 import MeetingBannerSection from "../home/MeetingBannerSection";
-
+import arrowIcon from '../../assets/rightarrow.svg';
 const CapIcon = ({ name }) => {
   const common = { width: 40, height: 40, viewBox: "0 0 24 24", fill: "none", "aria-hidden": true };
   switch (name) {
@@ -259,7 +259,7 @@ const ServiceDetail = () => {
   return (
     <div className="service-detail-page services-page">
       <section className="sd-hero-section" ref={heroRef}>
-        <Header />
+       
         <div className="sd-container sd-hero-section__inner">
           <div className="sd-hero-grid">
             <div className="sd-hero-copy">
@@ -269,20 +269,12 @@ const ServiceDetail = () => {
                 <span className="sd-hero-title__accent">{page.heroTitleLine2}</span>
               </h1>
               <p className="sd-hero-lead">{page.heroLead}</p>
-              <Link className="sd-hero-cta" to="/book-consultation">
-                <span>{page.finalCta.buttonLabel}</span>
-                <span className="sd-hero-cta__icon" aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M5 12H19M19 12L12 5M19 12L12 19"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </span>
-              </Link>
+              <Link to="/book-consultation" className="meeting-banner__cta">
+              <span className="meeting-banner__cta-text">Book a Consultation</span>
+              <span className="meeting-banner__cta-arrow" aria-hidden>
+                <img src={arrowIcon} alt="" />
+              </span>
+            </Link>
             </div>
             <div className="sd-hero-visual">
               <img src={page.heroImage} alt={page.heroImageAlt} className="sd-hero-img" loading="eager" decoding="async" />

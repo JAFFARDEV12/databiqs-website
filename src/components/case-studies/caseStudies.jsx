@@ -4,9 +4,10 @@ import CaseStudiesSection from '../home/CaseStudiesSection';
 import TestimonialsSection from '../home/TestimonialsSection';
 import MeetingBannerSection from '../home/MeetingBannerSection';
 import Footer from '../home/Footer';
+import Lottie from 'lottie-react';
 import './caseStudiesListingLayout.css';
 
-import heroVisual from '../../assets/case-study.svg';
+import caseStudyAnimation from '../../assets/gif/case-study.json';
 import {
   CS_LIST_CARDS,
   CS_LIST_FILTERS,
@@ -37,7 +38,12 @@ const CaseStudies = () => (
         }
         caseStudiesDescription="From predictive operations to customer-facing AI, we ship systems that hold up in production — measurable latency, clear ROI, and teams that actually adopt them."
         caseStudiesVisual={
-          <img src={heroVisual} alt="" loading="eager" decoding="async" />
+          <Lottie
+            className="hero-lottie--case-studies"
+            animationData={caseStudyAnimation}
+            loop
+            autoplay
+          />
         }
       />
 
