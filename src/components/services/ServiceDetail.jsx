@@ -1,6 +1,5 @@
 import React, { useMemo } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
-import Header from "../home/Header";
 import Footer from "../home/Footer";
 import { getServiceBySlug } from "./serviceData";
 import { getServiceDetailPage } from "./serviceDetailContent";

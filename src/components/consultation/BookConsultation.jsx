@@ -1,4 +1,3 @@
-import Header from '../home/Header';
 import Footer from '../home/Footer';
 import BookConsultationSection from './BookConsultationSection';
 

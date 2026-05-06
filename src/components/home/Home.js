@@ -4,7 +4,6 @@ import HeroSection from './HeroSection';
 import AISolutionsSection from './AISolutionsSection';
 import AIAutomationSection from './AIAutomationSection';
 import TestimonialsSection from './TestimonialsSection';
-import ClientsMarquee from './ClientsMarquee';
 import SolutionNeedSection from './SolutionNeedSection';
 import CaseStudiesSection from './CaseStudiesSection';
 import WhyAISection from './WhyAISection';

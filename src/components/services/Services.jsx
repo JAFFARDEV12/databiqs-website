@@ -1,8 +1,7 @@
 // Services.jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './Services.css';
 
-import Header from '../home/Header';
 import Footer from '../home/Footer';
 import CoreCapabilities from './CoreCapabilities';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
@@ -12,7 +11,7 @@ import ServicesArchitecturePipeline from './ServicesArchitecturePipeline';
 const Services = () => {
   const heroRef = useScrollAnimation({ threshold: 0.14 });
   const [activeService, setActiveService] = useState('ai-chatbots');
-
+ 
   return (
     <div className="services-page">
       <section className="services-hero-section" ref={heroRef}>
