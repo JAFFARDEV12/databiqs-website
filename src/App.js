@@ -1,6 +1,6 @@
 
-import { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/home/Header';
 import Home from './components/home/Home';
 import AboutUs from './components/about/AboutUs';
@@ -15,8 +15,48 @@ import Services from './components/services/Services';
 import ServiceDetail from './components/services/ServiceDetail';
 import Chatbot from './components/Chatbot/Chatbot';
 import BookConsultation from './components/consultation/BookConsultation';
+import DoorIntro from './components/intro/DoorIntro';
+
+function AppRoutes({ introDone, setIntroDone }) {
+  const location = useLocation();
+
+  const shouldShowIntro = location.pathname === '/' && !introDone;
+
+  return (
+    <>
+      {shouldShowIntro ? (
+        <DoorIntro
+          onDone={() => {
+            setIntroDone(true);
+            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+          }}
+        />
+      ) : null}
+
+      {!shouldShowIntro ? <Header /> : null}
+
+      <div className={`App ${shouldShowIntro ? 'App--introHidden' : ''}`}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/blog/:id" element={<BlogDetail />} />
+          <Route path="/blog-detail/:id" element={<BlogDetail />} />
+          <Route path="/blog-page" element={<InsightsInnovation />} />
+          <Route path="/case-studies" element={<CaseStudies />} />
+          <Route path="/case-studies/:slug" element={<CaseStudiesDetails />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/services/:slug" element={<ServiceDetail />} />
+          <Route path="/book-consultation" element={<BookConsultation />} />
+        </Routes>
+      </div>
+    </>
+  );
+}
 
 function App() {
+  const [introDone, setIntroDone] = useState(false);
+
   useEffect(() => {
     if (typeof window === 'undefined') return undefined;
 
@@ -84,24 +124,9 @@ function App() {
     <>
       <Router>
         <ScrollToTop />
-        <Header />
-        <div className="App">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about-us" element={<AboutUs />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/blog/:id" element={<BlogDetail />} />
-            <Route path="/blog-detail/:id" element={<BlogDetail />} />
-            <Route path="/blog-page" element={<InsightsInnovation />} />
-            <Route path="/case-studies" element={<CaseStudies />} />
-            <Route path="/case-studies/:slug" element={<CaseStudiesDetails />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/services/:slug" element={<ServiceDetail />} />
-            <Route path="/book-consultation" element={<BookConsultation />} />
-          </Routes>
-        </div>
+        <AppRoutes introDone={introDone} setIntroDone={setIntroDone} />
       </Router>
-      <Chatbot />
+      {introDone ? <Chatbot /> : null}
     </>
   );
 }
