@@ -1,17 +1,50 @@
-/* PAGE WRAPPER – gradient from index.css (same as landing header/hero) */
+/* PAGE WRAPPER – matches Services / Case Studies / About hero shell */
+
+:root {
+  --bdp-page-pad-x: clamp(16px, 4vw, 32px);
+}
 
 .top-gradient-wrapper-blog {
   width: 100%;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 46, 158, 0.22) 0%,
-    #ffffff 85%
-  );
+  position: relative;
+  background: #ffffff;
+  z-index: 2;
+  padding: 12px 0 clamp(10px, 1.6vw, 22px);
+  overflow: visible;
 }
+
+.top-gradient-wrapper-blog::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100vw - 100px);
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 46, 158, 0.2) 37%,
+    rgba(0, 84, 233, 0.05) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (max-width: 1024px) {
+  .top-gradient-wrapper-blog::before {
+    width: 100vw;
+    border-radius: 0;
+  }
+}
+
+.top-gradient-wrapper-blog .bdp {
+  position: relative;
+  z-index: 2;
+}
+
 .bdp {
   width: 100%;
-  
-
 }
 
 /* Inter for body copy (<p>, <span>); Bebas titles stay on h1/h2 where set */
@@ -43,31 +76,30 @@
   padding-top: 20px;
 }
 
-/* META ROW – 1280 x 70, 100px from top */
+/* META ROW */
 .bdp__metaWrap {
-  width: 1280px;
-  height: 52px;
+  width: 100%;
+  height: auto;
   margin-top: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: flex-end;
 }
 
-/* META TEXT LINE – match figma (14px / 24px, perfect vertical centering) */
 .bdp__meta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  height: 24px;
+  gap: 14px;
 
-  height: 24px; /* ✅ figma */
-  gap: 14px;    /* ✅ close to figma spacing */
-
-  font-family: "Inter", sans-serif;
-  font-weight: 400;
-  font-size: 10px;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
   line-height: 20px;
   letter-spacing: 0;
-  color: #36343A;
+  color: #002E9E;
 }
 
 .bdp__metaText {
@@ -77,49 +109,53 @@
 }
 
 .bdp__dot {
-  width: 8px !important;
-  height: 8px !important;
+  width: 6px !important;
+  height: 6px !important;
   display: inline-block;
-  background-color: #7F7F7F;  
-  border-radius: 50%;       
-  opacity: 1;   
+  background-color: rgba(0, 46, 158, 0.55);
+  border-radius: 50%;
+  opacity: 1;
 }
 
-/* TITLE – Bebas Neue (Figma) */
+/* TITLE – Sora 700, scale matching Services / About hero titles */
 .bdp__title {
-   max-width: 1092px;      /* width ki jagah max-width */
-  margin: 20px auto 24px;
+  max-width: 1100px;
+  margin: 16px auto 20px;
 
   text-align: center;
-  padding: 0 16px;        /* small screens safety */
+  padding: 0 16px;
 
-  font-family: "Bebas Neue", sans-serif;
-  font-weight: 400;
-  font-size: 46px;
-  line-height: 1.2;       /* flexible line height */
-  letter-spacing: 0;
-  color: #111111;
+  font-family: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 700;
+  font-size: clamp(22px, 0.7rem + 4vw, 54px);
+  line-height: clamp(30px, 0.8rem + 4.8vw, 66px);
+  letter-spacing: -0.01em;
+  color: #1a1a1a;
 
   word-break: break-word;
 }
 
-/* HERO IMAGE – 1200 x 320 */
+/* HERO MEDIA – responsive */
 .bdp__hero {
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   margin: 12px auto 0;
+  padding: 0 var(--bdp-page-pad-x);
+  box-sizing: border-box;
 }
 
 .bdp__heroImg {
-  width: 1200px;
-  height: 320px;
+  width: 100%;
+  height: clamp(220px, 30vw, 360px);
   object-fit: cover;
-  border-radius: 28px;
+  border-radius: clamp(16px, 1.8vw, 24px);
   display: block;
+  box-shadow: 0 18px 40px rgba(0, 46, 158, 0.18);
 }
 
 .bdp__hero--video {
   position: relative;
-  border-radius: 28px;
+  border-radius: clamp(16px, 1.8vw, 24px);
   overflow: hidden;
 }
 
@@ -127,8 +163,12 @@
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: 28px;
-  background: rgba(0, 0, 0, 0.28);
+  border-radius: inherit;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 14, 64, 0.18) 0%,
+    rgba(0, 46, 158, 0.32) 100%
+  );
   pointer-events: none;
   z-index: 1;
 }
@@ -219,12 +259,12 @@
 .bdp__relatedTitle {
   margin: 56px auto 0;
   text-align: center;
-  font-family: "Sora", "Inter", sans-serif;
+  font-family: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-weight: 700;
-  font-size: 32px;
-  line-height: 60px;
+  font-size: clamp(22px, 2.4vw, 36px);
+  line-height: 1.2;
   letter-spacing: 0;
-  color: #202020;
+  color: #1a1a1a;
 }
 
 .bdp__relatedFeaturedGrid {
@@ -332,15 +372,15 @@
 }
 
 .bdp__readLinkText {
-  font-family: "Inter", sans-serif;
-  font-weight: 400;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 600;
   font-style: normal;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 20px;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   vertical-align: middle;
   text-transform: capitalize;
-  color: #9C16C8;
+  color: #002E9E;
   margin-right: 12px;
 }
 
@@ -348,11 +388,12 @@
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: #9C16C8;
+  background: #002E9E;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: background 0.25s ease, transform 0.25s ease;
 }
 
 .bdp__readLinkArrow img {
@@ -362,12 +403,12 @@
 }
 
 .bdp__readLink:hover .bdp__readLinkText {
-  color: #6B3BC2;
+  color: #0054E9;
 }
 
 .bdp__readLink:hover .bdp__readLinkArrow {
+  background: #0054E9;
   transform: scale(1.1);
-  transition: transform 0.3s ease;
 }
 
 /* ===================== ANIMATIONS (using your useScrollAnimation) ===================== */
@@ -387,98 +428,49 @@
 
 /* Responsive Design */
 @media (max-width: 1280px) {
-  .bdp__container {
-    width: 100%;
-    padding: 0 20px;
-  }
-
-  .bdp__metaWrap {
-    width: 100%;
-  }
-
-  .bdp__title {
-    width: 100%;
-    padding: 0 20px;
-  }
-
-  .bdp__hero {
-    width: 100%;
-    padding: 0 20px;
-  }
-
-  .bdp__heroImg {
-    width: 100%;
-    height: auto;
-  }
-
   .bdp__content {
     width: 100%;
-    padding: 0 20px;
+    padding: 0 var(--bdp-page-pad-x);
   }
 
   .bdp__related {
     width: 100%;
-    padding: 0 20px 80px;
+    padding: 0 var(--bdp-page-pad-x) 80px;
   }
-
 }
 
 @media (max-width: 768px) {
   .bdp__metaWrap {
-    margin-top: 60px;
-    height: auto;
-    padding: 0 20px;
+    margin-top: 32px;
   }
 
   .bdp__title {
-    font-size: 28px;
-    line-height: 36px;
-    height: auto;
-    margin: 20px auto 0;
+    margin: 18px auto 14px;
   }
 
   .bdp__hero {
-    margin: 16px auto 0;
-  }
-
-  .bdp__heroImg {
-    height: 200px;
+    margin: 12px auto 0;
   }
 
   .bdp__content {
     margin: 18px auto 0;
   }
+}
 
-  .bdp__relatedTitle {
-    font-size: 28px;
-    line-height: 44px;
+@media (max-width: 640px) {
+  :root {
+    --bdp-page-pad-x: 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  :root {
+    --bdp-page-pad-x: 12px;
   }
 }
 
 .decorative-ellipse-1 {
-  position: fixed;
-  width: 232px;
-  height: 232px;
-  background: rgba(0, 46, 158, 0.8);
-  border-radius: 50%;
-  filter: blur(694px);
-  -webkit-filter: blur(694px);
-  pointer-events: none;
-  z-index: 0;
-  /* Positioned based on Figma coordinates (x: 917, y: 2166) */
-  /* Adjusted for responsive viewport - appears in lower right area */
-  top: 50%;
-  right: 5%;
-  transform: translate(50%, -50%);
-  opacity: 0.8;
-  will-change: transform;
-}
-
-@media (max-width: 1440px) {
-  .decorative-ellipse-1 {
-    right: 0%;
-    top: 55%;
-  }
+  display: none;
 }
 /* BlogDetail.css */
 /* ADD / REPLACE content styles */
@@ -496,23 +488,30 @@
 
 /* badge */
 .bdp__badge {
-  display: inline-block;
-  padding: 5px 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 20px;
   border-radius: 999px;
-  background: #9C16C8;
-  color: #fff;
-  font-size: 16px;
+  background: #002E9E;
+  color: #ffffff;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   margin-bottom: 18px;
+  text-transform: capitalize;
 }
 
 /* title */
 .bdp__articleTitle {
-  font-family: "Inter", sans-serif;
-  font-size: 36px;
+  font-family: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: clamp(22px, 2.6vw, 38px);
   line-height: 1.25;
-  font-weight: 400;
+  font-weight: 700;
   margin: 0 0 16px;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
+  color: #1a1a1a;
 }
 
 /* lead */
@@ -521,22 +520,22 @@
   align-items: flex-start;
   gap: 16px;
   margin-bottom: 18px;
-
 }
 
 .bdp__leadBar {
-  width: 6.88px;              /* exact figma width */
-  min-width: 6.88px;
-  height: 73px;             /* exact figma height */
-  border-radius: 99px;       /* rounded ends */
-  background: #8f2cff;
+  width: 6px;
+  min-width: 6px;
+  height: 73px;
+  border-radius: 99px;
+  background: linear-gradient(180deg, #002E9E 0%, #0054E9 100%);
   display: block;
   flex-shrink: 0;
 }
 
 .bdp__lead {
   margin: 0;
-  font-size: 17px;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: clamp(15px, 1.2vw, 17px);
   line-height: 1.6;
   color: #3f3f3f;
 }
@@ -547,14 +546,17 @@
   flex-wrap: wrap;
   gap: 10px;
   align-items: center;
-  font-size: 17px;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555a6b;
   margin-bottom: 24px;
 }
 
 .purple {
-  width: 13px;
-  height: 13px;
-  background: #8f2cff;
+  width: 6px;
+  height: 6px;
+  background: rgba(0, 46, 158, 0.55);
   border-radius: 50%;
 }
 
@@ -564,18 +566,20 @@
 }
 
 .bdp__copy h2 {
-  font-size: 28px;
+  font-family: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: clamp(20px, 2vw, 28px);
   line-height: 1.35;
-  font-weight: 500;
+  font-weight: 700;
   margin: 26px 0 12px;
-  color: #181818;
+  color: #1a1a1a;
 }
 
 .bdp__copy p {
-  font-size: 16px;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: clamp(14px, 1vw, 16px);
   line-height: 1.8;
   margin: 0 0 14px;
-  color: #222;
+  color: #3a3f4d;
 }
 
 /* sections */
@@ -606,7 +610,7 @@
 }
 
 .bdp__statCard {
-  border: 1px solid #ece7f5;
+  border: 1px solid rgba(0, 46, 158, 0.14);
   border-radius: 24px;
   padding: 28px;
   background: #fff;
@@ -650,7 +654,7 @@
 }
 
 .bdp__compareCard {
-  border: 1px solid #ece7f5;
+  border: 1px solid rgba(0, 46, 158, 0.14);
   border-radius: 28px;
   padding: 34px;
   background: #fff;
@@ -667,12 +671,16 @@
 }
 
 .bdp__compareCard--accent {
-  background: #EAE3F4;
-  border-color: transparent;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 46, 158, 0.12) 0%,
+    rgba(0, 84, 233, 0.04) 100%
+  );
+  border-color: rgba(0, 46, 158, 0.18);
 }
 
 .bdp__compareCard--accent:hover {
-  border-color: rgba(0, 46, 158, 0.4);
+  border-color: rgba(0, 46, 158, 0.45);
 }
 
 .bdp__compareCard h3 {
@@ -796,8 +804,13 @@
 .bdp__assistantBox {
   width: 100%;
   min-height: 72px;
-  border-radius: 10px;
-  background: #f3edf8;
+  border-radius: 12px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 46, 158, 0.1) 0%,
+    rgba(0, 84, 233, 0.04) 100%
+  );
+  border: 1px solid rgba(0, 46, 158, 0.16);
   padding: 18px 22px;
   display: flex;
   align-items: center;

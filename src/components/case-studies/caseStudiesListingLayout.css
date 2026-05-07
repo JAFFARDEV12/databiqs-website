@@ -21,6 +21,7 @@
 .case-studies-page--listing .cs-listing-stack > .numbers-stats-section {
   padding-top: 0;
   padding-bottom: 0;
+  margin-top: 50px;
 }
 
 .case-studies-page--listing .cs-listing-stack > .case-studies-section {

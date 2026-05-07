@@ -40,11 +40,9 @@ export default function AboutUs() {
     <div className="au-hero__inner">
       {/* Left */}
       <div className="au-left">
-        <div className="au-pill">Meet Our CEO</div>
-
         <h1 className="au-title">
-          MEET OUR FOUNDER &amp; CEO <br />
-          MR. JAFFAR ALI CHAUDHARY
+          Meet Our Founder &amp; CEO <br />
+          <span className="headline-purple">Mr. Jaffar Ali Chaudhary</span>
         </h1>
        {/*  <TextHoverReveal text="Mr Faizan Ahmed Tanoli" /> */}
 

@@ -1,7 +1,7 @@
 import { useEffect, useState, useSyncExternalStore } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
-import logo from '../../assets/header-logo.svg';
+import logo from '../../assets/Databiqs Logo.png';
 import arrowIcon from '../../assets/rightarrow.svg';
 
 const NARROW_MQ = '(max-width: 968px)';
@@ -26,7 +26,6 @@ const Header = () => {
   );
   const location = useLocation();
 
-  // inert/aria-hidden only for off-canvas mobile drawer when closed; desktop nav must stay interactive
   const mobileDrawerInert = isNarrowLayout && !isMenuOpen;
 
   const toggleMenu = () => {
@@ -55,8 +54,6 @@ const Header = () => {
   const activeClass = (active) => (active ? ' nav-link-active' : '');
 
   return (
-
-
     <header className={`Header ${isMenuOpen ? 'menu-open' : ''} ${isScrolled ? 'scrolled' : ''}`}>
       <div className="header-container">
         <Link to="/" className="logo">
@@ -75,7 +72,6 @@ const Header = () => {
             <Link to="/case-studies" onClick={closeMenu} className={activeClass(isCaseStudiesActive)}>Case Studies</Link>
             <Link to="/about-us" onClick={closeMenu} className={activeClass(isAboutActive)}>About Us</Link>
             <Link to="/blog-page" onClick={closeMenu} className={activeClass(isInsightsActive)}>Blog</Link>
-            {/* <Link to="/contact" onClick={closeMenu} className={activeClass(isContactActive)}>Contact Us</Link> */}
           </>
 
           <Link to="/book-consultation" onClick={closeMenu} className="cta-button mobile-only" aria-label="Book a consultation">
@@ -84,7 +80,6 @@ const Header = () => {
               <img src={arrowIcon} alt="Arrow" />
             </div>
           </Link>
-
         </nav>
 
         <Link to="/book-consultation" className="cta-button desktop-only" aria-label="Book a consultation">

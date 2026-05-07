@@ -20,7 +20,7 @@ const Services = () => {
           <div className="services-hero__split">
             <div className="services-hero__copy">
               <h1 className="services-hero__title">
-                AI-Powered Solutions To Transform Your Business
+                <span className="services-hero__title-accent">AI-Powered</span> Solutions To Transform Your Business
               </h1>
               <p className="services-hero__lede">
                 From strategy to implementation, we help you unlock the full potential of

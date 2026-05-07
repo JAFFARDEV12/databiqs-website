@@ -1,10 +1,10 @@
 .services-pipeline {
-  margin: clamp(18px, 3vw, 30px) 0 clamp(8px, 1.6vw, 18px);
+  margin: calc(clamp(18px, 3vw, 30px) - 30px) 0 clamp(8px, 1.6vw, 18px);
   padding: clamp(16px, 2.6vw, 24px);
   border-radius: clamp(16px, 2vw, 24px);
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(247, 241, 255, 0.95));
-  border: 1px solid rgba(132, 84, 219, 0.18);
-  box-shadow: 0 20px 44px -34px rgba(70, 26, 138, 0.5);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(232, 240, 255, 0.95));
+  border: 1px solid rgba(0, 46, 158, 0.18);
+  box-shadow: 0 20px 44px -34px rgba(0, 46, 158, 0.5);
 }
 
 .services-pipeline__head {
@@ -13,7 +13,7 @@
 
 .services-pipeline__eyebrow {
   margin: 0 0 8px;
-  color: #7e38d8;
+  color: #0054E9;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -25,6 +25,10 @@
   color: #181818;
   font-size: clamp(22px, 1.15vw + 16px, 34px);
   line-height: 1.2;
+}
+
+.services-pipeline__title-accent {
+  color: #002E9E;
 }
 
 .services-pipeline__track-wrap {
@@ -41,13 +45,13 @@
 }
 
 .services-pipeline__track {
-  background: rgba(116, 66, 199, 0.24);
+  background: rgba(0, 46, 158, 0.22);
 }
 
 .services-pipeline__track-progress {
   width: var(--progress, 0%);
-  background: linear-gradient(90deg, #002E9E, #6f26d3);
-  box-shadow: 0 0 14px rgba(0, 46, 158, 0.4);
+  background: linear-gradient(90deg, #002E9E, #0054E9);
+  box-shadow: 0 0 14px rgba(0, 84, 233, 0.4);
   transition: width 320ms ease;
 }
 
@@ -60,7 +64,7 @@
 .services-pipeline__card {
   position: relative;
   text-align: left;
-  border: 1px solid rgba(100, 44, 185, 0.14);
+  border: 1px solid rgba(0, 46, 158, 0.14);
   border-radius: 14px;
   background: #fff;
   padding: 12px 12px 14px;
@@ -70,15 +74,15 @@
 
 .services-pipeline__card:hover,
 .services-pipeline__card.is-active {
-  border-color: rgba(122, 44, 191, 0.44);
+  border-color: rgba(0, 84, 233, 0.5);
   transform: translateY(-3px);
-  box-shadow: 0 14px 30px -24px rgba(70, 18, 126, 0.7);
+  box-shadow: 0 14px 30px -24px rgba(0, 46, 158, 0.7);
 }
 
 .services-pipeline__index {
   display: inline-flex;
   margin-bottom: 8px;
-  color: #7f3ad8;
+  color: #0054E9;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;

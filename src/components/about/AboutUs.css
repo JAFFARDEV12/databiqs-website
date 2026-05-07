@@ -1,6 +1,6 @@
-/* ===== Page (gradient from index.css – same as landing header/hero) ===== */
+/* ===== Page (white shell; hero gradient panel on .au-hero::before — aligned with Services / Case Studies) ===== */
 .au-page {
-  --about-page-pad-x: clamp(10px, 2.8vw, 32px);
+  --about-page-pad-x: clamp(16px, 4vw, 32px);
   --about-font-ui: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-family: var(--about-font-ui);
   font-style: normal;
@@ -9,9 +9,22 @@
   background: #ffffff;
   position: relative;
   min-height: 100vh;
+}
 
- 
- 
+@media (max-width: 640px) {
+  .au-page {
+    --about-page-pad-x: 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .au-page {
+    --about-page-pad-x: 12px;
+  }
+}
+
+.au-page .headline-purple {
+  color: #002E9E;
 }
 
 /* About page typography system:
@@ -145,19 +158,41 @@
   transform: rotate(-45deg) translate(7px, -7px);
 }
 
-/* ===== Hero ===== */
+/* ===== Hero (same centered blue panel as Services / Case Studies hero) ===== */
 .au-hero {
   width: 100%;
-
-  margin-top: 50px;
-  padding-bottom: 100px;
+  margin-top: 0;
+  padding-bottom: clamp(40px, 6vw, 72px);
   position: relative;
-  
-  /* ✅ Full viewport width background */
- 
-
+  background: #ffffff;
+  overflow: visible;
   transform: translateZ(0);
   will-change: transform;
+}
+
+.au-page .au-hero::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100vw - 100px);
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 46, 158, 0.2) 37%,
+    rgba(0, 84, 233, 0.05) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (max-width: 1024px) {
+  .au-page .au-hero::before {
+    width: 100vw;
+    border-radius: 0;
+  }
 }
 
 
@@ -165,7 +200,7 @@
 .au-hero__inner {
   width: 100%;
   max-width: 1200px;
-  min-height: 529px;
+  min-height: clamp(400px, 52vh, 500px);
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box;
@@ -181,6 +216,13 @@
 /* Left */
 .au-left {
   width: 100%;
+  padding-top: 60px;
+}
+
+@media (max-width: 900px) {
+  .au-left {
+    padding-top: 0;
+  }
 }
 
 /* Pill */
@@ -197,14 +239,14 @@
     margin-bottom: 20px;
   
     border-radius: 80px;
-    border: 1px solid #E0E0E0;
+    border: 1px solid #002E9E;
     background: #ffffff;
   
     font-family: var(--about-font-ui);
     font-size: 14px;        /* same font size */
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1;
-    color: #000000;
+    color: #002E9E;
   
     width: fit-content;
     max-width: 100%;
@@ -213,47 +255,35 @@
     opacity: 0;
   }
   
-  .au-hero.animate .au-pill {
-    animation: fadeInUp 0.4s ease-out 0.05s forwards;
-  }
-
-/* Heading */
+/* Heading — Sora + scale aligned with Services / Case Studies hero */
 .au-title {
   width: 100%;
 
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-weight: 700;
-  font-size: 46px;
-  line-height: 61px;
-  letter-spacing: 0%;
-  color: #202020;
-  text-transform: uppercase;
+  font-size: clamp(18px, 0.55rem + 3.6vw, 46px);
+  line-height: clamp(26px, 0.65rem + 4.5vw, 60px);
+  letter-spacing: 0;
+  color: #1a1a1a;
+  text-transform: none;
 
-  margin: 0 0 10px;
+  margin: 0 0 clamp(12px, 2vw, 20px);
   opacity: 0;
-}
-
-.au-hero.animate .au-title {
-  animation: fadeInUp 0.4s ease-out 0.1s forwards;
 }
 
 /* Paragraph */
 .au-paragraph {
   width: 100%;
-  min-height: 218px;
+  min-height: 0;
 
   font-family: var(--about-font-ui);
   font-weight: 400;
-  font-size: 16px;
+  font-size: clamp(14px, 0.5rem + 2.1vw, 18px);
   letter-spacing: 0%;
-  color: #36343a;
+  color: #666666;
 
   margin-bottom: 40px;
   opacity: 0;
-}
-
-.au-hero.animate .au-paragraph {
-  animation: fadeInUp 0.4s ease-out 0.15s forwards;
 }
 
 .au-paragraph p {
@@ -276,18 +306,14 @@
   opacity: 0;
 }
 
-.au-hero.animate .au-actions {
-  animation: fadeInUp 0.4s ease-out 0.1s forwards;
-}
-
-/* Schedule button */
+/* Schedule button — same as meeting banner / theme CTAs */
 .au-btnSchedule {
   width: 100%;
   max-width: 270px;
   height: 50px;
 
   border: none;
-  border-radius: 80px;
+  border-radius: 999px;
   cursor: pointer;
 
   display: flex;
@@ -297,14 +323,16 @@
   padding-left: 22px;
   padding-right: 14px;
 
-  background: linear-gradient(119.69deg, #ae0dff 12.36%, #002E9E 85.46%);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background: #002E9E;
+  color: #ffffff;
+  transition: background 0.25s ease, transform 0.25s ease;
   text-decoration: none;
+  box-shadow: none;
 }
 
 .au-btnSchedule:hover {
+  background: #0054E9;
   transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(0, 46, 158, 0.35);
 }
 
 .au-btnSchedule__text {
@@ -344,31 +372,23 @@
   opacity: 0;
 }
 
-.au-hero.animate .au-right {
-  animation: slideInRight 0.4s ease-out 0.15s forwards;
-}
-
 .au-ceoBox {
   width: 100%;
   max-width: 532px;
-  min-height: 529px;
+  min-height: clamp(320px, 42vw, 480px);
 
   display: flex;                /* 🔥 MUST */
   justify-content: center;      /* horizontal */
   align-items: flex-start;      /* desktop top look */
 
   background: #ffffff;
-  border: 1px solid #eae3f4;
-  border-radius: 40px;
+  border: 1px solid rgba(0, 46, 158, 0.14);
+  border-radius: clamp(18px, 2.5vw, 28px);
   overflow: hidden;
   margin: 0 auto;
   opacity: 0;
 }
 
-
-.au-hero.animate .au-ceoBox {
-  animation: slideInRight 0.4s ease-out 0.15s forwards;
-}
 
 .au-ceoImg {
     width: 100%;
@@ -380,35 +400,40 @@
 /* Stats */
 .au-stats {
   width: 100vw;
+  max-width: 100vw;
   margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
   margin-bottom: 32px;
-  margin-top: 20px;
+  margin-top: clamp(20px, 3vw, 36px);
   opacity: 0;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
 
-  /* ✅ Full viewport width white background */
-  background: #FFE2FF33;
+  background: rgba(0, 46, 158, 0.06);
 }
 
 .au-frame.animate .au-stats {
-  animation: fadeInUp 0.4s ease-out 0.1s forwards;
+  animation: fadeInUp 0.4s ease-out 0.25s forwards;
 }
 
 
 .au-stats__inner {
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2.8vw, 40px);
+  width: max-content;
+  max-width: none;
+  margin: 0;
+  flex: 0 0 auto;
   position: relative;
   z-index: 1;
-
-  display: flex;
-  justify-content: center;
-  gap: 50px;
 
   font-family: var(--about-font-ui);
   font-size: 13px;
   text-transform: uppercase;
   color: #202020;
+  white-space: nowrap;
 }
 
 .au-star {
@@ -418,8 +443,7 @@
 
 /* Responsive safety (existing) */
 @media (max-width: 1500px) {
-  .au-frame,
-  .au-stats__inner {
+  .au-frame {
     width: 100%;
   }
 }
@@ -543,11 +567,10 @@
 }
 
 .au2-card {
- background: linear-gradient(
-    135deg,
-    #f6f2fb 0%,
-    #ffffff 55%,
-    #f9f7fd 100%
+  background: linear-gradient(
+    90deg,
+    rgba(0, 46, 158, 0.2) 37%,
+    rgba(0, 84, 233, 0.05) 100%
   );
   border-radius: 30px;
   padding: 30px 22px;
@@ -555,7 +578,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  
+
   opacity: 0;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 300px !important;
@@ -564,10 +587,10 @@
   flex-shrink: 0 !important;
   flex-grow: 0 !important;
   flex-basis: 300px !important;
-   border: 1px solid #EAE3F4;
+  border: 1px solid rgba(0, 46, 158, 0.18);
   box-shadow:
-    0 8px 30px rgba(138, 97, 255, 0.08),
-    inset 0 0 0 1px rgba(234, 227, 244, 0.6);
+    0 8px 30px rgba(0, 46, 158, 0.08),
+    inset 0 0 0 1px rgba(0, 46, 158, 0.06);
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -942,8 +965,6 @@ width: 100%;
   
   .au-title {
     width: 100%;
-    font-size: 32px;
-    line-height: 40px;
   }
   
   .au-paragraph {
@@ -1134,23 +1155,6 @@ width: 100%;
 .au-frame.animate .au-ceoBox {
   animation: slideInRight 0.4s ease-out 0.15s forwards;
 }
-.au-stats {
-  opacity: 0;
-}
-
-.au-frame.animate .au-stats {
-  animation: fadeInUp 0.4s ease-out 0.25s forwards;
-}
-.au-hero,
-.au-stats {
-  opacity: 1 !important;
-}
-/* ===== Wrapper ===== */
-.au-stats {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-}
 
 /* ===== Moving belt ===== */
 .au-stats__track {
@@ -1158,23 +1162,6 @@ width: 100%;
   width: max-content;
   animation: stats-scroll 30s linear infinite;
   will-change: transform;
-}
-
-/* ===== Each content block ===== */
-.au-stats__inner {
-  display: flex;
-  align-items: center;
-  gap: clamp(16px, 2.8vw, 40px);
-  width: max-content;
-  max-width: none;
-  margin: 0;
-  flex: 0 0 auto;
-
-  font-family: var(--about-font-ui);
-  font-size: 13px;
-  text-transform: uppercase;
-  color: #202020;
-  white-space: nowrap;
 }
 
 .au-stats__item {
@@ -1218,50 +1205,27 @@ width: 100%;
   margin-top: 50px;
 } */
 
+/* Hero shell: white rail + top padding (blue panel is on .au-hero::before only) */
 .au-page .top-gradient-wrapper {
   margin: -12px calc(-1 * var(--about-page-pad-x)) 0;
-  padding: 12px var(--about-page-pad-x) clamp(16px, 3vw, 32px);
+  padding: 20px var(--about-page-pad-x) clamp(8px, 1.5vw, 18px);
   width: calc(100% + 2 * var(--about-page-pad-x));
+  max-width: none;
   box-sizing: border-box;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 46, 158, 0.22) 0%,
-    #ffffff 65%
-  );
+  background: #ffffff;
+  position: relative;
+  z-index: 2;
 }
 
 .au-page .decorative-ellipse-1 {
-  position: fixed;
-  width: 180px;
-  height: 180px;
-  background: rgba(0, 46, 158, 0.22); /* much lighter */
-  border-radius: 50%;
-
-  filter: blur(260px);
-  -webkit-filter: blur(260px);
-
-  pointer-events: none;
-  z-index: 0;
-
-  top: 52%;
-  right: 3%;
-  transform: translate(50%, -50%);
-
-  opacity: 0.45;
-}
-
-@media (max-width: 1440px) {
-  .au-page .decorative-ellipse-1 {
-    right: 0%;
-    top: 55%;
-  }
+  display: none;
 }
 
 @media (max-width: 768px) {
   .au-hero {
     width: 100%;
     margin-left: 0;
-    padding: 0;
+    padding-bottom: clamp(28px, 6vw, 48px);
   }
 
   .au-right {
@@ -1369,8 +1333,8 @@ width: 100%;
   }
 
   .au-page .au-title {
-    font-size: clamp(34px, 7.6vw, 44px);
-    line-height: 1.15;
+    font-size: clamp(18px, 0.55rem + 3.6vw, 46px);
+    line-height: clamp(26px, 0.65rem + 4.5vw, 60px);
   }
 
   .au-page .au-paragraph {
@@ -1397,7 +1361,7 @@ width: 100%;
 
 @media (max-width: 768px) {
   .au-page .au-hero {
-    padding: 16px 0 8px;
+    padding: 16px 0 clamp(24px, 6vw, 40px);
   }
 
   .au-page .au-actions {
@@ -1429,7 +1393,7 @@ width: 100%;
 
 @media (max-width: 700px) {
   .au-page .au-hero {
-    padding: 14px 10px 8px;
+    padding: 14px 0 clamp(22px, 5.5vw, 36px);
   }
 
   .au-page .au-hero__inner {
@@ -1516,7 +1480,8 @@ width: 100%;
   }
 
   .au-page .au-title {
-    font-size: clamp(30px, 8.6vw, 36px);
+    font-size: clamp(18px, 0.55rem + 3.6vw, 46px);
+    line-height: clamp(26px, 0.65rem + 4.5vw, 60px);
   }
 
   .au-page .au-btnSchedule {
@@ -1536,14 +1501,6 @@ width: 100%;
 
 /* Recommended flow:
    Header + Meet Our CEO + Stats -> About Us cards -> Our Team -> Testimonials -> Contact -> Footer */
-.au-page .top-gradient-wrapper {
-  margin: 0 !important;
-  width: 100% !important;
-  max-width: 100% !important;
-  padding: 12px 0 clamp(14px, 2.2vw, 28px) !important;
-  box-sizing: border-box;
-}
-
 .au-page .au-frame {
   margin-bottom: 0;
 }
@@ -1610,9 +1567,9 @@ width: 100%;
 
 @media (max-width: 768px) {
   .au-page .top-gradient-wrapper {
-    margin: 0 !important;
-    width: 100% !important;
-    padding: 10px 0 12px !important;
+    margin: -12px calc(-1 * var(--about-page-pad-x)) 0;
+    width: calc(100% + 2 * var(--about-page-pad-x));
+    padding: 14px var(--about-page-pad-x) 0;
   }
 
   .au-page .au-hero {
@@ -1639,12 +1596,13 @@ width: 100%;
   }
 }
 
-/* ===== About stats bar consistency lock (match home StatsBar) ===== */
+/* ===== About stats bar — full bleed, blue tint (matches Services / Case Studies theme) ===== */
 .au-page .au-stats {
   width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: 0;
-  background: #FFE2FF33;
+  max-width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  background: rgba(0, 46, 158, 0.06);
   padding: clamp(12px, 2.2vw, 30px) 0;
   overflow: hidden;
   position: relative;
@@ -1652,42 +1610,11 @@ width: 100%;
   isolation: isolate;
 }
 
-.au-page .au-stats::before,
-.au-page .au-stats::after {
-  content: none;
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: clamp(12px, 1.8vw, 22px);
-  pointer-events: none;
-  z-index: 2;
-}
-
-.au-page .au-stats::before {
-  top: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(130, 64, 221, 0.12) 0%,
-    rgba(130, 64, 221, 0.05) 45%,
-    rgba(130, 64, 221, 0) 100%
-  );
-}
-
-.au-page .au-stats::after {
-  bottom: 0;
-  background: linear-gradient(
-    0deg,
-    rgba(130, 64, 221, 0.12) 0%,
-    rgba(130, 64, 221, 0.05) 45%,
-    rgba(130, 64, 221, 0) 100%
-  );
-}
-
 @media (max-width: 480px) {
   .au-page .top-gradient-wrapper {
-    margin: 0 !important;
-    width: 100% !important;
-    padding: 8px 0 10px !important;
+    margin: -12px calc(-1 * var(--about-page-pad-x)) 0;
+    width: calc(100% + 2 * var(--about-page-pad-x));
+    padding: 12px var(--about-page-pad-x) 0;
   }
 
   .au-page .au-frame,
@@ -1930,10 +1857,10 @@ width: 100%;
 
 .au-page .au2-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(0, 46, 158, 0.3);
+  border-color: rgba(0, 46, 158, 0.35);
   box-shadow:
-    0 20px 40px rgba(0, 46, 158, 0.15),
-    inset 0 0 0 1px rgba(234, 227, 244, 0.6);
+    0 20px 40px rgba(0, 46, 158, 0.18),
+    inset 0 0 0 1px rgba(0, 46, 158, 0.08);
 }
 
 .au-page .au2-card:hover::after {

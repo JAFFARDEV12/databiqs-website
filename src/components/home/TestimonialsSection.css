@@ -217,11 +217,15 @@
   height: 24px;
   object-fit: contain;
   display: block;
-  opacity: 0.78;
-  filter: brightness(0) saturate(100%) invert(16%) sepia(95%) saturate(3763%) hue-rotate(221deg)
-    brightness(84%) contrast(112%);
-  transition: opacity 0.25s ease;
+  opacity: 1;
+  filter: brightness(0) saturate(100%) invert(13%) sepia(96%) saturate(4500%) hue-rotate(222deg)
+    brightness(95%) contrast(102%);
+  transition: opacity 0.25s ease, filter 0.25s ease;
   pointer-events: none;
+}
+
+.testimonial-card audio {
+  display: none !important;
 }
 
 .testimonial-quote {

@@ -10,12 +10,27 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+/* Site-wide font lock: every element uses Sora (overrides Inter / Prompt / Bebas Neue / system fonts) */
+*,
+*::before,
+*::after {
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif !important;
+}
+
+/* Code/monospace must remain readable */
+code,
+pre,
+kbd,
+samp,
+code *,
+pre * {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace !important;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #1a1a1a;
@@ -33,11 +48,10 @@ body {
   min-height: 100vh;
 }
 
-/* Landing header/hero gradient – same grey top → white bottom for all pages */
+/* Landing header/hero gradient – same grey top → white bottom for listed pages */
 .contact-page,
 .insights-innovation-page,
-.bdp,
-.au-page {
+.bdp {
   background: linear-gradient(to bottom, #f8f8f8 0%, #f9f9f9 25%, #fafafa 50%, #fcfcfc 75%, #ffffff 100%);
 }
 

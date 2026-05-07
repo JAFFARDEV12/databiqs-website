@@ -37,7 +37,7 @@ const ServicesArchitecturePipeline = () => {
       <div className="services-pipeline__head">
         <p className="services-pipeline__eyebrow">AI Architecture Pipeline</p>
         <h2 id="services-pipeline-title" className="services-pipeline__title">
-          From Strategy To Scalable Intelligence
+          From Strategy To <span className="services-pipeline__title-accent">Scalable Intelligence</span>
         </h2>
       </div>
 
