@@ -36,23 +36,23 @@
 }
 .case-study-page-pill {
   background: #ffffff;
-  color: #9c16c8;
-  border: 1px solid #9c16c8;
+  color: #002E9E;
+  border: 1px solid #002E9E;
 }
 
 /* Filled Pill */
 .case-study-page-pill-solid {
-  background: #9c16c8;
+  background: #002E9E;
   color: #ffffff;
-  border: 1px solid #9c16c8;
+  border: 1px solid #002E9E;
 }
  /*  .case-study-page-pill {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     background-color: green;
-    border: 1px solid #9c16c8;
-    color: #9c16c8;
+    border: 1px solid #002E9E;
+    color: #002E9E;
     border-radius: 999px;
     padding: 6px 16px;
     font-size: clamp(14px, 1.8vw, 20px);
@@ -61,9 +61,9 @@
   }
   
   .case-study-page-pill-solid {
-    background: #9c16c8;
+    background: #002E9E;
     color: #ffffff;
-    border-color: #9c16c8;
+    border-color: #002E9E;
     padding: 7px 20px;
   } */
   

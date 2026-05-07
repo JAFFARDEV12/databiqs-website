@@ -13,7 +13,7 @@
   width: 320px;
   height: 320px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(123, 44, 191, 0.18) 0%, rgba(123, 44, 191, 0) 72%);
+  background: radial-gradient(circle, rgba(0, 46, 158, 0.18) 0%, rgba(0, 46, 158, 0) 72%);
   filter: blur(42px);
   pointer-events: none;
   z-index: 0;
@@ -84,13 +84,13 @@
 }
 
 .browseByTopic__card:focus-visible {
-  outline: 2px solid #7b2cbf;
+  outline: 2px solid #002E9E;
   outline-offset: 2px;
 }
 
 .browseByTopic__card:hover {
-  border-color: #7b2cbf;
-  box-shadow: 0 2px 18px -4px rgba(123, 44, 191, 0.4);
+  border-color: #002E9E;
+  box-shadow: 0 2px 18px -4px rgba(0, 46, 158, 0.4);
   transform: translateY(-2px);
 }
 
@@ -134,7 +134,7 @@
 }
 
 .browseByTopic__card:hover .browseByTopic__name {
-  color: #7b2cbf;
+  color: #002E9E;
 }
 
 .browseByTopic__count {

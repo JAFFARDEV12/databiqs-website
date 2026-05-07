@@ -90,9 +90,6 @@ const Footer = () => {
               />
               <button type="submit" className="newsletter-button">Subscribe</button>
             </form>
-            <p className="newsletter-text">
-              Stay Upto Date
-            </p>
           </div>
         </div>
 

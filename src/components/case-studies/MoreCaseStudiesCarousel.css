@@ -257,7 +257,7 @@ p.more-cs-card-text {
 
   font-size: 14px;
   font-weight: 600;
-  color: #9c16c8;
+  color: #002E9E;
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -279,7 +279,7 @@ p.more-cs-card-text {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: #9c16c8;
+  background: #002E9E;
   flex-shrink: 0;
   line-height: 0;
 }
@@ -358,7 +358,7 @@ p.more-cs-card-text {
 }
 
 .more-cs-dot.is-active {
-  background: #7b2cbf;
+  background: #002E9E;
   transform: scale(1.15);
 }
 

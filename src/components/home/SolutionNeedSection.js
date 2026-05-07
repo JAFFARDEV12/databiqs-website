@@ -14,10 +14,10 @@ const SOLUTION_OPTIONS = [
     subheading:
       'End-to-end automation that connects your tools, data, and teams so repetitive work runs reliably in production—not just in a demo.',
     bullets: [
-      'Workflows across ops, finance, CX, and internal tools—docs, approvals, data entry, exceptions.',
-      'Solid integrations: APIs, queues, and RPA only where it still earns its keep.',
-      'Guardrails, audit trails, monitoring, and ownership so automations survive stack changes.',
-      'Outcomes you can measure: cycle time, error rate, and cost—not slide-deck pilots.',
+      'Cross-team workflow automation',
+      'Reliable API integrations',
+      'Audit-ready process controls',
+      'Measurable operational outcomes',
     ],
     ctaTo: '/services/ai-automation',
     Icon: Workflow,
@@ -30,10 +30,10 @@ const SOLUTION_OPTIONS = [
     subheading:
       'Conversational experiences that understand context, respect policies, and escalate cleanly when a human needs to take over.',
     bullets: [
-      'Grounded in KBs, tickets, CRM, and product data—with clear “can / can’t” boundaries.',
-      'Multilingual support, intent routing, and structured handoff to live agents.',
-      'Security, PII handling, latency targets, and tone that matches your brand.',
-      'Analytics on deflection and quality plus iteration from real conversations.',
+      'Context-aware customer responses',
+      'Smart intent routing',
+      'Secure policy-compliant handling',
+      'Continuous quality optimization',
     ],
     ctaTo: '/services/ai-chatbots',
     Icon: Bot,
@@ -46,10 +46,10 @@ const SOLUTION_OPTIONS = [
     subheading:
       'Models and pipelines that turn historical and streaming data into forecasts, rankings, and decisions your teams can trust.',
     bullets: [
-      'Use cases: classification, forecasting, recommendations, anomalies, and vision—tied to KPIs.',
-      'Features, experiments, training, validation, serving, and drift monitoring in one thread.',
-      'Documentation and controls stakeholders need for compliance and sign-off.',
-      'Production focus: observability, retraining, and rollback your engineers can run.',
+      'Forecasting and predictions',
+      'Robust model pipelines',
+      'Governance and compliance',
+      'Production-ready deployment cycles',
     ],
     ctaTo: '/services/machine-learning',
     Icon: Brain,
@@ -62,10 +62,10 @@ const SOLUTION_OPTIONS = [
     subheading:
       'A grounded roadmap that sequences use cases, budgets, and capability building so AI spend converts into outcomes—not shelfware.',
     bullets: [
-      'Executive workshops, readiness views, and build-vs-buy framing you can defend.',
-      'Portfolio picks: quick wins vs platform bets, with governance checkpoints.',
-      'Deliverables: 12–24 month roadmap, KPIs, risk/ethics guardrails, org notes.',
-      'Honest view of data maturity and change management—business, IT, and data aligned.',
+      'Executive AI roadmap',
+      'Prioritized use-case portfolio',
+      'Risk-aware governance planning',
+      'Aligned capability building',
     ],
     ctaTo: '/services/ai-strategy',
     Icon: Lightbulb,
@@ -76,14 +76,20 @@ const SOLUTION_OPTIONS = [
 /** Require this much extra scroll before pin engages (stick feels lower on the page). */
 const PIN_STICK_SCROLL_DELAY_PX = 100;
 
-/** Prevents before ↔ pinned ↔ after flipping when scroll sits on a threshold (subpixel “held” feel). */
-const PHASE_HYST_TOP_PX = 20;
-const PHASE_HYST_BOTTOM_PX = 24;
+/** Prevents before ↔ pinned ↔ after jittering near boundaries. */
+const PHASE_HYST_TOP_PX = 16;
+const PHASE_HYST_BOTTOM_PX = 16;
+
+/** Keep card switches away from exact 0/1 boundaries to avoid jumpy first/last transitions. */
+const CARD_PROGRESS_START = 0.08;
+const CARD_PROGRESS_END = 0.92;
 
 const SolutionNeedSection = () => {
   const pinRootRef = useRef(null);
   const pinStickyRef = useRef(null);
   const phaseRef = useRef('before');
+  const lastScrollYRef = useRef(0);
+  const activeIndexRef = useRef(0);
   const [activeIndex, setActiveIndex] = useState(0);
   const [pinPhase, setPinPhase] = useState('before');
 
@@ -98,64 +104,92 @@ const SolutionNeedSection = () => {
       const stickyTopPx = parseFloat(
         getComputedStyle(pinRoot).getPropertyValue('--solution-need-sticky-top').trim()
       ) || 88;
-      /* Lower line = pin later; was wrongly using +100 which pins earlier (feels “higher”). */
-      const stickLinePx = stickyTopPx - PIN_STICK_SCROLL_DELAY_PX;
+      /* Keep pin transition aligned with sticky top to avoid visual jump/snap. */
+      const stickLinePx = stickyTopPx;
       const rect = pinRoot.getBoundingClientRect();
       const vh = window.innerHeight || document.documentElement.clientHeight;
       const pinTopDoc = rect.top + window.scrollY;
-      const top = rect.top;
-      const bottom = rect.bottom;
+      const scrollRange = Math.max(1, pinRoot.offsetHeight - vh);
+      const pinStart = pinTopDoc - stickLinePx;
+      const pinEnd = pinStart + scrollRange;
+      const y = window.scrollY;
+      const scrollingUp = y < lastScrollYRef.current;
+      const n = SOLUTION_OPTIONS.length;
 
-      const prevPhase = phaseRef.current;
+      /*
+       * Mobile/tablet: use simple section progress mapping (no pinned math)
+       * so cards advance in order 1 -> 2 -> 3 -> 4 while scrolling.
+       */
+      if (window.innerWidth <= 1024) {
+        const mobileRaw = (vh - rect.top) / Math.max(1, vh + rect.height);
+        const mobileProgress = Math.max(0, Math.min(0.999, mobileRaw));
+        const nextIndex = Math.max(0, Math.min(n - 1, Math.floor(mobileProgress * n)));
 
-      let nextPhase = prevPhase;
-      if (prevPhase === 'before') {
-        if (top > stickLinePx + 0.5) {
-          nextPhase = 'before';
-        } else if (bottom >= vh - 0.5) {
-          nextPhase = 'pinned';
-        } else {
-          nextPhase = 'after';
-        }
-      } else if (prevPhase === 'pinned') {
-        if (top > stickLinePx + PHASE_HYST_TOP_PX) {
-          nextPhase = 'before';
-        } else if (bottom < vh - PHASE_HYST_BOTTOM_PX) {
-          nextPhase = 'after';
-        } else {
-          nextPhase = 'pinned';
-        }
-      } else {
-        /* after */
-        if (top > stickLinePx + PHASE_HYST_TOP_PX) {
-          nextPhase = 'before';
-        } else if (bottom >= vh - 0.5) {
-          nextPhase = 'pinned';
-        } else {
-          nextPhase = 'after';
-        }
+        phaseRef.current = 'before';
+        setPinPhase((p) => (p !== 'before' ? 'before' : p));
+        setActiveIndex((prev) => {
+          const resolved = prev !== nextIndex ? nextIndex : prev;
+          activeIndexRef.current = resolved;
+          return resolved;
+        });
+        lastScrollYRef.current = y;
+        return;
       }
+
+      /*
+       * Single hysteresis band for all directions:
+       * - before only when clearly above pin start
+       * - after only when clearly below pin end
+       * - pinned in-between
+       * This prevents first/last card flicker near boundaries.
+       */
+      let nextPhase = 'pinned';
+      if (y < pinStart - PHASE_HYST_TOP_PX) nextPhase = 'before';
+      else if (y > pinEnd + PHASE_HYST_BOTTOM_PX) nextPhase = 'after';
 
       phaseRef.current = nextPhase;
 
-      const scrollRange = Math.max(1, pinRoot.offsetHeight - vh);
-      const rangeStart = pinTopDoc - stickLinePx;
-      const raw = (window.scrollY - rangeStart) / scrollRange;
+      /*
+       * Delay only the card progression (not the pin itself) so layout stays stable:
+       * pinned section locks first, then card animation starts after extra scroll.
+       */
+      const progressStartY = pinStart + PIN_STICK_SCROLL_DELAY_PX;
+      const progressRange = Math.max(1, scrollRange - PIN_STICK_SCROLL_DELAY_PX);
+      const raw = (y - progressStartY) / progressRange;
       const progress = Math.max(0, Math.min(1, raw));
 
-      const n = SOLUTION_OPTIONS.length;
       let nextIndex = 0;
       if (nextPhase === 'before') {
         nextIndex = 0;
       } else if (nextPhase === 'after') {
         nextIndex = n - 1;
       } else {
-        const zone = Math.min(n, Math.floor(progress * (n + 1)));
-        nextIndex = Math.min(n - 1, zone);
+        const span = Math.max(0.0001, CARD_PROGRESS_END - CARD_PROGRESS_START);
+        const adjusted = Math.max(0, Math.min(1, (progress - CARD_PROGRESS_START) / span));
+        const mapped = adjusted * (n - 1);
+        const prevIndex = activeIndexRef.current;
+        const boundaryHysteresis = 0.18;
+
+        nextIndex = Math.round(mapped);
+
+        if (scrollingUp && prevIndex > 0) {
+          const downBoundary = prevIndex - 0.5 + boundaryHysteresis;
+          if (mapped > downBoundary) nextIndex = prevIndex;
+        } else if (!scrollingUp && prevIndex < n - 1) {
+          const upBoundary = prevIndex + 0.5 - boundaryHysteresis;
+          if (mapped < upBoundary) nextIndex = prevIndex;
+        }
+
+        nextIndex = Math.max(0, Math.min(n - 1, nextIndex));
       }
 
       setPinPhase((p) => (p !== nextPhase ? nextPhase : p));
-      setActiveIndex((prev) => (prev !== nextIndex ? nextIndex : prev));
+      setActiveIndex((prev) => {
+        const resolved = prev !== nextIndex ? nextIndex : prev;
+        activeIndexRef.current = resolved;
+        return resolved;
+      });
+      lastScrollYRef.current = y;
     };
 
     const onScrollOrResize = () => {
@@ -165,6 +199,7 @@ const SolutionNeedSection = () => {
 
     window.addEventListener('scroll', onScrollOrResize, { passive: true });
     window.addEventListener('resize', onScrollOrResize, { passive: true });
+    lastScrollYRef.current = window.scrollY;
     updateFromScroll();
 
     return () => {
@@ -185,14 +220,7 @@ const SolutionNeedSection = () => {
               What Kind of <span className="headline-purple">Solution</span> Do You Need?
             </h2>
             <p className="solution-need__subheading">
-              Explore four core ways we help organizations adopt AI: automation and implementation,
-              conversational assistants, machine learning in production, and executive-ready strategy.
-              Each path is backed by senior engineers, data scientists, and consultants who have shipped
-              systems in regulated and high-scale environments—not just prototypes. This block stays
-              pinned while you scroll: the first card opens, then each scroll step shrinks the previous
-              card and expands the next—scroll up to reverse. After the fourth card, continue scrolling to
-              the next section. Book a consultation when you are ready to map the right mix for your
-              timelines, budget, and data maturity.
+              Assemble your ideal team with top-tier professionals who are passionate about turning your vision into reality. Whether you&apos;re seeking AI specialists, mobile app developers, or end-to-end full-stack expertise, we have the perfect talent to match your project&apos;s requirements.
             </p>
           </div>
         </section>
@@ -247,7 +275,7 @@ const SolutionNeedSection = () => {
                         <div className="solution-need__tab-darken" aria-hidden="true" />
                         <div className="solution-need__tab-overlay" aria-hidden="true" />
                         <span className="solution-need__tab-icon-wrap" aria-hidden="true">
-                          <Icon size={18} strokeWidth={2} />
+                          <Icon size={22} strokeWidth={2} />
                         </span>
                         <span className="solution-need__tab-label">
                           {option.shortLabel.split('\n').map((line) => (
@@ -270,7 +298,7 @@ const SolutionNeedSection = () => {
                     ))}
                   </ul>
                   <Link to={activeOption.ctaTo} className="solution-need__cta">
-                    Book a Consultation
+                    View Details
                     <span className="solution-need__cta-arrow" aria-hidden="true">
                       <svg
                         className="solution-need__arrow-svg"

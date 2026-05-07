@@ -4,7 +4,7 @@
   width: 100%;
   background: linear-gradient(
     180deg,
-    rgba(178, 131, 255, 0.22) 0%,
+    rgba(0, 46, 158, 0.22) 0%,
     #ffffff 85%
   );
 }
@@ -459,7 +459,7 @@
   position: fixed;
   width: 232px;
   height: 232px;
-  background: rgba(137, 76, 251, 0.8);
+  background: rgba(0, 46, 158, 0.8);
   border-radius: 50%;
   filter: blur(694px);
   -webkit-filter: blur(694px);
@@ -617,8 +617,8 @@
 }
 
 .bdp__statCard:hover {
-  border-color: rgba(123, 44, 191, 0.45);
-  box-shadow: 0 2px 18px -4px rgba(123, 44, 191, 0.35);
+  border-color: rgba(0, 46, 158, 0.45);
+  box-shadow: 0 2px 18px -4px rgba(0, 46, 158, 0.35);
   transform: translateY(-2px);
 }
 
@@ -661,8 +661,8 @@
 }
 
 .bdp__compareCard:hover {
-  border-color: rgba(123, 44, 191, 0.45);
-  box-shadow: 0 2px 18px -4px rgba(123, 44, 191, 0.35);
+  border-color: rgba(0, 46, 158, 0.45);
+  box-shadow: 0 2px 18px -4px rgba(0, 46, 158, 0.35);
   transform: translateY(-2px);
 }
 
@@ -672,7 +672,7 @@
 }
 
 .bdp__compareCard--accent:hover {
-  border-color: rgba(123, 44, 191, 0.4);
+  border-color: rgba(0, 46, 158, 0.4);
 }
 
 .bdp__compareCard h3 {

@@ -100,7 +100,7 @@
 
 .au-header__nav a:hover,
 .au-header__nav Link:hover {
-  color: #7B2CBF;
+  color: #002E9E;
 }
 
 .au-header__letsTalk {
@@ -297,14 +297,14 @@
   padding-left: 22px;
   padding-right: 14px;
 
-  background: linear-gradient(119.69deg, #ae0dff 12.36%, #401371 85.46%);
+  background: linear-gradient(119.69deg, #ae0dff 12.36%, #002E9E 85.46%);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   text-decoration: none;
 }
 
 .au-btnSchedule:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(64, 19, 113, 0.35);
+  box-shadow: 0 10px 28px rgba(0, 46, 158, 0.35);
 }
 
 .au-btnSchedule__text {
@@ -412,7 +412,7 @@
 }
 
 .au-star {
-  color: #894cfb;
+  color: #002E9E;
   font-weight: 700;
 }
 
@@ -732,7 +732,7 @@
 width: 100%;
    background: linear-gradient(
   180deg,
-  rgba(178, 131, 255, 0.2) 0%, 
+  rgba(0, 46, 158, 0.2) 0%, 
   #ffffff 100%
 ); 
 }
@@ -1225,7 +1225,7 @@ width: 100%;
   box-sizing: border-box;
   background: linear-gradient(
     180deg,
-    rgba(178, 131, 255, 0.22) 0%,
+    rgba(0, 46, 158, 0.22) 0%,
     #ffffff 65%
   );
 }
@@ -1234,7 +1234,7 @@ width: 100%;
   position: fixed;
   width: 180px;
   height: 180px;
-  background: rgba(137, 76, 251, 0.22); /* much lighter */
+  background: rgba(0, 46, 158, 0.22); /* much lighter */
   border-radius: 50%;
 
   filter: blur(260px);
@@ -1930,9 +1930,9 @@ width: 100%;
 
 .au-page .au2-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(156, 22, 200, 0.3);
+  border-color: rgba(0, 46, 158, 0.3);
   box-shadow:
-    0 20px 40px rgba(156, 22, 200, 0.15),
+    0 20px 40px rgba(0, 46, 158, 0.15),
     inset 0 0 0 1px rgba(234, 227, 244, 0.6);
 }
 

@@ -38,7 +38,7 @@
 }
 
 /* Decorative Ellipse 1 from Figma - Purple blur effect */
-/* Figma specs: rgba(137, 76, 251, 0.8), blur radius 694px, 232x232px */
+/* Figma specs: rgba(0, 46, 158, 0.8), blur radius 694px, 232x232px */
 .home .top-gradient-wrapper {
   width: 100vw;
   box-sizing: border-box;
@@ -49,7 +49,7 @@
   position: fixed;
   width: 180px;
   height: 180px;
-  background: rgba(137, 76, 251, 0.22); /* much lighter */
+  background: rgba(0, 46, 158, 0.22); /* much lighter */
   border-radius: 50%;
 
   filter: blur(260px);
@@ -199,8 +199,7 @@
   .case-study-cta,
   .tools-card__cta,
   .meeting-banner__cta,
-  .cta-button,
-  .newsletter-button
+  .cta-button
 ) {
   height: var(--home-cta-height);
   min-height: var(--home-cta-height);

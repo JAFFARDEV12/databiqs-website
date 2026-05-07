@@ -28,7 +28,7 @@
 }
 
 .how-databiqs-purple {
-  color: #7B2CBF;
+  color: #002E9E;
 }
 
 .how-databiqs-description {
@@ -81,7 +81,7 @@
   right: -1px;
   width: 56px;
   height: 56px;
-  background: #7B2CBF;
+  background: #002E9E;
   border-radius: 0 20px 0 100%;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -97,7 +97,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #7B2CBF;
+  color: #002E9E;
   flex-shrink: 0;
   transition: background 0.3s ease;
 }
@@ -125,9 +125,9 @@
 
 /* ===== Hover state ===== */
 .how-databiqs-card:hover {
-  border-color: #7B2CBF;
+  border-color: #002E9E;
   background: #ffffff;
-  box-shadow: 0 4px 24px -4px rgba(123, 44, 191, 0.2);
+  box-shadow: 0 4px 24px -4px rgba(0, 46, 158, 0.2);
 }
 
 .how-databiqs-card:hover .hd-corner-accent {
@@ -135,11 +135,11 @@
 }
 
 .how-databiqs-card:hover .hd-icon-box {
-  background: rgba(123, 44, 191, 0.15);
+  background: rgba(0, 46, 158, 0.15);
 }
 
 .how-databiqs-card:hover .hd-card-title {
-  color: #7B2CBF;
+  color: #002E9E;
 }
 
 /* ===== Responsive ===== */

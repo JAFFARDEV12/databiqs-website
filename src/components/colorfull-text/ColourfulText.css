@@ -17,8 +17,8 @@
 .gradient-active .hover-char {
   background: linear-gradient(
     180deg,
-    #7B2CBF 0%,
-    rgba(178, 131, 255, 0.85) 50%,
+    #002E9E 0%,
+    rgba(0, 46, 158, 0.85) 50%,
     #ffffff 100%
   );
   background-size: 300% 300%;

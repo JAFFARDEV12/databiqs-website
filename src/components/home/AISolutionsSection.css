@@ -39,7 +39,7 @@
 /* scoped — does not affect other sections */
 
 .section-headline .highlight {
-  color: #7B2CBF !important;
+  color: #002E9E !important;
 }
 
 /* scoped — does not affect other sections */
@@ -1156,7 +1156,7 @@
   top: 0;
   width: 34.33%;
   height: 16.59%;
-  background: rgba(178, 131, 255, 0.6);
+  background: rgba(0, 46, 158, 0.6);
   border-radius: 0;
 }
 

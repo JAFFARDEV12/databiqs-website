@@ -101,17 +101,17 @@ const GlobeCanvas = () => {
     function draw() {
       ctx.clearRect(0, 0, W, H);
 
-      // Base gradient fill — light mode
+      // Base gradient fill — solid #0054E9 with subtle depth
       const g = ctx.createRadialGradient(cx - R * 0.3, cy - R * 0.35, R * 0.02, cx, cy, R);
-      g.addColorStop(0,   'rgba(240,233,255,1)');
-      g.addColorStop(0.5, 'rgba(228,218,255,1)');
-      g.addColorStop(1,   'rgba(210,195,250,1)');
+      g.addColorStop(0,   'rgba(64,128,240,1)');
+      g.addColorStop(0.5, 'rgba(0,84,233,1)');
+      g.addColorStop(1,   'rgba(0,60,180,1)');
       ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2);
       ctx.fillStyle = g; ctx.fill();
 
       // Specular highlight
       const sg = ctx.createRadialGradient(cx - R * 0.32, cy - R * 0.36, 0, cx - R * 0.2, cy - R * 0.2, R * 0.6);
-      sg.addColorStop(0, 'rgba(255,255,255,0.5)');
+      sg.addColorStop(0, 'rgba(255,255,255,0.35)');
       sg.addColorStop(1, 'rgba(255,255,255,0)');
       ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2);
       ctx.fillStyle = sg; ctx.fill();
@@ -127,7 +127,7 @@ const GlobeCanvas = () => {
           const [sx, sy] = project(rx, ry, rz);
           if (first) { ctx.moveTo(sx, sy); first = false; } else ctx.lineTo(sx, sy);
         }
-        ctx.strokeStyle = 'rgba(123,44,191,0.18)'; ctx.lineWidth = 0.5; ctx.stroke();
+        ctx.strokeStyle = 'rgba(255,255,255,0.25)'; ctx.lineWidth = 0.5; ctx.stroke();
       }
 
       // Surface dots
@@ -143,7 +143,7 @@ const GlobeCanvas = () => {
         const a = Math.pow(Math.max(0, (d.rz + 0.05) / 1.05), 0.6);
         ctx.beginPath();
         ctx.arc(d.sx, d.sy, (0.4 + d.rz * 0.6) * devicePixelRatio, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(123,44,191,${a * 0.35})`; ctx.fill();
+        ctx.fillStyle = `rgba(255,255,255,${a * 0.4})`; ctx.fill();
       }
 
       // Connection arcs
@@ -159,7 +159,7 @@ const GlobeCanvas = () => {
         const cpy = (asy + bsy) / 2 + (asx - bsx) * 0.25;
         ctx.beginPath(); ctx.moveTo(asx, asy);
         ctx.quadraticCurveTo(cpx, cpy, bsx, bsy);
-        ctx.strokeStyle = `rgba(123,44,191,${vis * 0.25})`; ctx.lineWidth = 0.8; ctx.stroke();
+        ctx.strokeStyle = `rgba(255,255,255,${vis * 0.35})`; ctx.lineWidth = 0.8; ctx.stroke();
       }
 
       // Tech node dots + labels
@@ -189,7 +189,7 @@ const GlobeCanvas = () => {
         // Label
         if (t.rz > 0.25) {
           ctx.font = `${Math.round(9 * devicePixelRatio)}px 'JetBrains Mono',monospace`;
-          ctx.fillStyle = `rgba(60,20,120,${alpha})`;
+          ctx.fillStyle = `rgba(255,255,255,${alpha})`;
           ctx.textAlign = 'center';
           ctx.fillText(t.label, t.sx, t.sy - (r + 4 * devicePixelRatio));
         }
@@ -199,15 +199,7 @@ const GlobeCanvas = () => {
 
       // Edge ring
       ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2);
-      ctx.strokeStyle = 'rgba(123,44,191,0.3)'; ctx.lineWidth = 1.5; ctx.stroke();
-
-      // Outer glow halo
-      const halo = ctx.createRadialGradient(cx, cy, R * 0.9, cx, cy, R + 60);
-      halo.addColorStop(0,   'rgba(123,44,191,0)');
-      halo.addColorStop(0.5, 'rgba(123,44,191,0.06)');
-      halo.addColorStop(1,   'rgba(123,44,191,0)');
-      ctx.beginPath(); ctx.arc(cx, cy, R + 60, 0, Math.PI * 2);
-      ctx.fillStyle = halo; ctx.fill();
+      ctx.strokeStyle = 'rgba(0,84,233,0.5)'; ctx.lineWidth = 1.5; ctx.stroke();
     }
 
     function loop() {

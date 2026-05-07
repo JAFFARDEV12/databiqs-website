@@ -16,124 +16,124 @@ const CapIcon = ({ name }) => {
         <svg {...common}>
           <path
             d="M12 3c-1.5 2-4 3.2-4 6.5a4 4 0 008 0c0-3.3-2.5-4.5-4-6.5zM5 14c0 2.5 2 4.5 4.5 4.5S14 16.5 14 14"
-            stroke="#9c16c8"
+            stroke="#002E9E"
             strokeWidth="1.6"
             strokeLinecap="round"
           />
-          <path d="M7 21h10" stroke="#9c16c8" strokeWidth="1.6" strokeLinecap="round" />
+          <path d="M7 21h10" stroke="#002E9E" strokeWidth="1.6" strokeLinecap="round" />
         </svg>
       );
     case "omni":
       return (
         <svg {...common}>
-          <circle cx="8" cy="8" r="2.2" fill="#9c16c8" />
-          <circle cx="16" cy="8" r="2.2" fill="#9c16c8" />
-          <circle cx="12" cy="16" r="2.2" fill="#9c16c8" />
-          <path d="M9.2 9.2l2.4 2.4m1.2 0l2.4-2.4M12 10.4V14" stroke="#9c16c8" strokeWidth="1.4" strokeLinecap="round" />
+          <circle cx="8" cy="8" r="2.2" fill="#002E9E" />
+          <circle cx="16" cy="8" r="2.2" fill="#002E9E" />
+          <circle cx="12" cy="16" r="2.2" fill="#002E9E" />
+          <path d="M9.2 9.2l2.4 2.4m1.2 0l2.4-2.4M12 10.4V14" stroke="#002E9E" strokeWidth="1.4" strokeLinecap="round" />
         </svg>
       );
     case "support":
       return (
         <svg {...common}>
-          <circle cx="12" cy="12" r="8" stroke="#9c16c8" strokeWidth="1.6" />
-          <path d="M12 8v4l2.5 1.3" stroke="#9c16c8" strokeWidth="1.6" strokeLinecap="round" />
+          <circle cx="12" cy="12" r="8" stroke="#002E9E" strokeWidth="1.6" />
+          <path d="M12 8v4l2.5 1.3" stroke="#002E9E" strokeWidth="1.6" strokeLinecap="round" />
         </svg>
       );
     case "sentiment":
       return (
         <svg {...common}>
-          <circle cx="12" cy="12" r="7" stroke="#9c16c8" strokeWidth="1.6" />
-          <path d="M8.5 10h.01M15.5 10h.01" stroke="#9c16c8" strokeWidth="2" strokeLinecap="round" />
-          <path d="M8.5 14c1.2 2 6.3 2 7.5 0" stroke="#9c16c8" strokeWidth="1.6" strokeLinecap="round" />
+          <circle cx="12" cy="12" r="7" stroke="#002E9E" strokeWidth="1.6" />
+          <path d="M8.5 10h.01M15.5 10h.01" stroke="#002E9E" strokeWidth="2" strokeLinecap="round" />
+          <path d="M8.5 14c1.2 2 6.3 2 7.5 0" stroke="#002E9E" strokeWidth="1.6" strokeLinecap="round" />
         </svg>
       );
     case "orch":
       return (
         <svg {...common}>
-          <rect x="4" y="5" width="16" height="6" rx="1.5" stroke="#9c16c8" strokeWidth="1.5" />
-          <rect x="4" y="13" width="7" height="6" rx="1.5" stroke="#9c16c8" strokeWidth="1.5" />
-          <rect x="13" y="13" width="7" height="6" rx="1.5" stroke="#9c16c8" strokeWidth="1.5" />
+          <rect x="4" y="5" width="16" height="6" rx="1.5" stroke="#002E9E" strokeWidth="1.5" />
+          <rect x="4" y="13" width="7" height="6" rx="1.5" stroke="#002E9E" strokeWidth="1.5" />
+          <rect x="13" y="13" width="7" height="6" rx="1.5" stroke="#002E9E" strokeWidth="1.5" />
         </svg>
       );
     case "doc":
       return (
         <svg {...common}>
-          <path d="M8 4h8l4 4v14H8V4z" stroke="#9c16c8" strokeWidth="1.5" strokeLinejoin="round" />
-          <path d="M8 8h8M8 12h12M8 16h8" stroke="#9c16c8" strokeWidth="1.3" strokeLinecap="round" />
+          <path d="M8 4h8l4 4v14H8V4z" stroke="#002E9E" strokeWidth="1.5" strokeLinejoin="round" />
+          <path d="M8 8h8M8 12h12M8 16h8" stroke="#002E9E" strokeWidth="1.3" strokeLinecap="round" />
         </svg>
       );
     case "events":
       return (
         <svg {...common}>
-          <path d="M5 6h14v12H5V6z" stroke="#9c16c8" strokeWidth="1.5" />
-          <path d="M9 3v4M15 3v4M5 10h14" stroke="#9c16c8" strokeWidth="1.4" strokeLinecap="round" />
+          <path d="M5 6h14v12H5V6z" stroke="#002E9E" strokeWidth="1.5" />
+          <path d="M9 3v4M15 3v4M5 10h14" stroke="#002E9E" strokeWidth="1.4" strokeLinecap="round" />
         </svg>
       );
     case "govern":
       return (
         <svg {...common}>
-          <path d="M12 4l7 3v6c0 4-3 7-7 8-4-1-7-4-7-8V7l7-3z" stroke="#9c16c8" strokeWidth="1.5" strokeLinejoin="round" />
-          <path d="M9 12l2 2 4-4" stroke="#9c16c8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M12 4l7 3v6c0 4-3 7-7 8-4-1-7-4-7-8V7l7-3z" stroke="#002E9E" strokeWidth="1.5" strokeLinejoin="round" />
+          <path d="M9 12l2 2 4-4" stroke="#002E9E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       );
     case "feat":
       return (
         <svg {...common}>
-          <path d="M5 18l4-14 4 6 4-6 2 14H5z" stroke="#9c16c8" strokeWidth="1.5" strokeLinejoin="round" />
+          <path d="M5 18l4-14 4 6 4-6 2 14H5z" stroke="#002E9E" strokeWidth="1.5" strokeLinejoin="round" />
         </svg>
       );
     case "train":
       return (
         <svg {...common}>
-          <circle cx="9" cy="9" r="3" stroke="#9c16c8" strokeWidth="1.5" />
-          <path d="M11.5 11.5L18 18M15 6l3 3" stroke="#9c16c8" strokeWidth="1.5" strokeLinecap="round" />
+          <circle cx="9" cy="9" r="3" stroke="#002E9E" strokeWidth="1.5" />
+          <path d="M11.5 11.5L18 18M15 6l3 3" stroke="#002E9E" strokeWidth="1.5" strokeLinecap="round" />
         </svg>
       );
     case "serve":
       return (
         <svg {...common}>
-          <path d="M4 14h4l2 5 4-10 2 5h4" stroke="#9c16c8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M4 14h4l2 5 4-10 2 5h4" stroke="#002E9E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       );
     case "monitor":
       return (
         <svg {...common}>
-          <rect x="4" y="5" width="16" height="12" rx="2" stroke="#9c16c8" strokeWidth="1.5" />
-          <path d="M8 15h8" stroke="#9c16c8" strokeWidth="1.4" strokeLinecap="round" />
+          <rect x="4" y="5" width="16" height="12" rx="2" stroke="#002E9E" strokeWidth="1.5" />
+          <path d="M8 15h8" stroke="#002E9E" strokeWidth="1.4" strokeLinecap="round" />
         </svg>
       );
     case "use":
       return (
         <svg {...common}>
-          <path d="M6 7h12v10H6V7z" stroke="#9c16c8" strokeWidth="1.5" />
-          <path d="M6 11h12M9 7V5M15 7V5" stroke="#9c16c8" strokeWidth="1.3" strokeLinecap="round" />
+          <path d="M6 7h12v10H6V7z" stroke="#002E9E" strokeWidth="1.5" />
+          <path d="M6 11h12M9 7V5M15 7V5" stroke="#002E9E" strokeWidth="1.3" strokeLinecap="round" />
         </svg>
       );
     case "arch":
       return (
         <svg {...common}>
-          <path d="M4 18h16M6 14h4l2-8 2 8h4l2-10" stroke="#9c16c8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M4 18h16M6 14h4l2-8 2 8h4l2-10" stroke="#002E9E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       );
     case "fin":
       return (
         <svg {...common}>
-          <path d="M7 6h10v12H7V6z" stroke="#9c16c8" strokeWidth="1.5" />
-          <path d="M9 10h6M9 14h4" stroke="#9c16c8" strokeWidth="1.3" strokeLinecap="round" />
+          <path d="M7 6h10v12H7V6z" stroke="#002E9E" strokeWidth="1.5" />
+          <path d="M9 10h6M9 14h4" stroke="#002E9E" strokeWidth="1.3" strokeLinecap="round" />
         </svg>
       );
     case "change":
       return (
         <svg {...common}>
-          <circle cx="8" cy="8" r="3" stroke="#9c16c8" strokeWidth="1.5" />
-          <circle cx="16" cy="14" r="3" stroke="#9c16c8" strokeWidth="1.5" />
-          <path d="M10.5 9.5l5 5" stroke="#9c16c8" strokeWidth="1.4" strokeLinecap="round" />
+          <circle cx="8" cy="8" r="3" stroke="#002E9E" strokeWidth="1.5" />
+          <circle cx="16" cy="14" r="3" stroke="#002E9E" strokeWidth="1.5" />
+          <path d="M10.5 9.5l5 5" stroke="#002E9E" strokeWidth="1.4" strokeLinecap="round" />
         </svg>
       );
     default:
       return (
         <svg {...common}>
-          <circle cx="12" cy="12" r="7" stroke="#9c16c8" strokeWidth="1.6" />
+          <circle cx="12" cy="12" r="7" stroke="#002E9E" strokeWidth="1.6" />
         </svg>
       );
   }
@@ -145,90 +145,90 @@ const VerticalIcon = ({ name }) => {
     case "health":
       return (
         <svg {...common}>
-          <path d="M12 5v14M8 9h8" stroke="#9c16c8" strokeWidth="1.8" strokeLinecap="round" />
-          <circle cx="12" cy="12" r="8" stroke="#9c16c8" strokeWidth="1.4" />
+          <path d="M12 5v14M8 9h8" stroke="#002E9E" strokeWidth="1.8" strokeLinecap="round" />
+          <circle cx="12" cy="12" r="8" stroke="#002E9E" strokeWidth="1.4" />
         </svg>
       );
     case "ecom":
       return (
         <svg {...common}>
-          <path d="M6 8h15l-1.5 9H7L6 8z" stroke="#9c16c8" strokeWidth="1.5" strokeLinejoin="round" />
-          <circle cx="10" cy="19" r="1.2" fill="#9c16c8" />
-          <circle cx="17" cy="19" r="1.2" fill="#9c16c8" />
+          <path d="M6 8h15l-1.5 9H7L6 8z" stroke="#002E9E" strokeWidth="1.5" strokeLinejoin="round" />
+          <circle cx="10" cy="19" r="1.2" fill="#002E9E" />
+          <circle cx="17" cy="19" r="1.2" fill="#002E9E" />
         </svg>
       );
     case "finance":
       return (
         <svg {...common}>
-          <path d="M4 18h16M6 14V8h12v6" stroke="#9c16c8" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M9 11h6M9 8h6" stroke="#9c16c8" strokeWidth="1.3" strokeLinecap="round" />
+          <path d="M4 18h16M6 14V8h12v6" stroke="#002E9E" strokeWidth="1.5" strokeLinecap="round" />
+          <path d="M9 11h6M9 8h6" stroke="#002E9E" strokeWidth="1.3" strokeLinecap="round" />
         </svg>
       );
     case "ops":
       return (
         <svg {...common}>
-          <rect x="5" y="6" width="14" height="12" rx="2" stroke="#9c16c8" strokeWidth="1.5" />
-          <path d="M9 10h6M9 14h4" stroke="#9c16c8" strokeWidth="1.3" strokeLinecap="round" />
+          <rect x="5" y="6" width="14" height="12" rx="2" stroke="#002E9E" strokeWidth="1.5" />
+          <path d="M9 10h6M9 14h4" stroke="#002E9E" strokeWidth="1.3" strokeLinecap="round" />
         </svg>
       );
     case "cx":
       return (
         <svg {...common}>
-          <path d="M8 10c0-2.2 1.8-4 4-4s4 1.8 4 4-1.8 4-4 4" stroke="#9c16c8" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M5 19c1.5-3 4.5-4 7-4s5.5 1 7 4" stroke="#9c16c8" strokeWidth="1.4" strokeLinecap="round" />
+          <path d="M8 10c0-2.2 1.8-4 4-4s4 1.8 4 4-1.8 4-4 4" stroke="#002E9E" strokeWidth="1.5" strokeLinecap="round" />
+          <path d="M5 19c1.5-3 4.5-4 7-4s5.5 1 7 4" stroke="#002E9E" strokeWidth="1.4" strokeLinecap="round" />
         </svg>
       );
     case "supply":
       return (
         <svg {...common}>
-          <path d="M5 8h14v10H5V8z" stroke="#9c16c8" strokeWidth="1.5" />
-          <path d="M5 12h14M9 8V6h6v2" stroke="#9c16c8" strokeWidth="1.3" strokeLinecap="round" />
+          <path d="M5 8h14v10H5V8z" stroke="#002E9E" strokeWidth="1.5" />
+          <path d="M5 12h14M9 8V6h6v2" stroke="#002E9E" strokeWidth="1.3" strokeLinecap="round" />
         </svg>
       );
     case "retail":
       return (
         <svg {...common}>
-          <path d="M5 10h14l-2 9H7L5 10z" stroke="#9c16c8" strokeWidth="1.5" strokeLinejoin="round" />
-          <path d="M9 6V5a3 3 0 016 0v1" stroke="#9c16c8" strokeWidth="1.4" strokeLinecap="round" />
+          <path d="M5 10h14l-2 9H7L5 10z" stroke="#002E9E" strokeWidth="1.5" strokeLinejoin="round" />
+          <path d="M9 6V5a3 3 0 016 0v1" stroke="#002E9E" strokeWidth="1.4" strokeLinecap="round" />
         </svg>
       );
     case "risk":
       return (
         <svg {...common}>
-          <path d="M12 4l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V8l8-4z" stroke="#9c16c8" strokeWidth="1.5" strokeLinejoin="round" />
+          <path d="M12 4l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V8l8-4z" stroke="#002E9E" strokeWidth="1.5" strokeLinejoin="round" />
         </svg>
       );
     case "iot":
       return (
         <svg {...common}>
-          <circle cx="8" cy="10" r="2" stroke="#9c16c8" strokeWidth="1.4" />
-          <circle cx="16" cy="8" r="2" stroke="#9c16c8" strokeWidth="1.4" />
-          <path d="M10 11l4 2M14 8l-2 4" stroke="#9c16c8" strokeWidth="1.3" strokeLinecap="round" />
+          <circle cx="8" cy="10" r="2" stroke="#002E9E" strokeWidth="1.4" />
+          <circle cx="16" cy="8" r="2" stroke="#002E9E" strokeWidth="1.4" />
+          <path d="M10 11l4 2M14 8l-2 4" stroke="#002E9E" strokeWidth="1.3" strokeLinecap="round" />
         </svg>
       );
     case "bank":
       return (
         <svg {...common}>
-          <path d="M4 10h16l-8-5-8 5zM6 10v8M10 10v8M14 10v8M18 10v8" stroke="#9c16c8" strokeWidth="1.4" strokeLinecap="round" />
+          <path d="M4 10h16l-8-5-8 5zM6 10v8M10 10v8M14 10v8M18 10v8" stroke="#002E9E" strokeWidth="1.4" strokeLinecap="round" />
         </svg>
       );
     case "pharma":
       return (
         <svg {...common}>
-          <path d="M12 5l7 4v10H5V9l7-4z" stroke="#9c16c8" strokeWidth="1.5" strokeLinejoin="round" />
-          <path d="M12 9v10M8 12h8" stroke="#9c16c8" strokeWidth="1.3" strokeLinecap="round" />
+          <path d="M12 5l7 4v10H5V9l7-4z" stroke="#002E9E" strokeWidth="1.5" strokeLinejoin="round" />
+          <path d="M12 9v10M8 12h8" stroke="#002E9E" strokeWidth="1.3" strokeLinecap="round" />
         </svg>
       );
     case "telco":
       return (
         <svg {...common}>
-          <path d="M5 16c3-4 11-4 14 0M8 12c2-2 6-2 8 0M10 9c1-1 3-1 4 0" stroke="#9c16c8" strokeWidth="1.4" strokeLinecap="round" />
+          <path d="M5 16c3-4 11-4 14 0M8 12c2-2 6-2 8 0M10 9c1-1 3-1 4 0" stroke="#002E9E" strokeWidth="1.4" strokeLinecap="round" />
         </svg>
       );
     default:
       return (
         <svg {...common}>
-          <rect x="5" y="5" width="14" height="14" rx="2" stroke="#9c16c8" strokeWidth="1.5" />
+          <rect x="5" y="5" width="14" height="14" rx="2" stroke="#002E9E" strokeWidth="1.5" />
         </svg>
       );
   }

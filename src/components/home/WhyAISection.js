@@ -50,7 +50,6 @@ const WhyAISection = () => {
 
           {/* Right — Databiqs Difference */}
           <div className="why-ai-right">
-            <p className="diff-label">The Databiqs Difference</p>
             <h3 className="diff-heading">
               We Don't Just Build Technology<br />
               <span className="diff-heading-purple">We Engineer Business Outcomes</span>

@@ -21,7 +21,7 @@
   container-type: inline-size;
   container-name: meeting;
   border-radius: 40px;
-  background: linear-gradient(99.67deg, #D5A2F9 0%, #EBE2FF 100%);
+  background: rgba(0, 46, 158, 0.15);
   
   padding: clamp(64px, 6.5vw, 90px) clamp(20px, min(5vw, 80px), 120px);
   display: flex;
@@ -166,7 +166,7 @@
   min-width: 160px;
   padding: 15px 32px;
   border-radius: 999px;
-  background: #7B2CBF;
+  background: #002E9E;
   color: #ffffff;
   text-decoration: none;
   font-family: 'Inter', sans-serif;
@@ -177,7 +177,7 @@
 }
 
 .meeting-banner__cta:hover {
-  background: #9B59D0;
+  background: #0054E9;
   transform: translateY(-2px);
 }
 

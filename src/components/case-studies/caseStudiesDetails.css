@@ -81,7 +81,7 @@
       box-sizing: border-box;
       background: linear-gradient(
         180deg,
-        rgba(178, 131, 255, 0.22) 0%,
+        rgba(0, 46, 158, 0.22) 0%,
         #ffffff 65%
       );
     }
@@ -243,8 +243,8 @@
       margin-top: 10px;
       width: 100%;
       border-radius: 16px;
-     background-color: #7C3AED26;
-      border: 1px solid #eee4ff;
+     background-color: #002E9E26;
+      border: 1px solid #d6e2ff;
       padding: clamp(14px, 2.4vw, 24px);
       display: flex;
       flex-wrap: wrap;
@@ -446,7 +446,7 @@
       flex-direction: column;
       min-height: clamp(180px, 24vw, 280px);
       padding: clamp(20px, 3.5vw, 40px);
-      background:#7C3AED26;
+      background:#002E9E26;
       border-radius: clamp(16px, 2.5vw, 28px);
       box-sizing: border-box;
     }
@@ -501,7 +501,7 @@
     
     .case-study-page-value-card {
       padding: clamp(12px, 1.2vw, 16px) clamp(12px, 1.2vw, 16px);
-      background: #7C3AED26;
+      background: #002E9E26;
       border-radius: 14px;
       box-sizing: border-box;
       min-height: clamp(112px, 9vw, 138px);

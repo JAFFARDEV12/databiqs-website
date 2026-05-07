@@ -24,7 +24,7 @@
   height: 360px;
   top: 10%;
   left: -6%;
-  background: radial-gradient(circle, rgba(156, 22, 200, 0.45) 0%, rgba(156, 22, 200, 0) 70%);
+  background: radial-gradient(circle, rgba(0, 46, 158, 0.45) 0%, rgba(0, 46, 158, 0) 70%);
   animation: blogBgDriftLeft 14s ease-in-out infinite alternate;
 }
 
@@ -45,7 +45,7 @@
   box-sizing: border-box;
   background: linear-gradient(
     180deg,
-    rgba(178, 131, 255, 0.22) 0%,
+    rgba(0, 46, 158, 0.22) 0%,
     #ffffff 65%
   );
   background-size: 140% 140%;
@@ -56,7 +56,7 @@
   position: fixed;
   width: 180px;
   height: 180px;
-  background: rgba(137, 76, 251, 0.22); /* much lighter */
+  background: rgba(0, 46, 158, 0.22); /* much lighter */
   border-radius: 50%;
 
   filter: blur(260px);

@@ -46,8 +46,8 @@
 
 .services-pipeline__track-progress {
   width: var(--progress, 0%);
-  background: linear-gradient(90deg, #9c16c8, #6f26d3);
-  box-shadow: 0 0 14px rgba(156, 22, 200, 0.4);
+  background: linear-gradient(90deg, #002E9E, #6f26d3);
+  box-shadow: 0 0 14px rgba(0, 46, 158, 0.4);
   transition: width 320ms ease;
 }
 

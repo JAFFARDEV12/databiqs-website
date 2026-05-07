@@ -17,7 +17,7 @@
 }
 
 .clients-heading-purple {
-  color: #7B2CBF;
+  color: #002E9E;
 }
 
 /* Marquee track */
@@ -76,7 +76,7 @@
   align-items: center;
   gap: 10px;
   flex-shrink: 0;
-  color: #9B59D0;
+  color: #0054E9;
   opacity: 0.75;
   transition: opacity 0.2s ease;
 }

@@ -44,9 +44,9 @@
   background-color: #f8f5ff;
   background-image: linear-gradient(
     90deg,
-    rgba(124, 58, 237, 0.12) 0%,
+    rgba(0, 46, 158, 0.12) 0%,
     rgba(139, 92, 246, 0.06) 45%,
-    rgba(91, 33, 182, 0.11) 100%
+    rgba(0, 46, 158, 0.11) 100%
   );
   background-size: 100% 100%;
   position: relative;
@@ -86,7 +86,7 @@
 }
 
 .service-detail-page .sd-back-link:hover {
-  color: #9c16c8;
+  color: #002E9E;
 }
 
 .service-detail-page .sd-hero-title {
@@ -106,7 +106,7 @@
 
 .service-detail-page .sd-hero-title__accent {
   display: inline;
-  color: #9c16c8;
+  color: #002E9E;
 }
 
 .service-detail-page .sd-hero-title__dark::after {
@@ -135,14 +135,14 @@
   font-size: 15px;
   font-weight: 600;
   color: #ffffff;
-  background: linear-gradient(119.69deg, #ae0dff 12.36%, #401371 85.46%);
-  box-shadow: 0 10px 28px rgba(64, 19, 113, 0.28);
+  background: linear-gradient(119.69deg, #ae0dff 12.36%, #002E9E 85.46%);
+  box-shadow: 0 10px 28px rgba(0, 46, 158, 0.28);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .service-detail-page .sd-hero-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 34px rgba(64, 19, 113, 0.35);
+  box-shadow: 0 14px 34px rgba(0, 46, 158, 0.35);
 }
 
 .service-detail-page .sd-hero-cta__icon {
@@ -153,7 +153,7 @@
   height: 34px;
   border-radius: 50%;
   background: #ffffff;
-  color: #401371;
+  color: #002E9E;
 }
 
 .service-detail-page .sd-hero-visual {
@@ -320,14 +320,14 @@
   width: 34px;
   height: 34px;
   border-radius: 999px;
-  border: 1.2px solid rgba(156, 22, 200, 0.34);
+  border: 1.2px solid rgba(0, 46, 158, 0.34);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-family: "Sora", sans-serif;
   font-weight: 700;
   font-size: clamp(15px, 0.7vw + 12px, 18px);
-  color: #9c16c8;
+  color: #002E9E;
   line-height: 1;
   margin-top: 2px;
 }
@@ -425,7 +425,7 @@
 
 .service-detail-page .sd-metric {
   background: #faf8ff;
-  border: 1px solid rgba(156, 22, 200, 0.16);
+  border: 1px solid rgba(0, 46, 158, 0.16);
   border-radius: clamp(14px, 2vw, 18px);
   padding: clamp(18px, 3vw, 26px);
   text-align: center;
@@ -436,7 +436,7 @@
   font-weight: 700;
   font-size: clamp(28px, 4vw + 12px, 40px);
   line-height: 1.1;
-  color: #9c16c8;
+  color: #002E9E;
   margin-bottom: 8px;
 }
 
@@ -503,14 +503,14 @@
   font-size: 15px;
   font-weight: 600;
   color: #ffffff;
-  background: linear-gradient(119.69deg, #ae0dff 12.36%, #401371 85.46%);
-  box-shadow: 0 10px 28px rgba(64, 19, 113, 0.28);
+  background: linear-gradient(119.69deg, #ae0dff 12.36%, #002E9E 85.46%);
+  box-shadow: 0 10px 28px rgba(0, 46, 158, 0.28);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .service-detail-page .sd-final-cta__btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 34px rgba(64, 19, 113, 0.35);
+  box-shadow: 0 14px 34px rgba(0, 46, 158, 0.35);
 }
 
 .service-detail-page .sd-final-cta__btn-icon {
@@ -521,7 +521,7 @@
   height: 34px;
   border-radius: 50%;
   background: #ffffff;
-  color: #401371;
+  color: #002E9E;
 }
 
 @keyframes sdFadeUp {
