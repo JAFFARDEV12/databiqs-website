@@ -19,6 +19,7 @@
   padding-left: var(--case-study-page-pad-x);
   padding-right: var(--case-study-page-pad-x);
   box-sizing: border-box;
+  
 }
 
 /* Typography lock for all service detail pages */
@@ -41,7 +42,7 @@
   padding: 12px 0 clamp(24px, 4vw, 48px);
   width: 100%;
   box-sizing: border-box;
-  background-color: #f8f5ff;
+  background-color: white;
   background-image: linear-gradient(
     90deg,
     rgba(0, 46, 158, 0.12) 0%,
@@ -55,6 +56,7 @@
 
 .service-detail-page .sd-hero-section__inner {
   margin-top: clamp(8px, 2vw, 20px);
+ 
 }
 
 .service-detail-page .sd-hero-grid {

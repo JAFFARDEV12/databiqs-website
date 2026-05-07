@@ -256,7 +256,8 @@ const ServiceDetail = () => {
   }
 
   return (
-    <div className="service-detail-page services-page">
+    <div className="service-detail-outer">
+      <div className="service-detail-page services-page">
       <section className="sd-hero-section" ref={heroRef}>
        
         <div className="sd-container sd-hero-section__inner">
@@ -376,6 +377,7 @@ const ServiceDetail = () => {
       </main>
 
       <Footer />
+    </div>
     </div>
   );
 };

@@ -7,6 +7,7 @@
 .case-studies-page {
     --case-study-page-pad-x: clamp(16px, 4vw, 32px);
     --case-study-section-gap: clamp(40px, 6.5vw, 72px);
+    
   }
   
   /* Case studies route (see caseStudies.jsx root): all <p> Inter 400 regular; font-size from existing rules */

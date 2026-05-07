@@ -2214,7 +2214,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  background: rgba(122, 90, 248, 0.12);
+  background: #ddeefb !important;
   border-radius: 50%;
 }
 .automation-title-lottie > * {
