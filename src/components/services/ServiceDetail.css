@@ -39,24 +39,37 @@
 /* ——— Hero (full-bleed band, matches services listing tone) ——— */
 .service-detail-page .sd-hero-section {
   margin: -12px 0 0;
-  padding: 12px 0 clamp(24px, 4vw, 48px);
+  padding: 12px 0 clamp(20px, 3vw, 36px);
   width: 100%;
   box-sizing: border-box;
-  background-color: white;
-  background-image: linear-gradient(
-    90deg,
-    rgba(0, 46, 158, 0.12) 0%,
-    rgba(139, 92, 246, 0.06) 45%,
-    rgba(0, 46, 158, 0.11) 100%
-  );
-  background-size: 100% 100%;
+  background: #ffffff;
   position: relative;
+  overflow: visible;
   z-index: 2;
+}
+
+.service-detail-page .sd-hero-section::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100vw - 100px);
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 46, 158, 0.2) 37%,
+    rgba(0, 84, 233, 0.05) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
 }
 
 .service-detail-page .sd-hero-section__inner {
   margin-top: clamp(8px, 2vw, 20px);
- 
+  position: relative;
+  z-index: 2;
 }
 
 .service-detail-page .sd-hero-grid {
@@ -89,6 +102,24 @@
 
 .service-detail-page .sd-back-link:hover {
   color: #002E9E;
+}
+
+.service-detail-page .sd-hero-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 10px 18px;
+  margin-bottom: 16px;
+  border-radius: 80px;
+  border: 1px solid #002E9E;
+  background: #ffffff;
+  color: #002E9E;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .service-detail-page .sd-hero-title {
@@ -156,6 +187,12 @@
   border-radius: 50%;
   background: #ffffff;
   color: #002E9E;
+}
+
+.service-detail-page .sd-hero-cta__icon img {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
 }
 
 .service-detail-page .sd-hero-visual {
@@ -426,8 +463,12 @@
 }
 
 .service-detail-page .sd-metric {
-  background: #faf8ff;
-  border: 1px solid rgba(0, 46, 158, 0.16);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 46, 158, 0.2) 37%,
+    rgba(0, 84, 233, 0.05) 100%
+  );
+  border: 1px solid rgba(0, 46, 158, 0.2);
   border-radius: clamp(14px, 2vw, 18px);
   padding: clamp(18px, 3vw, 26px);
   text-align: center;
@@ -539,6 +580,11 @@
 
 /* ——— Responsive breakpoints ——— */
 @media (max-width: 1100px) {
+  .service-detail-page .sd-hero-section::before {
+    width: 100vw;
+    border-radius: 0;
+  }
+
   .service-detail-page .sd-cap-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

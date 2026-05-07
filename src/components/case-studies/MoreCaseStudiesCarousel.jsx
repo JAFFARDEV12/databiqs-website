@@ -1,7 +1,7 @@
 import { useState, useEffect, useLayoutEffect, useCallback, useMemo, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './MoreCaseStudiesCarousel.css';
-import arrowIcon from '../../assets/Vector-right.svg';
+import arrowIcon from '../../assets/rightarrow.svg';
 import cardMessageImage from '../../assets/message.svg';
 import { MORE_CASE_STUDIES } from './moreCaseStudiesData';
 

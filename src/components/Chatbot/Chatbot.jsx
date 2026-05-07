@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import './Chatbot.css';
-import chatbotIcon from '../../assets/chatbotlogo.svg';
+import chatbotIcon from '../../assets/chatbotlogo1.svg';
 
 const API_URL = 'https://databiqs-website-backend-production.up.railway.app/api/prompt';
 

@@ -3,12 +3,12 @@
 .book-modal,
 .book-consultation {
   --book-font-ui: "Inter", sans-serif;
-  --book-font-heading: "Bebas Neue", sans-serif;
+  --book-font-heading: "Sora", sans-serif;
   --book-control-radius: 12px;
   --book-pill-radius: 999px;
   --book-border-subtle: 1px solid #e6dbff;
   --book-border-hover: 1px solid #c9a5ff;
-  --book-primary-gradient: linear-gradient(119.69deg, #ae0dff 12.36%, #002E9E 85.46%);
+  --book-primary-gradient: #002E9E;
   --book-text: #2f2f2f;
   --book-text-muted: #5a5a5a;
 }
@@ -40,18 +40,41 @@
 }
 
 .book-consultation-page__heroWrap {
+  --book-page-pad-x: clamp(16px, 4vw, 32px);
+  margin: -12px calc(-1 * var(--book-page-pad-x)) 0;
+  padding: 12px 0 clamp(10px, 1.5vw, 18px);
+  width: calc(100% + (2 * var(--book-page-pad-x)));
+  box-sizing: border-box;
+  background: #ffffff;
+  position: relative;
+  overflow: visible;
+  z-index: 2;
+}
+
+.book-consultation-page__heroWrap::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100vw - 100px);
+  height: 100%;
+  border-radius: 20px;
   background: linear-gradient(
-    180deg,
-    rgba(0, 46, 158, 0.18) 0%,
-    rgba(245, 242, 255, 0.32) 36%,
-    #ffffff 100%
+    90deg,
+    rgba(0, 46, 158, 0.2) 37%,
+    rgba(0, 84, 233, 0.05) 100%
   );
+  pointer-events: none;
+  z-index: 0;
 }
 
 .book-consultation {
-  padding: clamp(12px, 3vw, 28px) clamp(12px, 4vw, 40px) clamp(56px, 7vw, 88px);
+  padding: clamp(14px, 3vw, 28px) clamp(12px, 4vw, 40px) clamp(56px, 7vw, 88px);
   font-family: var(--book-font-ui);
   color: var(--book-text);
+  position: relative;
+  z-index: 2;
 }
 
 .book-consultation__container {
@@ -96,10 +119,10 @@
 .book-consultation__title {
   margin: 16px 0 10px;
   font-family: var(--book-font-heading);
-  font-weight: 700 ;
-  font-size: clamp(30px, 3.8vw, 36px);
-  line-height: 40px !important;
-  letter-spacing: 0.02em;
+  font-weight: 700;
+  font-size: clamp(24px, 0.65rem + 3.4vw, 44px);
+  line-height: clamp(32px, 0.8rem + 4vw, 56px) !important;
+  letter-spacing: 0;
 }
 
 .book-consultation__subtitle {
@@ -238,7 +261,7 @@
 
 .book-calendar__day.is-active {
   border-color: transparent;
-  background: var(--book-primary-gradient);
+  background: #002E9E;
   color: #ffffff;
   box-shadow: 0 6px 18px rgba(0, 46, 158, 0.28);
 }
@@ -288,7 +311,7 @@
 
 .book-chip.is-active {
   border-color: transparent;
-  background: var(--book-primary-gradient);
+  background: #002E9E;
   color: #ffffff;
   box-shadow: 0 6px 18px rgba(0, 46, 158, 0.28);
 }
@@ -311,7 +334,7 @@
   border: none;
   border-radius: var(--book-pill-radius);
   padding: 14px 22px;
-  background: var(--book-primary-gradient);
+  background: #002E9E;
   color: #ffffff;
   font-family: var(--book-font-ui);
   font-size: 15px;
@@ -322,6 +345,7 @@
 
 .book-open-modal-btn:hover:not(:disabled) {
   transform: translateY(-2px);
+  background: #0054E9;
   box-shadow: 0 10px 28px rgba(0, 46, 158, 0.35);
 }
 
@@ -371,7 +395,7 @@
   border: none;
   border-radius: var(--book-pill-radius);
   padding: 14px 22px;
-  background: var(--book-primary-gradient);
+  background: #002E9E;
   color: #ffffff;
   font-family: var(--book-font-ui);
   font-size: 15px;
@@ -382,6 +406,7 @@
 
 .book-form__submit:hover {
   transform: translateY(-2px);
+  background: #0054E9;
   box-shadow: 0 10px 28px rgba(0, 46, 158, 0.35);
 }
 
@@ -389,14 +414,14 @@
   border: 1px solid #d7c0ff;
   border-radius: 20px;
   padding: clamp(18px, 3vw, 28px);
-  background: linear-gradient(180deg, #f8f1ff 0%, #ffffff 100%);
+  background: linear-gradient(180deg, rgba(0, 46, 158, 0.1) 0%, #ffffff 100%);
 }
 
 .book-success__badge {
   display: inline-flex;
   border-radius: var(--book-pill-radius);
   padding: 7px 13px;
-  background: var(--book-primary-gradient);
+  background: #002E9E;
   color: #ffffff;
   font-size: 12px;
   font-family: var(--book-font-ui);
@@ -514,17 +539,23 @@
   font-size: 15px;
   font-family: var(--book-font-ui);
   font-weight: 600;
-  background: var(--book-primary-gradient);
+  background: #002E9E;
   cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .book-modal__done:hover {
   transform: translateY(-2px);
+  background: #0054E9;
   box-shadow: 0 10px 28px rgba(0, 46, 158, 0.35);
 }
 
 @media (max-width: 900px) {
+  .book-consultation-page__heroWrap::before {
+    width: 100vw;
+    border-radius: 0;
+  }
+
   .book-consultation__container {
     grid-template-columns: 1fr;
     align-items: start;

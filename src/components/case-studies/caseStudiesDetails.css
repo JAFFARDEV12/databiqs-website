@@ -80,11 +80,28 @@
       width: calc(100% + (2 * var(--case-study-page-pad-x)));
       max-width: none;
       box-sizing: border-box;
+      background: #ffffff;
+      position: relative;
+      overflow: visible;
+      z-index: 2;
+    }
+
+    .case-study-page-header-section::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: calc(100vw - 100px);
+      height: 100%;
+      border-radius: 20px;
       background: linear-gradient(
-        180deg,
-        rgba(0, 46, 158, 0.22) 0%,
-        #ffffff 65%
+        90deg,
+        rgba(0, 46, 158, 0.2) 37%,
+        rgba(0, 84, 233, 0.05) 100%
       );
+      pointer-events: none;
+      z-index: 0;
     }
     
     /* ── Centered content wrapper ── */
@@ -101,6 +118,8 @@
       width: 100%;
       max-width: calc(1220px + (2 * var(--case-study-page-pad-x)));
       box-sizing: border-box;
+      position: relative;
+      z-index: 2;
     }
   
     /* Main column only (not hero) — even vertical rhythm between sections */
@@ -517,7 +536,7 @@
     
     .case-study-page-value-card-title {
       margin: 0 0 8px;
-      font-size: clamp(16px, 1.1vw, 20px) !important;
+  font-size: clamp(15px, 1vw, 18px) !important;
       font-weight: 700;
       line-height: 1.25;
       color: #1a1a1a;
@@ -525,7 +544,7 @@
     
     .case-study-page-value-card-text {
       margin: 0;
-      font-size: clamp(12px, 0.5vw + 10px, 13px);
+  font-size: clamp(11px, 0.4vw + 10px, 12px);
       line-height: 1.45;
       color: #5c5c5c;
     }
@@ -533,7 +552,7 @@
     .case-study-page-value-card-list {
       margin: 0;
       padding-left: 1.15em;
-      font-size: clamp(12px, 0.5vw + 10px, 13px);
+  font-size: clamp(11px, 0.4vw + 10px, 12px);
       line-height: 1.4;
       color: #5c5c5c;
       list-style-type: disc;
@@ -656,6 +675,11 @@
     
     /* ── 820px and below: phase columns collapse ── */
     @media (max-width: 820px) {
+      .case-study-page-header-section::before {
+        width: 100vw;
+        border-radius: 0;
+      }
+
       .case-study-page-phase {
         grid-template-columns: 1fr;
         gap: 20px;

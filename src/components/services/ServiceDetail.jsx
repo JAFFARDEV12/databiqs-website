@@ -263,18 +263,18 @@ const ServiceDetail = () => {
         <div className="sd-container sd-hero-section__inner">
           <div className="sd-hero-grid">
             <div className="sd-hero-copy">
-            
+              <span className="sd-hero-pill">AI Service Detail</span>
               <h1 className="sd-hero-title">
                 <span className="sd-hero-title__dark">{page.heroTitleLine1}</span>
                 <span className="sd-hero-title__accent">{page.heroTitleLine2}</span>
               </h1>
               <p className="sd-hero-lead">{page.heroLead}</p>
-              <Link to="/book-consultation" className="meeting-banner__cta">
-              <span className="meeting-banner__cta-text">Book a Consultation</span>
-              <span className="meeting-banner__cta-arrow" aria-hidden>
-                <img src={arrowIcon} alt="" />
-              </span>
-            </Link>
+              <Link to="/book-consultation" className="sd-hero-cta">
+                <span>Book a Consultation</span>
+                <span className="sd-hero-cta__icon" aria-hidden>
+                  <img src={arrowIcon} alt="" />
+                </span>
+              </Link>
             </div>
             <div className="sd-hero-visual">
               <img src={page.heroImage} alt={page.heroImageAlt} className="sd-hero-img" loading="eager" decoding="async" />

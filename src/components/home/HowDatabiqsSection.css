@@ -93,7 +93,12 @@
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: #F3F0F8;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 46, 158, 0.2) 37%,
+    rgba(0, 84, 233, 0.05) 100%
+  );
+  border: 1px solid rgba(0, 46, 158, 0.24);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -135,7 +140,11 @@
 }
 
 .how-databiqs-card:hover .hd-icon-box {
-  background: rgba(0, 46, 158, 0.15);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 46, 158, 0.26) 37%,
+    rgba(0, 84, 233, 0.1) 100%
+  );
 }
 
 .how-databiqs-card:hover .hd-card-title {

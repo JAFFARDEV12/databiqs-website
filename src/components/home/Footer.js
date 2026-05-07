@@ -1,7 +1,7 @@
 
 import { Link } from 'react-router-dom';
 import './Footer.css';
-import chatbotIcon from '../../assets/chatbotlogo.svg';
+import logo from '../../assets/Databiqs Logo.svg';
 import instaSvg from '../../assets/insta.svg';
 import linkedinSvg from '../../assets/linkedin.svg';
 import facebookSvg from '../../assets/facebook.svg';
@@ -16,8 +16,7 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-left">
             <div className="footer-logo">
-              <img src={chatbotIcon} alt="Chatbot" className="footer-logo-icon" loading="lazy" decoding="async" />
-              <span className="footer-logo-text">atabiqs</span>
+              <img src={logo} alt="Databiqs" className="footer-logo-icon" loading="lazy" decoding="async" />
             </div>
             <p className="footer-tagline">
               Pushing the boundaries of technology, unleashing

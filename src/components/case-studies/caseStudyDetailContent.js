@@ -266,7 +266,7 @@ export const CASE_STUDY_DETAILS = {
     },
     testimonial: {
       quote:
-        'We finally see end-to-end process health in one place. Databiqs shipped pragmatism, not slide decks.',
+        '“We finally see end-to-end process health in one place. Databiqs shipped pragmatism, not slide decks.”',
       name: 'Michael Hayes',
       role: 'Operations Manager',
       avatarSrc: testimonialAvatar,
