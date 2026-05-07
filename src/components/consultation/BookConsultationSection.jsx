@@ -4,7 +4,8 @@ import './BookConsultation.css';
 import vectorleft from '../../assets/Vector-left.svg';
 import vectorright from '../../assets/Vector-right.svg';
 import emailjs from '@emailjs/browser';
-
+import { Link } from 'react-router-dom';
+import arrowIcon from '../../assets/rightarrow.svg';
 const EMAILJS_SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID || 'service_rij8xrc';
 const EMAILJS_TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || 'template_bmxi77f';
 const EMAILJS_PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || 'wpl35VnksY_DS5v2V';
@@ -241,6 +242,7 @@ const BookConsultationSection = ({
                 >
                   Select Session Mode & Time Slot
                 </button>
+                
               </div>
               <p className="book-consultation__selected">
                 Selected: <strong>{selectedDate ? formatDateLabel(selectedDate) : 'Choose a date'}</strong> at{' '}
@@ -308,9 +310,14 @@ const BookConsultationSection = ({
                   placeholder="Share your project goals, challenges, and desired outcomes"
                 />
 
-                <button type="submit" className="book-form__submit" disabled={isSubmitting}>
-                  {isSubmitting ? 'Sending...' : 'Confirm Consultation Request'}
+                <button type="submit" className="meeting-banner__cta" disabled={isSubmitting}>
+                 
+                  <span className="meeting-banner__cta-text">{isSubmitting ? 'Sending...' : 'Confirm Consultation Request'}</span>
+              <span className="meeting-banner__cta-arrow" aria-hidden>
+                <img src={arrowIcon} alt="" />
+              </span>
                 </button>
+               
               </form>
             )}
           </div>
