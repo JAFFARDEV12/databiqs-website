@@ -248,13 +248,13 @@
 }
 
 .heroBlog__featureCard--onVideo .heroBlog__readLink:hover .heroBlog__readIcon {
-  background: #0054E9;
+  background: #ffffff;
   transform: translateX(2px);
 }
 
 .heroBlog__featureCard--onVideo .heroBlog__readLink:hover .heroBlog__readIcon img {
   transform: rotate(0deg);
-  filter: brightness(0) invert(1);
+  filter: brightness(0) saturate(100%);
 }
 
 .heroBlog__featureRow .heroBlog__featureKicker,

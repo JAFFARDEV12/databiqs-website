@@ -5,90 +5,120 @@ import apostrophySvg from '../../assets/appostrophy.svg';
 import card1Picture from '../../assets/card 1 picture.svg';
 import card3Picture from '../../assets/card 3 picture.svg';
 import card4Picture from '../../assets/card 4 picture.svg';
-import audioCard1 from '../../assets/card1-Databiqs Delivered.mp3';
-import audioCard2 from '../../assets/card2.mp3';
-import audioCard3 from '../../assets/card3-ai-automation.mp3';
-import audioCard4 from '../../assets/4th.mp3';
+import audioDatabiqsDeliveredAn from '../../assets/testominial audios/Databiqs Delivered An.mp3';
+import audioDatabiqsHelpedUs from '../../assets/testominial audios/Databiqs Helped Us.mp3';
+import audioDatabiqsUnderstood from '../../assets/testominial audios/Databiqs Understood.mp3';
+import audioFromInitialConsultation from '../../assets/testominial audios/From Initial Consultation.mp3';
+import audioOurCustomerSatisfaction from '../../assets/testominial audios/Our Customer Satisfaction.mp3';
+import audioTheAiAutomation from '../../assets/testominial audios/The AI Automation.mp3';
+import audioTheIntelligentAutomation from '../../assets/testominial audios/The Intelligent Automation.mp3';
+import audioTheTeamAtDatabiqs from '../../assets/testominial audios/The Team At Databiqs.mp3';
+import audioWorkingWithDatabiqs from '../../assets/testominial audios/Working With Databiqs.mp3';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
-const SLIDES = [
-  [
-    {
-      id: 1,
-      quote:
-        '"Databiqs Delivered An AI Solution That Significantly Improved Our Customer Response Time And Operational Efficiency. Their Approach Was Strategic, Professional, And Results-Driven."',
-      bg: card1Picture,
-      audio: audioCard1,
-    },
-    {
-      id: 2,
-      quote:
-        '"Databiqs Helped Us Modernize Our Customer Experience With AI-First Automation, Delivering Faster Service And Better Decision-Making Across Teams."',
-      bg: card3Picture,
-      audio: audioCard2,
-    },
-    {
-      id: 3,
-      quote:
-        '"The AI Automation Implemented By Databiqs Streamlined Our Internal Workflows And Reduced Manual Effort Across Teams. Their Expertise With Intelligent Systems Truly Stands Out."',
-      bg: card3Picture,
-      audio: audioCard3,
-    },
-    {
-      id: 5,
-      quote:
-        '"Working With Databiqs Has Been Transformative For Our Business. Their AI Solutions Enabled Us To Automate Key Processes And Scale Effortlessly Across All Departments."',
-      bg: card4Picture,
-      audio: audioCard4,
-    },
-  ],
-  [
-    {
-      id: 6,
-      quote:
-        '"The Intelligent Automation Platform Deployed By Databiqs Reduced Our Operational Costs By 40%. Their Team Was Knowledgeable, Responsive, And Truly Invested In Our Success."',
-      bg: card3Picture,
-    },
-    {
-      id: 7,
-      quote:
-        '"Databiqs Understood Our Unique Challenges And Delivered A Tailored AI Solution That Exceeded Expectations. The Results Were Measurable Within The First Month."',
-      bg: card4Picture,
-    },
-    {
-      id: 8,
-      quote:
-        '"From Initial Consultation To Full Deployment The Databiqs Team Was Professional And Thorough. Their AI Tools Gave Us A Competitive Edge We Did Not Expect So Quickly."',
-      bg: card1Picture,
-    },
-  ],
-  [
-    {
-      id: 9,
-      quote:
-        '"Databiqs Helped Us Implement AI-Driven Lead Scoring That Transformed Our Sales Pipeline. Our Conversion Rates Improved Significantly Within The First Quarter."',
-      bg: card3Picture,
-    },
-    {
-      id: 10,
-      quote:
-        '"The Team At Databiqs Brought Both Technical Depth And Strategic Vision. Their AI Solutions Integrated Seamlessly With Our Existing Systems And Delivered Real ROI."',
-      bg: card4Picture,
-    },
-    {
-      id: 11,
-      quote:
-        '"Our Customer Satisfaction Scores Jumped After Deploying Databiqs AI Tools. Automation Of Routine Tasks Freed Our Team To Focus On High-Value Client Relationships."',
-      bg: card1Picture,
-    },
-    {
-      id: 12,
-      quote:
-        '"Databiqs Delivered An Enterprise-Grade AI Solution On Time And Within Budget. Their Expertise In Data Intelligence Helped Us Unlock Insights We Had Never Accessed Before."',
-      bg: card3Picture,
-    },
-  ],
+const AUDIO_FILES = [
+  { name: 'Databiqs Delivered An', file: audioDatabiqsDeliveredAn },
+  { name: 'Databiqs Helped Us', file: audioDatabiqsHelpedUs },
+  { name: 'Databiqs Understood', file: audioDatabiqsUnderstood },
+  { name: 'From Initial Consultation', file: audioFromInitialConsultation },
+  { name: 'Our Customer Satisfaction', file: audioOurCustomerSatisfaction },
+  { name: 'The AI Automation', file: audioTheAiAutomation },
+  { name: 'The Intelligent Automation', file: audioTheIntelligentAutomation },
+  { name: 'The Team At Databiqs', file: audioTheTeamAtDatabiqs },
+  { name: 'Working With Databiqs', file: audioWorkingWithDatabiqs },
 ];
+
+const cleanWords = (value) =>
+  value
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .split(' ')
+    .filter(Boolean);
+
+const getFirstThreeWordsKey = (value) => cleanWords(value).slice(0, 3).join(' ');
+const getFirstTwoWordsKey = (value) => cleanWords(value).slice(0, 2).join(' ');
+
+const audioKeyIndex = AUDIO_FILES.reduce((acc, item) => {
+  const key3 = getFirstThreeWordsKey(item.name);
+  const key2 = getFirstTwoWordsKey(item.name);
+  if (key3) acc[key3] = item.file;
+  if (key2 && !acc[key2]) acc[key2] = item.file;
+  return acc;
+}, {});
+
+const TESTIMONIALS = [
+  {
+    id: 1,
+    quote:
+      '"Databiqs Delivered An AI Solution That Significantly Improved Our Customer Response Time And Operational Efficiency. Their Approach Was Strategic, Professional, And Results-Driven."',
+    bg: card1Picture,
+  },
+  {
+    id: 2,
+    quote:
+      '"Databiqs Helped Us Modernize Our Customer Experience With AI-First Automation, Delivering Faster Service And Better Decision-Making Across Teams."',
+    bg: card3Picture,
+  },
+  {
+    id: 3,
+    quote:
+      '"The AI Automation Implemented By Databiqs Streamlined Our Internal Workflows And Reduced Manual Effort Across Teams. Their Expertise With Intelligent Systems Truly Stands Out."',
+    bg: card3Picture,
+  },
+  {
+    id: 5,
+    quote:
+      '"Working With Databiqs Has Been Transformative For Our Business. Their AI Solutions Enabled Us To Automate Key Processes And Scale Effortlessly Across All Departments."',
+    bg: card4Picture,
+  },
+  {
+    id: 6,
+    quote:
+      '"The Intelligent Automation Platform Deployed By Databiqs Reduced Our Operational Costs By 40%. Their Team Was Knowledgeable, Responsive, And Truly Invested In Our Success."',
+    bg: card3Picture,
+  },
+  {
+    id: 7,
+    quote:
+      '"Databiqs Understood Our Unique Challenges And Delivered A Tailored AI Solution That Exceeded Expectations. The Results Were Measurable Within The First Month."',
+    bg: card4Picture,
+  },
+  {
+    id: 8,
+    quote:
+      '"From Initial Consultation To Full Deployment The Databiqs Team Was Professional And Thorough. Their AI Tools Gave Us A Competitive Edge We Did Not Expect So Quickly."',
+    bg: card1Picture,
+  },
+  {
+    id: 10,
+    quote:
+      '"The Team At Databiqs Brought Both Technical Depth And Strategic Vision. Their AI Solutions Integrated Seamlessly With Our Existing Systems And Delivered Real ROI."',
+    bg: card4Picture,
+  },
+  {
+    id: 11,
+    quote:
+      '"Our Customer Satisfaction Scores Jumped After Deploying Databiqs AI Tools. Automation Of Routine Tasks Freed Our Team To Focus On High-Value Client Relationships."',
+    bg: card1Picture,
+  },
+];
+
+const TESTIMONIALS_WITH_AUDIO = TESTIMONIALS.map((item) => ({
+  ...item,
+  audio: audioKeyIndex[getFirstThreeWordsKey(item.quote)] || audioKeyIndex[getFirstTwoWordsKey(item.quote)] || null,
+}));
+
+const chunkTestimonials = (items, size) => {
+  const result = [];
+  for (let i = 0; i < items.length; i += size) {
+    result.push(items.slice(i, i + size));
+  }
+  return result;
+};
+
+const SLIDES = chunkTestimonials(TESTIMONIALS_WITH_AUDIO, 4);
 
 const TestimonialsSection = ({ sectionId = 'case-studies' } = {}) => {
   const sectionRef = useScrollAnimation({ threshold: 0.2 });

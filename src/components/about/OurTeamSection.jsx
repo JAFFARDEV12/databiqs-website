@@ -7,28 +7,31 @@ import teamlead from "../../assets/team/team-lead.png"
 import projectmanager from "../../assets/team/project-manager&AI-Developer.png"
 import softwareengineer from "../../assets/team/software-engineer.png"
 import softwareengineer2 from "../../assets/team/software-engineer2.png"
-import softwareengineer3 from "../../assets/team/software-engineer3.png"
-import businessdevelopmentexecutive from "../../assets/team/business-development-executive.png"
+import softwareengineer3 from "../../assets/team/software-engineer3.jpg"
+import businessdevelopmentexecutive from "../../assets/team/business-development-executive.jfif"
 import marketingmanager from "../../assets/team/marketing-manager.png"
 import uiuxdesigner from "../../assets/team/ui-ux-designer.png"
-import fullstackaideveloper from "../../assets/team/fullstack-AI-Engineer.png"
-import cto from "../../assets/team/CTO.png"
+import irumImg from "../../assets/team/Irum (1).png"
+import shamimImg from "../../assets/team/Shamaim (1).png"
+import akhlaqImg from "../../assets/team/Akhlaq (1).png"
+import talhaimg from "../../assets/team/fullstack-AI-Engineer.png"
+import alishbaimg from "../../assets/team/Alishba.png"
 
 const TEAM_MEMBERS = [
-  { name: "Jaffar Ali Chaudhary", role: "CEO", image: ceoImg, featured: true },
-  { name: "Jawad Afzal", role: "Chief Technology Officer (CTO)", image: cto ,featured: true},
+  { name: "Jaffar Ali Chaudhary", role: "Founder & CEO", image: ceoImg, featured: true, spotlight: true },
   { name: "Maudood Fareed", role: "Team Lead", image: teamlead ,featured: true},
-  { name: "Alishba Aslam", role: "HR Manager"},
-  { name: "Shamim", role: "Senior UI UX Designer"},
+  { name: "Akhlaq Ahmad", role: "Senior Software Engineer", image: akhlaqImg ,featured: true},
+  { name: "Alishba Aslam", role: "HR Manager", image:  alishbaimg},
+  { name: "Shamaim Ali Rizvi", role: "Senior UI UX Designer", image: shamimImg, featured: true},
   { name: "Wali ullah", role: "Business Development Executive", image: businessdevelopmentexecutive ,featured: true},
-  { name: "Abdullah Anjum", role: "Marketing Manager", image: marketingmanager ,featured: true},
-  { name: "Maarij Ali", role: "Project Manager", image: projectmanager ,featured: true},
-  { name: "Irum Shahzadi", role: "Software Engineer"},
-  { name: "Ali Raza", role: "Software Engineer", image: softwareengineer3 ,featured: true},
-  { name: "Saad Bin Abi Usama", role: "Software Engineer", image: softwareengineer2 ,featured: true},
+  { name: "Abdullah Anjum", role: "Business Development Executive", image: marketingmanager ,featured: true},
+  { name: "Maarij Ali", role: "Technical Project Manager", image: projectmanager ,featured: true},
+  { name: "Irum Shahzadi", role: "Senior Software Engineer", image: irumImg, featured: true},
+  { name: "Ali Raza", role: "Senior Software Engineer", image: softwareengineer3 ,featured: true},
+  { name: "Saad Bin Abi Usama", role: "Senior Software Engineer", image: softwareengineer2 ,featured: true},
   { name: "Hamza Mumtaz", role: "UI UX Designer", image: uiuxdesigner ,featured: true},
-  { name: "Faizan Ahmed", role: "Software Engineer", image: softwareengineer ,featured: true},
-  { name: "Talha Bin Faisal", role: "Full Stack AI Developer", image: fullstackaideveloper ,featured: true},
+  { name: "Faizan Ahmed", role: "Associate Software Engineer", image: softwareengineer ,featured: true},
+  { name: "Talha Bin Faisal", role: "Full Stack AI Developer", image: talhaimg ,featured: true},
 ];
 
 const getInitials = (name) =>
@@ -41,8 +44,8 @@ const getInitials = (name) =>
 
 const OurTeamSection = () => {
   const sectionRef = useScrollAnimation({ threshold: 0.14 });
-  const ceoMember = TEAM_MEMBERS.find((member) => member.role === "CEO");
-  const otherMembers = TEAM_MEMBERS.filter((member) => member.role !== "CEO");
+  const ceoMember = TEAM_MEMBERS.find((member) => member.spotlight);
+  const otherMembers = TEAM_MEMBERS.filter((member) => !member.spotlight);
 
   return (
     <section className="our-team" id="our-team" ref={sectionRef}>
