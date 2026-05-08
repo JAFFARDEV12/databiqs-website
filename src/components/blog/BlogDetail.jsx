@@ -86,6 +86,7 @@ const BlogDetail = () => {
   const blog = BLOG_POSTS_BY_ID[String(id)] || BLOG_POSTS_BY_ID["1"];
   const relatedPair = getRelatedVideoAndStill(blog, BLOG_POSTS);
   const contentLines = blog.content.split("\n");
+  const contentNodes = contentLines.map((line, idx) => renderContentBlock(line, idx)).filter(Boolean);
   const isVideoCover = isVideoAssetUrl(blog.image);
 
   return (

@@ -270,27 +270,27 @@ p.more-cs-card-text {
 }
 
 .more-cs-card-cta {
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-end;
-  gap: 8px;
-  flex-wrap: wrap;
-  width: 100%;
-  max-width: 100%;
+  justify-content: flex-start;
+  gap: 6px;
+  flex-wrap: nowrap;
+  width: auto;
+  max-width: none;
   box-sizing: border-box;
   margin: 0;
   margin-top: auto;
-  padding-top: 16px;
+  padding-top: 14px;
   flex: 0 0 auto;
   line-height: 1.2;
   text-align: left;
 
-  font-size: 14px;
-  font-weight: 600;
-  color: #002E9E;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1b56c3;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, gap 0.2s ease;
 }
 
 .more-cs-card-cta-label {
@@ -299,7 +299,8 @@ p.more-cs-card-text {
 }
 
 .more-cs-card-cta:hover {
-  color: #6d28d9;
+  color: #0054E9;
+  gap: 10px;
 }
 
 .more-cs-card-cta-icon {
@@ -307,20 +308,33 @@ p.more-cs-card-text {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
-  background: #002E9E;
+  background: rgba(0, 46, 158, 0.08);
   flex-shrink: 0;
   line-height: 0;
+  transform: translateX(0);
+  transition: transform 0.25s ease, background 0.2s ease;
 }
 
 .more-cs-card-cta-icon img {
   display: block;
-  width: 12px;
+  width: 10px;
   height: 10px;
   object-fit: contain;
-  filter: brightness(0) invert(1);
+  filter: none;
+  transform: rotate(-45deg);
+  transition: transform 0.25s ease;
+}
+
+.more-cs-card-cta:hover .more-cs-card-cta-icon {
+  background: rgba(0, 46, 158, 0.12);
+  transform: translateX(4px);
+}
+
+.more-cs-card-cta:hover .more-cs-card-cta-icon img {
+  transform: rotate(0deg);
 }
 
 .more-cs-arrow {

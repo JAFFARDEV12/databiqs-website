@@ -103,7 +103,13 @@ const Chatbot = () => {
             <div className="chatbot-header-brand">
               <div className="chatbot-mini-logo">
                 <img src={chatbotIcon} alt="Databiqs" className="chatbot-mini-logo-icon" />
-                <span className="chatbot-mini-logo-text">atabiqs</span>
+                <div className="chatbot-mini-logo-copy">
+                  <span className="chatbot-mini-logo-text">Databiqs AI</span>
+                  <span className="chatbot-mini-logo-subtext">
+                    <span className="chatbot-status-dot" aria-hidden />
+                    Online now
+                  </span>
+                </div>
               </div>
             </div>
             <button className="chatbot-close" onClick={toggleChatbot} aria-label="Close chatbot">
@@ -113,6 +119,10 @@ const Chatbot = () => {
 
           <div className="chatbot-body">
             <div className="chatbot-messages">
+              <div className="chatbot-intro-card">
+                <p>Hi, I am your Databiqs assistant.</p>
+                <span>Ask about services, timelines, integrations, or pricing.</span>
+              </div>
               {messages.map((msg, i) => (
                 <div
                   key={i}
@@ -153,7 +163,7 @@ const Chatbot = () => {
               <input
                 ref={inputRef}
                 type="text"
-                placeholder="Type your message..."
+                placeholder="Ask Databiqs AI Assistant..."
                 className="chatbot-input"
                 value={input}
                 onChange={e => setInput(e.target.value)}
@@ -164,8 +174,9 @@ const Chatbot = () => {
                 className="chatbot-send"
                 onClick={sendMessage}
                 disabled={loading || !input.trim()}
+                aria-label="Send message"
               >
-                Send
+                <span>Send</span>
               </button>
             </div>
           </div>

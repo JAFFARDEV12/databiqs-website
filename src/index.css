@@ -332,13 +332,173 @@ html body *:not(code):not(pre):not(kbd):not(samp)::after {
   transform: rotate(0deg) !important;
 }
 
-/* Setup consultation call: keep icon circle slightly smaller */
+/* Setup consultation call: match header CTA icon circle */
 .meeting-banner__cta .meeting-banner__cta-arrow {
-  width: 18px !important;
-  height: 18px !important;
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  min-height: 22px !important;
+  max-width: 22px !important;
+  max-height: 22px !important;
+  flex: 0 0 22px !important;
 }
 
-/* Read full case studies: keep arrow visible in white circle */
-.more-cs-card-cta-icon img {
+/* Read full case studies: force Read More style (not global pill CTA) */
+.case-studies-page .more-cs-card-cta {
+  background: transparent !important;
+  color: #1b56c3 !important;
+  border: none !important;
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 14px 0 0 !important;
+  border-radius: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 6px !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  transform: none !important;
+}
+
+.case-studies-page .more-cs-card-cta:hover {
+  background: transparent !important;
+  color: #0054E9 !important;
+  gap: 10px !important;
+  transform: none !important;
+}
+
+.case-studies-page .more-cs-card-cta-icon {
+  width: 26px !important;
+  height: 26px !important;
+  min-width: 26px !important;
+  min-height: 26px !important;
+  background: rgba(0, 46, 158, 0.08) !important;
+  transform: translateX(0) !important;
+  transition: transform 0.25s ease, background 0.2s ease !important;
+}
+
+.case-studies-page .more-cs-card-cta:hover .more-cs-card-cta-icon {
+  background: rgba(0, 46, 158, 0.12) !important;
+  transform: translateX(4px) !important;
+}
+
+.case-studies-page .more-cs-card-cta-icon img {
+  width: 10px !important;
+  height: 10px !important;
   filter: none !important;
+  transform: rotate(-45deg) !important;
+  transition: transform 0.25s ease !important;
+}
+
+.case-studies-page .more-cs-card-cta:hover .more-cs-card-cta-icon img {
+  transform: rotate(0deg) !important;
+}
+
+/* Home case-studies "Read More": keep text-link style + icon slide */
+.home .case-studies-section .cs-cta {
+  background: transparent !important;
+  color: #002E9E !important;
+  padding: 0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  border-radius: 0 !important;
+  justify-content: flex-start !important;
+  gap: 6px !important;
+  transform: none !important;
+}
+
+.home .case-studies-section .cs-cta:hover,
+.home .case-studies-section .case-study-card:hover .cs-cta {
+  background: transparent !important;
+  color: #0054E9 !important;
+  gap: 10px !important;
+  transform: none !important;
+}
+
+.home .case-studies-section .cs-cta-arrow {
+  width: 26px !important;
+  height: 26px !important;
+  background: rgba(0, 46, 158, 0.12) !important;
+  transform: translateX(0) !important;
+  transition: transform 0.25s ease, background 0.2s ease !important;
+}
+
+.home .case-studies-section .cs-cta:hover .cs-cta-arrow,
+.home .case-studies-section .case-study-card:hover .cs-cta-arrow {
+  background: rgba(0, 46, 158, 0.08) !important;
+  transform: translateX(6px) !important;
+}
+
+/* Case Studies listing page: same Read More state swap */
+.case-studies-page--listing .case-studies-section .cs-cta {
+  background: transparent !important;
+  color: #002E9E !important;
+  padding: 0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  border-radius: 0 !important;
+  justify-content: flex-start !important;
+  gap: 6px !important;
+  transform: none !important;
+}
+
+.case-studies-page--listing .case-studies-section .cs-cta:hover,
+.case-studies-page--listing .case-studies-section .case-study-card:hover .cs-cta {
+  background: transparent !important;
+  color: #0054E9 !important;
+  gap: 10px !important;
+  transform: none !important;
+}
+
+.case-studies-page--listing .case-studies-section .cs-cta-arrow {
+  width: 26px !important;
+  height: 26px !important;
+  background: rgba(0, 46, 158, 0.12) !important;
+  transform: translateX(0) !important;
+  transition: transform 0.25s ease, background 0.2s ease !important;
+}
+
+.case-studies-page--listing .case-studies-section .cs-cta:hover .cs-cta-arrow,
+.case-studies-page--listing .case-studies-section .case-study-card:hover .cs-cta-arrow {
+  background: rgba(0, 46, 158, 0.08) !important;
+  transform: translateX(6px) !important;
+}
+
+/* Services page Core Capabilities "Read More": force text-link style */
+.services-page .core-card__link {
+  background: transparent !important;
+  color: #002E9E !important;
+  border: none !important;
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  justify-content: flex-start !important;
+  gap: 6px !important;
+  transform: none !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+}
+
+.services-page .core-card__link:hover {
+  background: transparent !important;
+  color: #0054E9 !important;
+  gap: 10px !important;
+  transform: none !important;
+}
+
+.services-page .core-card__link-arrow {
+  width: 26px !important;
+  height: 26px !important;
+  min-width: 26px !important;
+  min-height: 26px !important;
+  background: rgba(0, 46, 158, 0.08) !important;
+  transform: translateX(0) !important;
+  transition: transform 0.25s ease, background 0.2s ease !important;
+}
+
+.services-page .core-card__link:hover .core-card__link-arrow {
+  background: rgba(0, 46, 158, 0.12) !important;
+  transform: translateX(4px) !important;
 }

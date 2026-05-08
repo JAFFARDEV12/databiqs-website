@@ -6,8 +6,8 @@
   --solution-need-sticky-top: 88px;
   --solution-need-pin-zones: 5;
   position: relative;
-  height: calc(var(--solution-need-pin-zones) * 52vh);
-  min-height: calc(var(--solution-need-pin-zones) * 380px);
+  height: auto;
+  min-height: 0;
   background: #ffffff;
 }
 
@@ -170,7 +170,7 @@
   align-items: center;
   justify-content: flex-start;
   text-align: left;
-  cursor: default;
+  cursor: pointer;
   flex-shrink: 0;
   user-select: none;
   box-sizing: border-box;

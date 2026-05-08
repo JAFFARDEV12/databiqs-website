@@ -5,7 +5,6 @@ import './Footer.css';
 import footerlogo from '../../assets/footer-logo.svg';
 import instaSvg from '../../assets/insta.svg';
 import linkedinSvg from '../../assets/linkedin.svg';
-import facebookSvg from '../../assets/facebook.svg';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 
@@ -34,7 +33,7 @@ const Footer = () => {
             </p>
             <div className="social-icons">
   <a
-    href="https://www.linkedin.com"
+    href="https://www.linkedin.com/company/databiqs"
     target="_blank"
     rel="noopener noreferrer"
     className="social-icon"
@@ -48,21 +47,7 @@ const Footer = () => {
   </a>
 
   <a
-    href="https://www.facebook.com"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="social-icon"
-    aria-label="Facebook"
-    style={{ "--i": "#1877F2", "--j": "#0F5DC4" }}
-  >
-    <span className="icon">
-      <img src={facebookSvg} alt="" aria-hidden="true" loading="lazy" decoding="async" />
-    </span>
-    <span className="title">Facebook</span>
-  </a>
-
-  <a
-    href="https://www.instagram.com"
+    href="https://www.instagram.com/databiqs/"
     target="_blank"
     rel="noopener noreferrer"
     className="social-icon"

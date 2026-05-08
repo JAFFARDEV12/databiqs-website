@@ -503,10 +503,12 @@
 .service-detail-page .sd-meeting-banner-section {
   padding-left: 0;
   padding-right: 0;
+  overflow-x: clip;
 }
 
 .service-detail-page .sd-meeting-banner-section .meeting-banner-section__wrap {
   max-width: min(1160px, 100%);
+  overflow-x: clip;
 }
 
 .service-detail-page .sd-final-cta__inner {

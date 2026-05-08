@@ -362,6 +362,10 @@
     padding: 14px 20px 36px;
   }
 
+  .hero-section--case-studies-page {
+    padding-bottom: 86px;
+  }
+
   .hero-content {
     align-items: center;
     text-align: center;
@@ -420,9 +424,13 @@
     padding: 10px 16px 28px;
   }
 
+  .hero-section--case-studies-page {
+    padding-bottom: 78px;
+  }
+
   .hero-headline {
     font-size: calc(clamp(44px, 10.5vw, 62px) - 4px);
-    line-height: 1.05;
+    line-height: 1.14;
   }
 
   .hero-visual {
@@ -451,6 +459,10 @@
 @media (max-width: 360px) {
   .hero-section {
     padding: 8px 12px 22px;
+  }
+
+  .hero-section--case-studies-page {
+    padding-bottom: 72px;
   }
 
   .hero-headline {

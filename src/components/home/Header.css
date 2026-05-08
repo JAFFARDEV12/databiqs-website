@@ -611,11 +611,13 @@
 @media (max-width: 600px) {
   .Header {
     padding: 10px 10px !important;
+    margin-top: 0 !important;
   }
 
   .Header .header-container {
     grid-template-columns: auto auto;
     justify-content: space-between;
+    margin: 0 auto;
     padding: 8px 12px !important;
     border-radius: 18px;
   }
@@ -632,9 +634,11 @@
 @media (max-width: 360px) {
   .Header {
     padding: 8px 8px !important;
+    margin-top: 0 !important;
   }
 
   .Header .header-container {
+    margin: 0 auto;
     padding: 8px 10px !important;
   }
 

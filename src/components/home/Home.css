@@ -178,6 +178,34 @@
   .home {
     --home-page-pad-x: clamp(10px, 3vw, 18px);
   }
+
+  .home-content > :where(
+    .top-gradient-wrapper,
+    section,
+    .numbers-stats-section,
+    .ai-solutions-section,
+    .ai-automation-section,
+    .testimonials-section,
+    .stats-bar-section,
+    .case-studies-section,
+    .tools-audits-section,
+    .meeting-banner-section,
+    .footer
+  ) + :where(
+    .top-gradient-wrapper,
+    section,
+    .numbers-stats-section,
+    .ai-solutions-section,
+    .ai-automation-section,
+    .testimonials-section,
+    .stats-bar-section,
+    .case-studies-section,
+    .tools-audits-section,
+    .meeting-banner-section,
+    .footer
+  ) {
+    margin-top: 14px;
+  }
 }
 
 @media (max-width: 360px) {
