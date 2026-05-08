@@ -9,6 +9,12 @@
     --case-study-section-gap: clamp(40px, 6.5vw, 72px);
     
   }
+
+  /* Case Study detail pages: force Sora typography throughout */
+  .case-studies-page .case-study-page,
+  .case-studies-page .case-study-page * {
+    font-family: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  }
   
   /* Case studies route (see caseStudies.jsx root): all <p> Inter 400 regular; font-size from existing rules */
   .case-studies-page p {
@@ -19,6 +25,7 @@
     overflow-wrap: anywhere;
     word-break: break-word;
     box-sizing: border-box;
+    margin-bottom: 20px;
   }
   
   /* Case studies route: selected headings use Sora at 40px (phase titles keep Bebas via scoped classes) */

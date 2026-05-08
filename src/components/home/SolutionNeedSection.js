@@ -4,6 +4,7 @@ import { Bot, Brain, Lightbulb, Workflow } from 'lucide-react';
 import videoChatbots from '../../assets/8501993-uhd_2160_3840_25fps.mp4';
 import videoMl from '../../assets/8328106-uhd_2160_3840_25fps.mp4';
 import videoStrategy from '../../assets/7688618-uhd_2160_4096_24fps.mp4';
+import videoThirdCard from '../../assets/14945650_2160_3840_25fps.mp4';
 import './SolutionNeedSection.css';
 
 const SOLUTION_OPTIONS = [
@@ -53,7 +54,7 @@ const SOLUTION_OPTIONS = [
     ],
     ctaTo: '/services/machine-learning',
     Icon: Brain,
-    videoSrc: videoMl,
+    videoSrc: videoThirdCard,
   },
   {
     id: 'strategy',

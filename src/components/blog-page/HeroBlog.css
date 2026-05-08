@@ -436,6 +436,10 @@
     grid-template-columns: 1fr;
   }
 
+  .heroBlog__intro {
+    padding-left: 8px;
+  }
+
   .heroBlog__featureRow {
     min-height: clamp(260px, 56vw, 340px);
     margin-top: 14px;
@@ -452,9 +456,6 @@
     padding: 22px 18px;
   }
 
-  .heroBlog__intro {
-    padding-left: 0;
-  }
 }
 
 @media (max-width: 480px) {

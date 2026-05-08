@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './HeroSection.css';
 import GlobeCanvas from './GlobeCanvas';
 
-const EMAIL = 'contact@databiqs.com';
+const EMAIL = 'ceo@databiqs.com';
 
 const CopyIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

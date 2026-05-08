@@ -47,6 +47,9 @@
   flex-direction: column;
   gap: 28px;
   min-width: 0;
+  position: relative;
+  left: 30px;
+  top: 20px;
 }
 
 .hero-headline {
@@ -345,6 +348,11 @@
     grid-template-columns: 1fr;
     gap: 36px;
     min-height: auto;
+  }
+
+  .hero-content {
+    left: 0;
+    top: 0;
   }
 
   .hero-visual {

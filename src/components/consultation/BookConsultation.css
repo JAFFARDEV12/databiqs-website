@@ -6,8 +6,8 @@
   --book-font-heading: "Sora", sans-serif;
   --book-control-radius: 12px;
   --book-pill-radius: 999px;
-  --book-border-subtle: 1px solid #e6dbff;
-  --book-border-hover: 1px solid #c9a5ff;
+  --book-border-subtle: 1px solid rgba(0, 46, 158, 0.16);
+  --book-border-hover: 1px solid rgba(0, 46, 158, 0.34);
   --book-primary-gradient: #002E9E;
   --book-text: #2f2f2f;
   --book-text-muted: #5a5a5a;
@@ -42,13 +42,14 @@
 .book-consultation-page__heroWrap {
   --book-page-pad-x: clamp(16px, 4vw, 32px);
   margin: -12px calc(-1 * var(--book-page-pad-x)) 0;
-  padding: 12px 0 clamp(10px, 1.5vw, 18px);
+  padding: 20px 0 clamp(10px, 1.5vw, 18px);
   width: calc(100% + (2 * var(--book-page-pad-x)));
   box-sizing: border-box;
   background: #ffffff;
   position: relative;
   overflow: visible;
   z-index: 2;
+  margin-bottom: 50px;
 }
 
 .book-consultation-page__heroWrap::before {
@@ -89,9 +90,9 @@
 .book-consultation__left,
 .book-consultation__right {
   background: #ffffff;
-  border: 1px solid rgba(173, 133, 255, 0.24);
+  border: 1px solid rgba(0, 46, 158, 0.16);
   border-radius: clamp(20px, 2.6vw, 30px);
-  box-shadow: 0 16px 40px rgba(88, 42, 154, 0.08);
+  box-shadow: 0 14px 36px rgba(0, 46, 158, 0.08);
   padding: clamp(20px, 3vw, 36px);
 }
 
@@ -109,8 +110,8 @@
   padding: 8px 16px;
   border-radius: var(--book-pill-radius);
   background: #ffffff;
-  border: 1px solid #d4b8ff;
-  color: #5d2aa3;
+  border: 1px solid rgba(0, 46, 158, 0.2);
+  color: #002E9E;
   font-size: 13px;
   font-family: var(--book-font-ui);
   font-weight: 500;
@@ -153,10 +154,14 @@
 }
 
 .book-consultation__selector--calendar {
-  border: 1px solid #ebe3fc;
+  border: 1px solid rgba(0, 46, 158, 0.16);
   border-radius: 18px;
   padding: 14px;
-  background: #fcfaff;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 46, 158, 0.12) 22%,
+    rgba(0, 84, 233, 0.05) 100%
+  );
 }
 
 .book-calendar__head {
@@ -230,7 +235,7 @@
   font-size: 11px;
   font-family: var(--book-font-ui);
   font-weight: 600;
-  color: #7d7196;
+  color: #5b6d95;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
@@ -267,8 +272,8 @@
 }
 
 .book-calendar__day.is-outside {
-  color: #a6a0b5;
-  background: #faf8ff;
+  color: #8a9abb;
+  background: #f3f7ff;
   font-weight: 500;
 }
 
@@ -322,7 +327,7 @@
   font-family: var(--book-font-ui);
   font-weight: 400;
   line-height: 1.5;
-  color: var(--book-text);
+  color: #334155;
 }
 
 .book-consultation__selected strong {
@@ -375,13 +380,20 @@
 .book-form input,
 .book-form textarea {
   width: 100%;
-  border: 1px solid #ddd3f3;
+  border: 1px solid rgba(0, 46, 158, 0.16);
   border-radius: 14px;
   padding: 12px 14px;
   font-size: 14px;
   box-sizing: border-box;
   font-family: var(--book-font-ui);
   color: var(--book-text);
+}
+
+.book-form input:focus,
+.book-form textarea:focus {
+  outline: none;
+  border-color: rgba(0, 46, 158, 0.45);
+  box-shadow: 0 0 0 3px rgba(0, 84, 233, 0.12);
 }
 
 .book-form textarea {
@@ -410,11 +422,15 @@
   box-shadow: 0 10px 28px rgba(0, 46, 158, 0.35);
 }
 
+.book-form .meeting-banner__cta {
+  margin-top: 20px;
+}
+
 .book-success {
-  border: 1px solid #d7c0ff;
+  border: 1px solid rgba(0, 46, 158, 0.2);
   border-radius: 20px;
   padding: clamp(18px, 3vw, 28px);
-  background: linear-gradient(180deg, rgba(0, 46, 158, 0.1) 0%, #ffffff 100%);
+  background: linear-gradient(180deg, rgba(0, 46, 158, 0.14) 0%, #ffffff 100%);
 }
 
 .book-success__badge {
@@ -481,8 +497,8 @@
   border-radius: 22px;
   padding: clamp(16px, 2.8vw, 28px);
   background: #ffffff;
-  border: 1px solid #e5d7ff;
-  box-shadow: 0 24px 54px rgba(47, 16, 86, 0.28);
+  border: 1px solid rgba(0, 46, 158, 0.2);
+  box-shadow: 0 24px 54px rgba(0, 46, 158, 0.24);
   z-index: 1;
   margin: auto;
 }

@@ -308,9 +308,9 @@
 
 /* Schedule button — same as meeting banner / theme CTAs */
 .au-btnSchedule {
-  width: 100%;
-  max-width: 270px;
-  height: 50px;
+  width: fit-content;
+  max-width: 100%;
+  height: 40px;
 
   border: none;
   border-radius: 999px;
@@ -318,10 +318,10 @@
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 6px;
 
-  padding-left: 22px;
-  padding-right: 14px;
+  padding: 0 12px 0 22px;
 
   background: #002E9E;
   color: #ffffff;
@@ -337,16 +337,16 @@
 
 .au-btnSchedule__text {
   font-family: var(--about-font-ui);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 16px;
+  line-height: 1;
   color: #ffffff;
   white-space: nowrap;
 }
 
 .au-btnSchedule__icon {
-  width: 34px;
-  height: 34px;
+  width: 22px;
+  height: 22px;
   border-radius: 999px;
 
   display: flex;
@@ -360,9 +360,15 @@
 }
 
 .au-btnSchedule__icon img {
-  width: 14px;
-  height: 14px;
+  width: 11px;
+  height: 11px;
   object-fit: contain;
+  transform: rotate(-45deg);
+  transition: transform 0.25s ease;
+}
+
+.au-btnSchedule:hover .au-btnSchedule__icon img {
+  transform: rotate(0deg);
 }
 
 /* CEO */
@@ -1273,8 +1279,19 @@ width: 100%;
 }
 
 .au-page .au-btnSchedule {
-  width: fit-content;
-  min-width: 240px;
+  width: auto;
+  min-width: 0;
+}
+
+/* About hero CTA: tighten text ↔ icon spacing */
+.au-page .au-actions .au-btnSchedule {
+  justify-content: flex-start !important;
+  gap: 4px !important;
+  padding: 0 10px 0 18px !important;
+}
+
+.au-page .au-actions .au-btnSchedule__text {
+  margin-right: 0 !important;
 }
 
 .au-page .au-right {
@@ -1797,6 +1814,56 @@ width: 100%;
     max-width: 360px !important;
     margin-inline: auto !important;
     min-height: 0;
+  }
+}
+
+/* ===== About stats strip final spacing fix ===== */
+.au-page .au-stats {
+  padding-block: clamp(10px, 1.8vw, 18px);
+}
+
+.au-page .au-stats__track {
+  display: flex;
+  align-items: center;
+  gap: clamp(26px, 4vw, 44px);
+  padding-inline: clamp(14px, 2.2vw, 28px);
+}
+
+.au-page .au-stats__inner {
+  display: flex;
+  align-items: center;
+  gap: clamp(26px, 4vw, 44px);
+  flex-wrap: nowrap !important;
+}
+
+.au-page .au-stats__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.au-page .au-stats__item span {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.au-page .au-star {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 14px;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .au-page .au-stats__track,
+  .au-page .au-stats__inner {
+    gap: 20px;
+  }
+
+  .au-page .au-stats__item {
+    gap: 8px;
   }
 }
 

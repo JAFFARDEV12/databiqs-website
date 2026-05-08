@@ -56,7 +56,7 @@ const buildCalendarDays = (visibleMonth) => {
  */
 const BookConsultationSection = ({
   className = '',
-  pillText = 'Session With Our CEO',
+  pillText = '',
   title = 'BOOK YOUR CONSULTATION SESSION',
   subtitle =
     'Reserve a focused strategy session with our CEO to map your AI product roadmap, identify high-impact opportunities, and define execution milestones.',
@@ -185,7 +185,7 @@ const BookConsultationSection = ({
       <section className={['book-consultation', className].filter(Boolean).join(' ')}>
         <div className="book-consultation__container">
           <div className="book-consultation__left">
-            <span className="book-consultation__pill">{pillText}</span>
+            {pillText ? <span className="book-consultation__pill">{pillText}</span> : null}
             <h1 className="book-consultation__title">{title}</h1>
             <p className="book-consultation__subtitle">{subtitle}</p>
 
