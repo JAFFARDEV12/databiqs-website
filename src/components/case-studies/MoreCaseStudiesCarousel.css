@@ -38,7 +38,7 @@
 .more-cs-head {
   text-align: center;
   margin-bottom: clamp(32px, 5vw, 48px);
-
+  
 }
 
 .more-cs-pill {
@@ -173,28 +173,59 @@ p.more-cs-sub {
 
 /* Figma: full-width top block; icon sits on same horizontal grid as text */
 .more-cs-card-visual {
-  
- 
+  position: relative;
+  min-width: 0;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
 
+.more-cs-card-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+ 
 }
 
 .more-cs-card-message-img {
- 
   display: flex;
- 
   min-width: 0;
   width: 100%;
   min-height: 120px;
   max-height: 128px;
   margin: 0 0 14px;
- 
   border-radius: 12px;
- 
   box-sizing: border-box;
   display: block;
- 
   object-fit: contain;
-  
+  filter: saturate(0.88) hue-rotate(8deg);
+}
+
+.more-cs-card-lottie {
+  width: 100%;
+  min-height: 86px;
+  height: 96px;
+  max-height: 96px;
+  margin: 0 0 14px;
+  border-radius: 12px;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.more-cs-card-lottie > div {
+  width: min(84%, 180px);
+  height: 100%;
+  background: transparent !important;
+}
+
+.more-cs-card-lottie svg,
+.more-cs-card-lottie canvas {
+  background: transparent !important;
 }
 
 .more-cs-card-content {

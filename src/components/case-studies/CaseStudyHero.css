@@ -113,11 +113,12 @@
     margin-top: 20px;
   }
   /* ── Hero visual ── */
-  .case-study-page-hero-visual {
+  .case-study-page-hero-visual,
+  .case-study-page-hero-lottie {
     width: 100%;
     height: auto;
-    min-height: clamp(220px, 30vw, 340px);
-    max-height: 420px;
+    min-height: clamp(260px, 34vw, 390px);
+    max-height: 480px;
     aspect-ratio: 16 / 10;
     border-radius: clamp(14px, 2vw, 24px);
     object-fit: cover;
@@ -125,8 +126,30 @@
       radial-gradient(circle at 75% 10%, rgba(193, 158, 255, 0.5), transparent 45%),
       radial-gradient(circle at 22% 82%, rgba(106, 53, 222, 0.65), transparent 55%),
       linear-gradient(135deg, #3d2369 0%, #522f8d 42%, #6d47c6 100%); */
-    box-shadow: 0 14px 36px rgba(87, 37, 172, 0.24);
     display: block;
+  }
+
+  .case-study-page-hero-visual {
+    box-shadow: 0 14px 36px rgba(87, 37, 172, 0.24);
+  }
+
+  .case-study-page-hero-lottie {
+    overflow: hidden;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .case-study-page-hero-lottie > div {
+    width: 100%;
+    height: 100%;
+    background: transparent !important;
+  }
+
+  .case-study-page-hero-lottie svg,
+  .case-study-page-hero-lottie canvas,
+  .case-study-page-hero-lottie path,
+  .case-study-page-hero-lottie g {
+    background: transparent !important;
   }
   
   /* =====================================================
@@ -148,8 +171,9 @@
       gap: 24px;
     }
   
-    .case-study-page-hero-visual {
-      min-height: clamp(180px, 50vw, 290px);
+    .case-study-page-hero-visual,
+    .case-study-page-hero-lottie {
+      min-height: clamp(210px, 54vw, 330px);
       height: auto;
       /* image comes second naturally; if you want it first, add order: -1 */
     }
@@ -204,8 +228,9 @@
       line-height: 1.6;
     }
   
-    .case-study-page-hero-visual {
-      min-height: clamp(160px, 55vw, 240px);
+    .case-study-page-hero-visual,
+    .case-study-page-hero-lottie {
+      min-height: clamp(190px, 60vw, 280px);
       border-radius: 14px;
     }
   }
@@ -224,8 +249,9 @@
       font-size: 14px;
     }
   
-    .case-study-page-hero-visual {
-      min-height: 170px;
+    .case-study-page-hero-visual,
+    .case-study-page-hero-lottie {
+      min-height: 200px;
     }
   }
   

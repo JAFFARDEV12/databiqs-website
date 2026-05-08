@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
+import Lottie from 'lottie-react';
 import './CaseStudyHero.css';
 import arrowIcon from '../../assets/rightarrow.svg';
+import caseStudyDetailAnimation from '../../assets/case-study-detail.json';
 
 /**
  * Two-column case study hero: tags + title + intro on the left, image on the right.
@@ -43,7 +45,9 @@ const CaseStudyHero = ({
       </Link>
       </div>
 
-      <img src={imageSrc} alt={imageAlt} className="case-study-page-hero-visual" />
+      <div className="case-study-page-hero-lottie" aria-label={imageAlt}>
+        <Lottie animationData={caseStudyDetailAnimation} loop autoplay />
+      </div>
     </div>
   );
 };

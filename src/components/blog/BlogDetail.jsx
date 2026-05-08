@@ -55,7 +55,7 @@ const renderContentBlock = (line, idx) => {
   if (!trimmed) return null;
 
   if (trimmed.startsWith("## ")) {
-    return <h2 key={`h2-${idx}`}>{trimmed.replace("## ", "")}</h2>;
+    return null;
   }
 
   if (trimmed.startsWith("- ")) {
@@ -146,7 +146,7 @@ const BlogDetail = () => {
     <span className="purple"></span>
     <span>{blog.tag}</span>
   </div>
-  <div className="bdp__copy">{contentLines.map((line, idx) => renderContentBlock(line, idx))}</div>
+  <div className="bdp__copy">{contentNodes}</div>
 
     <section className="bdp__related">
             <h2 ref={relatedTitleRef} className="bdp__relatedTitle scroll-reveal">

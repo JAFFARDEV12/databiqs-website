@@ -1,7 +1,8 @@
 /* PAGE WRAPPER – matches Services / Case Studies / About hero shell */
 
 :root {
-  --bdp-page-pad-x: clamp(16px, 4vw, 32px);
+  --bdp-page-pad-x: clamp(12px, 4.2vw, 32px);
+  --bdp-hero-min-h: clamp(200px, 42vw, 360px);
 }
 
 .top-gradient-wrapper-blog {
@@ -63,17 +64,15 @@
   background: transparent;
 }
 
-/* MAIN FRAME – 1280 EXACT */
+/* MAIN FRAME – fluid up to 1280px (avoids horizontal scroll on mobile) */
 .bdp__container {
-  width: 1280px;
+  width: 100%;
+  max-width: 1280px;
   margin: 0 auto;
- /*  background: linear-gradient(
-    180deg,
-    #ffffff 0%,
-    #ffffff 35%,
-    #ffffff 100%
-  ); */
+  padding-left: var(--bdp-page-pad-x);
+  padding-right: var(--bdp-page-pad-x);
   padding-top: 20px;
+  box-sizing: border-box;
 }
 
 /* META ROW */
@@ -140,13 +139,14 @@
   width: 100%;
   max-width: 1200px;
   margin: 12px auto 0;
-  padding: 0 var(--bdp-page-pad-x);
+  padding: 0;
   box-sizing: border-box;
 }
 
 .bdp__heroImg {
   width: 100%;
-  height: clamp(220px, 30vw, 360px);
+  height: var(--bdp-hero-min-h);
+  min-height: 200px;
   object-fit: cover;
   border-radius: clamp(16px, 1.8vw, 24px);
   display: block;
@@ -180,8 +180,11 @@
 
 /* BLOG CONTENT – EXACT Figma text styling everywhere */
 .bdp__content {
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   margin: 22px auto 0;
+  padding: 0 var(--bdp-page-pad-x);
+  box-sizing: border-box;
 
   font-family: "Inter", sans-serif;
   font-weight: 400;
@@ -249,10 +252,11 @@
 /* ===================== RELATED BLOGS ===================== */
 
 .bdp__related {
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding-bottom: 80px; /*  Figma gap to footer */
- 
+  padding-bottom: 80px;
+  box-sizing: border-box;
 }
 
 /* Distance from last blog line to RELATED BLOGS title = 95px (per your screenshot) */
@@ -430,12 +434,12 @@
 @media (max-width: 1280px) {
   .bdp__content {
     width: 100%;
-    padding: 0 var(--bdp-page-pad-x);
+    padding: 0;
   }
 
   .bdp__related {
     width: 100%;
-    padding: 0 var(--bdp-page-pad-x) 80px;
+    padding-bottom: clamp(48px, 12vw, 80px);
   }
 }
 
@@ -480,10 +484,12 @@
 /* ================================================= */
 .bdp__article {
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
-  padding: 28px 20px 56px;
+  padding: clamp(20px, 5vw, 28px) 0 clamp(40px, 8vw, 56px);
   font-family: "Inter", sans-serif;
   color: #181818;
+  box-sizing: border-box;
 }
 
 /* badge */
@@ -715,7 +721,7 @@
 
 @media (max-width: 768px) {
   .bdp__article {
-    padding: 28px 18px 60px;
+    padding: 20px 0 44px;
   }
 
   .bdp__articleTitle {
@@ -892,5 +898,93 @@ SMALL MOBILE
   .bdp__assistantBox p {
     font-size: 10px;
     line-height: 1.65;
+  }
+}
+
+/* =====================================================================
+   Blog detail – mobile tuning (covers all /blog-detail/:id routes)
+   ===================================================================== */
+
+.bdp.bdp--contents,
+.top-gradient-wrapper-blog {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .top-gradient-wrapper-blog {
+    padding: 8px 0 clamp(8px, 2.5vw, 18px);
+  }
+
+  .bdp__meta {
+    flex-wrap: wrap;
+    row-gap: 4px;
+    column-gap: 10px;
+    font-size: 11px;
+    line-height: 1.35;
+    height: auto;
+    justify-content: center;
+  }
+
+  .bdp__title {
+    padding-inline: 0;
+  }
+
+  .bdp__relatedTitle {
+    margin-top: clamp(32px, 10vw, 56px);
+  }
+
+  .bdp__relatedFeaturedGrid {
+    margin-top: 22px;
+    gap: clamp(16px, 4vw, 28px);
+  }
+
+  .bdp__relatedFeaturedGrid.featuredBlogRow__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bdp__badge {
+    font-size: 12px;
+    padding: 7px 14px;
+    margin-bottom: 14px;
+  }
+
+  .bdp-startpara {
+    font-size: clamp(14px, 3.6vw, 16px);
+  }
+
+  .bdp__copy {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .bdp__copy p {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .bdp__heroImg {
+    min-height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bdp__relatedTitle {
+    padding-inline: var(--bdp-page-pad-x);
+  }
+
+  .bdp__relatedFeaturedGrid .featuredBlogCard--video,
+  .bdp__relatedFeaturedGrid .featuredBlogCard--still {
+    min-height: 260px;
+  }
+
+  .bdp__articleMeta {
+    row-gap: 6px;
+  }
+}
+
+@media (max-width: 360px) {
+  .bdp__meta {
+    font-size: 10px;
   }
 }

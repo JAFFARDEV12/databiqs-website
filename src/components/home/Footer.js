@@ -1,11 +1,13 @@
 
 import { Link } from 'react-router-dom';
 import './Footer.css';
-import logo from '../../assets/Databiqs Logo.svg';
+/* import logo from '../../assets/Databiqs Logo.svg'; */
+import footerlogo from '../../assets/footer-logo.svg';
 import instaSvg from '../../assets/insta.svg';
 import linkedinSvg from '../../assets/linkedin.svg';
 import facebookSvg from '../../assets/facebook.svg';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
+
 
 const Footer = () => {
   const sectionRef = useScrollAnimation({ threshold: 0.2 });
@@ -15,9 +17,17 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-content">
           <div className="footer-left">
-            <div className="footer-logo">
-              <img src={logo} alt="Databiqs" className="footer-logo-icon" loading="lazy" decoding="async" />
-            </div>
+          <div className="footer-logo">
+  <img
+    src={footerlogo}
+    alt="Databiqs"
+    className="footer-logo-icon"
+    loading="lazy"
+    decoding="async"
+  />
+
+ 
+</div>
             <p className="footer-tagline">
               Pushing the boundaries of technology, unleashing
               limitless innovation for a smarter future.

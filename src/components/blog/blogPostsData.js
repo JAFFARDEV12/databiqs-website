@@ -3,6 +3,10 @@ import videoCardTwo from "../../assets/7687810-uhd_4096_2160_24fps.mp4";
 import videoDetailThree from "../../assets/15438012_1920_1080_30fps.mp4";
 import videoDetailFour from "../../assets/6153453-uhd_4096_2160_25fps.mp4";
 import videoDetailFive from "../../assets/14209120-uhd_3840_2160_30fps.mp4";
+import blogMediaPred from "../../assets/case-study-phase-prediction.jpg";
+import blogMediaExec from "../../assets/case-study-phase-execution.jpg";
+import blogMediaMl from "../../assets/machine-learning.svg";
+import blogBrandMark from "../../assets/Databiqs Logo.png";
 
 export const BLOG_POSTS = [
   {
@@ -53,6 +57,10 @@ How long does an AI solution take to build? Depending on complexity, projects ca
 What industries need AI? Virtually every industry — finance, healthcare, retail, logistics, education, and more.
 
 Transform your business with AI today. Contact us now to start your AI journey.`,
+    detailMedia: [
+      { afterNthSection: 3, src: blogMediaPred, alt: "AI architecture and predictive systems" },
+      { afterNthSection: 6, src: blogMediaExec, alt: "Production deployment and engineering" },
+    ],
   },
   {
     id: 2,
@@ -95,6 +103,10 @@ Manufacturing: predictive maintenance
 Logistics: route optimization and supply chain prediction
 
 Transform your business with AI-powered solutions tailored specifically for your needs. Get in touch with our AI consulting experts today.`,
+    detailMedia: [
+      { afterNthSection: 2, src: blogMediaMl, alt: "Machine learning strategy illustration" },
+      { afterNthSection: 5, src: blogMediaPred, alt: "AI consulting roadmap" },
+    ],
   },
   {
     id: 3,
@@ -139,6 +151,10 @@ Weeks 9–14: production architecture & optimization
 Weeks 15–18: deployment, validation, handoff
 
 Production ML is not a dashboard someone checks weekly — it's decision intelligence delivered in the tools teams already use, with actionable recommendations.`,
+    detailMedia: [
+      { afterNthSection: 3, src: blogMediaPred, alt: "ML pipelines and feature engineering" },
+      { afterNthSection: 5, src: blogMediaExec, alt: "MLOps deployment" },
+    ],
   },
   {
     id: 4,
@@ -182,6 +198,10 @@ Phase 4: production integration
 Phase 5: handoff + continuous improvement
 
 Custom AI compounds: each quarter of production data improves your model on your exact business reality. That's a durable competitive advantage.`,
+    detailMedia: [
+      { afterNthSection: 2, src: blogMediaMl, alt: "Custom AI systems" },
+      { afterNthSection: 4, src: blogMediaExec, alt: "Custom implementation" },
+    ],
   },
   {
     id: 5,
@@ -224,6 +244,10 @@ Production demands messy data handling, cross-system integration, latency constr
 - no direct link between model output and business metrics
 
 The organizations that scale AI are building an operating system for decisions, not a slide-deck strategy for innovation theater.`,
+    detailMedia: [
+      { afterNthSection: 3, src: blogMediaPred, alt: "Enterprise data foundation" },
+      { afterNthSection: 6, src: blogBrandMark, alt: "Databiqs" },
+    ],
   },
 ];
 

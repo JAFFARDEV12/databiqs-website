@@ -26,7 +26,8 @@
 .footer-logo {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+
   opacity: 0;
 }
 
@@ -35,18 +36,25 @@
 }
 
 .footer-logo-icon {
-  height: 40px;
+  height: 42px;
   width: auto;
+  object-fit: contain;
+
+  /* REMOVE THIS */
+  /* background-color: white; */
 }
 
 .footer-logo-text {
-  font-family: 'Prompt', sans-serif;
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 100%;
-  letter-spacing: 0.02em;
-  color: white;
-  vertical-align: middle;
+
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 1;
+  letter-spacing: 0.01em;
+
+  color: #ffffff;
+
+  display: flex;
+  align-items: center;
 }
 
 .footer-tagline {

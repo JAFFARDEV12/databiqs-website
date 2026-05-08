@@ -69,9 +69,10 @@
   padding: 12px 0 clamp(16px, 3vw, 32px);
   width: calc(100% + 2 * var(--case-study-page-pad-x));
   box-sizing: border-box;
-  background: linear-gradient(180deg, rgba(0, 46, 158, 0.22) 0%, #ffffff 65%);
+  background: white !important;
   position: relative;
   z-index: 2;
+  overflow-x: clip;
 }
 
 .case-study-page-container {
@@ -409,6 +410,18 @@
   align-items: center;
 }
 
+.service-detail-page .case-study-page-hero-content,
+.service-detail-page .case-study-page-hero-visual-wrapper {
+  min-width: 0;
+}
+
+.service-detail-page .case-study-page-title,
+.service-detail-page .case-study-page-title-top,
+.service-detail-page .case-study-page-title-bottom {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 .service-detail-page .case-study-page-tags {
   display: flex;
   flex-wrap: wrap;
@@ -611,6 +624,77 @@
 }
 
 /* Responsive */
+@media (max-width: 1280px) and (min-width: 1025px) {
+  .service-detail-page .case-study-page-hero {
+    grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+    gap: 20px;
+  }
+
+  .service-detail-page .case-study-page-title {
+    font-size: clamp(28px, 3.2vw, 46px);
+    line-height: 1.15;
+  }
+
+  .service-detail-page .case-study-page-title-top {
+    font-size: clamp(26px, 2.8vw, 40px);
+  }
+
+  .service-detail-page .case-study-page-title-bottom {
+    font-size: clamp(34px, 4vw, 58px);
+  }
+}
+
+@media (max-width: 1192px) and (min-width: 1025px) {
+  .service-detail-page .case-study-page-header-section .case-study-page-container {
+    max-width: min(1120px, 100%);
+    padding-inline: clamp(14px, 1.8vw, 22px);
+  }
+
+  .service-detail-page .case-study-page-hero {
+    grid-template-columns: minmax(0, 1.12fr) minmax(300px, 0.88fr);
+    gap: 16px;
+    align-items: center;
+  }
+
+  .service-detail-page .case-study-page-tags {
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .service-detail-page .case-study-page-pill,
+  .service-detail-page .case-study-page-pill-solid {
+    height: 36px;
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  .service-detail-page .case-study-page-title {
+    margin: 0 0 14px;
+    font-size: clamp(30px, 3.25vw, 42px);
+    line-height: 1.12;
+  }
+
+  .service-detail-page .case-study-page-title-top {
+    font-size: clamp(28px, 3vw, 38px);
+  }
+
+  .service-detail-page .case-study-page-title-bottom {
+    font-size: clamp(36px, 3.9vw, 50px);
+  }
+
+  .service-detail-page .case-study-page-intro {
+    max-width: 100%;
+    margin-bottom: 18px;
+    font-size: clamp(14px, 1.25vw, 16px);
+    line-height: 1.5;
+  }
+
+  .service-detail-page .case-study-page-hero-slider,
+  .service-detail-page .case-study-page-hero-slider .case-study-page-hero-visual {
+    min-height: clamp(230px, 29vw, 320px);
+  }
+}
+
 @media (max-width: 1024px) {
   .services-page {
       --case-study-page-pad-x: clamp(14px, 3.2vw, 24px);

@@ -1,8 +1,9 @@
 import { useState, useEffect, useLayoutEffect, useCallback, useMemo, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import Lottie from 'lottie-react';
 import './MoreCaseStudiesCarousel.css';
 import arrowIcon from '../../assets/rightarrow.svg';
-import cardMessageImage from '../../assets/message.svg';
+import historyDetailAnimation from '../../assets/HistoryDetail.json';
 import { MORE_CASE_STUDIES } from './moreCaseStudiesData';
 
 /** Figma: 264px cards; gaps between & left/right are equal: s = (W - n*264) / (n+1) — keep in sync with --more-cs-card-w in CSS */
@@ -179,13 +180,19 @@ const MoreCaseStudiesCarousel = ({ excludeSlug = null }) => {
                       className="more-cs-card"
                     >
                       <div className="more-cs-card-visual">
-                        <img
-                          src={item.imageSrc || cardMessageImage}
-                          alt=""
-                          className="more-cs-card-message-img"
-                          loading="lazy"
-                          decoding="async"
-                        />
+                        {item.imageSrc ? (
+                          <img
+                            src={item.imageSrc}
+                            alt=""
+                            className="more-cs-card-message-img"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        ) : (
+                          <div className="more-cs-card-lottie" aria-hidden="true">
+                            <Lottie animationData={historyDetailAnimation} loop autoplay />
+                          </div>
+                        )}
                       </div>
                       <div className="more-cs-card-content">
                         <p className="more-cs-card-text">{item.description}</p>
