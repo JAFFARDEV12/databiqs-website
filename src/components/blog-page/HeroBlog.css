@@ -4,7 +4,7 @@
    • Intro row + feature video row both sit on top of the same gradient panel
    ========================================================================== */
 .heroBlog {
-  margin: -12px calc(-1 * var(--case-study-page-pad-x)) 0;
+  margin: -0px calc(-1 * var(--case-study-page-pad-x)) 0;
   padding: 12px 0 clamp(10px, 1.6vw, 22px);
   width: calc(100% + 2 * var(--case-study-page-pad-x));
   box-sizing: border-box;
