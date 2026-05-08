@@ -9,7 +9,7 @@
   --case-study-section-gap: clamp(40px, 6.5vw, 72px);
 }
 
-/* Case studies route (see caseStudies.jsx root): all <p> Inter 400 regular; font-size from existing rules */
+/* Cdies route (see caseStudies.jsx root): all <p> Inter 400 regular; font-size from existing rules */
 .case-studies-page p {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
   font-weight: 400 !important;
