@@ -1,5 +1,7 @@
 
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import emailjs from '@emailjs/browser';
 import './Footer.css';
 /* import logo from '../../assets/Databiqs Logo.svg'; */
 import footerlogo from '../../assets/footer-logo.svg';
@@ -7,9 +9,89 @@ import instaSvg from '../../assets/insta.svg';
 import linkedinSvg from '../../assets/linkedin.svg';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
+/** Newsletter only — never use the consultation template (template_bmxi77f). */
+const NEWSLETTER_EMAILJS_SERVICE_ID = 'service_rij8xrc';
+const NEWSLETTER_EMAILJS_TEMPLATE_ID =
+  process.env.REACT_APP_EMAILJS_NEWSLETTER_TEMPLATE_ID || 'template_7dkqwaf';
+const NEWSLETTER_EMAILJS_PUBLIC_KEY = 'wpl35VnksY_DS5v2V';
+const INTERNAL_EMAIL =
+  process.env.REACT_APP_EMAILJS_ADMIN_EMAIL ||
+  process.env.REACT_APP_COMPANY_EMAIL ||
+  'ceo@databiqs.com';
+
+const SUBSCRIBER_STORAGE_KEY = 'databiqs_newsletter_subscribers_v1';
+
 
 const Footer = () => {
   const sectionRef = useScrollAnimation({ threshold: 0.2 });
+
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [newsletterSuccess, setNewsletterSuccess] = useState(false);
+
+  const handleNewsletterSubmit = async (e) => {
+    e.preventDefault();
+
+    const email = newsletterEmail.trim();
+    const looksLikeEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!looksLikeEmail) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    if (
+      !NEWSLETTER_EMAILJS_SERVICE_ID ||
+      !NEWSLETTER_EMAILJS_TEMPLATE_ID ||
+      !NEWSLETTER_EMAILJS_PUBLIC_KEY
+    ) {
+      alert('Email service is not configured. Please contact support.');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setNewsletterSuccess(false);
+
+    try {
+      const existing = JSON.parse(localStorage.getItem(SUBSCRIBER_STORAGE_KEY) || '[]');
+      const deduped = Array.from(new Set([...(existing || []), email]));
+      localStorage.setItem(SUBSCRIBER_STORAGE_KEY, JSON.stringify(deduped));
+
+      const baseParams = {
+        subscriber_email: email,
+        user_email: email,
+        reply_to: email,
+        topic: 'newsletter',
+        to_email: email,
+        fullName: 'Subscriber',
+      };
+
+      // 1) Confirmation to subscriber
+      await emailjs.send(
+        NEWSLETTER_EMAILJS_SERVICE_ID,
+        NEWSLETTER_EMAILJS_TEMPLATE_ID,
+        baseParams,
+        NEWSLETTER_EMAILJS_PUBLIC_KEY
+      );
+
+      // 2) Internal notification
+      if (INTERNAL_EMAIL && INTERNAL_EMAIL.toLowerCase() !== email.toLowerCase()) {
+        await emailjs.send(
+          NEWSLETTER_EMAILJS_SERVICE_ID,
+          NEWSLETTER_EMAILJS_TEMPLATE_ID,
+          { ...baseParams, reply_to: INTERNAL_EMAIL },
+          NEWSLETTER_EMAILJS_PUBLIC_KEY
+        );
+      }
+
+      setNewsletterSuccess(true);
+      setNewsletterEmail('');
+    } catch (err) {
+      console.error('Newsletter EmailJS Error:', err);
+      alert('Something went wrong while subscribing. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <footer className="footer" ref={sectionRef}>
@@ -75,15 +157,21 @@ const Footer = () => {
 
           <div className="footer-right">
             <h2 className="footer-heading">Join Our Newsletter</h2>
-            <form className="newsletter-form">
+            <form className="newsletter-form" onSubmit={handleNewsletterSubmit}>
               <input 
                 type="email" 
                 className="newsletter-input" 
                 placeholder="Enter your email"
                 required
+                value={newsletterEmail}
+                onChange={(e) => setNewsletterEmail(e.target.value)}
+                aria-label="Email address"
               />
-              <button type="submit" className="newsletter-button">Subscribe</button>
+              <button type="submit" className="newsletter-button" disabled={isSubmitting}>
+                {isSubmitting ? 'Subscribing...' : 'Subscribe'}
+              </button>
             </form>
+            {newsletterSuccess ? <p className="newsletter-success">Thanks for subscribing!</p> : null}
           </div>
         </div>
 

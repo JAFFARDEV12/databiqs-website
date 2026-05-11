@@ -15,13 +15,13 @@ import irumImg from "../../assets/team/Irum (1).png"
 import shamimImg from "../../assets/team/Shamaim (1).png"
 import akhlaqImg from "../../assets/team/Akhlaq (1).png"
 import talhaimg from "../../assets/team/fullstack-AI-Engineer.png"
-import alishbaimg from "../../assets/team/Alishba.png"
-
+/* import alishbaimg from "../../assets/team/Alishba.png" */
+import alishbaimg1 from "../../assets/team/Alishba1.png"
 const TEAM_MEMBERS = [
   { name: "Jaffar Ali Chaudhary", role: "Founder & CEO", image: ceoImg, featured: true, spotlight: true },
   { name: "Maudood Fareed", role: "Team Lead", image: teamlead ,featured: true},
   { name: "Akhlaq Ahmad", role: "Senior Software Engineer", image: akhlaqImg ,featured: true},
-  { name: "Alishba Aslam", role: "HR Manager", image:  alishbaimg},
+  { name: "Alishba Aslam", role: "HR Manager", image:  alishbaimg1},
   { name: "Shamaim Ali Rizvi", role: "Senior UI UX Designer", image: shamimImg, featured: true},
   { name: "Wali ullah", role: "Business Development Executive", image: businessdevelopmentexecutive ,featured: true},
   { name: "Abdullah Anjum", role: "Business Development Executive", image: marketingmanager ,featured: true},

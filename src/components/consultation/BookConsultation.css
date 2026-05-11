@@ -149,6 +149,7 @@
   font-size: clamp(15px, 1.35vw, 18px);
   font-weight: 700;
   line-height: 1.25;
+  padding-top: 20px;
   color: #1a1a1a;
   letter-spacing: -0.02em;
 }
@@ -321,6 +322,130 @@
   box-shadow: 0 6px 18px rgba(0, 46, 158, 0.28);
 }
 
+/* Modal — full-range time picker (native clock UI + themed analog preview) */
+.book-consultation__selector--time-picker .book-time-picker__lead {
+  margin: 0 0 12px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--book-text-muted);
+}
+
+.book-time-picker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(16px, 3vw, 24px);
+  padding: clamp(14px, 2.5vw, 18px);
+  border-radius: 16px;
+  border: 1px solid rgba(0, 46, 158, 0.22);
+  background: linear-gradient(145deg, #fafbff 0%, #f0f4ff 100%);
+  box-sizing: border-box;
+}
+
+.book-time-picker__clock {
+  flex: 0 0 auto;
+  width: min(132px, 38vw);
+  height: min(132px, 38vw);
+  filter: drop-shadow(0 8px 20px rgba(0, 46, 158, 0.18));
+}
+
+.book-time-picker__clock-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.book-time-picker__controls {
+  flex: 1 1 200px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.book-time-picker__label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #002E9E;
+}
+
+.book-time-picker__input {
+  width: 100%;
+  max-width: 220px;
+  min-height: 48px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 2px solid rgba(0, 46, 158, 0.35);
+  background: #ffffff;
+  color: var(--book-text);
+  font-family: var(--book-font-ui);
+  font-size: 17px;
+  font-weight: 600;
+  box-sizing: border-box;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.book-time-picker__input:hover {
+  border-color: #0054e9;
+}
+
+.book-time-picker__input:focus {
+  outline: none;
+  border-color: #002e9e;
+  box-shadow: 0 0 0 3px rgba(0, 46, 158, 0.2);
+}
+
+.book-time-picker__preview {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: var(--book-text-muted);
+}
+
+.book-time-picker__preview-label {
+  font-weight: 600;
+  color: #475569;
+}
+
+.book-time-picker__preview strong {
+  color: #002e9e;
+  font-weight: 700;
+}
+
+@media (max-width: 480px) {
+  .book-time-picker {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    padding: 12px 14px;
+    gap: 12px;
+  }
+
+  .book-time-picker__clock {
+    width: min(120px, 70vw);
+    height: min(120px, 70vw);
+    margin-inline: auto;
+  }
+
+  .book-time-picker__input {
+    max-width: none;
+  }
+
+  .book-time-picker__controls {
+    align-items: center;
+    flex: 0 1 auto;
+    width: 100%;
+  }
+
+  .book-time-picker__preview {
+    margin-top: 6px;
+    margin-bottom: 0;
+  }
+}
+
 .book-consultation__selected {
   margin: 0;
   font-size: 14px;
@@ -486,6 +611,8 @@
 .book-modal__panel {
   position: relative;
   width: min(620px, 100%);
+  max-width: min(620px, calc(100vw - 32px));
+  box-sizing: border-box;
   font-family: var(--book-font-ui);
   color: var(--book-text);
   max-height: min(86vh, 760px);
@@ -588,14 +715,43 @@
 }
 
 @media (max-width: 600px) {
+  /* Avoid full-bleed breakout on small screens so page gutters + section padding stack for readable side margins. */
+  .book-consultation-page__heroWrap {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
   .book-consultation {
-    padding: 10px 10px 56px;
+    padding-top: 12px;
+    padding-bottom: 48px;
+    padding-left: max(18px, env(safe-area-inset-left, 0px));
+    padding-right: max(18px, env(safe-area-inset-right, 0px));
   }
 
   .book-consultation__left,
   .book-consultation__right {
     padding: 16px;
     border-radius: 18px;
+  }
+
+  .book-modal {
+    padding-top: max(14px, env(safe-area-inset-top, 0px));
+    padding-bottom: max(14px, env(safe-area-inset-bottom, 0px));
+    padding-left: max(20px, env(safe-area-inset-left, 0px));
+    padding-right: max(20px, env(safe-area-inset-right, 0px));
+  }
+
+  .book-modal__panel {
+    padding: 16px 18px 18px;
+    border-radius: 18px;
+  }
+
+  .book-modal__done {
+    box-sizing: border-box;
+    width: 100%;
   }
 
   .book-calendar__head {

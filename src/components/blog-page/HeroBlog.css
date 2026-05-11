@@ -4,9 +4,10 @@
    • Intro row + feature video row both sit on top of the same gradient panel
    ========================================================================== */
 .heroBlog {
-  margin: -0px calc(-1 * var(--case-study-page-pad-x)) 0;
+  --hero-blog-pad-x: var(--case-study-page-pad-x, clamp(16px, 4vw, 32px));
+  margin: -12px calc(-1 * var(--hero-blog-pad-x)) 0;
   padding: 12px 0 clamp(10px, 1.6vw, 22px);
-  width: calc(100% + 2 * var(--case-study-page-pad-x));
+  width: calc(100% + 2 * var(--hero-blog-pad-x));
   box-sizing: border-box;
   background: #ffffff;
   position: relative;
@@ -43,7 +44,7 @@
   width: 100%;
   max-width: 1220px;
   margin: 0 auto;
-  padding-inline: var(--case-study-page-pad-x, clamp(16px, 4vw, 32px));
+  padding-inline: var(--hero-blog-pad-x);
   padding-block: clamp(4px, 0.8vw, 10px) clamp(6px, 1vw, 12px);
   box-sizing: border-box;
   position: relative;
@@ -443,6 +444,11 @@
   .heroBlog__featureRow {
     min-height: clamp(260px, 56vw, 340px);
     margin-top: 14px;
+    /* Slight inset so the video card does not read flush to the screen (nested breakout cancels wrapper padding). */
+    margin-inline: clamp(10px, 2.8vw, 14px);
+    width: auto;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .heroBlog__featureCard {
@@ -461,5 +467,7 @@
 @media (max-width: 480px) {
   .heroBlog__featureRow {
     min-height: clamp(240px, 64vw, 300px);
+    margin-left: max(12px, env(safe-area-inset-left, 0px));
+    margin-right: max(12px, env(safe-area-inset-right, 0px));
   }
 }
