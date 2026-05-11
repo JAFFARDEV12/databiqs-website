@@ -206,12 +206,16 @@ function mkMat(hex, rough, metal, emHex, emInt){
 }
 
 // ── LIGHTS ────────────────────────────────────────────────────────────────
-THR.add(new THREE.AmbientLight(0x4b369d, 0.28));
-THR.add(new THREE.HemisphereLight(0x2a1f4a, 0x050515, 0.35));
-var dirL = new THREE.DirectionalLight(0xc4b5e8, 0.35);
+// Neutral whites / cool greys so the robot reads as off-white plastic; corridor neon stays purple
+THR.add(new THREE.AmbientLight(0xd6dce8, 0.24));
+THR.add(new THREE.HemisphereLight(0xb8c4d8, 0x080a10, 0.36));
+var dirL = new THREE.DirectionalLight(0xffffff, 0.44);
 dirL.position.set(2,10,6); dirL.castShadow = true; THR.add(dirL);
-var fillL = new THREE.DirectionalLight(0xa855f7, 0.12);
+var fillL = new THREE.DirectionalLight(0x9fafc2, 0.12);
 fillL.position.set(-5,4,-4); THR.add(fillL);
+var botKey = new THREE.DirectionalLight(0xf2f6fc, 0.22);
+botKey.position.set(0, 3.5, 18);
+THR.add(botKey);
 
 // ── CORRIDOR ──────────────────────────────────────────────────────────────
 var corrGroup = new THREE.Group(); THR.add(corrGroup);
@@ -350,9 +354,10 @@ var exitL2 = new THREE.PointLight(0xeeeeff,10,20); exitL2.position.set(0,2.3,-2)
 // ── ROBOT ─────────────────────────────────────────────────────────────────
 var robotGroup = new THREE.Group(); THR.add(robotGroup);
 
-var mWhite  = mkMat(0xf0f0f5, 0.15, 0.2);
-var mWhiteE = mkMat(0xe0dff8, 0.2,  0.15);
-var mGray   = mkMat(0xc8c5dd, 0.35, 0.2);
+var mWhite  = mkMat(0xededf2, 0.07, 0.05);
+var mWhiteE = mkMat(0xe8eaef, 0.08, 0.06);
+var mGray   = mkMat(0xd4d7e0, 0.32, 0.18);
+var mVisor  = mkMat(0x0d1038, 0.05, 0.8, 0x1a2060, 0.3);
 var mCyan   = mkMat(0x40d0ff, 0.1,  0,   0x40d0ff, 8);
 var mSmile  = mkMat(0x40d0ff, 0.1,  0,   0x40d0ff, 6);
 
@@ -379,6 +384,15 @@ robotGroup.add(headGroup);
 var headSphere = new THREE.Mesh(new THREE.SphereGeometry(0.52,32,24), mWhite);
 headSphere.scale.set(1,0.78,0.86); headSphere.castShadow = true;
 headGroup.add(headSphere);
+
+// Visor background sphere - taller
+var visorBG = new THREE.Mesh(new THREE.SphereGeometry(0.36,32,20), mVisor);
+visorBG.scale.set(1,0.68,0.24); visorBG.position.set(0,0.03,0.35);
+headGroup.add(visorBG);
+
+// Visor front face - increased height from 0.29 to 0.42
+var visorFace = new THREE.Mesh(new THREE.BoxGeometry(0.68,0.42,0.04), mVisor);
+visorFace.position.set(0,0.03,0.43); headGroup.add(visorFace);
 
 // Eyes - shifted up from y=0.04 to y=0.10
 function makeEye(xOff){
