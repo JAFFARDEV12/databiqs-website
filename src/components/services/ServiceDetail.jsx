@@ -241,7 +241,7 @@ const verticalKey = (slug, index) => {
     "ai-chatbots": ["health", "ecom", "finance"],
     "ai-automation": ["ops", "cx", "supply"],
     "machine-learning": ["retail", "risk", "iot"],
-    "ai-strategy": ["bank", "pharma", "telco"],
+    "ai-consulting": ["bank", "pharma", "telco"],
   };
   return map[slug]?.[index] ?? "health";
 };
@@ -252,6 +252,10 @@ const ServiceDetail = () => {
   const page = useMemo(() => getServiceDetailPage(slug), [slug]);
   const heroRef = useScrollAnimation({ threshold: 0.12 });
   const mainRef = useScrollAnimation({ threshold: 0.08 });
+
+  if (slug === 'ai-strategy') {
+    return <Navigate to="/services/ai-consulting" replace />;
+  }
 
   if (!service || !page) {
     return <Navigate to="/services" replace />;

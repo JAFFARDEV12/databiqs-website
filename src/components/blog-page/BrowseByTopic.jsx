@@ -18,7 +18,7 @@ const TOPICS = [
   { id: 3, name: "Data & Analytics", articles: 15, animation: analyticsLottie, key: "analytics" },
   { id: 4, name: "Customer Experience", articles: 21, animation: customerExperienceLottie, key: "cx" },
   { id: 5, name: "AI Chatbot", articles: 8, animation: chatbotLottie, key: "chatbot" },
-  { id: 6, name: "AI Strategy", articles: 11, animation: aiStrategyLottie, key: "ai-strategy" },
+  { id: 6, name: "AI Consulting", articles: 11, animation: aiStrategyLottie, key: "ai-consulting" },
   { id: 7, name: "Neural Networks", articles: 18, animation: neuralNetworksLottie, key: "neural" },
   { id: 8, name: "AI Solutions", articles: 25, animation: aiSolutionsLottie, key: "solutions" },
 ];

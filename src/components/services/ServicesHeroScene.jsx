@@ -5,7 +5,7 @@ const SERVICE_CHIPS = [
   { id: 'ai-chatbots', label: 'AI Chatbots' },
   { id: 'machine-learning', label: 'Machine Learning' },
   { id: 'ai-automation', label: 'AI Automation' },
-  { id: 'ai-strategy', label: 'AI Strategy' },
+  { id: 'ai-consulting', label: 'AI Consulting' },
 ];
 
 const ServicesHeroScene = ({ activeService = 'ai-chatbots' }) => {

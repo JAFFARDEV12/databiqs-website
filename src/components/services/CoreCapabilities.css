@@ -223,8 +223,8 @@
   animation: mlSweep 1.5s ease-in-out infinite;
 }
 
-/* AI Strategy: radar sweep */
-.core-card__fx--ai-strategy::before {
+/* AI Consulting: radar sweep */
+.core-card__fx--ai-consulting::before {
   content: "";
   position: absolute;
   inset: 8px;

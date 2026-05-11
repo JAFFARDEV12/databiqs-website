@@ -6,11 +6,9 @@
   font-family: var(--our-team-font-ui);
   background: transparent;
   font-style: normal;
-
- /*  background: linear-gradient(180deg, #ffffff 0%, #f7f2ff 100%); */
 }
 
-/* Heading + copy typography consistency */
+/* Typography lock */
 .our-team h1,
 .our-team h2,
 .our-team h3,
@@ -19,7 +17,6 @@
 .our-team h6 {
   font-family: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
 }
-
 .our-team p,
 .our-team button {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
@@ -32,13 +29,13 @@
   box-sizing: border-box;
 }
 
+/* ── Heading ── */
 .our-team__heading {
   text-align: center;
   margin-bottom: clamp(24px, 4vw, 44px);
   margin-top: 0;
   opacity: 0;
 }
-
 .our-team.animate .our-team__heading {
   animation: fadeInUp 0.42s ease-out 0.05s forwards;
 }
@@ -78,6 +75,7 @@
   color: #4a4a4a;
 }
 
+/* ── CEO spotlight ── */
 .our-team__spotlight {
   display: flex;
   justify-content: center;
@@ -85,11 +83,21 @@
   opacity: 0;
   background: transparent;
 }
-
 .our-team.animate .our-team__spotlight {
   animation: fadeInUp 0.45s ease-out 0.08s forwards;
 }
 
+/* ══════════════════════════════════════════════════════════
+   CAROUSEL WRAPPER — positions the prev/next buttons
+   outside (or overlapping) the carousel edges
+══════════════════════════════════════════════════════════ */
+.our-team__carousel-wrap {
+  position: relative;
+  /* give horizontal room so absolutely-positioned buttons
+     don't get clipped; matches original carousel padding */
+}
+
+/* ── Original carousel shell (unchanged) ── */
 .our-team__carousel {
   width: 100%;
   overflow: hidden;
@@ -101,6 +109,7 @@
   padding-bottom: 50px;
 }
 
+/* ── Original track (unchanged) ── */
 .our-team__track {
   display: flex;
   width: max-content;
@@ -110,17 +119,76 @@
   background: transparent;
 }
 
+/* ── Original lane (unchanged) ── */
 .our-team__lane {
   display: flex;
   gap: clamp(12px, 1.8vw, 22px);
   background: transparent;
 }
 
-/* ==========================================================================
-   Team Card — clean blue theme (matches Services / Case Studies / About hero)
-   - White card, soft blue tint stage, brand-blue accents
-   - Hover: lift + blue border, gradient nameplate sweep
-   ========================================================================== */
+/* Pause on hover — original behaviour */
+.our-team__carousel:hover .our-team__track {
+  animation-play-state: paused;
+}
+
+/* Pause via JS state (button click) */
+.our-team__carousel.is-paused .our-team__track {
+  animation-play-state: paused;
+}
+
+/* ══════════════════════════════════════════════════════════
+   NAV BUTTONS — prev / next
+   Float just outside the carousel card edges vertically centered
+══════════════════════════════════════════════════════════ */
+.our-team__nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0, 46, 158, 0.24);
+  background: #ffffff;
+  color: #002E9E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow:
+    0 4px 18px rgba(0, 46, 158, 0.16),
+    0 1px 4px rgba(0, 0, 0, 0.06);
+  transition:
+    background    0.22s ease,
+    border-color  0.22s ease,
+    color         0.22s ease,
+    box-shadow    0.22s ease,
+    transform     0.22s ease;
+  /* override the button font-family rule above */
+  font-family: inherit !important;
+  padding: 0;
+  line-height: 1;
+}
+.our-team__nav-btn:hover {
+  background: #002E9E;
+  border-color: #002E9E;
+  color: #ffffff;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow:
+    0 8px 28px rgba(0, 46, 158, 0.30),
+    0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.our-team__nav-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* Position: sit on the left/right edges of the carousel */
+.our-team__nav-btn--prev { left:  -23px; }
+.our-team__nav-btn--next { right: -23px; }
+
+/* ══════════════════════════════════════════════════════════
+   TEAM CARD — every original rule preserved verbatim
+══════════════════════════════════════════════════════════ */
 .our-team-card {
   min-width: 0;
   width: 100%;
@@ -202,10 +270,7 @@
     transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
   pointer-events: none;
 }
-
-.our-team-card__hex::before {
-  content: none;
-}
+.our-team-card__hex::before { content: none; }
 
 .our-team-card__media {
   position: relative;
@@ -245,13 +310,11 @@
   position: relative;
   background: linear-gradient(180deg, #002E9E 0%, #0054E9 100%);
 }
-
 .our-team-card__avatar-fallback img {
   width: 46%;
   opacity: 0.8;
   filter: brightness(2);
 }
-
 .our-team-card__avatar-fallback span {
   position: absolute;
   bottom: 10px;
@@ -284,7 +347,6 @@
   overflow: hidden;
   transition: background 0.35s ease, border-color 0.35s ease;
 }
-
 .our-team-card__nameplate::before {
   content: "";
   position: absolute;
@@ -309,7 +371,6 @@
   font-style: normal;
   transition: color 0.3s ease;
 }
-
 .our-team-card__role {
   margin: 0;
   font-family: var(--our-team-font-ui);
@@ -333,11 +394,7 @@
     0 24px 50px rgba(0, 46, 158, 0.22),
     0 0 0 1px rgba(0, 84, 233, 0.18);
 }
-
-.our-team-card:hover::before {
-  opacity: 1;
-}
-
+.our-team-card:hover::before { opacity: 1; }
 .our-team-card:hover .our-team-card__stage {
   background: linear-gradient(
     90deg,
@@ -345,16 +402,8 @@
     rgba(0, 84, 233, 0.18) 100%
   );
 }
-
-.our-team-card:hover .our-team-card__mesh {
-  opacity: 1;
-}
-
-.our-team-card:hover .our-team-card__hex {
-  border-color: rgba(0, 84, 233, 0.45);
-  transform: scale(0.985);
-}
-
+.our-team-card:hover .our-team-card__mesh  { opacity: 1; }
+.our-team-card:hover .our-team-card__hex   { border-color: rgba(0, 84, 233, 0.45); transform: scale(0.985); }
 .our-team-card:hover .our-team-card__media {
   transform: translateY(-2px) scale(1.04);
   border-color: #ffffff;
@@ -362,108 +411,71 @@
     0 22px 44px rgba(0, 46, 158, 0.28),
     0 0 0 3px rgba(0, 84, 233, 0.32);
 }
-
-.our-team-card:hover .our-team-card__avatar {
-  transform: scale(1.06);
-  filter: saturate(1.05);
-}
-
+.our-team-card:hover .our-team-card__avatar  { transform: scale(1.06); filter: saturate(1.05); }
 .our-team-card:hover .our-team-card__nameplate {
   background: #f6f8ff;
   border-top-color: rgba(0, 84, 233, 0.22);
 }
-
-.our-team-card:hover .our-team-card__nameplate::before {
-  width: 100%;
-}
-
-.our-team-card:hover .our-team-card__name {
-  color: #002E9E;
-}
-
-.our-team-card:hover .our-team-card__role {
-  color: #0054E9;
-}
+.our-team-card:hover .our-team-card__nameplate::before { width: 100%; }
+.our-team-card:hover .our-team-card__name { color: #002E9E; }
+.our-team-card:hover .our-team-card__role { color: #0054E9; }
 
 .our-team-card--spotlight {
   width: min(100%, 330px);
   flex: 0 0 auto;
 }
-
-/* CEO spotlight: space between portrait and nameplate */
 .our-team-card--spotlight .our-team-card__media {
   margin-bottom: clamp(16px, 2.5vw, 24px);
 }
-
 .our-team-card--compact {
   width: clamp(232px, 21vw, 280px);
   flex: 0 0 auto;
 }
 
+/* ── keyframes ── */
 @keyframes teamMarquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ══ RESPONSIVE ═════════════════════════════════════════════ */
 @media (max-width: 1100px) {
-  .our-team__track {
-    animation-duration: 42s;
-  }
-
-  .our-team-card__stage {
-    min-height: 250px;
-  }
-
-  .our-team-card--compact {
-    width: clamp(220px, 30vw, 260px);
-  }
-
-  .our-team-card__hex {
-    width: min(48%, 130px);
-  }
+  .our-team__track    { animation-duration: 42s; }
+  .our-team-card__stage { min-height: 250px; }
+  .our-team-card--compact { width: clamp(220px, 30vw, 260px); }
+  .our-team-card__hex { width: min(48%, 130px); }
 }
 
 @media (max-width: 700px) {
-  .our-team {
-    padding-inline: 10px;
-  }
-
+  .our-team          { padding-inline: 10px; }
   .our-team__carousel {
     -webkit-mask-image: none;
     mask-image: none;
     background: #ffffff !important;
   }
+  .our-team__track   { animation-duration: 34s; }
 
-  .our-team__track {
-    animation-duration: 34s;
+  /* On mobile, keep buttons inside the visible area */
+  .our-team__nav-btn--prev { left:  6px; }
+  .our-team__nav-btn--next { right: 6px; }
+  .our-team__nav-btn {
+    width: 38px;
+    height: 38px;
   }
 
-  .our-team-card--spotlight {
-    width: min(100%, 300px);
-  }
-
-  .our-team-card__stage {
-    min-height: 238px;
-  }
-
-  .our-team-card__media {
-    width: min(72%, 196px);
-  }
-
-  .our-team-card--compact {
-    width: min(78vw, 250px);
-  }
+  .our-team-card--spotlight { width: min(100%, 300px); }
+  .our-team-card__stage     { min-height: 238px; }
+  .our-team-card__media     { width: min(72%, 196px); }
+  .our-team-card--compact   { width: min(78vw, 250px); }
 }
 
 @media (max-width: 360px) {
-  .our-team__track {
-    animation-duration: 30s;
-  }
-
+  .our-team__track { animation-duration: 30s; }
   .our-team-card__nameplate {
     margin: 12px 8px 12px;
     width: calc(100% - 16px);
@@ -471,40 +483,26 @@
   }
 }
 
-.our-team__carousel:hover .our-team__track {
-  animation-play-state: paused;
-}
-
+/* Touch / coarse pointer: skip hover lifts */
 @media (hover: none), (pointer: coarse) {
-  .our-team-card:hover {
-    transform: none;
-    filter: none;
-  }
-
+  .our-team-card:hover { transform: none; filter: none; }
   .our-team-card:hover .our-team-card__stage,
   .our-team-card:hover .our-team-card__hex,
   .our-team-card:hover .our-team-card__media,
   .our-team-card:hover .our-team-card__avatar,
   .our-team-card:hover .our-team-card__nameplate,
   .our-team-card:hover .our-team-card__nameplate::before {
-    transform: none;
-    filter: none;
-    box-shadow: none;
+    transform: none; filter: none; box-shadow: none;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .our-team__track {
-    animation: none;
-  }
-
+  .our-team__track { animation: none; }
   .our-team-card,
   .our-team-card__stage,
   .our-team-card__hex,
   .our-team-card__media,
   .our-team-card__avatar,
   .our-team-card__nameplate,
-  .our-team-card__nameplate::before {
-    transition: none;
-  }
+  .our-team-card__nameplate::before { transition: none; }
 }

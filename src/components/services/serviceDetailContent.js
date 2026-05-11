@@ -276,13 +276,13 @@ export const serviceDetailBySlug = {
     },
   },
 
-  "ai-strategy": {
-    heroTitleLine1: "AI Strategy &",
+  "ai-consulting": {
+    heroTitleLine1: "AI Consulting &",
     heroTitleLine2: "Transformation",
     heroLead:
       "Prioritize the right bets—roadmaps that connect data readiness, operating model, and ROI to a sequenced execution plan.",
     heroImage: caseStudyImage,
-    heroImageAlt: "AI strategy and transformation roadmap",
+    heroImageAlt: "AI consulting and transformation roadmap",
     capabilities: {
       title: "Core Capabilities",
       lead: "Executive-ready clarity on where AI creates value—and what must be true to capture it.",

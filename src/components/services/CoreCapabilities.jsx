@@ -13,7 +13,7 @@ const animationBySlug = {
   "ai-chatbots": AIChatbot,
   "ai-automation": AIAutomation,
   "machine-learning": AIMachineLearning,
-  "ai-strategy": AIStrategy,
+  "ai-consulting": AIStrategy,
 };
 
 const Card = ({ capability, onServiceHover, onServiceLeave }) => {

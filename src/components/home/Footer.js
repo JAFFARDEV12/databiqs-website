@@ -1,26 +1,34 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 import './Footer.css';
-/* import logo from '../../assets/Databiqs Logo.svg'; */
 import footerlogo from '../../assets/footer-logo.svg';
 import instaSvg from '../../assets/insta.svg';
 import linkedinSvg from '../../assets/linkedin.svg';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
-/** Newsletter only — never use the consultation template (template_bmxi77f). */
-const NEWSLETTER_EMAILJS_SERVICE_ID = 'service_rij8xrc';
-const NEWSLETTER_EMAILJS_TEMPLATE_ID =
-  process.env.REACT_APP_EMAILJS_NEWSLETTER_TEMPLATE_ID || 'template_7dkqwaf';
-const NEWSLETTER_EMAILJS_PUBLIC_KEY = 'wpl35VnksY_DS5v2V';
+/* =========================
+   EMAILJS CONFIG
+========================= */
+
+const EMAILJS_SERVICE_ID = 'service_rij8xrc';
+
+const USER_TEMPLATE_ID =
+  process.env.REACT_APP_EMAILJS_NEWSLETTER_TEMPLATE_ID ||
+  'template_7dkqwaf';
+
+const ADMIN_TEMPLATE_ID =
+  process.env.REACT_APP_EMAILJS_ADMIN_TEMPLATE_ID ||
+  'template_bmxi77f';
+
+const EMAILJS_PUBLIC_KEY = 'wpl35VnksY_DS5v2V';
+
 const INTERNAL_EMAIL =
   process.env.REACT_APP_EMAILJS_ADMIN_EMAIL ||
   process.env.REACT_APP_COMPANY_EMAIL ||
   'ceo@databiqs.com';
 
 const SUBSCRIBER_STORAGE_KEY = 'databiqs_newsletter_subscribers_v1';
-
 
 const Footer = () => {
   const sectionRef = useScrollAnimation({ threshold: 0.2 });
@@ -33,18 +41,22 @@ const Footer = () => {
     e.preventDefault();
 
     const email = newsletterEmail.trim();
-    const looksLikeEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+    const looksLikeEmail =
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
     if (!looksLikeEmail) {
       alert('Please enter a valid email address.');
       return;
     }
 
     if (
-      !NEWSLETTER_EMAILJS_SERVICE_ID ||
-      !NEWSLETTER_EMAILJS_TEMPLATE_ID ||
-      !NEWSLETTER_EMAILJS_PUBLIC_KEY
+      !EMAILJS_SERVICE_ID ||
+      !USER_TEMPLATE_ID ||
+      !ADMIN_TEMPLATE_ID ||
+      !EMAILJS_PUBLIC_KEY
     ) {
-      alert('Email service is not configured. Please contact support.');
+      alert('Email service is not configured.');
       return;
     }
 
@@ -52,42 +64,79 @@ const Footer = () => {
     setNewsletterSuccess(false);
 
     try {
-      const existing = JSON.parse(localStorage.getItem(SUBSCRIBER_STORAGE_KEY) || '[]');
-      const deduped = Array.from(new Set([...(existing || []), email]));
-      localStorage.setItem(SUBSCRIBER_STORAGE_KEY, JSON.stringify(deduped));
+      /* =========================
+         SAVE TO LOCAL STORAGE
+      ========================= */
 
-      const baseParams = {
+      const existing = JSON.parse(
+        localStorage.getItem(SUBSCRIBER_STORAGE_KEY) || '[]'
+      );
+
+      const deduped = Array.from(
+        new Set([...(existing || []), email])
+      );
+
+      localStorage.setItem(
+        SUBSCRIBER_STORAGE_KEY,
+        JSON.stringify(deduped)
+      );
+
+      /* =========================
+         USER EMAIL PARAMS
+      ========================= */
+
+      const userTemplateParams = {
+        to_email: email,
         subscriber_email: email,
         user_email: email,
         reply_to: email,
-        topic: 'newsletter',
-        to_email: email,
         fullName: 'Subscriber',
+        topic: 'newsletter',
       };
 
-      // 1) Confirmation to subscriber
+      /* =========================
+         SEND USER CONFIRMATION
+      ========================= */
+
       await emailjs.send(
-        NEWSLETTER_EMAILJS_SERVICE_ID,
-        NEWSLETTER_EMAILJS_TEMPLATE_ID,
-        baseParams,
-        NEWSLETTER_EMAILJS_PUBLIC_KEY
+        EMAILJS_SERVICE_ID,
+        USER_TEMPLATE_ID,
+        userTemplateParams,
+        EMAILJS_PUBLIC_KEY
       );
 
-      // 2) Internal notification
-      if (INTERNAL_EMAIL && INTERNAL_EMAIL.toLowerCase() !== email.toLowerCase()) {
-        await emailjs.send(
-          NEWSLETTER_EMAILJS_SERVICE_ID,
-          NEWSLETTER_EMAILJS_TEMPLATE_ID,
-          { ...baseParams, reply_to: INTERNAL_EMAIL },
-          NEWSLETTER_EMAILJS_PUBLIC_KEY
-        );
-      }
+      /* =========================
+         ADMIN EMAIL PARAMS
+      ========================= */
+
+      const adminTemplateParams = {
+        to_email: INTERNAL_EMAIL,
+        subscriber_email: email,
+        user_email: email,
+        reply_to: email,
+        fullName: 'New Subscriber',
+        topic: 'newsletter',
+      };
+
+      /* =========================
+         SEND ADMIN NOTIFICATION
+      ========================= */
+
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        ADMIN_TEMPLATE_ID,
+        adminTemplateParams,
+        EMAILJS_PUBLIC_KEY
+      );
 
       setNewsletterSuccess(true);
       setNewsletterEmail('');
     } catch (err) {
-      console.error('Newsletter EmailJS Error:', err);
-      alert('Something went wrong while subscribing. Please try again.');
+      console.error('FULL EMAILJS ERROR:', err);
+      alert(
+        err?.text ||
+          'Something went wrong while subscribing.'
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -98,86 +147,151 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-content">
           <div className="footer-left">
-          <div className="footer-logo">
-  <img
-    src={footerlogo}
-    alt="Databiqs"
-    className="footer-logo-icon"
-    loading="lazy"
-    decoding="async"
-  />
+            <div className="footer-logo">
+              <img
+                src={footerlogo}
+                alt="Databiqs"
+                className="footer-logo-icon"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
 
- 
-</div>
             <p className="footer-tagline">
-              Pushing the boundaries of technology, unleashing
-              limitless innovation for a smarter future.
+              Pushing the boundaries of technology,
+              unleashing limitless innovation for a
+              smarter future.
             </p>
+
             <div className="social-icons">
-  <a
-    href="https://www.linkedin.com/company/databiqs"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="social-icon"
-    aria-label="LinkedIn"
-    style={{ "--i": "#0A66C2", "--j": "#004182" }}
-  >
-    <span className="icon">
-      <img src={linkedinSvg} alt="" aria-hidden="true" loading="lazy" decoding="async" />
-    </span>
-    <span className="title">LinkedIn</span>
-  </a>
+              <a
+                href="https://www.linkedin.com/company/databiqs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon"
+                aria-label="LinkedIn"
+                style={{
+                  '--i': '#0A66C2',
+                  '--j': '#004182',
+                }}
+              >
+                <span className="icon">
+                  <img
+                    src={linkedinSvg}
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
 
-  <a
-    href="https://www.instagram.com/databiqs/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="social-icon"
-    aria-label="Instagram"
-    style={{ "--i": "#FF5F6D", "--j": "#FFC371" }}
-  >
-    <span className="icon">
-      <img src={instaSvg} alt="" aria-hidden="true" loading="lazy" decoding="async" />
-    </span>
-    <span className="title">Instagram</span>
-  </a>
-</div>
+                <span className="title">
+                  LinkedIn
+                </span>
+              </a>
 
+              <a
+                href="https://www.instagram.com/databiqs/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon"
+                aria-label="Instagram"
+                style={{
+                  '--i': '#FF5F6D',
+                  '--j': '#FFC371',
+                }}
+              >
+                <span className="icon">
+                  <img
+                    src={instaSvg}
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
+
+                <span className="title">
+                  Instagram
+                </span>
+              </a>
+            </div>
           </div>
 
           <div className="footer-middle">
-            <h2 className="footer-heading">Links</h2>
+            <h2 className="footer-heading">
+              Links
+            </h2>
+
             <ul className="footer-links">
-              <li><Link to="/about-us">About</Link></li>
-              <li><Link to="/services">Services</Link></li>
-              <li><Link to="/case-studies">Case Studies</Link></li>
-              <li><Link to="/blog-page">Blog</Link></li>
+              <li>
+                <Link to="/about-us">About</Link>
+              </li>
+
+              <li>
+                <Link to="/services">
+                  Services
+                </Link>
+              </li>
+
+              <li>
+                <Link to="/case-studies">
+                  Case Studies
+                </Link>
+              </li>
+
+              <li>
+                <Link to="/blog-page">Blog</Link>
+              </li>
             </ul>
           </div>
 
           <div className="footer-right">
-            <h2 className="footer-heading">Join Our Newsletter</h2>
-            <form className="newsletter-form" onSubmit={handleNewsletterSubmit}>
-              <input 
-                type="email" 
-                className="newsletter-input" 
+            <h2 className="footer-heading">
+              Join Our Newsletter
+            </h2>
+
+            <form
+              className="newsletter-form"
+              onSubmit={handleNewsletterSubmit}
+            >
+              <input
+                type="email"
+                className="newsletter-input"
                 placeholder="Enter your email"
                 required
                 value={newsletterEmail}
-                onChange={(e) => setNewsletterEmail(e.target.value)}
+                onChange={(e) =>
+                  setNewsletterEmail(
+                    e.target.value
+                  )
+                }
                 aria-label="Email address"
               />
-              <button type="submit" className="newsletter-button" disabled={isSubmitting}>
-                {isSubmitting ? 'Subscribing...' : 'Subscribe'}
+
+              <button
+                type="submit"
+                className="newsletter-button"
+                disabled={isSubmitting}
+              >
+                {isSubmitting
+                  ? 'Subscribing...'
+                  : 'Subscribe'}
               </button>
             </form>
-            {newsletterSuccess ? <p className="newsletter-success">Thanks for subscribing!</p> : null}
+
+            {newsletterSuccess ? (
+              <p className="newsletter-success">
+                Thanks for subscribing!
+              </p>
+            ) : null}
           </div>
         </div>
 
         <div className="footer-bottom">
           <p className="copyright">
-            © 2026 Databiqs. All rights reserved.
+            © 2026 Databiqs. All rights
+            reserved.
           </p>
         </div>
       </div>

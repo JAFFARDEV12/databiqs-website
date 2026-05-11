@@ -22,7 +22,7 @@ const AIAutomationSection = () => {
             </div>
 
             <p className="automation-description">
-              Automate Workflows Using N8n To Connect Systems, Eliminate Manual Tasks, And Optimize Business Operations.
+              Automate Workflows Using n8n To Connect Systems, Eliminate Manual Tasks, And Optimize Business Operations.
             </p>
             <div className="capabilities-heading">Key Capabilities:</div>
             <ul className="capabilities-list">

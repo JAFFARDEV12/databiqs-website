@@ -92,16 +92,16 @@ export const services = [
   },
   {
     id: 4,
-    slug: "ai-strategy",
+    slug: "ai-consulting",
     themeClass: "core-card--strategy",
-    title: "AI Strategy",
+    title: "AI Consulting",
     shortDescription:
       "Comprehensive roadmaps for AI adoption. We assess readiness, identify high-impact use cases, and architect scalable solutions.",
     features: ["Roadmap Planning", "ROI Analysis", "Implementation Support"],
     heroTag: "Strategic AI Advisory",
     heroSubtitle: "Align AI investments with measurable business outcomes",
     overview:
-      "Our AI strategy engagements help leadership teams prioritize where AI creates the most value. We connect technical feasibility, organizational readiness, and ROI to deliver a practical transformation roadmap.",
+      "Our AI Consulting engagements help leadership teams prioritize where AI creates the most value. We connect technical feasibility, organizational readiness, and ROI to deliver a practical transformation roadmap.",
     outcomes: [
       "Prioritize use cases by impact, complexity, and time-to-value.",
       "Build an execution roadmap with clear milestones and governance.",

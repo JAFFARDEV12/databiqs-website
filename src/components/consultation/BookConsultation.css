@@ -1,772 +1,541 @@
-/* Typography + controls (Bebas headings, Inter UI). Duplicated on .book-modal because modal is portaled to body. */
-.book-consultation-page,
-.book-modal,
-.book-consultation {
-  --book-font-ui: "Inter", sans-serif;
-  --book-font-heading: "Sora", sans-serif;
-  --book-control-radius: 12px;
-  --book-pill-radius: 999px;
-  --book-border-subtle: 1px solid rgba(0, 46, 158, 0.16);
-  --book-border-hover: 1px solid rgba(0, 46, 158, 0.34);
-  --book-primary-gradient: #002E9E;
-  --book-text: #2f2f2f;
-  --book-text-muted: #5a5a5a;
+/* ═══════════════════════════════════════════════════════════════
+   BOOK CONSULTATION  ·  v2
+   Fonts : Sora (headings) · Inter (UI)
+   Primary : #002E9E  ·  Bright : #0054E9
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── tokens ── */
+.bc-section {
+  --bc-primary      : #002E9E;
+  --bc-primary-b    : #0054E9;
+  --bc-text         : #1a1a2e;
+  --bc-muted        : #5a6278;
+  --bc-surface      : #ffffff;
+  --bc-soft         : #f4f6ff;
+  --bc-border       : rgba(0,46,158,0.13);
+  --bc-border-h     : rgba(0,46,158,0.32);
+  --bc-shadow       : 0 12px 40px rgba(0,46,158,0.10);
+  --bc-radius       : 26px;
+  --bc-font-head    : "Sora", -apple-system, sans-serif;
+  --bc-font-ui      : "Inter", -apple-system, sans-serif;
+  --bc-pill-radius  : 999px;
+
+  /* panel height — drives equal-height columns */
+  --bc-panel-h      : 760px;
 }
 
-/* Consultation typography lock */
-.book-consultation h1,
-.book-consultation h2,
-.book-consultation h3,
-.book-consultation h4,
-.book-consultation h5,
-.book-consultation h6,
-.book-modal h1,
-.book-modal h2,
-.book-modal h3,
-.book-modal h4,
-.book-modal h5,
-.book-modal h6 {
-  font-family: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
-  font-weight: 700 !important;
-}
-
-.book-consultation p,
-.book-modal p {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
-}
-
-.book-consultation-page {
-  background: #ffffff;
-}
-
-.book-consultation-page__heroWrap {
-  --book-page-pad-x: clamp(16px, 4vw, 32px);
-  margin: -12px calc(-1 * var(--book-page-pad-x)) 0;
-  padding: 20px 0 clamp(10px, 1.5vw, 18px);
-  width: calc(100% + (2 * var(--book-page-pad-x)));
-  box-sizing: border-box;
-  background: #ffffff;
+/* ── section wrapper ── */
+.bc-section {
   position: relative;
-  overflow: visible;
-  z-index: 2;
-  margin-bottom: 50px;
+  background: #ffffff;
+  padding: clamp(48px,7vw,96px) clamp(16px,4vw,40px);
+  overflow: hidden;
+  font-family: var(--bc-font-ui);
+  color: var(--bc-text);
 }
 
-.book-consultation-page__heroWrap::before {
-  content: "";
+/* decorative blobs */
+.bc-blob {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: calc(100vw - 100px);
-  height: 100%;
-  border-radius: 20px;
-  background: linear-gradient(
-    90deg,
-    rgba(0, 46, 158, 0.2) 37%,
-    rgba(0, 84, 233, 0.05) 100%
-  );
+  border-radius: 50%;
   pointer-events: none;
   z-index: 0;
 }
-
-.book-consultation {
-  padding: clamp(14px, 3vw, 28px) clamp(12px, 4vw, 40px) clamp(56px, 7vw, 88px);
-  font-family: var(--book-font-ui);
-  color: var(--book-text);
-  position: relative;
-  z-index: 2;
+.bc-blob--tl {
+  width: 520px; height: 520px;
+  top: -160px; left: -160px;
+  background: radial-gradient(circle, rgba(0,84,233,.08) 0%, transparent 68%);
+}
+.bc-blob--br {
+  width: 420px; height: 420px;
+  bottom: -120px; right: -120px;
+  background: radial-gradient(circle, rgba(0,46,158,.06) 0%, transparent 68%);
 }
 
-.book-consultation__container {
-  max-width: 1200px;
+/* ── grid ── */
+.bc-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1160px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
-  gap: clamp(20px, 4vw, 48px);
-  align-items: center;
+  grid-template-columns: minmax(0,1fr) minmax(0,1.18fr);
+  gap: clamp(20px,3vw,44px);
+  /* EQUAL HEIGHT: both columns stretch to the taller child */
+  align-items: stretch;
 }
 
-.book-consultation__left,
-.book-consultation__right {
-  background: #ffffff;
-  border: 1px solid rgba(0, 46, 158, 0.16);
-  border-radius: clamp(20px, 2.6vw, 30px);
-  box-shadow: 0 14px 36px rgba(0, 46, 158, 0.08);
-  padding: clamp(20px, 3vw, 36px);
-}
-
-.book-consultation__left {
-  align-self: stretch;
-}
-
-.book-consultation__right {
-  align-self: center;
-  height: fit-content;
-}
-
-.book-consultation__pill {
-  display: inline-flex;
-  padding: 8px 16px;
-  border-radius: var(--book-pill-radius);
-  background: #ffffff;
-  border: 1px solid rgba(0, 46, 158, 0.2);
-  color: #002E9E;
-  font-size: 13px;
-  font-family: var(--book-font-ui);
-  font-weight: 500;
-}
-
-.book-consultation__title {
-  margin: 16px 0 10px;
-  font-family: var(--book-font-heading);
-  font-weight: 700;
-  font-size: clamp(24px, 0.65rem + 3.4vw, 44px);
-  line-height: clamp(32px, 0.8rem + 4vw, 56px) !important;
-  letter-spacing: 0;
-}
-
-.book-consultation__subtitle {
-  margin: 0;
-  color: var(--book-text-muted);
-  font-family: var(--book-font-ui);
-  font-size: clamp(14px, 1.5vw, 18px);
-  font-weight: 400;
-  line-height: 1.6;
-  max-width: 58ch;
-}
-
-.book-consultation__selectors {
-  margin-top: clamp(18px, 3vw, 26px);
-  display: grid;
-  gap: 16px;
-}
-
-.book-consultation__selector h3,
-.book-consultation__selector h4 {
-  margin: 0 0 10px;
-  font-family: var(--book-font-ui);
-  font-size: clamp(15px, 1.35vw, 18px);
-  font-weight: 700;
-  line-height: 1.25;
-  padding-top: 20px;
-  color: #1a1a1a;
-  letter-spacing: -0.02em;
-}
-
-.book-consultation__selector--calendar {
-  border: 1px solid rgba(0, 46, 158, 0.16);
-  border-radius: 18px;
-  padding: 14px;
-  background: linear-gradient(
-    90deg,
-    rgba(0, 46, 158, 0.12) 22%,
-    rgba(0, 84, 233, 0.05) 100%
-  );
-}
-
-.book-calendar__head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 12px;
-}
-
-.book-calendar__head h3 {
-  margin: 0;
-  font-family: var(--book-font-ui);
-  font-size: clamp(15px, 1.35vw, 18px);
-  font-weight: 700;
-  line-height: 1.25;
-  color: #1a1a1a;
-  letter-spacing: -0.02em;
-}
-
-.book-calendar__nav {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 14px;
-  font-family: var(--book-font-ui);
-  font-weight: 600;
-  color: var(--book-text);
-}
-
-.book-calendar__nav button {
-  width: 36px;
-  height: 36px;
-  border: var(--book-border-subtle);
-  border-radius: var(--book-pill-radius);
-  background: #fff;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease,
-    transform 0.2s ease;
-}
-
-.book-calendar__nav button:hover {
-  border: var(--book-border-hover);
-  box-shadow: 0 4px 12px rgba(0, 46, 158, 0.12);
-}
-
-.book-calendar__nav-icon {
-  width: 10px;
-  height: 10px;
-  object-fit: contain;
-}
-
-.book-calendar__nav-icon--prev {
-  transform: rotate(180deg);
-}
-
-.book-calendar {
-  display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 6px;
-}
-
-.book-calendar__weekday {
-  text-align: center;
-  font-size: 11px;
-  font-family: var(--book-font-ui);
-  font-weight: 600;
-  color: #5b6d95;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-.book-calendar__day {
-  border: var(--book-border-subtle);
-  background: #ffffff;
-  border-radius: var(--book-control-radius);
-  min-height: 40px;
-  font-family: var(--book-font-ui);
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--book-text);
-  cursor: pointer;
-  transition:
-    border-color 0.2s ease,
-    background 0.2s ease,
-    color 0.2s ease,
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.book-calendar__day:hover:not(:disabled) {
-  transform: translateY(-1px);
-  border: var(--book-border-hover);
-  box-shadow: 0 4px 12px rgba(0, 46, 158, 0.1);
-}
-
-.book-calendar__day.is-active {
-  border-color: transparent;
-  background: #002E9E;
-  color: #ffffff;
-  box-shadow: 0 6px 18px rgba(0, 46, 158, 0.28);
-}
-
-.book-calendar__day.is-outside {
-  color: #8a9abb;
-  background: #f3f7ff;
-  font-weight: 500;
-}
-
-.book-calendar__day:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-  box-shadow: none;
-}
-
-.book-consultation__chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.book-chip {
-  border: var(--book-border-subtle);
-  background: #ffffff;
-  color: var(--book-text);
-  border-radius: var(--book-control-radius);
-  min-height: 40px;
-  padding: 8px 16px;
-  font-family: var(--book-font-ui);
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition:
-    border-color 0.2s ease,
-    background 0.2s ease,
-    color 0.2s ease,
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.book-chip:hover {
-  transform: translateY(-1px);
-  border: var(--book-border-hover);
-  box-shadow: 0 4px 12px rgba(0, 46, 158, 0.1);
-}
-
-.book-chip.is-active {
-  border-color: transparent;
-  background: #002E9E;
-  color: #ffffff;
-  box-shadow: 0 6px 18px rgba(0, 46, 158, 0.28);
-}
-
-/* Modal — full-range time picker (native clock UI + themed analog preview) */
-.book-consultation__selector--time-picker .book-time-picker__lead {
-  margin: 0 0 12px;
-  font-size: 13px;
-  line-height: 1.45;
-  color: var(--book-text-muted);
-}
-
-.book-time-picker {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: clamp(16px, 3vw, 24px);
-  padding: clamp(14px, 2.5vw, 18px);
-  border-radius: 16px;
-  border: 1px solid rgba(0, 46, 158, 0.22);
-  background: linear-gradient(145deg, #fafbff 0%, #f0f4ff 100%);
-  box-sizing: border-box;
-}
-
-.book-time-picker__clock {
-  flex: 0 0 auto;
-  width: min(132px, 38vw);
-  height: min(132px, 38vw);
-  filter: drop-shadow(0 8px 20px rgba(0, 46, 158, 0.18));
-}
-
-.book-time-picker__clock-svg {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.book-time-picker__controls {
-  flex: 1 1 200px;
-  min-width: 0;
+/* ── panel shell ── */
+.bc-panel {
+  background: var(--bc-surface);
+  border: 1px solid var(--bc-border);
+  border-radius: var(--bc-radius);
+  box-shadow: var(--bc-shadow);
+  /* Fixed height — both panels identical */
+  height: var(--bc-panel-h);
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-}
-
-.book-time-picker__label {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #002E9E;
-}
-
-.book-time-picker__input {
-  width: 100%;
-  max-width: 220px;
-  min-height: 48px;
-  padding: 10px 14px;
-  border-radius: 14px;
-  border: 2px solid rgba(0, 46, 158, 0.35);
-  background: #ffffff;
-  color: var(--book-text);
-  font-family: var(--book-font-ui);
-  font-size: 17px;
-  font-weight: 600;
   box-sizing: border-box;
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: box-shadow .3s ease;
+}
+.bc-panel:hover {
+  box-shadow: 0 20px 60px rgba(0,46,158,.15);
 }
 
-.book-time-picker__input:hover {
-  border-color: #0054e9;
-}
-
-.book-time-picker__input:focus {
-  outline: none;
-  border-color: #002e9e;
-  box-shadow: 0 0 0 3px rgba(0, 46, 158, 0.2);
-}
-
-.book-time-picker__preview {
-  margin: 4px 0 0;
-  font-size: 14px;
-  color: var(--book-text-muted);
-}
-
-.book-time-picker__preview-label {
-  font-weight: 600;
-  color: #475569;
-}
-
-.book-time-picker__preview strong {
-  color: #002e9e;
-  font-weight: 700;
-}
-
-@media (max-width: 480px) {
-  .book-time-picker {
-    flex-direction: column;
-    align-items: stretch;
-    text-align: center;
-    padding: 12px 14px;
-    gap: 12px;
-  }
-
-  .book-time-picker__clock {
-    width: min(120px, 70vw);
-    height: min(120px, 70vw);
-    margin-inline: auto;
-  }
-
-  .book-time-picker__input {
-    max-width: none;
-  }
-
-  .book-time-picker__controls {
-    align-items: center;
-    flex: 0 1 auto;
-    width: 100%;
-  }
-
-  .book-time-picker__preview {
-    margin-top: 6px;
-    margin-bottom: 0;
-  }
-}
-
-.book-consultation__selected {
-  margin: 0;
-  font-size: 14px;
-  font-family: var(--book-font-ui);
-  font-weight: 400;
-  line-height: 1.5;
-  color: #334155;
-}
-
-.book-consultation__selected strong {
-  font-weight: 700;
-}
-
-.book-open-modal-btn {
-  width: 100%;
-  border: none;
-  border-radius: var(--book-pill-radius);
-  padding: 14px 22px;
-  background: #002E9E;
-  color: #ffffff;
-  font-family: var(--book-font-ui);
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.2s ease;
-}
-
-.book-open-modal-btn:hover:not(:disabled) {
-  transform: translateY(-2px);
-  background: #0054E9;
-  box-shadow: 0 10px 28px rgba(0, 46, 158, 0.35);
-}
-
-.book-open-modal-btn:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-  box-shadow: none;
-}
-
-.book-form h2 {
-  margin: 0 0 16px;
-  font-family: var(--book-font-heading);
-  font-weight: 400;
-  font-size: clamp(30px, 4vw, 36px);
-  line-height: 1;
-}
-
-.book-form label {
-  display: block;
-  margin: 12px 0 6px;
-  font-family: var(--book-font-ui);
-  font-size: 13px;
-  font-weight: 600;
-  color: #383838;
-}
-
-.book-form input,
-.book-form textarea {
-  width: 100%;
-  border: 1px solid rgba(0, 46, 158, 0.16);
-  border-radius: 14px;
-  padding: 12px 14px;
-  font-size: 14px;
+/* inner scroll containers */
+.bc-panel__inner {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: clamp(24px,3vw,40px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,46,158,.2) transparent;
   box-sizing: border-box;
-  font-family: var(--book-font-ui);
-  color: var(--book-text);
+}
+.bc-panel__inner::-webkit-scrollbar { width: 4px; }
+.bc-panel__inner::-webkit-scrollbar-thumb {
+  background: rgba(0,46,158,.18); border-radius: 4px;
 }
 
-.book-form input:focus,
-.book-form textarea:focus {
-  outline: none;
-  border-color: rgba(0, 46, 158, 0.45);
-  box-shadow: 0 0 0 3px rgba(0, 84, 233, 0.12);
+/* calendar inner — no extra padding on top; bar handles spacing */
+.bc-panel__inner--cal {
+  padding-top: 20px;
+  gap: 14px;
 }
 
-.book-form textarea {
-  resize: vertical;
-  min-height: 100px;
-}
+/* ══ LEFT PANEL ELEMENTS ══════════════════════════════════════ */
 
-.book-form__submit {
-  margin-top: 16px;
-  width: 100%;
-  border: none;
-  border-radius: var(--book-pill-radius);
-  padding: 14px 22px;
-  background: #002E9E;
-  color: #ffffff;
-  font-family: var(--book-font-ui);
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.book-form__submit:hover {
-  transform: translateY(-2px);
-  background: #0054E9;
-  box-shadow: 0 10px 28px rgba(0, 46, 158, 0.35);
-}
-
-.book-form .meeting-banner__cta {
-  margin-top: 20px;
-}
-
-.book-success {
-  border: 1px solid rgba(0, 46, 158, 0.2);
-  border-radius: 20px;
-  padding: clamp(18px, 3vw, 28px);
-  background: linear-gradient(180deg, rgba(0, 46, 158, 0.14) 0%, #ffffff 100%);
-}
-
-.book-success__badge {
+/* pill */
+.bc-pill {
   display: inline-flex;
-  border-radius: var(--book-pill-radius);
-  padding: 7px 13px;
-  background: #002E9E;
-  color: #ffffff;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  border-radius: var(--bc-pill-radius);
+  background: rgba(0,46,158,.07);
+  border: 1px solid rgba(0,46,158,.18);
+  color: var(--bc-primary);
+  font-family: var(--bc-font-ui);
   font-size: 12px;
-  font-family: var(--book-font-ui);
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: .03em;
+  width: fit-content;
+}
+.bc-pill__dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--bc-primary);
+  flex-shrink: 0;
 }
 
-.book-success h2 {
-  margin: 14px 0 8px;
-  font-family: var(--book-font-heading);
-  font-weight: 400;
-  font-size: clamp(30px, 4vw, 40px);
-  line-height: 1;
-}
-
-.book-success p {
+/* title */
+.bc-title {
   margin: 0;
-  font-size: 15px;
-  font-family: var(--book-font-ui);
-  line-height: 1.6;
-  color: #232323;
+  font-family: var(--bc-font-head);
+  font-weight: 700;
+  font-size: clamp(26px, 2.4vw + .6rem, 40px);
+  line-height: 1.15;
+  letter-spacing: -.03em;
+  color: var(--bc-text);
 }
 
-/* Portal renders under document.body so position:fixed is viewport-relative (#root uses transform, which breaks fixed children). */
-.book-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 12000;
+/* subtitle */
+.bc-subtitle {
+  margin: 0;
+  font-family: var(--bc-font-ui);
+  font-size: clamp(13.5px,1.2vw,15px);
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--bc-muted);
+}
+
+/* divider */
+.bc-rule {
+  border: none;
+  border-top: 1px solid var(--bc-border);
+  margin: 0;
+}
+
+/* section label */
+.bc-label {
+  margin: 0;
+  font-family: var(--bc-font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--bc-muted);
+}
+
+/* ── host card ── */
+.bc-host {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 14px 16px;
+  background: var(--bc-soft);
+  border: 1px solid var(--bc-border);
+  border-radius: 16px;
+}
+.bc-host__avatar {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--bc-primary);
+  color: #fff;
+  font-family: var(--bc-font-head);
+  font-size: 15px;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-sizing: border-box;
-  width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
-  padding: max(12px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px))
-    max(12px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(0,46,158,.28);
+}
+.bc-host__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.bc-host__name {
+  font-family: var(--bc-font-ui);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--bc-text);
+  line-height: 1.2;
+}
+.bc-host__role {
+  font-family: var(--bc-font-ui);
+  font-size: 12px;
+  color: var(--bc-muted);
+  font-weight: 400;
+}
+.bc-host__dur {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--bc-font-ui);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--bc-primary);
+  background: rgba(0,46,158,.08);
+  border: 1px solid rgba(0,46,158,.16);
+  border-radius: var(--bc-pill-radius);
+  padding: 5px 11px;
+  white-space: nowrap;
 }
 
-.book-modal__overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(20, 10, 38, 0.58);
-  backdrop-filter: blur(3px);
+/* ── benefits ── */
+.bc-benefits {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+.bc-benefit {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.bc-benefit__icon {
+  font-size: 20px;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.bc-benefit__title {
+  display: block;
+  font-family: var(--bc-font-ui);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--bc-text);
+  line-height: 1.25;
+}
+.bc-benefit__desc {
+  display: block;
+  font-family: var(--bc-font-ui);
+  font-size: 12px;
+  color: var(--bc-muted);
+  line-height: 1.5;
+  margin-top: 2px;
+  font-weight: 400;
 }
 
-.book-modal__panel {
-  position: relative;
-  width: min(620px, 100%);
-  max-width: min(620px, calc(100vw - 32px));
-  box-sizing: border-box;
-  font-family: var(--book-font-ui);
-  color: var(--book-text);
-  max-height: min(86vh, 760px);
-  max-height: min(86dvh, 760px);
-  overflow-x: hidden;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  -webkit-overflow-scrolling: touch;
-  border-radius: 22px;
-  padding: clamp(16px, 2.8vw, 28px);
-  background: #ffffff;
-  border: 1px solid rgba(0, 46, 158, 0.2);
-  box-shadow: 0 24px 54px rgba(0, 46, 158, 0.24);
-  z-index: 1;
-  margin: auto;
+/* ── platform chips ── */
+.bc-modes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.bc-mode {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: var(--bc-pill-radius);
+  border: 1px solid var(--bc-border);
+  background: var(--bc-surface);
+  color: var(--bc-text);
+  font-family: var(--bc-font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    border-color .2s ease,
+    background   .2s ease,
+    color        .2s ease,
+    transform    .18s ease,
+    box-shadow   .2s ease;
+}
+.bc-mode:hover {
+  transform: translateY(-1px);
+  border-color: var(--bc-border-h);
+  box-shadow: 0 4px 12px rgba(0,46,158,.1);
+}
+.bc-mode.is-active {
+  border-color: transparent;
+  background: var(--bc-primary);
+  color: #fff;
+  box-shadow: 0 5px 18px rgba(0,46,158,.32);
+  transform: translateY(-1px);
 }
 
-.book-modal__header {
+/* ── trust strip ── */
+.bc-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+.bc-trust__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--bc-font-ui);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--bc-muted);
+  background: var(--bc-soft);
+  border: 1px solid var(--bc-border);
+  border-radius: var(--bc-pill-radius);
+  padding: 5px 11px;
+}
+
+/* ══ RIGHT PANEL — CALENDLY ═══════════════════════════════════ */
+
+/* top bar */
+.bc-cal-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
+  padding: 10px 16px;
+  border-radius: 14px;
+  background: var(--bc-soft);
+  border: 1px solid var(--bc-border);
+  flex-shrink: 0;
+}
+.bc-cal-bar__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.bc-cal-bar__via {
+  font-family: var(--bc-font-ui);
+  font-size: 11.5px;
+  color: var(--bc-muted);
+  font-weight: 500;
+}
+.bc-cal-bar__mode {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--bc-font-ui);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--bc-primary);
+  background: rgba(0,46,158,.07);
+  border: 1px solid rgba(0,46,158,.15);
+  border-radius: var(--bc-pill-radius);
+  padding: 5px 13px;
+  white-space: nowrap;
 }
 
-.book-modal__header h3 {
-  margin: 0;
-  font-family: var(--book-font-heading);
-  font-weight: 400;
-  font-size: clamp(28px, 4vw, 38px);
-  line-height: 1;
+/* iframe wrapper — fills remaining height */
+.bc-iframe-wrap {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--bc-border);
+  /* White fade mask at bottom — covers Calendly's gray footer/progress bar */
+  isolation: isolate;
 }
 
-.book-modal__sub {
-  margin: 8px 0 16px;
-  color: var(--book-text-muted);
-  font-size: 14px;
-  font-family: var(--book-font-ui);
-  line-height: 1.5;
+/* Gradient mask that covers the Calendly gray bar at the bottom */
+.bc-iframe-wrap::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: linear-gradient(to bottom, transparent 0%, #ffffff 72%);
+  pointer-events: none;
+  z-index: 10;
+  border-radius: 0 0 16px 16px;
 }
 
-.book-modal__close {
-  width: 32px;
-  height: 32px;
-  border-radius: var(--book-pill-radius);
-  border: var(--book-border-subtle);
+/* shimmer */
+.bc-shimmer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px;
   background: #ffffff;
-  font-size: 24px;
-  line-height: 1;
-  cursor: pointer;
-  font-family: var(--book-font-ui);
-  color: var(--book-text);
-  transition: border-color 0.2s ease, background 0.2s ease;
+  z-index: 2;
 }
-
-.book-modal__close:hover {
-  border: var(--book-border-hover);
-  background: #faf8ff;
+.bc-shimmer__bar {
+  height: 13px;
+  border-radius: 8px;
+  background: linear-gradient(90deg,#eef1f8 25%,#dce2f0 50%,#eef1f8 75%);
+  background-size: 200% 100%;
+  animation: bc-shimmer 1.4s infinite;
 }
-
-.book-modal__done {
-  margin-top: 18px;
+.bc-shimmer__grid {
+  display: grid;
+  grid-template-columns: repeat(7,1fr);
+  gap: 6px;
   width: 100%;
+  max-width: 320px;
+}
+.bc-shimmer__cell {
+  height: 34px;
+  border-radius: 9px;
+  background: linear-gradient(90deg,#eef1f8 25%,#dce2f0 50%,#eef1f8 75%);
+  background-size: 200% 100%;
+  animation: bc-shimmer 1.4s infinite;
+}
+.bc-shimmer__msg {
+  font-family: var(--bc-font-ui);
+  font-size: 12px;
+  color: var(--bc-muted);
+  font-weight: 500;
+  margin: 0;
+}
+@keyframes bc-shimmer {
+  0%   { background-position:  200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* iframe — taller than wrapper so Calendly's footer is pushed below the clip boundary */
+.bc-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% + 60px); /* push Calendly's gray footer below the overflow:hidden clip */
   border: none;
-  border-radius: var(--book-pill-radius);
-  padding: 14px 22px;
-  color: #ffffff;
-  font-size: 15px;
-  font-family: var(--book-font-ui);
-  font-weight: 600;
-  background: #002E9E;
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: block;
+  opacity: 0;
+  transition: opacity .45s ease;
+  z-index: 1;
+}
+.bc-iframe.is-ready {
+  opacity: 1;
 }
 
-.book-modal__done:hover {
-  transform: translateY(-2px);
-  background: #0054E9;
-  box-shadow: 0 10px 28px rgba(0, 46, 158, 0.35);
+/* ══ RESPONSIVE ═══════════════════════════════════════════════ */
+
+/* At 1100 px loosen fixed height so left can breathe on narrower grids */
+@media (max-width: 1100px) {
+  .bc-section { --bc-panel-h: 720px; }
 }
 
+/* Stack at tablet */
 @media (max-width: 900px) {
-  .book-consultation-page__heroWrap::before {
-    width: 100vw;
-    border-radius: 0;
+  .bc-section {
+    --bc-panel-h: auto;         /* let panels be auto height when stacked */
+    padding: clamp(32px,5vw,56px) clamp(12px,4vw,24px);
   }
 
-  .book-consultation__container {
+  .bc-container {
     grid-template-columns: 1fr;
-    align-items: start;
+    max-width: 640px;
   }
 
-  .book-consultation__title {
-    font-size: clamp(28px, 6vw, 38px);
-  }
-
-  .book-consultation__right {
-    align-self: stretch;
+  /* Left panel: auto height */
+  .bc-panel--left {
     height: auto;
+  }
+
+  /* Right panel: fixed height for calendar */
+  .bc-panel--right {
+    height: 680px;
+  }
+
+  .bc-panel__inner {
+    overflow-y: visible;
+  }
+  .bc-panel__inner--cal {
+    overflow-y: auto;
   }
 }
 
 @media (max-width: 600px) {
-  /* Avoid full-bleed breakout on small screens so page gutters + section padding stack for readable side margins. */
-  .book-consultation-page__heroWrap {
-    margin-left: 0;
-    margin-right: 0;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
+  .bc-section {
+    padding: 28px 12px 48px;
   }
-
-  .book-consultation {
-    padding-top: 12px;
-    padding-bottom: 48px;
-    padding-left: max(18px, env(safe-area-inset-left, 0px));
-    padding-right: max(18px, env(safe-area-inset-right, 0px));
+  .bc-cal-bar{
+    display: flex;
+    flex-direction:column;
   }
-
-  .book-consultation__left,
-  .book-consultation__right {
-    padding: 16px;
-    border-radius: 18px;
+  
+  .bc-cal-bar_mode .txt{
+    font-size: 14px !important;
   }
-
-  .book-modal {
-    padding-top: max(14px, env(safe-area-inset-top, 0px));
-    padding-bottom: max(14px, env(safe-area-inset-bottom, 0px));
-    padding-left: max(20px, env(safe-area-inset-left, 0px));
-    padding-right: max(20px, env(safe-area-inset-right, 0px));
+  .bc-panel {
+    border-radius: 20px;
   }
-
-  .book-modal__panel {
-    padding: 16px 18px 18px;
-    border-radius: 18px;
+  .bc-panel--right {
+    height: 620px;
   }
-
-  .book-modal__done {
-    box-sizing: border-box;
-    width: 100%;
+  .bc-panel__inner {
+    padding: 20px 16px;
+    gap: 16px;
   }
-
-  .book-calendar__head {
-    flex-direction: column;
-    align-items: flex-start;
+  .bc-title {
+    font-size: clamp(24px, 7vw, 32px);
   }
-
-  .book-calendar__day {
-    min-height: 36px;
-    font-size: 13px;
+  .bc-mode {
+    font-size: 12.5px;
+    height: 38px;
+    padding: 0 13px;
   }
-
-  .book-chip {
-    min-height: 36px;
+  .bc-host__avatar {
+    width: 42px; height: 42px;
     font-size: 13px;
   }
 }
 
+@media (max-width: 380px) {
+  .bc-modes {
+    flex-direction: column;
+  }
+  .bc-mode { width: 100%; justify-content: center; }
+  .bc-panel--right { height: 580px; }
+}

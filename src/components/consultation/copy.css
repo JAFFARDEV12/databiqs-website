@@ -1,0 +1,994 @@
+/* Typography + controls (Bebas headings, Inter UI). Duplicated on .book-modal because modal is portaled to body. */
+.book-consultation-page,
+.book-modal,
+.book-consultation {
+  --book-font-ui: "Inter", sans-serif;
+  --book-font-heading: "Sora", sans-serif;
+  --book-control-radius: 12px;
+  --book-pill-radius: 999px;
+  --book-border-subtle: 1px solid rgba(0, 46, 158, 0.16);
+  --book-border-hover: 1px solid rgba(0, 46, 158, 0.34);
+  --book-primary-gradient: #002E9E;
+  --book-text: #2f2f2f;
+  --book-text-muted: #5a5a5a;
+}
+
+/* Consultation typography lock */
+.book-consultation h1,
+.book-consultation h2,
+.book-consultation h3,
+.book-consultation h4,
+.book-consultation h5,
+.book-consultation h6,
+.book-modal h1,
+.book-modal h2,
+.book-modal h3,
+.book-modal h4,
+.book-modal h5,
+.book-modal h6 {
+  font-family: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-weight: 700 !important;
+}
+
+.book-consultation p,
+.book-modal p {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+}
+
+.book-consultation-page {
+  background: #ffffff;
+}
+
+.book-consultation-page__heroWrap {
+  --book-page-pad-x: clamp(16px, 4vw, 32px);
+  margin: -12px calc(-1 * var(--book-page-pad-x)) 0;
+  padding: 20px 0 clamp(10px, 1.5vw, 18px);
+  width: calc(100% + (2 * var(--book-page-pad-x)));
+  box-sizing: border-box;
+  background: #ffffff;
+  position: relative;
+  overflow: visible;
+  z-index: 2;
+  margin-bottom: 50px;
+}
+
+.book-consultation-page__heroWrap::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100vw - 100px);
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 46, 158, 0.2) 37%,
+    rgba(0, 84, 233, 0.05) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.book-consultation {
+  padding: clamp(14px, 3vw, 28px) clamp(12px, 4vw, 40px) clamp(56px, 7vw, 88px);
+  font-family: var(--book-font-ui);
+  color: var(--book-text);
+  position: relative;
+  z-index: 2;
+}
+
+.book-consultation__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+  gap: clamp(20px, 4vw, 48px);
+  align-items: center;
+}
+
+.book-consultation__left,
+.book-consultation__right {
+  background: #ffffff;
+  border: 1px solid rgba(0, 46, 158, 0.16);
+  border-radius: clamp(20px, 2.6vw, 30px);
+  box-shadow: 0 14px 36px rgba(0, 46, 158, 0.08);
+  padding: clamp(20px, 3vw, 36px);
+}
+
+.book-consultation__left {
+  align-self: stretch;
+}
+
+.book-consultation__right {
+  align-self: center;
+  height: fit-content;
+}
+
+.book-consultation__pill {
+  display: inline-flex;
+  padding: 8px 16px;
+  border-radius: var(--book-pill-radius);
+  background: #ffffff;
+  border: 1px solid rgba(0, 46, 158, 0.2);
+  color: #002E9E;
+  font-size: 13px;
+  font-family: var(--book-font-ui);
+  font-weight: 500;
+}
+
+.book-consultation__title {
+  margin: 16px 0 10px;
+  font-family: var(--book-font-heading);
+  font-weight: 700;
+  font-size: clamp(24px, 0.65rem + 3.4vw, 30px);
+  line-height: clamp(32px, 0.8rem + 4vw, 56px) !important;
+  letter-spacing: 0;
+}
+
+.book-consultation__subtitle {
+  margin: 0;
+  color: var(--book-text-muted);
+  font-family: var(--book-font-ui);
+  font-size: clamp(14px, 1.5vw, 14px);
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 58ch;
+}
+
+.book-consultation__selectors {
+  margin-top: clamp(18px, 3vw, 26px);
+  display: grid;
+  gap: 16px;
+}
+
+.book-consultation__selector h3,
+.book-consultation__selector h4 {
+  margin: 0 0 10px;
+  font-family: var(--book-font-ui);
+  font-size: clamp(15px, 1.35vw, 18px);
+  font-weight: 700;
+  line-height: 1.25;
+  padding-top: 20px;
+  color: #1a1a1a;
+  letter-spacing: -0.02em;
+}
+
+.book-consultation__selector--calendar {
+  border: 1px solid rgba(0, 46, 158, 0.16);
+  border-radius: 18px;
+  padding: 14px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 46, 158, 0.12) 22%,
+    rgba(0, 84, 233, 0.05) 100%
+  );
+}
+
+.book-calendar__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.book-calendar__head h3 {
+  margin: 0;
+  font-family: var(--book-font-ui);
+  font-size: clamp(15px, 1.35vw, 18px);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #1a1a1a;
+  letter-spacing: -0.02em;
+}
+
+.book-calendar__nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-family: var(--book-font-ui);
+  font-weight: 600;
+  color: var(--book-text);
+}
+
+.book-calendar__nav button {
+  width: 36px;
+  height: 36px;
+  border: var(--book-border-subtle);
+  border-radius: var(--book-pill-radius);
+  background: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.book-calendar__nav button:hover {
+  border: var(--book-border-hover);
+  box-shadow: 0 4px 12px rgba(0, 46, 158, 0.12);
+}
+
+.book-calendar__nav-icon {
+  width: 10px;
+  height: 10px;
+  object-fit: contain;
+}
+
+.book-calendar__nav-icon--prev {
+  transform: rotate(180deg);
+}
+
+.book-calendar {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.book-calendar__weekday {
+  text-align: center;
+  font-size: 11px;
+  font-family: var(--book-font-ui);
+  font-weight: 600;
+  color: #5b6d95;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.book-calendar__day {
+  border: var(--book-border-subtle);
+  background: #ffffff;
+  border-radius: var(--book-control-radius);
+  min-height: 40px;
+  font-family: var(--book-font-ui);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--book-text);
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.book-calendar__day:hover:not(:disabled) {
+  transform: translateY(-1px);
+  border: var(--book-border-hover);
+  box-shadow: 0 4px 12px rgba(0, 46, 158, 0.1);
+}
+
+.book-calendar__day.is-active {
+  border-color: transparent;
+  background: #002E9E;
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(0, 46, 158, 0.28);
+}
+
+.book-calendar__day.is-outside {
+  color: #8a9abb;
+  background: #f3f7ff;
+  font-weight: 500;
+}
+
+.book-calendar__day:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.book-consultation__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.book-chip {
+  border: var(--book-border-subtle);
+  background: #ffffff;
+  color: var(--book-text);
+  border-radius: var(--book-control-radius);
+  min-height: 40px;
+  padding: 8px 16px;
+  font-family: var(--book-font-ui);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.book-chip:hover {
+  transform: translateY(-1px);
+  border: var(--book-border-hover);
+  box-shadow: 0 4px 12px rgba(0, 46, 158, 0.1);
+}
+
+.book-chip.is-active {
+  border-color: transparent;
+  background: #002E9E;
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(0, 46, 158, 0.28);
+}
+
+/* Modal — full-range time picker (native clock UI + themed analog preview) */
+.book-consultation__selector--time-picker .book-time-picker__lead {
+  margin: 0 0 12px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--book-text-muted);
+}
+
+.book-time-picker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(16px, 3vw, 24px);
+  padding: clamp(14px, 2.5vw, 18px);
+  border-radius: 16px;
+  border: 1px solid rgba(0, 46, 158, 0.22);
+  background: linear-gradient(145deg, #fafbff 0%, #f0f4ff 100%);
+  box-sizing: border-box;
+}
+
+.book-time-picker__clock {
+  flex: 0 0 auto;
+  width: min(132px, 38vw);
+  height: min(132px, 38vw);
+  filter: drop-shadow(0 8px 20px rgba(0, 46, 158, 0.18));
+}
+
+.book-time-picker__clock-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.book-time-picker__controls {
+  flex: 1 1 200px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.book-time-picker__label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #002E9E;
+}
+
+.book-time-picker__input {
+  width: 100%;
+  max-width: 220px;
+  min-height: 48px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 2px solid rgba(0, 46, 158, 0.35);
+  background: #ffffff;
+  color: var(--book-text);
+  font-family: var(--book-font-ui);
+  font-size: 17px;
+  font-weight: 600;
+  box-sizing: border-box;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.book-time-picker__input:hover {
+  border-color: #0054e9;
+}
+
+.book-time-picker__input:focus {
+  outline: none;
+  border-color: #002e9e;
+  box-shadow: 0 0 0 3px rgba(0, 46, 158, 0.2);
+}
+
+.book-time-picker__preview {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: var(--book-text-muted);
+}
+
+.book-time-picker__preview-label {
+  font-weight: 600;
+  color: #475569;
+}
+
+.book-time-picker__preview strong {
+  color: #002e9e;
+  font-weight: 700;
+}
+
+@media (max-width: 480px) {
+  .book-time-picker {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    padding: 12px 14px;
+    gap: 12px;
+  }
+
+  .book-time-picker__clock {
+    width: min(120px, 70vw);
+    height: min(120px, 70vw);
+    margin-inline: auto;
+  }
+
+  .book-time-picker__input {
+    max-width: none;
+  }
+
+  .book-time-picker__controls {
+    align-items: center;
+    flex: 0 1 auto;
+    width: 100%;
+  }
+
+  .book-time-picker__preview {
+    margin-top: 6px;
+    margin-bottom: 0;
+  }
+}
+
+.book-consultation__selected {
+  margin: 0;
+  font-size: 14px;
+  font-family: var(--book-font-ui);
+  font-weight: 400;
+  line-height: 1.5;
+  color: #334155;
+}
+
+.book-consultation__selected strong {
+  font-weight: 700;
+}
+
+.book-open-modal-btn {
+  width: 100%;
+  border: none;
+  border-radius: var(--book-pill-radius);
+  padding: 14px 22px;
+  background: #002E9E;
+  color: #ffffff;
+  font-family: var(--book-font-ui);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.2s ease;
+}
+
+.book-open-modal-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background: #0054E9;
+  box-shadow: 0 10px 28px rgba(0, 46, 158, 0.35);
+}
+
+.book-open-modal-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ── Calendly right panel ────────────────────────────────────── */
+.book-calendly-wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 640px;
+}
+
+.book-calendly-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(0, 46, 158, 0.08) 0%, rgba(0, 84, 233, 0.04) 100%);
+  border: 1px solid rgba(0, 46, 158, 0.16);
+}
+
+.book-calendly-bar__date {
+  font-family: var(--book-font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  color: #002E9E;
+  line-height: 1.4;
+}
+
+.book-calendly-bar__change {
+  flex-shrink: 0;
+  padding: 5px 12px;
+  border: 1px solid rgba(0, 46, 158, 0.35);
+  border-radius: var(--book-pill-radius);
+  background: #ffffff;
+  color: #002E9E;
+  font-family: var(--book-font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.book-calendly-bar__change:hover {
+  background: #f0f4ff;
+  border-color: #002E9E;
+}
+
+.book-calendly-iframe {
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 580px;
+  border: none;
+  border-radius: 16px;
+  display: block;
+}
+
+/* Locked / hint state */
+.book-calendly-locked {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: clamp(28px, 5vw, 48px) clamp(20px, 4vw, 36px);
+  gap: 16px;
+  height: 100%;
+  min-height: 320px;
+}
+
+.book-calendly-locked__icon svg {
+  width: 64px;
+  height: 64px;
+}
+
+.book-calendly-locked__title {
+  margin: 0;
+  font-family: var(--book-font-heading);
+  font-weight: 700;
+  font-size: clamp(20px, 2.2vw, 26px);
+  color: #1a1a2e;
+}
+
+.book-calendly-locked__desc {
+  margin: 0;
+  max-width: 360px;
+  font-family: var(--book-font-ui);
+  font-size: clamp(13px, 1.3vw, 14px);
+  line-height: 1.65;
+  color: #5a5a6e;
+}
+
+.book-calendly-locked__steps {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.book-calendly-locked__step {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--book-font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.book-calendly-locked__step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #002E9E;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.book-calendly-locked__arrow {
+  color: #94a3b8;
+  font-size: 16px;
+}
+
+@media (max-width: 600px) {
+  .book-calendly-iframe {
+    min-height: 520px;
+    border-radius: 12px;
+  }
+
+  .book-calendly-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+/* ── end Calendly ──────────────────────────────────────────── */
+
+.book-form h2 {
+  margin: 0 0 16px;
+  font-family: var(--book-font-heading);
+  font-weight: 400;
+  font-size: clamp(30px, 4vw, 36px);
+  line-height: 1;
+}
+
+.book-form label {
+  display: block;
+  margin: 12px 0 6px;
+  font-family: var(--book-font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  color: #383838;
+}
+
+.book-form__notice {
+  margin: 0 0 14px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-family: var(--book-font-ui);
+  font-size: 14px;
+  line-height: 1.5;
+  color: #1e3a5f;
+  background: linear-gradient(135deg, rgba(0, 46, 158, 0.1) 0%, rgba(0, 84, 233, 0.06) 100%);
+  border: 1px solid rgba(0, 46, 158, 0.18);
+}
+
+.book-form__alert {
+  margin: 0 0 14px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-family: var(--book-font-ui);
+  font-size: 14px;
+  line-height: 1.5;
+  color: #7f1d1d;
+  background: #fef2f2;
+  border: 1px solid rgba(185, 28, 28, 0.35);
+}
+
+.book-form--locked {
+  opacity: 0.88;
+}
+
+.book-form__fieldError {
+  display: block;
+  margin: 6px 0 0;
+  font-family: var(--book-font-ui);
+  font-size: 13px;
+  font-weight: 500;
+  color: #b91c1c;
+}
+
+.book-form input.is-invalid,
+.book-form textarea.is-invalid {
+  border-color: rgba(185, 28, 28, 0.55);
+  box-shadow: 0 0 0 2px rgba(185, 28, 28, 0.12);
+}
+
+.book-form input:disabled,
+.book-form textarea:disabled {
+  background: #f4f6f9;
+  color: #64748b;
+  cursor: not-allowed;
+}
+
+.book-modal__error {
+  margin: 0 0 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-family: var(--book-font-ui);
+  font-size: 13px;
+  font-weight: 500;
+  color: #7f1d1d;
+  background: #fef2f2;
+  border: 1px solid rgba(185, 28, 28, 0.35);
+}
+
+.book-form input,
+.book-form textarea {
+  width: 100%;
+  border: 1px solid rgba(0, 46, 158, 0.16);
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-size: 14px;
+  box-sizing: border-box;
+  font-family: var(--book-font-ui);
+  color: var(--book-text);
+}
+
+.book-form input:focus,
+.book-form textarea:focus {
+  outline: none;
+  border-color: rgba(0, 46, 158, 0.45);
+  box-shadow: 0 0 0 3px rgba(0, 84, 233, 0.12);
+}
+
+.book-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.book-form__submit {
+  margin-top: 16px;
+  width: 100%;
+  border: none;
+  border-radius: var(--book-pill-radius);
+  padding: 14px 22px;
+  background: #002E9E;
+  color: #ffffff;
+  font-family: var(--book-font-ui);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.book-form__submit:hover {
+  transform: translateY(-2px);
+  background: #0054E9;
+  box-shadow: 0 10px 28px rgba(0, 46, 158, 0.35);
+}
+
+.book-form .meeting-banner__cta {
+  margin-top: 20px;
+}
+
+.book-success {
+  border: 1px solid rgba(0, 46, 158, 0.2);
+  border-radius: 20px;
+  padding: clamp(18px, 3vw, 28px);
+  background: linear-gradient(180deg, rgba(0, 46, 158, 0.14) 0%, #ffffff 100%);
+}
+
+.book-success__badge {
+  display: inline-flex;
+  border-radius: var(--book-pill-radius);
+  padding: 7px 13px;
+  background: #002E9E;
+  color: #ffffff;
+  font-size: 12px;
+  font-family: var(--book-font-ui);
+  font-weight: 600;
+}
+
+.book-success h2 {
+  margin: 14px 0 8px;
+  font-family: var(--book-font-heading);
+  font-weight: 400;
+  font-size: clamp(30px, 4vw, 40px);
+  line-height: 1;
+}
+
+.book-success p {
+  margin: 0;
+  font-size: 15px;
+  font-family: var(--book-font-ui);
+  line-height: 1.6;
+  color: #232323;
+}
+
+/* Portal renders under document.body so position:fixed is viewport-relative (#root uses transform, which breaks fixed children). */
+.book-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 12000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: max(12px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px))
+    max(12px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+}
+
+.book-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 10, 38, 0.58);
+  backdrop-filter: blur(3px);
+}
+
+.book-modal__panel {
+  position: relative;
+  width: min(620px, 100%);
+  max-width: min(620px, calc(100vw - 32px));
+  box-sizing: border-box;
+  font-family: var(--book-font-ui);
+  color: var(--book-text);
+  max-height: min(86vh, 760px);
+  max-height: min(86dvh, 760px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 22px;
+  padding: clamp(16px, 2.8vw, 28px);
+  background: #ffffff;
+  border: 1px solid rgba(0, 46, 158, 0.2);
+  box-shadow: 0 24px 54px rgba(0, 46, 158, 0.24);
+  z-index: 1;
+  margin: auto;
+}
+
+.book-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.book-modal__header h3 {
+  margin: 0;
+  font-family: var(--book-font-heading);
+  font-weight: 400;
+  font-size: clamp(28px, 4vw, 38px);
+  line-height: 1;
+}
+
+.book-modal__sub {
+  margin: 8px 0 16px;
+  color: var(--book-text-muted);
+  font-size: 14px;
+  font-family: var(--book-font-ui);
+  line-height: 1.5;
+}
+
+.book-modal__close {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--book-pill-radius);
+  border: var(--book-border-subtle);
+  background: #ffffff;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  font-family: var(--book-font-ui);
+  color: var(--book-text);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.book-modal__close:hover {
+  border: var(--book-border-hover);
+  background: #faf8ff;
+}
+
+.book-modal__done {
+  margin-top: 18px;
+  width: 100%;
+  border: none;
+  border-radius: var(--book-pill-radius);
+  padding: 14px 22px;
+  color: #ffffff;
+  font-size: 15px;
+  font-family: var(--book-font-ui);
+  font-weight: 600;
+  background: #002E9E;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.book-modal__done:hover {
+  transform: translateY(-2px);
+  background: #0054E9;
+  box-shadow: 0 10px 28px rgba(0, 46, 158, 0.35);
+}
+
+@media (max-width: 900px) {
+  .book-consultation-page__heroWrap::before {
+    width: 100vw;
+    border-radius: 0;
+  }
+
+  .book-consultation__container {
+    grid-template-columns: 1fr;
+    align-items: start;
+   
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .book-consultation__title {
+    font-size: clamp(28px, 6vw, 38px);
+  }
+
+  .book-consultation__right {
+    align-self: stretch;
+    height: auto;
+  }
+}
+
+@media (max-width: 1024px) {
+  .book-consultation-page__heroWrap::before {
+    width: 100vw;
+    border-radius: 0;
+  }
+  .book-consultation__container {
+    grid-template-columns: 1fr;
+    align-items: start;
+   
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 90%;
+  }
+}
+@media (max-width: 600px) {
+  /* Avoid full-bleed breakout on small screens so page gutters + section padding stack for readable side margins. */
+  .book-consultation-page__heroWrap {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .book-consultation {
+    padding-top: 12px;
+    padding-bottom: 48px;
+    padding-left: max(10px, env(safe-area-inset-left, 0px));
+    padding-right: max(10px, env(safe-area-inset-right, 0px));
+    
+  }
+
+  .book-consultation__left,
+  .book-consultation__right {
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .book-modal {
+    padding-top: max(14px, env(safe-area-inset-top, 0px));
+    padding-bottom: max(14px, env(safe-area-inset-bottom, 0px));
+    padding-left: max(20px, env(safe-area-inset-left, 0px));
+    padding-right: max(20px, env(safe-area-inset-right, 0px));
+  }
+
+  .book-modal__panel {
+    padding: 16px 18px 18px;
+    border-radius: 18px;
+  }
+
+  .book-modal__done {
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .book-calendar__head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .book-calendar__day {
+    min-height: 36px;
+    font-size: 13px;
+  }
+
+  .book-chip {
+    min-height: 36px;
+    font-size: 13px;
+  }
+}
+
