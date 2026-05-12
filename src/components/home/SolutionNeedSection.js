@@ -59,7 +59,7 @@ const SOLUTION_OPTIONS = [
   {
     id: 'strategy',
     title: 'AI Consulting',
-    shortLabel: 'AI Strategy',
+    shortLabel: 'AI Consulting',
     subheading:
       'Strategic AI consulting designed to help organizations identify high-impact opportunities, align AI initiatives with business goals, and build scalable transformation roadmaps. ',
     bullets: [

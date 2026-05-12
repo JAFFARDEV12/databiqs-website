@@ -245,12 +245,14 @@
 .newsletter-button {
   background: #0054E9;
   color: white;
+  background: #0054E9;
+  color: white;
   border: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: var(--footer-newsletter-control-height);
-  height: var(--footer-newsletter-control-height);
+  min-height: var(--footer-newsletter-control-height, 40px);  /* fallback if var missing */
+  height: var(--footer-newsletter-control-height, 40px);
   padding: 0 24px;
   border-radius: 24px;
   font-size: 14px;
@@ -260,6 +262,7 @@
   white-space: nowrap;
   box-shadow: none;
   transition: transform 0.25s ease, background 0.25s ease;
+  line-height: 1;         
 }
 
 .newsletter-button:hover {
