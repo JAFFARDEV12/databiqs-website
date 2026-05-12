@@ -55,7 +55,7 @@ const HeroSection = ({
             rel="noopener noreferrer"
             aria-label={`Compose email in Gmail to ${HERO_EMAIL}`}
           >
-            Email Us
+            Email me
           </a>
         </div>
 
