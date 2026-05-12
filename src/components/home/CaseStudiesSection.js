@@ -80,7 +80,7 @@ const CaseStudiesSection = ({
     : filtered;
 
   const handleReadMore = () => {
-    navigate('/');
+    navigate('/case-studies');
     setTimeout(() => {
       const section = document.getElementById('case-studies');
       if (section) section.scrollIntoView({ behavior: 'smooth' });

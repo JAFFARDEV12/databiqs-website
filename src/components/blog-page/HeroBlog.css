@@ -445,7 +445,7 @@
     min-height: clamp(260px, 56vw, 340px);
     margin-top: 14px;
     /* Slight inset so the video card does not read flush to the screen (nested breakout cancels wrapper padding). */
-    margin-inline: clamp(10px, 2.8vw, 14px);
+    margin-inline: clamp(16px, 4vw, 24px);
     width: auto;
     max-width: 100%;
     box-sizing: border-box;
@@ -467,7 +467,21 @@
 @media (max-width: 480px) {
   .heroBlog__featureRow {
     min-height: clamp(240px, 64vw, 300px);
+    margin-inline: clamp(16px, 4vw, 20px);
     margin-left: max(12px, env(safe-area-inset-left, 0px));
     margin-right: max(12px, env(safe-area-inset-right, 0px));
+  }
+}
+@media (max-width: 360px) {
+  .heroBlog__featureRow {
+    margin-inline: 12px; /* matches --case-study-page-pad-x at 360px */
+  }
+}
+@media (max-width: 1024px) {
+  .heroBlog__featureRow {
+    margin-inline: 12px; /* matches --case-study-page-pad-x at 360px */
+  }
+  .heroBlog__introRow{
+    margin-inline: 12px;
   }
 }

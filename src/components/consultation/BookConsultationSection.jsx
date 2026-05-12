@@ -1,117 +1,146 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useState } from 'react';
 import './BookConsultation.css';
 
-const CALENDLY_URL =
-  process.env.REACT_APP_CALENDLY_URL || 'https://calendly.com/ceo-databiqs/30min';
+const CALENDLY_URL = 'https://calendly.com/ceo-databiqs/30min';
 
 const SESSION_MODES = [
-  { id: 'google-meet', label: 'Google Meet', emoji: '' },
-  { id: 'zoom',        label: 'Zoom',         emoji: '' },
-  { id: 'whatsapp',   label: 'WhatsApp',      emoji: '' },
+  { id: 'google-meet', label: 'Google Meet', icon: '📹' },
+  { id: 'zoom',        label: 'Zoom',        icon: '💻' },
+  { id: 'whatsapp',    label: 'WhatsApp',    icon: '💬' },
 ];
 
 const BENEFITS = [
-  { emoji: '🎯', title: 'AI Roadmap',   desc: 'Define your product strategy and execution milestones' },
-  { emoji: '⚡', title: 'Quick Wins',   desc: 'Identify the highest-impact opportunities fast' },
+  {
+    emoji: '🎯',
+    title: 'AI Roadmap',
+    desc: 'Define your product strategy and execution milestones tailored to your vision.',
+  },
+  {
+    emoji: '⚡',
+    title: 'Quick Wins',
+    desc: 'Identify the highest-impact AI opportunities you can act on immediately.',
+  },
+  {
+    emoji: '🧭',
+    title: 'Expert Clarity',
+    desc: 'Cut through the noise with direct guidance from a seasoned AI product CEO.',
+  },
+];
+
+const STATS = [
+  { num: '30', label: 'Minutes focused' },
+  { num: '0',  label: 'Cost, free'      },
+  { num: '1',  label: 'Clear AI roadmap'},
 ];
 
 const TRUST = [
-  { icon: '🔒', label: 'No credit card' },
-  { icon: '✅', label: 'Free session'   },
-  { icon: '🕐', label: 'Cancel anytime' },
+  { icon: '🔒', label: 'No credit card required'        },
+  { icon: '✅', label: 'Completely free session'         },
+  { icon: '🕐', label: 'Cancel or reschedule anytime'   },
 ];
-
-const buildCalendlyUrl = (base, modeLabel) => {
-  try {
-    const url = new URL(base);
-    url.searchParams.set('hide_event_type_details', '1');
-    url.searchParams.set('hide_gdpr_banner', '1');
-    // primary_color drives Calendly's CTA button bg AND its hover shade
-    url.searchParams.set('primary_color', '0054E9');   // bright blue — on hover Calendly darkens this automatically
-    url.searchParams.set('text_color', '1a1a2e');
-    url.searchParams.set('background_color', 'ffffff');
-    url.searchParams.set('embed_type', 'Inline');
-    if (modeLabel) url.searchParams.set('a1', modeLabel);
-    return url.toString();
-  } catch {
-    return base;
-  }
-};
 
 const BookConsultationSection = ({
   className = '',
   pillText  = 'Free Strategy Session',
-  title     = 'Book Your Consultation',
+  title     = 'Book Your',
+  titleItalic = 'Consultation',
   subtitle  = 'Reserve a focused 30-minute strategy session with our CEO. Walk away with a clear AI product roadmap tailored to your goals.',
 }) => {
   const [selectedMode, setSelectedMode] = useState(SESSION_MODES[0].id);
-  const [iframeLoaded, setIframeLoaded] = useState(false);
 
-  const activeMode = SESSION_MODES.find(m => m.id === selectedMode);
-  const calendlyUrl = useMemo(
-    () => buildCalendlyUrl(CALENDLY_URL, activeMode?.label ?? ''),
-    [activeMode]
-  );
+  const activeMode   = SESSION_MODES.find(m => m.id === selectedMode);
+  const calendlyLink = `${CALENDLY_URL}?a1=${encodeURIComponent(activeMode?.label ?? '')}`;
 
-  useEffect(() => { setIframeLoaded(false); }, [calendlyUrl]);
+  const handleBook = () => {
+    window.open(calendlyLink, '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <section className={['bc-section', className].filter(Boolean).join(' ')}>
       <span className="bc-blob bc-blob--tl" aria-hidden="true" />
       <span className="bc-blob bc-blob--br" aria-hidden="true" />
+      <span className="bc-blob bc-blob--mid" aria-hidden="true" />
+      <span className="bc-grid-bg" aria-hidden="true" />
 
-      <div className="bc-container">
+      <div className="bc-inner">
 
-        {/* ══════════ LEFT PANEL ══════════ */}
-        <div className="bc-panel bc-panel--left">
-          <div className="bc-panel__inner">
+        {/* ══ LEFT COLUMN ══ */}
+        <div className="bc-left">
 
-            <span className="bc-pill">
-              <span className="bc-pill__dot" aria-hidden="true" />
-              {pillText}
-            </span>
+          {/* Pill */}
+          <span className="bc-pill">
+            <span className="bc-pill__dot" aria-hidden="true" />
+            {pillText}
+          </span>
 
-            <h1 className="bc-title">{title}</h1>
-            <p  className="bc-subtitle">{subtitle}</p>
+          {/* Headline */}
+          <h1 className="bc-title">
+            {title}<br />
+            <em>{titleItalic}</em>
+          </h1>
 
-            {/* Host card */}
-            <div className="bc-host">
-              <div className="bc-host__avatar" aria-label="Jaffar Ali">JA</div>
-              <div className="bc-host__info">
-                <span className="bc-host__name">Jaffar Ali</span>
-                <span className="bc-host__role">CEO, Databiqs</span>
+          {/* Subtitle */}
+          <p className="bc-subtitle">{subtitle}</p>
+
+          {/* Stats row */}
+          <div className="bc-stats">
+            {STATS.map(({ num, label }) => (
+              <div key={label} className="bc-stat">
+                <span className="bc-stat__num">{num}</span>
+                <span className="bc-stat__lbl">{label}</span>
               </div>
-              <span className="bc-host__dur">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                     stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
-                  <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-                </svg>
-                30 min
-              </span>
+            ))}
+          </div>
+
+          <span className="bc-rule-h" />
+
+          {/* Benefits */}
+          <ul className="bc-benefits">
+            {BENEFITS.map(({ emoji, title: t, desc }) => (
+              <li key={t} className="bc-benefit">
+                <span className="bc-benefit__icon" aria-hidden="true">{emoji}</span>
+                <div>
+                  <strong className="bc-benefit__title">{t}</strong>
+                  <span   className="bc-benefit__desc">{desc}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+
+          {/* Host strip */}
+          <div className="bc-host">
+            <div className="bc-host__avatar" aria-label="Jaffar Ali">JA</div>
+            <div className="bc-host__info">
+              <span className="bc-host__name">Jaffar Ali</span>
+              <span className="bc-host__role">CEO, Databiqs</span>
             </div>
+            <span className="bc-host__dur">
+              <svg
+                width="13" height="13" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor"
+                strokeWidth="2.2" strokeLinecap="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+              30 min
+            </span>
+          </div>
 
-            <hr className="bc-rule" />
+        </div>
 
-            {/* Benefits */}
-            <p className="bc-label">What you'll get</p>
-            <ul className="bc-benefits">
-              {BENEFITS.map(({ emoji, title: t, desc }) => (
-                <li key={t} className="bc-benefit">
-                  <span className="bc-benefit__icon" aria-hidden="true">{emoji}</span>
-                  <div>
-                    <strong className="bc-benefit__title">{t}</strong>
-                    <span  className="bc-benefit__desc">{desc}</span>
-                  </div>
-                </li>
-              ))}
-            </ul>
+        {/* ══ VERTICAL DIVIDER ══ */}
+        <div className="bc-divider-v" aria-hidden="true" />
 
-            <hr className="bc-rule" />
+        {/* ══ RIGHT COLUMN ══ */}
+        <div className="bc-right">
 
-            {/* Platform selector */}
+          {/* Platform selector */}
+          <div>
             <p className="bc-label">Preferred platform</p>
             <div className="bc-modes" role="group" aria-label="Select meeting platform">
-              {SESSION_MODES.map(({ id, label, emoji }) => (
+              {SESSION_MODES.map(({ id, label, icon }) => (
                 <button
                   key={id}
                   type="button"
@@ -119,76 +148,47 @@ const BookConsultationSection = ({
                   aria-pressed={selectedMode === id}
                   onClick={() => setSelectedMode(id)}
                 >
-                  <span aria-hidden="true">{emoji}</span>
-                  {label}
+                  <span className="bc-mode__icon" aria-hidden="true">{icon}</span>
+                  <span className="bc-mode__label">{label}</span>
+                  <span className="bc-mode__check" aria-hidden="true">
+                    {selectedMode === id ? '✓' : ''}
+                  </span>
                 </button>
               ))}
             </div>
-
-            {/* Trust */}
-            <div className="bc-trust">
-              {TRUST.map(({ icon, label }) => (
-                <span key={label} className="bc-trust__item">
-                  <span aria-hidden="true">{icon}</span>
-                  {label}
-                </span>
-              ))}
-            </div>
-
           </div>
-        </div>
 
-        {/* ══════════ RIGHT PANEL ══════════ */}
-        <div className="bc-panel bc-panel--right">
-          <div className="bc-panel__inner bc-panel__inner--cal">
+          {/* Book button */}
+          <button
+            type="button"
+            className="bc-book-btn"
+            onClick={handleBook}
+            aria-label="Book a free consultation on Calendly"
+          >
+            <span>Book a Free Session</span>
+            <span className="bc-book-btn__icon" aria-hidden="true">
+              <svg
+                width="14" height="14" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor"
+                strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+              >
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                <polyline points="15 3 21 3 21 9"/>
+                <line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
+            </span>
+          </button>
 
-            {/* Bar */}
-            <div className="bc-cal-bar">
-              <div className="bc-cal-bar__brand">
-                <span className="bc-cal-bar__via">Scheduling via</span>
-                <svg width="80" height="20" viewBox="0 0 120 28" fill="none"
-                     xmlns="http://www.w3.org/2000/svg" aria-label="Calendly" role="img">
-                  <circle cx="12" cy="14" r="9" fill="rgba(0,107,255,0.12)"/>
-                  <path d="M18.5 19.8A8 8 0 1 1 18.5 8.2" stroke="#006BFF"
-                        strokeWidth="2" strokeLinecap="round" fill="none"/>
-                  <text x="28" y="19.5" fontFamily="system-ui,sans-serif"
-                        fontSize="14" fontWeight="700" fill="#006BFF">Calendly</text>
-                </svg>
+          {/* Trust strip */}
+          <div className="bc-trust">
+            {TRUST.map(({ icon, label }) => (
+              <div key={label} className="bc-trust__item">
+                <span className="bc-trust__icon" aria-hidden="true">{icon}</span>
+                {label}
               </div>
-              <span className="bc-cal-bar__mode">
-              {activeMode?.label}
-                
-              </span>
-            </div>
-
-            {/* Iframe + shimmer */}
-            <div className="bc-iframe-wrap">
-              {!iframeLoaded && (
-                <div className="bc-shimmer" aria-hidden="true">
-                  <div className="bc-shimmer__bar" style={{width:'65%'}} />
-                  <div className="bc-shimmer__bar" style={{width:'45%'}} />
-                  <div className="bc-shimmer__grid">
-                    {Array.from({length:35}).map((_,i)=>(
-                      <div key={i} className="bc-shimmer__cell" />
-                    ))}
-                  </div>
-                  <div className="bc-shimmer__bar" style={{width:'55%'}} />
-                  <p className="bc-shimmer__msg">Loading your scheduler…</p>
-                </div>
-              )}
-              <iframe
-                key={calendlyUrl}
-                className={`bc-iframe${iframeLoaded ? ' is-ready' : ''}`}
-                src={calendlyUrl}
-                title="Schedule your consultation on Calendly"
-                frameBorder="0"
-                scrolling="yes"
-                allow="payment"
-                onLoad={() => setIframeLoaded(true)}
-              />
-            </div>
-
+            ))}
           </div>
+
         </div>
 
       </div>

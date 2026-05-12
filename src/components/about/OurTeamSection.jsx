@@ -53,7 +53,7 @@ const IconChevronRight = () => (
   </svg>
 );
 
-/* ── Team card (markup unchanged from original) ── */
+/* ── Team card ── */
 const TeamCard = ({ member, compact = false }) => (
   <article
     className={[
@@ -88,25 +88,17 @@ const TeamCard = ({ member, compact = false }) => (
   </article>
 );
 
-/* ─────────────────────────────────────────────
-   Main component
-   • Default: CSS marquee auto-scroll (both lanes)
-   • Hover over carousel: pause (original behaviour)
-   • Click prev/next: pause marquee, jump the
-     underlying scrollLeft by one card width,
-     resume after 3 s of inactivity
-───────────────────────────────────────────── */
 const OurTeamSection = () => {
   const sectionRef    = useScrollAnimation({ threshold: 0.14 });
-  const carouselRef   = useRef(null);   // the .our-team__carousel div
-  const trackRef      = useRef(null);   // the .our-team__track div
+  const carouselRef   = useRef(null);
+  const trackRef      = useRef(null);
   const resumeTimer   = useRef(null);
   const [paused, setPaused] = useState(false);
 
   const ceoMember    = TEAM_MEMBERS.find((m) => m.spotlight);
   const otherMembers = TEAM_MEMBERS.filter((m) => !m.spotlight);
 
-  /* Card width + gap — needed for manual slide jumps */
+  /* Card width + gap */
   const cardStep = useCallback(() => {
     const track = trackRef.current;
     if (!track) return 280;
@@ -116,65 +108,72 @@ const OurTeamSection = () => {
     return card.offsetWidth + gap;
   }, []);
 
-  /* Pause the CSS animation for `ms` ms, then resume */
-  const pauseAndResume = useCallback((ms = 3000) => {
-    setPaused(true);
-    clearTimeout(resumeTimer.current);
-    resumeTimer.current = setTimeout(() => setPaused(false), ms);
+  /* Get the full width of ONE lane (half of the duplicated track) */
+  const laneWidth = useCallback(() => {
+    const track = trackRef.current;
+    if (!track) return 0;
+    // The track has two identical lanes; half its scrollWidth = one lane
+    return track.scrollWidth / 2;
   }, []);
 
-  useEffect(() => () => clearTimeout(resumeTimer.current), []);
-
-  /* ── Manual slide via scrollLeft on the track ──
-     The track is `width: max-content` inside the carousel.
-     We shift its `transform: translateX` offset by manipulating
-     a CSS custom property so both lanes move together.
-     Simpler approach: because both lanes are inside one `.our-team__track`
-     flex container that is animated, we temporarily override the
-     animation with a CSS variable offset, then clear it on resume.
-
-     Actually the cleanest approach for a marquee + button combo:
-     we DON'T touch scrollLeft (marquee uses transform, not scroll).
-     Instead we:
-       1. Pause the animation (add class / set paused state)
-       2. Read the current translateX from getComputedStyle
-       3. Apply that as an inline transform on the track
-       4. Then add/subtract one card step from that inline transform
-       5. On resume, remove inline transform and restart animation
-          from the CSS keyframe (which loops seamlessly)
-  ── */
+  /* Read current animated translateX */
   const getCurrentX = useCallback(() => {
     const track = trackRef.current;
     if (!track) return 0;
     const matrix = new DOMMatrixReadOnly(getComputedStyle(track).transform);
-    return matrix.m41; // translateX value in px
+    return matrix.m41;
   }, []);
+
+  useEffect(() => () => clearTimeout(resumeTimer.current), []);
 
   const slide = useCallback((dir) => {
     const track = trackRef.current;
     if (!track) return;
 
-    const step = cardStep();
+    const step  = cardStep();
+    const oneLane = laneWidth();
 
     /* Capture current animated position */
-    const currentX = getCurrentX();
+    let currentX = getCurrentX();
+
+    /* ── INFINITE WRAP FIX (both directions) ──────────────────────────
+       The marquee loops between translateX(0) and translateX(-oneLane).
+       Both lanes are identical, so any position X is visually equivalent
+       to X ± oneLane.
+
+       PREV (dir === -1): if we're within one step of the start (X > -step),
+       sliding right would go past 0 into empty space → teleport one lane
+       back (X - oneLane) so there's always content to the right.
+
+       NEXT (dir === 1): if we're within one step of the end (X < -oneLane + step),
+       sliding left would go past -oneLane into empty space → teleport one lane
+       forward (X + oneLane) so there's always content to the left.
+
+       The teleport is instant (no transition), then the animated step runs
+       normally from the new position.
+    ─────────────────────────────────────────────────────────────────── */
+    if (dir === -1 && currentX > -step) {
+      // Too close to start — mirror into second lane
+      currentX = currentX - oneLane;
+    } else if (dir === 1 && currentX < -oneLane + step) {
+      // Too close to end — mirror back into first lane
+      currentX = currentX + oneLane;
+    }
 
     /* Freeze: remove animation, pin inline transform */
     track.style.transition = "none";
     track.style.animation  = "none";
     track.style.transform  = `translateX(${currentX}px)`;
 
-    /* Force reflow so browser registers the frozen state */
+    /* Force reflow */
     void track.offsetWidth;
 
-    /* Slide one step in the requested direction */
+    /* Slide one step */
     const targetX = currentX + dir * step * -1; // dir=1 → move left (forward)
     track.style.transition = "transform 0.45s cubic-bezier(0.4, 0, 0.2, 1)";
     track.style.transform  = `translateX(${targetX}px)`;
 
-    /* Schedule resume — remove inline styles so CSS animation takes over again */
-    pauseAndResume(3200);
-
+    /* Resume CSS animation after delay */
     clearTimeout(resumeTimer.current);
     resumeTimer.current = setTimeout(() => {
       track.style.transition = "";
@@ -182,7 +181,9 @@ const OurTeamSection = () => {
       track.style.transform  = "";
       setPaused(false);
     }, 3200);
-  }, [cardStep, getCurrentX, pauseAndResume]);
+
+    setPaused(true);
+  }, [cardStep, laneWidth, getCurrentX]);
 
   return (
     <section className="our-team" id="our-team" ref={sectionRef}>
@@ -205,10 +206,9 @@ const OurTeamSection = () => {
           </div>
         )}
 
-        {/* ── Carousel wrapper ── */}
+        {/* Carousel wrapper */}
         <div className="our-team__carousel-wrap">
 
-          {/* Prev button */}
           <button
             className="our-team__nav-btn our-team__nav-btn--prev"
             onClick={() => slide(-1)}
@@ -217,14 +217,12 @@ const OurTeamSection = () => {
             <IconChevronLeft />
           </button>
 
-          {/* Carousel — hover pauses via CSS, paused state also pauses */}
           <div
             className={`our-team__carousel${paused ? " is-paused" : ""}`}
             ref={carouselRef}
             aria-label="Team Members Carousel"
           >
             <div className="our-team__track" ref={trackRef}>
-              {/* Two identical lanes — same as original marquee pattern */}
               {[0, 1].map((laneIdx) => (
                 <div className="our-team__lane" key={laneIdx}>
                   {otherMembers.map((member) => (
@@ -239,7 +237,6 @@ const OurTeamSection = () => {
             </div>
           </div>
 
-          {/* Next button */}
           <button
             className="our-team__nav-btn our-team__nav-btn--next"
             onClick={() => slide(1)}

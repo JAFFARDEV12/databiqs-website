@@ -156,6 +156,10 @@
 }
 
 @media (max-width: 480px) {
+  .footer {
+    --footer-newsletter-control-height: 34px;
+    padding: 30px 24px 15px; /* increase horizontal padding from 15px to 24px */
+  }
   .social-icon {
     width: 40px;
     height: 40px;
@@ -289,7 +293,7 @@
 
 @media (max-width: 968px) {
   .footer {
-    padding: 60px 40px 30px;
+    padding: 60px 35px 30px;
   }
   
   .footer-content {
@@ -309,7 +313,8 @@
 @media (max-width: 768px) {
   .footer {
     --footer-newsletter-control-height: 36px;
-    padding: 40px 20px 20px;
+    padding: 40px 35px 20px;
+    
   }
   
   .footer-content {
@@ -349,7 +354,7 @@
 @media (max-width: 480px) {
   .footer {
     --footer-newsletter-control-height: 34px;
-    padding: 30px 15px 15px;
+    padding: 30px 24px 15px;
   }
   
   .footer-content {
