@@ -271,20 +271,25 @@
    }
    
    .bc-host__avatar {
-     width: 52px; height: 52px;
-     border-radius: 50%;
-     background: linear-gradient(135deg, var(--bc-primary), var(--bc-primary-b));
-     color: #fff;
-     font-family: var(--bc-font-head);
-     font-size: 17px;
-     font-weight: 400;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     flex-shrink: 0;
-     box-shadow: 0 4px 16px rgba(0,46,158,0.30);
-     letter-spacing: 0.02em;
-   }
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    overflow: hidden;          /* ensures image stays inside circle */
+    flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba(0,46,158,0.30);
+    background: none;          /* removes the previous gradient background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* CEO image – fills the circle perfectly */
+  .bc-host__avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;        /* ensures image covers entire area without distortion */
+    display: block;
+  }
    
    .bc-host__info {
      flex: 1;

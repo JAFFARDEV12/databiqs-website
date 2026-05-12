@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './BookConsultation.css';
-
+import ceoImg from "../../assets/ceo.png";
 const CALENDLY_URL = 'https://calendly.com/ceo-databiqs/30min';
 
 const SESSION_MODES = [
@@ -109,7 +109,14 @@ const BookConsultationSection = ({
 
           {/* Host strip */}
           <div className="bc-host">
-            <div className="bc-host__avatar" aria-label="Jaffar Ali">JA</div>
+            <div className="bc-host__avatar" aria-label="Jaffar Ali">
+              
+              <img 
+              src={ceoImg}  // 🔁 Replace with actual image path or URL
+                alt="Jaffar Ali, CEO of Databiqs"
+                className="bc-host__avatar-img"
+              />
+            </div>
             <div className="bc-host__info">
               <span className="bc-host__name">Jaffar Ali</span>
               <span className="bc-host__role">CEO, Databiqs</span>
