@@ -1,12 +1,9 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
-
-/* ── CSS tokens ── */
+/* ── CSS tokens (align with site: index + Contact) ── */
 .bc-section {
   --bc-primary      : #002E9E;
   --bc-primary-b    : #0054E9;
-  --bc-text         : #0d1b3e;
-  --bc-muted        : #5a6a8a;
+  --bc-text         : #1a1a1a;
+  --bc-muted        : #5a5a5a;
   --bc-surface      : rgba(255,255,255,0.65);
   --bc-soft         : rgba(255,255,255,0.45);
   --bc-border       : rgba(255,255,255,0.70);
@@ -239,9 +236,14 @@
      display: flex;
      align-items: center;
      justify-content: center;
-     font-size: 20px;
      flex-shrink: 0;
      box-shadow: var(--bc-shadow-sm);
+     color: var(--bc-primary);
+   }
+
+   .bc-benefit__icon .bc-svg-icon {
+     display: block;
+     flex-shrink: 0;
    }
    
    .bc-benefit__title {
@@ -431,63 +433,11 @@
      border-color: var(--bc-primary-b);
      color: #fff;
    }
-   
-   /* ── Book button ── */
-   .bc-book-btn {
-    
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 6px;
-    min-width: 160px;
-    height: 40px;
-    min-height: 40px;
-    padding: 0 12px 0 22px;
-    border-radius: 999px;
-    background: #002E9E;
-    color: #ffffff;
-    text-decoration: none;
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 0.01em;
-    transition: background 0.25s ease, transform 0.25s ease;
-  
-  
-   }
-   
-  /*  .bc-book-btn::before {
-     content: '';
-     position: absolute;
-     inset: 0;
-     background: linear-gradient(135deg, rgba(255,255,255,0.10) 0%, transparent 60%);
-     pointer-events: none;
-   } */
-   
-   .bc-book-btn:hover {
-    background: #0054E9;
-    transform: translateY(-2px);
-   }
-   
-   .bc-book-btn:active {
-     transform: translateY(-1px);
-     box-shadow: 0 6px 18px rgba(0,46,158,0.25);
-   }
-   
-   .bc-book-btn__icon {
-     display: inline-flex;
-     align-items: center;
-     justify-content: center;
-     width: 30px; height: 30px;
-     border-radius: 50%;
-     background: rgba(255,255,255,0.20);
-     flex-shrink: 0;
-     transition: background 0.2s ease, transform var(--bc-transition);
-   }
-   
-   .bc-book-btn:hover .bc-book-btn__icon {
-     background: rgba(255,255,255,0.30);
-     transform: rotate(12deg) scale(1.05);
+
+   /* Primary CTA uses global .cta-button (index.css) */
+   .bc-book-cta {
+     width: 100%;
+     max-width: 100%;
    }
    
    /* ── Trust strip (vertical) ── */
@@ -512,7 +462,17 @@
    }
    
    .bc-trust__icon {
-     font-size: 14px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     width: 22px;
+     height: 22px;
+     flex-shrink: 0;
+     color: var(--bc-primary);
+   }
+
+   .bc-trust__icon .bc-svg-icon {
+     display: block;
      flex-shrink: 0;
    }
    
@@ -562,15 +522,14 @@
    
      .bc-mode  { height: 48px; }
    
-     .bc-book-btn {
-       height: 52px;
-       font-size: 14.5px;
-     }
-   
      .bc-benefit__icon {
        width: 38px; height: 38px;
-       font-size: 18px;
        border-radius: 10px;
+     }
+
+     .bc-benefit__icon .bc-svg-icon {
+       width: 18px;
+       height: 18px;
      }
    }
    
@@ -582,3 +541,58 @@
    
      .bc-stats  { flex-direction: column; gap: 14px; }
    }
+
+/* ═══ Book consultation route: Contact-style shell + site card ═══ */
+.book-consultation-page .bc-section {
+  background: transparent;
+  min-height: 0;
+  padding: clamp(8px, 2vw, 16px) 0 clamp(28px, 4vw, 56px);
+  overflow: visible;
+  align-items: flex-start;
+}
+
+.book-consultation-page .bc-blob,
+.book-consultation-page .bc-grid-bg {
+  display: none;
+}
+
+.book-consultation-page .bc-inner {
+  background: #ffffff;
+  border: 1px solid rgba(0, 46, 158, 0.16);
+  border-radius: clamp(20px, 2.6vw, 30px);
+  box-shadow: 0 14px 36px rgba(0, 46, 158, 0.08);
+  padding: clamp(24px, 4vw, 44px);
+  gap: 0 clamp(40px, 4vw, 56px);
+}
+
+.book-consultation-page .bc-benefit__icon {
+  background: #fafbff;
+  border-color: rgba(0, 46, 158, 0.12);
+  box-shadow: 0 2px 10px rgba(0, 46, 158, 0.06);
+}
+
+.book-consultation-page .bc-trust__item {
+  background: #fafbff;
+  border-color: rgba(0, 46, 158, 0.12);
+}
+
+.book-consultation-page .bc-pill {
+  background: #ffffff;
+  border: 1px solid rgba(0, 46, 158, 0.2);
+}
+
+@media (max-width: 900px) {
+  .book-consultation-page .bc-section {
+    padding: clamp(8px, 2vw, 12px) 0 clamp(32px, 6vw, 48px);
+  }
+
+  .book-consultation-page .bc-inner {
+    padding: clamp(20px, 5vw, 32px);
+  }
+}
+
+@media (max-width: 540px) {
+  .book-consultation-page .bc-section {
+    padding: 4px 0 40px;
+  }
+}

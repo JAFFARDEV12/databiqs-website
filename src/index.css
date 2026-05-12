@@ -51,12 +51,14 @@ body {
 /* Landing header/hero gradient – same grey top → white bottom for listed pages */
 .contact-page,
 .insights-innovation-page,
+.book-consultation-page,
 .bdp {
   background: linear-gradient(to bottom, #f8f8f8 0%, #f9f9f9 25%, #fafafa 50%, #fcfcfc 75%, #ffffff 100%);
 }
 
 .contact-page,
-.insights-innovation-page {
+.insights-innovation-page,
+.book-consultation-page {
   min-height: 100vh;
   width: 100%;
 }

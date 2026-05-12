@@ -5,48 +5,29 @@ import apostrophySvg from '../../assets/appostrophy.svg';
 import card1Picture from '../../assets/card 1 picture.svg';
 import card3Picture from '../../assets/card 3 picture.svg';
 import card4Picture from '../../assets/card 4 picture.svg';
-import audioDatabiqsDeliveredAn from '../../assets/testominial audios/Databiqs Delivered An.mp3';
-import audioDatabiqsHelpedUs from '../../assets/testominial audios/Databiqs Helped Us.mp3';
-import audioDatabiqsUnderstood from '../../assets/testominial audios/Databiqs Understood.mp3';
-import audioFromInitialConsultation from '../../assets/testominial audios/From Initial Consultation.mp3';
-import audioOurCustomerSatisfaction from '../../assets/testominial audios/Our Customer Satisfaction.mp3';
-import audioTheAiAutomation from '../../assets/testominial audios/The AI Automation.mp3';
-import audioTheIntelligentAutomation from '../../assets/testominial audios/The Intelligent Automation.mp3';
-import audioTheTeamAtDatabiqs from '../../assets/testominial audios/The Team At Databiqs.mp3';
-import audioWorkingWithDatabiqs from '../../assets/testominial audios/Working With Databiqs.mp3';
+import audio1ST from '../../assets/testominial audios/1ST.mp3';
+import audio2ND from '../../assets/testominial audios/2ND.mp3';
+import audio3RD from '../../assets/testominial audios/3RD.mp3';
+import audio4TH from '../../assets/testominial audios/4TH.mp3';
+import audio5TH from '../../assets/testominial audios/5TH.mp3';
+import audio6TH from '../../assets/testominial audios/6TH.mp3';
+import audio7TH from '../../assets/testominial audios/7TH.mp3';
+import audio8TH from '../../assets/testominial audios/8TH.mp3';
+import audio9TH from '../../assets/testominial audios/9TH.mp3';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
-const AUDIO_FILES = [
-  { name: 'Databiqs Delivered An', file: audioDatabiqsDeliveredAn },
-  { name: 'Databiqs Helped Us', file: audioDatabiqsHelpedUs },
-  { name: 'Databiqs Understood', file: audioDatabiqsUnderstood },
-  { name: 'From Initial Consultation', file: audioFromInitialConsultation },
-  { name: 'Our Customer Satisfaction', file: audioOurCustomerSatisfaction },
-  { name: 'The AI Automation', file: audioTheAiAutomation },
-  { name: 'The Intelligent Automation', file: audioTheIntelligentAutomation },
-  { name: 'The Team At Databiqs', file: audioTheTeamAtDatabiqs },
-  { name: 'Working With Databiqs', file: audioWorkingWithDatabiqs },
+/** One clip per testimonial card, in the same order as `TESTIMONIALS`. */
+const TESTIMONIAL_AUDIOS_IN_ORDER = [
+  audio1ST,
+  audio2ND,
+  audio3RD,
+  audio4TH,
+  audio5TH,
+  audio6TH,
+  audio7TH,
+  audio8TH,
+  audio9TH,
 ];
-
-const cleanWords = (value) =>
-  value
-    .toLowerCase()
-    .replace(/[^a-z0-9\s]/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim()
-    .split(' ')
-    .filter(Boolean);
-
-const getFirstThreeWordsKey = (value) => cleanWords(value).slice(0, 3).join(' ');
-const getFirstTwoWordsKey = (value) => cleanWords(value).slice(0, 2).join(' ');
-
-const audioKeyIndex = AUDIO_FILES.reduce((acc, item) => {
-  const key3 = getFirstThreeWordsKey(item.name);
-  const key2 = getFirstTwoWordsKey(item.name);
-  if (key3) acc[key3] = item.file;
-  if (key2 && !acc[key2]) acc[key2] = item.file;
-  return acc;
-}, {});
 
 const TESTIMONIALS = [
   {
@@ -105,9 +86,9 @@ const TESTIMONIALS = [
   },
 ];
 
-const TESTIMONIALS_WITH_AUDIO = TESTIMONIALS.map((item) => ({
+const TESTIMONIALS_WITH_AUDIO = TESTIMONIALS.map((item, index) => ({
   ...item,
-  audio: audioKeyIndex[getFirstThreeWordsKey(item.quote)] || audioKeyIndex[getFirstTwoWordsKey(item.quote)] || null,
+  audio: TESTIMONIAL_AUDIOS_IN_ORDER[index] ?? null,
 }));
 
 const chunkTestimonials = (items, size) => {

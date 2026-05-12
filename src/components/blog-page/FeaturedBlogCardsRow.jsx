@@ -1,18 +1,15 @@
 import React, { useEffect, useMemo } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import arrowIcon from "../../assets/rightarrow.svg";
-import videoCardOne from "../../assets/4354448-uhd_3840_2160_25fps.mp4";
 import {
   BLOG_POSTS_BY_ID,
   BLOG_BROWSE_TOPIC_KEYS,
   BLOG_FEATURED_IDS_BY_TOPIC,
   normalizeBlogTopicKey,
+  pickFeaturedDiagonalVideo,
 } from "../blog/blogPostsData";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import "./FeaturedBlogCardsRow.css";
-
-/** Same MP4 for both diagonal video tiles (top-right & bottom-left of the 2×2 grid). */
-const DIAGONAL_VIDEO = videoCardOne;
 
 const TOPIC_LABELS = {
   automation: "AI & Automation",
@@ -79,6 +76,8 @@ const FeaturedBlogCardsRow = () => {
         <div className="featuredBlogRow__grid">
           {visibleCards.map((card, idxInPage) => {
             const isVideoCard = idxInPage === 1 || idxInPage === 2;
+            const diagonalSlot = idxInPage === 1 ? 0 : 1;
+            const videoSrc = isVideoCard ? pickFeaturedDiagonalVideo(topicKey, diagonalSlot) : null;
 
             return (
               <article
@@ -88,6 +87,7 @@ const FeaturedBlogCardsRow = () => {
                 {isVideoCard && (
                   <>
                     <video
+                      key={`${topicKey}-d${diagonalSlot}`}
                       className="featuredBlogCard__videoBg"
                       autoPlay
                       loop
@@ -96,7 +96,7 @@ const FeaturedBlogCardsRow = () => {
                       preload="metadata"
                       aria-hidden="true"
                     >
-                      <source src={DIAGONAL_VIDEO} type="video/mp4" />
+                      <source src={videoSrc} type="video/mp4" />
                     </video>
                     <div className="featuredBlogCard__videoOverlay" aria-hidden="true" />
                   </>

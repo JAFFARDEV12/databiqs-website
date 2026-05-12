@@ -16,6 +16,11 @@ import shamimImg from "../../assets/team/Shamaim (1).png";
 import akhlaqImg from "../../assets/team/Akhlaq (1).png";
 import talhaimg from "../../assets/team/fullstack-AI-Engineer.png";
 import alishbaimg1 from "../../assets/team/Alishba1.png";
+import junaidImg from "../../assets/team/junaid.png";
+import fatimaTahirImg from "../../assets/team/fatima tuz zahra.png";
+import laibaImg from "../../assets/team/LAIBA.png";
+import hadeedTararImg from "../../assets/team/Hadeed Tarar.png";
+import hamadKhanImg from "../../assets/team/hamad khan.png";
 
 const TEAM_MEMBERS = [
   { name: "Jaffar Ali Chaudhary", role: "Founder & CEO",                  image: ceoImg,                       featured: true, spotlight: true },
@@ -31,7 +36,12 @@ const TEAM_MEMBERS = [
   { name: "Saad Bin Abi Usama",   role: "Senior Software Engineer",        image: softwareengineer2,            featured: true },
   { name: "Hamza Mumtaz",         role: "UI UX Designer",                  image: uiuxdesigner,                 featured: true },
   { name: "Faizan Ahmed",         role: "Associate Software Engineer",     image: softwareengineer,             featured: true },
+  { name: "Junaid Qamar",         role: "Associate Software Engineer",     image: junaidImg,                    featured: true },
   { name: "Talha Bin Faisal",     role: "Full Stack AI Developer",         image: talhaimg,                     featured: true },
+  { name: "Hamad Khan",           role: "AI/ML Engineer",                  image: hamadKhanImg,                 featured: true },
+  { name: "Fatima Tahir",         role: "Content Writer",                 image: fatimaTahirImg,               featured: true },
+  { name: "Laiba Sheikh",         role: "Marketing Head",                  image: laibaImg,                     featured: true },
+  { name: "Hadeed Tarar",         role: "Business Development Executive", image: hadeedTararImg,               featured: true },
 ];
 
 const getInitials = (name) =>

@@ -55,6 +55,25 @@
   font-style: normal;
 }
 
+.bdp__sectionHeading {
+  font-family: "Bebas Neue", "Sora", sans-serif;
+  font-size: clamp(1.35rem, 2.8vw, 1.85rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: #001a5c;
+  margin: 2rem 0 0.75rem;
+  line-height: 1.15;
+}
+
+.bdp__copy .bdp__sectionHeading:first-child {
+  margin-top: 0;
+}
+
+.bdp__copy .bdp__sectionHeading + p,
+.bdp__copy .bdp__sectionHeading + .bdp-startpara {
+  margin-top: 0.35rem;
+}
+
 .bdp--contents{
   background-color:white !important;
 }

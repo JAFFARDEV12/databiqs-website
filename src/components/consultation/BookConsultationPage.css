@@ -1,0 +1,46 @@
+/* Page shell: matches Contact + Insights (top blue wash, blurred ellipse) */
+.book-consultation-page {
+  --bc-page-pad-x: clamp(10px, 2.8vw, 32px);
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  background: #ffffff;
+}
+
+.book-consultation-page .top-gradient-wrapper {
+  margin: 0;
+  padding: 12px var(--bc-page-pad-x) clamp(16px, 3vw, 32px);
+  width: 100%;
+  box-sizing: border-box;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 46, 158, 0.22) 0%,
+    #ffffff 65%
+  );
+  position: relative;
+  z-index: 1;
+}
+
+.book-consultation-page .decorative-ellipse-1 {
+  position: fixed;
+  width: 180px;
+  height: 180px;
+  background: rgba(0, 46, 158, 0.22);
+  border-radius: 50%;
+  filter: blur(260px);
+  -webkit-filter: blur(260px);
+  pointer-events: none;
+  z-index: 0;
+  top: 52%;
+  right: 3%;
+  transform: translate(50%, -50%);
+  opacity: 0.45;
+}
+
+@media (max-width: 1440px) {
+  .book-consultation-page .decorative-ellipse-1 {
+    right: 0%;
+    top: 55%;
+  }
+}

@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useMemo } from "react";
 import "./HeroBlog.css";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import { Link } from "react-router-dom";
 import arrowIcon from "../../assets/rightarrow.svg";
 import Lottie from "lottie-react";
 import aiConversationAnimation from "../../assets/ai-conversation.json";
-import featureBgVideo from "../../assets/8084751-uhd_3840_2160_25fps.mp4";
+import { BLOG_VIDEO_POOL } from "../blog/blogPostsData";
 
 const HeroBlog = () => {
   const sectionRef = useScrollAnimation({ threshold: 0.2 });
   const featureRowRef = useScrollAnimation({ threshold: 0.45 });
+
+  const heroVideo = useMemo(() => {
+    const index = Math.floor(Math.random() * BLOG_VIDEO_POOL.length);
+    return { index, src: BLOG_VIDEO_POOL[index] };
+  }, []);
 
   return (
     <section className="heroBlog" ref={sectionRef}>
@@ -34,6 +39,7 @@ const HeroBlog = () => {
 
         <div className="heroBlog__banner heroBlog__featureRow" ref={featureRowRef}>
           <video
+            key={`hero-blog-${heroVideo.index}`}
             className="heroBlog__featureVideo"
             autoPlay
             loop
@@ -42,7 +48,7 @@ const HeroBlog = () => {
             preload="metadata"
             aria-hidden="true"
           >
-            <source src={featureBgVideo} type="video/mp4" />
+            <source src={heroVideo.src} type="video/mp4" />
           </video>
           <div className="heroBlog__featureOverlay" aria-hidden="true" />
           <div className="heroBlog__spacer" aria-hidden="true" />

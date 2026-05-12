@@ -1,5 +1,5 @@
-
 import { Link, useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import Footer from "../home/Footer";
 import arrowIcon from "../../assets/rightarrow.svg";
 import relatedStillCover from "../../assets/main.png";
@@ -55,7 +55,12 @@ const renderContentBlock = (line, idx) => {
   if (!trimmed) return null;
 
   if (trimmed.startsWith("## ")) {
-    return null;
+    const heading = trimmed.slice(3).trim();
+    return (
+      <h2 key={`h2-${idx}`} className="bdp__sectionHeading">
+        {heading}
+      </h2>
+    );
   }
 
   if (trimmed.startsWith("- ")) {
@@ -88,9 +93,53 @@ const BlogDetail = () => {
   const contentLines = blog.content.split("\n");
   const contentNodes = contentLines.map((line, idx) => renderContentBlock(line, idx)).filter(Boolean);
   const isVideoCover = isVideoAssetUrl(blog.image);
+  const seo = blog.seo;
+  const origin = typeof window !== "undefined" ? window.location.origin : "";
+  const canonicalUrl = `${origin}${seo.canonicalPath}`;
+  const staticOgPath = isVideoCover ? relatedStillCover : blog.image;
+  const ogImageUrl =
+    origin && typeof staticOgPath === "string" && staticOgPath.startsWith("/")
+      ? `${origin}${staticOgPath}`
+      : "";
+  const publishedTime = Date.parse(blog.date);
+  const datePublished =
+    Number.isFinite(publishedTime) && !Number.isNaN(publishedTime)
+      ? new Date(publishedTime).toISOString().slice(0, 10)
+      : undefined;
+
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: blog.title,
+    description: seo.metaDescription,
+    author: { "@type": "Organization", name: "Databiqs" },
+    publisher: { "@type": "Organization", name: "Databiqs" },
+    ...(datePublished ? { datePublished } : {}),
+    mainEntityOfPage: { "@type": "WebPage", "@id": canonicalUrl },
+    keywords: seo.keywords,
+  };
 
   return (
     <>
+      <Helmet>
+        <title>{seo.metaTitle}</title>
+        <meta name="description" content={seo.metaDescription} />
+        <meta name="keywords" content={seo.keywords} />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={seo.metaTitle} />
+        <meta property="og:description" content={seo.metaDescription} />
+        <meta property="og:url" content={canonicalUrl} />
+        {ogImageUrl ? <meta property="og:image" content={ogImageUrl} /> : null}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={seo.metaTitle} />
+        <meta name="twitter:description" content={seo.metaDescription} />
+        {ogImageUrl ? <meta name="twitter:image" content={ogImageUrl} /> : null}
+      </Helmet>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
    <div className="decorative-ellipse-1"></div>
     <div className="top-gradient-wrapper-blog">
   <main className="bdp">

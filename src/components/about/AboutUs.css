@@ -1,4 +1,4 @@
-/* ===== Page (white shell; hero gradient panel on .au-hero::before — aligned with Services / Case Studies) ===== */
+/* ===== Page (shell; hero panel uses ::before gradient; hero / image frames transparent) ===== */
 .au-page {
   --about-page-pad-x: clamp(16px, 4vw, 32px);
   --about-font-ui: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -164,7 +164,7 @@
   margin-top: 0;
   padding-bottom: clamp(40px, 6vw, 72px);
   position: relative;
-  background: #ffffff;
+  background: transparent;
   overflow: visible;
   transform: translateZ(0);
   will-change: transform;
@@ -387,7 +387,7 @@
   justify-content: center;      /* horizontal */
   align-items: flex-start;      /* desktop top look */
 
-  background: #ffffff;
+  background: transparent;
   border: 1px solid rgba(0, 46, 158, 0.14);
   border-radius: clamp(18px, 2.5vw, 28px);
   overflow: hidden;
@@ -1211,14 +1211,14 @@ width: 100%;
   margin-top: 50px;
 } */
 
-/* Hero shell: white rail + top padding (blue panel is on .au-hero::before only) */
+/* Hero shell: transparent rail so page / gradient shows; blue wash stays on .au-hero::before */
 .au-page .top-gradient-wrapper {
   margin: -12px calc(-1 * var(--about-page-pad-x)) 0;
   padding: 20px var(--about-page-pad-x) clamp(8px, 1.5vw, 18px);
   width: calc(100% + 2 * var(--about-page-pad-x));
   max-width: none;
   box-sizing: border-box;
-  background: #ffffff;
+  background: transparent;
   position: relative;
   z-index: 2;
 }

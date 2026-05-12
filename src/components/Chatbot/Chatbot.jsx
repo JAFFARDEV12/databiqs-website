@@ -1,14 +1,20 @@
 import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
+import Lottie from 'lottie-react';
 import './Chatbot.css';
+import chatbotFabLottie from '../../assets/Live chatbot.json';
 import chatbotIcon from '../../assets/chatbotlogo1.svg';
 
 const API_URL = 'https://databiqs-website-backend-production.up.railway.app/api/prompt';
 
+const AUTO_TOOLTIP_GAP_MS = 10000;
+const AUTO_TOOLTIP_VISIBLE_MS = 3000;
+
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const [showTooltip, setShowTooltip] = useState(false);
+  const [hoverTooltip, setHoverTooltip] = useState(false);
+  const [autoTooltip, setAutoTooltip] = useState(false);
   const [messages, setMessages] = useState([
     { role: 'bot', text: 'Hello! How can I help you today?' },
   ]);
@@ -17,11 +23,49 @@ const Chatbot = () => {
 
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
+  const isOpenRef = useRef(isOpen);
+  isOpenRef.current = isOpen;
 
   useEffect(() => {
     setMounted(true);
     return () => setMounted(false);
   }, []);
+
+  /** When chat is closed: wait 10s, show tooltip ~3s, repeat. */
+  useEffect(() => {
+    if (!mounted || isOpen) {
+      setAutoTooltip(false);
+      return undefined;
+    }
+
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return undefined;
+    }
+
+    let waitTimer;
+    let hideTimer;
+
+    const clearTimers = () => {
+      window.clearTimeout(waitTimer);
+      window.clearTimeout(hideTimer);
+    };
+
+    const scheduleShow = () => {
+      clearTimers();
+      waitTimer = window.setTimeout(() => {
+        if (isOpenRef.current) return;
+        setAutoTooltip(true);
+        hideTimer = window.setTimeout(() => {
+          setAutoTooltip(false);
+          if (!isOpenRef.current) scheduleShow();
+        }, AUTO_TOOLTIP_VISIBLE_MS);
+      }, AUTO_TOOLTIP_GAP_MS);
+    };
+
+    scheduleShow();
+
+    return clearTimers;
+  }, [mounted, isOpen]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -82,14 +126,26 @@ const Chatbot = () => {
       <button
         onClick={toggleChatbot}
         className="chatbot-icon-container"
-        onMouseEnter={() => setShowTooltip(true)}
-        onMouseLeave={() => setShowTooltip(false)}
+        onMouseEnter={() => setHoverTooltip(true)}
+        onMouseLeave={() => setHoverTooltip(false)}
         aria-label="Open chatbot"
       >
-        <img src={chatbotIcon} alt="Chatbot" className="chatbot-icon" />
+        <div className="chatbot-fab-lottie-wrap" aria-hidden="true">
+          <Lottie
+            className="chatbot-fab-lottie"
+            animationData={chatbotFabLottie}
+            loop
+            autoplay
+          />
+        </div>
 
-        {!isOpen && showTooltip && (
-          <div className="chatbot-tooltip">Hey 👋 Ask Databiqs AI Assistant</div>
+        {!isOpen && (hoverTooltip || autoTooltip) && (
+          <div className="chatbot-tooltip" role="tooltip">
+            <span className="chatbot-tooltip__eyebrow">AI assistant</span>
+            <span className="chatbot-tooltip__text">
+              Ask about services, pricing, integrations, or timelines.
+            </span>
+          </div>
         )}
       </button>
 

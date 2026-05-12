@@ -1,23 +1,79 @@
 import './BookConsultation.css';
 import ceoImg from "../../assets/ceo.png";
+import arrowIcon from "../../assets/rightarrow.svg";
 const CALENDLY_URL = 'https://calendly.com/ceo-databiqs/30min';
 
-/** Single default meeting channel passed to Calendly (custom question a1). */
-const MEETING_PLATFORM = { label: 'Google Meet', icon: '📹' };
+/** Default meeting channel passed to Calendly (custom question a1). */
+const CALENDLY_MEETING_PREF = 'Google Meet';
+
+const bcSvgProps = {
+  className: 'bc-svg-icon',
+  width: 20,
+  height: 20,
+  viewBox: '0 0 24 24',
+  fill: 'none',
+  stroke: 'currentColor',
+  strokeWidth: 2,
+  strokeLinecap: 'round',
+  strokeLinejoin: 'round',
+  'aria-hidden': true,
+};
+
+const BcIconTarget = () => (
+  <svg {...bcSvgProps}>
+    <circle cx="12" cy="12" r="10" />
+    <circle cx="12" cy="12" r="6" />
+    <circle cx="12" cy="12" r="2" />
+  </svg>
+);
+
+const BcIconBolt = () => (
+  <svg {...bcSvgProps}>
+    <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />
+  </svg>
+);
+
+const BcIconCompass = () => (
+  <svg {...bcSvgProps}>
+    <circle cx="12" cy="12" r="10" />
+    <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+  </svg>
+);
+
+const BcIconLock = () => (
+  <svg {...bcSvgProps} width={16} height={16}>
+    <rect x="5" y="11" width="14" height="10" rx="2" ry="2" />
+    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+  </svg>
+);
+
+const BcIconCheckCircle = () => (
+  <svg {...bcSvgProps} width={16} height={16}>
+    <circle cx="12" cy="12" r="10" />
+    <polyline points="8 12 11 15 16 9" />
+  </svg>
+);
+
+const BcIconClock = () => (
+  <svg {...bcSvgProps} width={16} height={16}>
+    <circle cx="12" cy="12" r="10" />
+    <polyline points="12 6 12 12 16 14" />
+  </svg>
+);
 
 const BENEFITS = [
   {
-    emoji: '🎯',
+    Icon: BcIconTarget,
     title: 'AI Roadmap',
     desc: 'Define your product strategy and execution milestones tailored to your vision.',
   },
   {
-    emoji: '⚡',
+    Icon: BcIconBolt,
     title: 'Quick Wins',
     desc: 'Identify the highest-impact AI opportunities you can act on immediately.',
   },
   {
-    emoji: '🧭',
+    Icon: BcIconCompass,
     title: 'Expert Clarity',
     desc: 'Cut through the noise with direct guidance from a seasoned AI product CEO.',
   },
@@ -30,9 +86,9 @@ const STATS = [
 ];
 
 const TRUST = [
-  { icon: '🔒', label: 'No credit card required'        },
-  { icon: '✅', label: 'Completely free session'         },
-  { icon: '🕐', label: 'Cancel or reschedule anytime'   },
+  { Icon: BcIconLock, label: 'No credit card required'        },
+  { Icon: BcIconCheckCircle, label: 'Completely free session'         },
+  { Icon: BcIconClock, label: 'Cancel or reschedule anytime'   },
 ];
 
 const BookConsultationSection = ({
@@ -42,7 +98,7 @@ const BookConsultationSection = ({
   titleItalic = 'Consultation',
   subtitle  = 'Reserve a focused 30-minute strategy session with our CEO. Walk away with a clear AI product roadmap tailored to your goals.',
 }) => {
-  const calendlyLink = `${CALENDLY_URL}?a1=${encodeURIComponent(MEETING_PLATFORM.label)}`;
+  const calendlyLink = `${CALENDLY_URL}?a1=${encodeURIComponent(CALENDLY_MEETING_PREF)}`;
 
   const handleBook = () => {
     window.open(calendlyLink, '_blank', 'noopener,noreferrer');
@@ -89,9 +145,11 @@ const BookConsultationSection = ({
 
           {/* Benefits */}
           <ul className="bc-benefits">
-            {BENEFITS.map(({ emoji, title: t, desc }) => (
+            {BENEFITS.map(({ Icon, title: t, desc }) => (
               <li key={t} className="bc-benefit">
-                <span className="bc-benefit__icon" aria-hidden="true">{emoji}</span>
+                <span className="bc-benefit__icon" aria-hidden="true">
+                  <Icon />
+                </span>
                 <div>
                   <strong className="bc-benefit__title">{t}</strong>
                   <span   className="bc-benefit__desc">{desc}</span>
@@ -135,43 +193,26 @@ const BookConsultationSection = ({
         {/* ══ RIGHT COLUMN ══ */}
         <div className="bc-right">
 
-          <div>
-            <p className="bc-label">Session format</p>
-            <div className="bc-modes bc-modes--single" role="status" aria-live="polite">
-              <div className="bc-mode is-active bc-mode--readonly">
-                <span className="bc-mode__icon" aria-hidden="true">{MEETING_PLATFORM.icon}</span>
-                <span className="bc-mode__label">{MEETING_PLATFORM.label}</span>
-                <span className="bc-mode__check" aria-hidden="true">✓</span>
-              </div>
-            </div>
-          </div>
-
           {/* Book button */}
           <button
             type="button"
-            className="bc-book-btn"
+            className="cta-button bc-book-cta"
             onClick={handleBook}
             aria-label="Book a free consultation on Calendly"
           >
             <span>Book a Free Session</span>
-            <span className="bc-book-btn__icon" aria-hidden="true">
-              <svg
-                width="14" height="14" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor"
-                strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
-              >
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                <polyline points="15 3 21 3 21 9"/>
-                <line x1="10" y1="14" x2="21" y2="3"/>
-              </svg>
-            </span>
+            <div className="cta-icon-circle">
+              <img src={arrowIcon} alt="" />
+            </div>
           </button>
 
           {/* Trust strip */}
           <div className="bc-trust">
-            {TRUST.map(({ icon, label }) => (
+            {TRUST.map(({ Icon, label }) => (
               <div key={label} className="bc-trust__item">
-                <span className="bc-trust__icon" aria-hidden="true">{icon}</span>
+                <span className="bc-trust__icon" aria-hidden="true">
+                  <Icon />
+                </span>
                 {label}
               </div>
             ))}
