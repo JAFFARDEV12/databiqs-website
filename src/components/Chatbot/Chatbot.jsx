@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import Lottie from 'lottie-react';
 import './Chatbot.css';
-import chatbotFabLottie from '../../assets/Live chatbot.json';
+import chatbotFabLottie from '../../assets/rightbottomchatbot.json';
 import chatbotIcon from '../../assets/chatbotlogo1.svg';
 
 const API_URL = 'https://databiqs-website-backend-production.up.railway.app/api/prompt';

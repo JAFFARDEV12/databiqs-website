@@ -1,6 +1,13 @@
-import { Link } from 'react-router-dom';
 import './HeroSection.css';
 import GlobeCanvas from './GlobeCanvas';
+
+const HERO_EMAIL = 'business@databiqs.com';
+/**
+ * Opens Gmail (primary account /u/0/) compose with To pre-filled.
+ * Uses `view=cm` — the supported URL pattern; hash-only `#inbox?compose=new` does not reliably accept `to`.
+ * @see https://mail.google.com/mail/
+ */
+const HERO_GMAIL_COMPOSE = `https://mail.google.com/mail/u/0/?view=cm&fs=1&to=${encodeURIComponent(HERO_EMAIL)}`;
 
 const HeroSection = ({
   variant = 'home',
@@ -41,17 +48,15 @@ const HeroSection = ({
             stability to deliver transformation with clarity.
           </p>
 
-          <Link className="hero-cta-email" to="/book-consultation">
-            <span className="cta-email-default">Book a free strategy session</span>
-            <span className="cta-email-hover">
-              Reserve on Calendly
-              <span className="cta-copy-icon" aria-hidden="true">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </span>
-            </span>
-          </Link>
+          <a
+            className="hero-cta-email"
+            href={HERO_GMAIL_COMPOSE}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Compose email in Gmail to ${HERO_EMAIL}`}
+          >
+            Email me
+          </a>
         </div>
 
         <div className="hero-visual">

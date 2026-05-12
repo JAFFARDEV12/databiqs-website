@@ -26,7 +26,7 @@
   transform: scale(0.96) !important;
 }
 
-/* Same “Live chatbot” Lottie as blog Browse by Topic → AI Chatbot */
+/* Lottie on FAB — src/assets/rightbottomchatbot.json */
 .chatbot-fab-lottie-wrap {
   width: 100%;
   height: 100%;

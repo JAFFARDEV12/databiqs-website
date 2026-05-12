@@ -94,72 +94,14 @@
   outline: none;
   cursor: pointer;
   white-space: nowrap;
-  overflow: hidden;
   text-decoration: none;
-  transition: background 0.25s ease, transform 0.25s ease;
+  transition: background 0.25s ease;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .hero-cta-email:hover {
   background: #0054E9;
-  transform: translateY(-2px);
-}
-
-/* Default label — visible, slides out on hover */
-.cta-email-default {
-  display: block;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Hover label — hidden, slides in on hover */
-.cta-email-hover {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.cta-copy-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Swap on hover */
-.hero-cta-email:hover .cta-email-default {
-  opacity: 0;
-  transform: translateY(-8px);
-}
-
-.hero-cta-email:hover .cta-email-hover {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Touch devices: disable hover-swap so it always shows the email */
-@media (hover: none) and (pointer: coarse) {
-  /* Default: show email */
-  .cta-email-hover {
-    display: none;
-  }
-
-  /* When tapped + copied: show "Copied!" briefly (driven by JS class) */
-  .hero-cta-email.is-copied .cta-email-default {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-
-  .hero-cta-email.is-copied .cta-email-hover {
-    display: flex;
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* ===== Right Visual ===== */
