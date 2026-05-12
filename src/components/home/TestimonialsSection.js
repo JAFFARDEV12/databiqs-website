@@ -5,15 +5,15 @@ import apostrophySvg from '../../assets/appostrophy.svg';
 import card1Picture from '../../assets/card 1 picture.svg';
 import card3Picture from '../../assets/card 3 picture.svg';
 import card4Picture from '../../assets/card 4 picture.svg';
-import audio1ST from '../../assets/testominial audios/1ST.mp3';
-import audio2ND from '../../assets/testominial audios/2ND.mp3';
-import audio3RD from '../../assets/testominial audios/3RD.mp3';
-import audio4TH from '../../assets/testominial audios/4TH.mp3';
-import audio5TH from '../../assets/testominial audios/5TH.mp3';
-import audio6TH from '../../assets/testominial audios/6TH.mp3';
-import audio7TH from '../../assets/testominial audios/7TH.mp3';
-import audio8TH from '../../assets/testominial audios/8TH.mp3';
-import audio9TH from '../../assets/testominial audios/9TH.mp3';
+import audio1ST from '../../assets/testominial audios/1ST.wav';
+import audio2ND from '../../assets/testominial audios/2ND.wav';
+import audio3RD from '../../assets/testominial audios/3RD.wav';
+import audio4TH from '../../assets/testominial audios/4TH.wav';
+import audio5TH from '../../assets/testominial audios/5TH.wav';
+import audio6TH from '../../assets/testominial audios/6TH.wav';
+import audio7TH from '../../assets/testominial audios/7TH.wav';
+import audio8TH from '../../assets/testominial audios/8TH.wav';
+import audio9TH from '../../assets/testominial audios/9TH.wav';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 /** One clip per testimonial card, in the same order as `TESTIMONIALS`. */
