@@ -26,7 +26,7 @@ const EMAILJS_PUBLIC_KEY = 'wpl35VnksY_DS5v2V';
 const INTERNAL_EMAIL =
   process.env.REACT_APP_EMAILJS_ADMIN_EMAIL ||
   process.env.REACT_APP_COMPANY_EMAIL ||
-  'ceo@databiqs.com';
+  'contact@databiqs.com';
 
 const SUBSCRIBER_STORAGE_KEY = 'databiqs_newsletter_subscribers_v1';
 

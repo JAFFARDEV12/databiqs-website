@@ -74,7 +74,11 @@ const GlobeCanvas = () => {
     let animId = null;
     let rotX = 0.3, rotY = 0.4;
     let velX = 0,   velY = 0.005;
-    let dragging = false, lastMX = 0, lastMY = 0;
+    let dragging = false;
+    /** Pointer over globe: idle spin pauses; movement rotates without clicking. */
+    let hovering = false;
+    let lastMX = 0, lastMY = 0;
+    const POINTER_ROT_SENS = 0.009;
 
     function resize() {
       const s = wrap.offsetWidth;
@@ -203,7 +207,7 @@ const GlobeCanvas = () => {
     }
 
     function loop() {
-      if (!dragging) {
+      if (!dragging && !hovering) {
         rotY += velY; rotX += velX;
         velY *= 0.97; velX *= 0.97;
         velY += 0.003;
@@ -220,12 +224,32 @@ const GlobeCanvas = () => {
     }
     function onMouseMove(e) {
       if (!dragging) return;
-      velY = (e.clientX - lastMX) * 0.009;
-      velX = (e.clientY - lastMY) * 0.009;
+      velY = (e.clientX - lastMX) * POINTER_ROT_SENS;
+      velX = (e.clientY - lastMY) * POINTER_ROT_SENS;
       rotY += velY; rotX += velX;
       lastMX = e.clientX; lastMY = e.clientY;
     }
     function onMouseUp() { dragging = false; canvas.style.cursor = 'grab'; }
+
+    function onPointerEnter(e) {
+      hovering = true;
+      velX = 0;
+      velY = 0;
+      lastMX = e.clientX;
+      lastMY = e.clientY;
+    }
+    function onPointerLeave() {
+      hovering = false;
+    }
+    function onWrapPointerMove(e) {
+      if (dragging || !hovering) return;
+      const dx = e.clientX - lastMX;
+      const dy = e.clientY - lastMY;
+      rotY += dx * POINTER_ROT_SENS;
+      rotX += dy * POINTER_ROT_SENS;
+      lastMX = e.clientX;
+      lastMY = e.clientY;
+    }
 
     // Touch interaction
     function onTouchStart(e) {
@@ -235,8 +259,8 @@ const GlobeCanvas = () => {
     }
     function onTouchMove(e) {
       if (!dragging) return;
-      velY = (e.touches[0].clientX - lastMX) * 0.009;
-      velX = (e.touches[0].clientY - lastMY) * 0.009;
+      velY = (e.touches[0].clientX - lastMX) * POINTER_ROT_SENS;
+      velX = (e.touches[0].clientY - lastMY) * POINTER_ROT_SENS;
       rotY += velY; rotX += velX;
       lastMX = e.touches[0].clientX; lastMY = e.touches[0].clientY;
     }
@@ -249,6 +273,10 @@ const GlobeCanvas = () => {
     canvas.addEventListener('touchend', onMouseUp);
     window.addEventListener('resize', resize);
 
+    wrap.addEventListener('pointerenter', onPointerEnter);
+    wrap.addEventListener('pointerleave', onPointerLeave);
+    wrap.addEventListener('pointermove', onWrapPointerMove);
+
     return () => {
       cancelAnimationFrame(animId);
       canvas.removeEventListener('mousedown', onMouseDown);
@@ -258,11 +286,17 @@ const GlobeCanvas = () => {
       canvas.removeEventListener('touchmove', onTouchMove);
       canvas.removeEventListener('touchend', onMouseUp);
       window.removeEventListener('resize', resize);
+      wrap.removeEventListener('pointerenter', onPointerEnter);
+      wrap.removeEventListener('pointerleave', onPointerLeave);
+      wrap.removeEventListener('pointermove', onWrapPointerMove);
     };
   }, []);
 
   return (
-    <div ref={wrapRef} style={{ width: '100%', height: '100%' }}>
+    <div
+      ref={wrapRef}
+      style={{ width: '100%', height: '100%', touchAction: 'none' }}
+    >
       <canvas
         ref={canvasRef}
         style={{ display: 'block', width: '100%', height: '100%', cursor: 'grab' }}

@@ -1,13 +1,9 @@
-import { useState } from 'react';
 import './BookConsultation.css';
 import ceoImg from "../../assets/ceo.png";
 const CALENDLY_URL = 'https://calendly.com/ceo-databiqs/30min';
 
-const SESSION_MODES = [
-  { id: 'google-meet', label: 'Google Meet', icon: '📹' },
-  { id: 'zoom',        label: 'Zoom',        icon: '💻' },
-  { id: 'whatsapp',    label: 'WhatsApp',    icon: '💬' },
-];
+/** Single default meeting channel passed to Calendly (custom question a1). */
+const MEETING_PLATFORM = { label: 'Google Meet', icon: '📹' };
 
 const BENEFITS = [
   {
@@ -46,10 +42,7 @@ const BookConsultationSection = ({
   titleItalic = 'Consultation',
   subtitle  = 'Reserve a focused 30-minute strategy session with our CEO. Walk away with a clear AI product roadmap tailored to your goals.',
 }) => {
-  const [selectedMode, setSelectedMode] = useState(SESSION_MODES[0].id);
-
-  const activeMode   = SESSION_MODES.find(m => m.id === selectedMode);
-  const calendlyLink = `${CALENDLY_URL}?a1=${encodeURIComponent(activeMode?.label ?? '')}`;
+  const calendlyLink = `${CALENDLY_URL}?a1=${encodeURIComponent(MEETING_PLATFORM.label)}`;
 
   const handleBook = () => {
     window.open(calendlyLink, '_blank', 'noopener,noreferrer');
@@ -110,9 +103,8 @@ const BookConsultationSection = ({
           {/* Host strip */}
           <div className="bc-host">
             <div className="bc-host__avatar" aria-label="Jaffar Ali">
-              
-              <img 
-              src={ceoImg}  // 🔁 Replace with actual image path or URL
+              <img
+                src={ceoImg}
                 alt="Jaffar Ali, CEO of Databiqs"
                 className="bc-host__avatar-img"
               />
@@ -143,25 +135,14 @@ const BookConsultationSection = ({
         {/* ══ RIGHT COLUMN ══ */}
         <div className="bc-right">
 
-          {/* Platform selector */}
           <div>
-            <p className="bc-label">Preferred platform</p>
-            <div className="bc-modes" role="group" aria-label="Select meeting platform">
-              {SESSION_MODES.map(({ id, label, icon }) => (
-                <button
-                  key={id}
-                  type="button"
-                  className={`bc-mode${selectedMode === id ? ' is-active' : ''}`}
-                  aria-pressed={selectedMode === id}
-                  onClick={() => setSelectedMode(id)}
-                >
-                  <span className="bc-mode__icon" aria-hidden="true">{icon}</span>
-                  <span className="bc-mode__label">{label}</span>
-                  <span className="bc-mode__check" aria-hidden="true">
-                    {selectedMode === id ? '✓' : ''}
-                  </span>
-                </button>
-              ))}
+            <p className="bc-label">Session format</p>
+            <div className="bc-modes bc-modes--single" role="status" aria-live="polite">
+              <div className="bc-mode is-active bc-mode--readonly">
+                <span className="bc-mode__icon" aria-hidden="true">{MEETING_PLATFORM.icon}</span>
+                <span className="bc-mode__label">{MEETING_PLATFORM.label}</span>
+                <span className="bc-mode__check" aria-hidden="true">✓</span>
+              </div>
             </div>
           </div>
 

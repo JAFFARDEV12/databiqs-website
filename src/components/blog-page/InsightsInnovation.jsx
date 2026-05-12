@@ -18,8 +18,8 @@ const InsightsInnovation = () => {
       <HeroBlog />
 
        </div>
-      <FeaturedBlogCardsRow />
       <BrowseByTopic />
+      <FeaturedBlogCardsRow />
       <BlogNewsletterBanner />
       {/* <TestimonialsSection /> */}
       <Footer />

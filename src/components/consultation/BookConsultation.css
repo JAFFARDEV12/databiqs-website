@@ -343,6 +343,19 @@
      flex-direction: column;
      gap: 8px;
    }
+
+   .bc-modes--single {
+     gap: 0;
+   }
+
+   .bc-mode.bc-mode--readonly {
+     cursor: default;
+     pointer-events: none;
+   }
+
+   .bc-mode.bc-mode--readonly:hover {
+     transform: none;
+   }
    
    .bc-mode {
      width: 100%;

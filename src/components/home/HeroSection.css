@@ -75,7 +75,8 @@
   max-width: 460px;
 }
 
-.hero-cta-email {
+.hero-cta-email,
+.hero-cta-email:visited {
   position: relative;
   display: inline-flex;
   align-items: center;

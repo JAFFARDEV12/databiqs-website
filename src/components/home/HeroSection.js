@@ -1,21 +1,6 @@
-import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './HeroSection.css';
 import GlobeCanvas from './GlobeCanvas';
-
-const EMAIL = 'ceo@databiqs.com';
-
-const CopyIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-  </svg>
-);
-
-const CheckIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-    <polyline points="20 6 9 17 4 12"></polyline>
-  </svg>
-);
 
 const HeroSection = ({
   variant = 'home',
@@ -25,18 +10,6 @@ const HeroSection = ({
   caseStudiesCta,
   caseStudiesVisual,
 }) => {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = (e) => {
-    navigator.clipboard.writeText(EMAIL).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-    // On mobile Safari/Chrome, tap can leave elements in a sticky hover/focus state.
-    // Blurring ensures the button returns to its default label.
-    e?.currentTarget?.blur?.();
-  };
-
   if (variant === 'case-studies') {
     return (
       <section className="hero-section hero-section--case-studies-page" aria-label="Case studies introduction">
@@ -68,15 +41,17 @@ const HeroSection = ({
             stability to deliver transformation with clarity.
           </p>
 
-          <button className={`hero-cta-email${copied ? ' is-copied' : ''}`} onClick={handleCopy}>
-            <span className="cta-email-default">{EMAIL}</span>
+          <Link className="hero-cta-email" to="/book-consultation">
+            <span className="cta-email-default">Book a free strategy session</span>
             <span className="cta-email-hover">
-              {copied ? 'Copied!' : 'click to copy'}
-              <span className="cta-copy-icon">
-                {copied ? <CheckIcon /> : <CopyIcon />}
+              Reserve on Calendly
+              <span className="cta-copy-icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
               </span>
             </span>
-          </button>
+          </Link>
         </div>
 
         <div className="hero-visual">
