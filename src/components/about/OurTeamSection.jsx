@@ -3,6 +3,7 @@ import "./OurTeamSection.css";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import ceoImg from "../../assets/ceo.png";
 import avatarIcon from "../../assets/user.svg";
+import ctoImg from "../../assets/team/CTO.png";
 import teamlead from "../../assets/team/team-lead.png";
 import projectmanager from "../../assets/team/project-manager&AI-Developer.png";
 import softwareengineer from "../../assets/team/software-engineer.png";
@@ -24,6 +25,7 @@ import hamadKhanImg from "../../assets/team/hamad khan.png";
 
 const TEAM_MEMBERS = [
   { name: "Jaffar Ali Chaudhary", role: "Founder & CEO",                  image: ceoImg,                       featured: true, spotlight: true },
+  { name: "Jawad Afzal",           role: "CTO",                            image: ctoImg,                       featured: true },
   { name: "Maudood Fareed",       role: "Team Lead",                       image: teamlead,                     featured: true },
   { name: "Akhlaq Ahmad",         role: "Senior Software Engineer",        image: akhlaqImg,                    featured: true },
   { name: "Alishba Aslam",        role: "HR Manager",                      image: alishbaimg1 },
