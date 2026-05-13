@@ -294,7 +294,7 @@
   .Header {
     padding: 10px 16px;
     margin-top: 0;          /* no floating gap on mobile */
-    position: fixed;        /* stay fixed — was wrongly set to relative */
+    position: fixed;        /* stay fixed - was wrongly set to relative */
     top: 0;
     left: 0;
     right: 0;

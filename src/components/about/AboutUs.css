@@ -255,7 +255,7 @@
     opacity: 0;
   }
   
-/* Heading — Sora + scale aligned with Services / Case Studies hero */
+/* Heading - Sora + scale aligned with Services / Case Studies hero */
 .au-title {
   width: 100%;
 
@@ -306,7 +306,7 @@
   opacity: 0;
 }
 
-/* Schedule button — same as meeting banner / theme CTAs */
+/* Schedule button - same as meeting banner / theme CTAs */
 .au-btnSchedule {
   width: fit-content;
   max-width: 100%;
@@ -1613,7 +1613,7 @@ width: 100%;
   }
 }
 
-/* ===== About stats bar — full bleed, blue tint (matches Services / Case Studies theme) ===== */
+/* ===== About stats bar - full bleed, blue tint (matches Services / Case Studies theme) ===== */
 .au-page .au-stats {
   width: 100vw;
   max-width: 100vw;

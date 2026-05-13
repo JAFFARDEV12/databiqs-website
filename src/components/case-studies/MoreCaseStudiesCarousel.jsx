@@ -1,56 +1,25 @@
 import { useState, useEffect, useLayoutEffect, useCallback, useMemo, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import Lottie from 'lottie-react';
+import '../home/CaseStudiesSection.css';
 import './MoreCaseStudiesCarousel.css';
 import arrowIcon from '../../assets/rightarrow.svg';
-import historyDetailAnimation from '../../assets/HistoryDetail.json';
-import { MORE_CASE_STUDIES } from './moreCaseStudiesData';
+import { CS_LIST_CARDS } from './caseStudiesListingData';
 
-/** Figma: 264px cards; gaps between & left/right are equal: s = (W - n*264) / (n+1) — keep in sync with --more-cs-card-w in CSS */
-const MORE_CS_CARD = 264;
-const MORE_CS_GAP = 20;
-const MORE_CS_MAX_VISIBLE = 4;
-/** Minimum uniform gutter (px) before dropping to fewer columns — avoids cramped / peeking slides */
-const MORE_CS_MIN_UNIFORM_GAP = 12;
-
-/** How many 264px cards fit with equal edge + between gaps: s = (W − n·264)/(n+1) ≥ min gap. */
+/** Match main case studies grid: 2 columns from tablet up, 1 on narrow viewports. */
 function cardsPerViewForViewportWidth(w) {
   if (w <= 0) return 1;
-  let n = Math.min(
-    MORE_CS_MAX_VISIBLE,
-    Math.max(1, Math.floor(w / MORE_CS_CARD))
-  );
-  while (n > 1) {
-    const s = (w - n * MORE_CS_CARD) / (n + 1);
-    if (s >= MORE_CS_MIN_UNIFORM_GAP) return n;
-    n -= 1;
-  }
-  return 1;
-}
-
-/**
- * Space so left, between, and right gaps are equal: n*Wcard + (n+1)*s = contentWidth.
- * Single card: s = (W - min(264, W)) / 2.
- */
-function uniformGapPx(contentW, nCards) {
-  if (contentW <= 0) return MORE_CS_GAP;
-  if (nCards <= 0) return MORE_CS_GAP;
-  if (nCards === 1) {
-    const wCard = Math.min(MORE_CS_CARD, contentW);
-    return Math.max(0, (contentW - wCard) / 2);
-  }
-  return Math.max(0, (contentW - nCards * MORE_CS_CARD) / (nCards + 1));
+  if (w < 768) return 1;
+  return 2;
 }
 
 const MoreCaseStudiesCarousel = ({ excludeSlug = null }) => {
   const items = useMemo(() => {
-    if (!excludeSlug) return MORE_CASE_STUDIES;
-    const path = `/case-studies/${excludeSlug}`;
-    return MORE_CASE_STUDIES.filter((item) => item.href !== path);
+    const path = excludeSlug ? `/case-studies/${excludeSlug}` : null;
+    return CS_LIST_CARDS.filter((c) => c.href !== path);
   }, [excludeSlug]);
+
   const viewportRef = useRef(null);
-  const [cardsPerView, setCardsPerView] = useState(1);
-  const [contentWidth, setContentWidth] = useState(0);
+  const [cardsPerView, setCardsPerView] = useState(2);
   const [page, setPage] = useState(0);
   const [autoplayKey, setAutoplayKey] = useState(0);
 
@@ -66,25 +35,23 @@ const MoreCaseStudiesCarousel = ({ excludeSlug = null }) => {
       const pr = parseFloat(st.paddingRight) || 0;
       return el.clientWidth - pl - pr;
     };
-    const apply = (w) => {
-      setContentWidth(w);
-      setCardsPerView(cardsPerViewForViewportWidth(w));
-    };
-    const fromEl = () => apply(getViewportContentWidth());
-    fromEl();
-    /** Always use the same inner width as padding-aware layout math — contentRect.width can disagree with clientWidth − padding. */
+    const apply = () => setCardsPerView(cardsPerViewForViewportWidth(getViewportContentWidth()));
+    apply();
     const ro = new ResizeObserver(() => {
-      requestAnimationFrame(fromEl);
+      requestAnimationFrame(apply);
     });
     ro.observe(el);
-    window.addEventListener('resize', fromEl);
+    window.addEventListener('resize', apply);
     return () => {
       ro.disconnect();
-      window.removeEventListener('resize', fromEl);
+      window.removeEventListener('resize', apply);
     };
   }, []);
 
-  const totalPages = useMemo(() => Math.max(1, Math.ceil(items.length / cardsPerView)), [items.length, cardsPerView]);
+  const totalPages = useMemo(
+    () => Math.max(1, Math.ceil(items.length / cardsPerView)),
+    [items.length, cardsPerView]
+  );
 
   useEffect(() => {
     setPage((p) => Math.min(p, totalPages - 1));
@@ -115,6 +82,8 @@ const MoreCaseStudiesCarousel = ({ excludeSlug = null }) => {
     return chunks.length ? chunks : [[]];
   }, [items, cardsPerView]);
 
+  const preline = (t) => typeof t === 'string' && t.includes('\n');
+
   return (
     <section
       className="more-cs"
@@ -128,7 +97,7 @@ const MoreCaseStudiesCarousel = ({ excludeSlug = null }) => {
             CREATING IMPACT BEYOND A SINGLE PROJECT
           </h2>
           <p className="more-cs-sub">
-            We Don&apos;t Just Deliver Once—We Build Lasting Value Across Multiple Projects,
+            We Don&apos;t Just Deliver Once. We Build Lasting Value Across Multiple Projects,
             Driving Measurable Results For Our Clients.
           </p>
         </div>
@@ -165,49 +134,58 @@ const MoreCaseStudiesCarousel = ({ excludeSlug = null }) => {
                 transform: `translateX(-${(page * 100) / totalPages}%)`,
               }}
             >
-              {pages.map((chunk, pageIndex) => {
-                const k = chunk.length;
-                const s = uniformGapPx(contentWidth, k);
-                return (
+              {pages.map((chunk, pageIndex) => (
                 <div
                   key={`page-${pageIndex}`}
-                  className="more-cs-page"
-                  style={{ '--more-cs-uniform-gap': `${s}px` }}
+                  className={`more-cs-page${
+                    chunk.length === 1 && cardsPerView === 2 ? ' more-cs-page--center-single' : ''
+                  }`}
                 >
-                  {chunk.map((item, cardIndex) => (
-                    <article
-                      key={`${pageIndex}-${item.id}-${cardIndex}`}
-                      className="more-cs-card"
-                    >
-                      <div className="more-cs-card-visual">
-                        {item.imageSrc ? (
-                          <img
-                            src={item.imageSrc}
-                            alt=""
-                            className="more-cs-card-message-img"
-                            loading="lazy"
-                            decoding="async"
-                          />
-                        ) : (
-                          <div className="more-cs-card-lottie" aria-hidden="true">
-                            <Lottie animationData={historyDetailAnimation} loop autoplay />
-                          </div>
-                        )}
-                      </div>
-                      <div className="more-cs-card-content">
-                        <p className="more-cs-card-text">{item.description}</p>
-                        <Link className="more-cs-card-cta" to={item.href}>
-                          <span className="more-cs-card-cta-label">Read Full Case Study</span>
-                          <span className="more-cs-card-cta-icon" aria-hidden="true">
-                            <img src={arrowIcon} alt="" />
-                          </span>
+                  {chunk.map((cs) => {
+                    const tag = cs.tag ?? cs.category;
+                    const ctaInner = (
+                      <>
+                        Read More
+                        <span className="cs-cta-arrow">
+                          <svg
+                            className="cs-arrow-svg"
+                            viewBox="0 0 13 11"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden
+                          >
+                            <path
+                              d="M12.0781 4.78297L7.7372 0.441932C7.61328 0.318017 7.44813 0.25 7.27203 0.25C7.09573 0.25 6.93068 0.318114 6.80676 0.441932L6.41264 0.836154C6.28882 0.959874 6.22061 1.12513 6.22061 1.30133C6.22061 1.47743 6.28882 1.64825 6.41264 1.77197L8.94508 4.30998H0.899383C0.536627 4.30998 0.25 4.59397 0.25 4.95683V5.51415C0.25 5.877 0.536627 6.18963 0.899383 6.18963H8.97381L6.41273 8.74181C6.28892 8.86573 6.2207 9.02648 6.2207 9.20268C6.2207 9.37868 6.28892 9.54179 6.41273 9.6656L6.80686 10.0586C6.93077 10.1825 7.09583 10.25 7.27213 10.25C7.44823 10.25 7.61338 10.1816 7.7373 10.0577L12.0782 5.71673C12.2025 5.59243 12.2708 5.42649 12.2703 5.2501C12.2707 5.07312 12.2025 4.90708 12.0781 4.78297Z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </span>
+                      </>
+                    );
+
+                    return (
+                      <div key={cs.id} className="case-study-card">
+                        <div className="cs-tag">{tag}</div>
+                        <h3 className={`cs-title${preline(cs.title) ? ' cs-preline' : ''}`}>{cs.title}</h3>
+                        <p className={`cs-description${preline(cs.description) ? ' cs-preline' : ''}`}>
+                          {cs.description}
+                        </p>
+                        <div className="cs-metrics">
+                          {cs.metrics.map((m, j) => (
+                            <div key={j} className="cs-metric-box">
+                              <span className="cs-metric-value">{m.value}</span>
+                              <span className="cs-metric-label">{m.label}</span>
+                            </div>
+                          ))}
+                        </div>
+                        <Link className="cs-cta" to={cs.href}>
+                          {ctaInner}
                         </Link>
                       </div>
-                    </article>
-                  ))}
+                    );
+                  })}
                 </div>
-                );
-              })}
+              ))}
             </div>
           </div>
 

@@ -116,7 +116,7 @@
   isolation: isolate; /* creates stacking context so z-index works reliably */
 }
 
-/* Sphere — z-index 1, chips are z-index 10 so they always appear above */
+/* Sphere - z-index 1, chips are z-index 10 so they always appear above */
 .hero-sphere-wrapper {
   position: relative;
   width: 420px;
@@ -125,7 +125,7 @@
   z-index: 1;
 }
 
-/* Globe canvas fills the wrapper — no overflow clip needed, canvas clips itself */
+/* Globe canvas fills the wrapper - no overflow clip needed, canvas clips itself */
 
 @keyframes chipFloat {
   0%, 100% { transform: translateY(0px); }
@@ -161,12 +161,12 @@
 }
 
 /* =====================================================
-   Chip positions — adjust top/bottom/left/right here
+   Chip positions - adjust top/bottom/left/right here
    All values are relative to .hero-visual
    These positions apply at EVERY screen size.
    ===================================================== */
 
-/* LEFT side — upper chip */
+/* LEFT side - upper chip */
 .hero-label--left-top {
   left: 0;
   top: 28%;
@@ -174,7 +174,7 @@
   animation-delay: 0s;
 }
 
-/* LEFT side — lower chip */
+/* LEFT side - lower chip */
 .hero-label--left-bottom {
   left: 0;
   top: 56%;
@@ -182,7 +182,7 @@
   animation-delay: 0.75s;
 }
 
-/* RIGHT side — upper chip */
+/* RIGHT side - upper chip */
 .hero-label--right-top {
   right: 0;
   top: 28%;
@@ -190,7 +190,7 @@
   animation-delay: 1.5s;
 }
 
-/* RIGHT side — lower chip */
+/* RIGHT side - lower chip */
 .hero-label--right-bottom {
   right: 0;
   top: 56%;
@@ -362,7 +362,7 @@
     height: 310px;
   }
 
-  /* Keep left/right positions — only shrink chip size */
+  /* Keep left/right positions - only shrink chip size */
   .hero-label {
     font-size: 10px;
     padding: 7px 11px;

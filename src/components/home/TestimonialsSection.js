@@ -187,7 +187,7 @@ const TestimonialsSection = ({ sectionId = 'case-studies' } = {}) => {
             <div key={currentSlide} className={`testimonials-grid${slideClass ? ` ${slideClass}` : ''}`}>
               {cards.map((card) => {
                 const hasAudio = Boolean(card.audio);
-                // Voice on hover / focus — commented out (do not remove). Restore by adding these props to the div below:
+                // Voice on hover / focus - commented out (do not remove). Restore by adding these props to the div below:
                 // onMouseEnter={hasAudio ? () => playAudio(card.id) : undefined}
                 // onMouseLeave={hasAudio ? () => stopAudio(card.id) : undefined}
                 // onFocus={hasAudio ? () => playAudio(card.id) : undefined}

@@ -149,7 +149,7 @@
   filter: brightness(0) invert(1);
 }
 
-/* TITLE — hidden (no longer used in shape-stable hover) */
+/* TITLE - hidden (no longer used in shape-stable hover) */
 .social-icon .title {
   display: none;
 }

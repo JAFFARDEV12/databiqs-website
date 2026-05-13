@@ -4,8 +4,8 @@ import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 const DEFAULT_STATS = [
   { value: '99.9%', label: 'UPTIME ARCHITECTURE' },
-  { value: '140+', label: 'GLOBAL DEPLOYEMENTS' },
-  { value: '$1M', label: 'CLIENT REV. IMPACT' },
+  { value: '220+', label: 'GLOBAL DEPLOYMENT' },
+  { value: '$3M', label: 'CLIENT REV. IMPACT' },
   { value: '12MS', label: 'AVG LATENCY REDUC.' },
 ];
 

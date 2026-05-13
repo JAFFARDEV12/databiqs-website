@@ -32,7 +32,7 @@
   animation: fadeInUp 0.45s ease-out 0.06s forwards;
 }
 
-/* Individual stat card — mirrors testimonial-card */
+/* Individual stat card - mirrors testimonial-card */
 .numbers-stat {
   background: #ffffff;
   border-radius: 30px;

@@ -58,7 +58,7 @@
   animation: fadeInUp 0.5s ease-out 0.3s forwards;
 }
 
-/* ===== Left — Complaints ===== */
+/* ===== Left - Complaints ===== */
 .why-ai-complaints-heading {
   display: flex;
   align-items: center;
@@ -121,7 +121,7 @@
   line-height: 1.5;
 }
 
-/* ===== Right — Databiqs Difference ===== */
+/* ===== Right - Databiqs Difference ===== */
 .why-ai-right {
   background: #111111;
   border-radius: 20px;

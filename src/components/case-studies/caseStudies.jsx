@@ -36,7 +36,7 @@ const CaseStudies = () => (
             <span className="headline-purple">real businesses</span>
           </>
         }
-        caseStudiesDescription="From predictive operations to customer-facing AI, we ship systems that hold up in production — measurable latency, clear ROI, and teams that actually adopt them."
+        caseStudiesDescription="From predictive operations to customer-facing AI, we ship systems that hold up in production - measurable latency, clear ROI, and teams that actually adopt them."
         caseStudiesVisual={
           <Lottie
             className="hero-lottie--case-studies"

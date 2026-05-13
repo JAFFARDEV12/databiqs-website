@@ -56,11 +56,11 @@ export default function ContactUs() {
     setStatus({ type: '', text: '' });
 
     const templateParams = {
-      your_name: form.name.trim() || '—',
+      your_name: form.name.trim() || ' - ',
       your_email: emailTrim,
-      phone_number: form.phone.trim() || '—',
+      phone_number: form.phone.trim() || ' - ',
       subject: form.subject.trim() || 'Contact form',
-      message: form.message.trim() || '—',
+      message: form.message.trim() || ' - ',
     };
 
     try {
@@ -93,7 +93,7 @@ export default function ContactUs() {
                 <h1 className="contact-us__title">Let&apos;s start a conversation</h1>
                 <p className="contact-us__lead">
                   Whether you are exploring AI automation, custom software, or a strategic partnership,
-                  tell us what you need — we read every message and respond as soon as we can.
+                  tell us what you need - we read every message and respond as soon as we can.
                 </p>
                 <p className="contact-us__meta">
                   Prefer the consultation flow?{' '}

@@ -105,7 +105,7 @@ const GlobeCanvas = () => {
     function draw() {
       ctx.clearRect(0, 0, W, H);
 
-      // Base gradient fill — solid #0054E9 with subtle depth
+      // Base gradient fill - solid #0054E9 with subtle depth
       const g = ctx.createRadialGradient(cx - R * 0.3, cy - R * 0.35, R * 0.02, cx, cy, R);
       g.addColorStop(0,   'rgba(64,128,240,1)');
       g.addColorStop(0.5, 'rgba(0,84,233,1)');

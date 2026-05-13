@@ -1,20 +1,24 @@
-/** Case studies listing (/case-studies) — filters, stats, grid cards */
+/** Case studies listing (/case-studies): filters, stats, grid cards */
 
-export const CS_LIST_FILTERS = [
-  'All',
+/** Tab order for filters; only tags that appear on at least one `CS_LIST_CARDS` row are shown. */
+const CS_LIST_FILTER_TAG_ORDER = [
   'AI Automation',
   'AI Chatbot',
   'Machine Learning',
-  'AI Strategy',
+  'Speech Recognition',
+  'EdTech',
+  'Data Engineering',
+  'Creative Design',
+  'HealthTech',
 ];
 
 export const CS_LIST_STATS = [
-  { value: '120+', label: 'Projects delivered' },
-  { value: '94%', label: 'Client retention' },
-  { value: '3.2x', label: 'Avg efficiency gain' },
+  { value: '320+', label: 'Projects delivered' },
+  { value: '100%', label: 'Client retention' },
+  { value: '12.4', label: 'Avg efficiency gain' },
   { value: '$50M+', label: 'Client value unlocked' },
   { value: '24/7', label: 'Support coverage' },
-  { value: '14', label: 'Countries served' },
+  { value: '31+', label: 'Countries served' },
 ];
 
 export const CS_LIST_CARDS = [
@@ -24,10 +28,9 @@ export const CS_LIST_CARDS = [
     filterKey: 'AI Chatbot',
     company: 'Novatech Solutions',
     companySubtitle: 'Global SaaS Platform',
-    title:
-      'Rebuilding enterprise support with\nconversational AI triage',
+    title: 'Rebuilding enterprise support with conversational AI triage',
     description:
-      "Novatech's 10-person support team was overwhelmed. With tickets\ndoubling every quarter and CSAT declining, they needed a smarter\napproach — not more headcount.",
+      "Novatech's 10-person support team was overwhelmed. With tickets doubling every quarter and CSAT declining, they needed a smarter approach, not more headcount.",
     metrics: [
       { value: '78%', label: 'Faster First Response' },
       { value: '1.2M', label: 'Annual Savings' },
@@ -41,10 +44,9 @@ export const CS_LIST_CARDS = [
     filterKey: 'AI Automation',
     company: 'Vertex Operations',
     companySubtitle: 'Enterprise logistics',
-    title:
-      'Intelligent workflow orchestration across\n14 departments',
+    title: 'Intelligent workflow orchestration across 14 departments',
     description:
-      'Manual operations across 14 departments were creating bottlenecks\nand errors. Our AI orchestration layer connected every system,\nreducing operational overhead by 45% in 60 days.',
+      'Manual operations across 14 departments were creating bottlenecks and errors. Our AI orchestration layer connected every system, reducing operational overhead by 45% in 60 days.',
     metrics: [
       { value: '45%', label: 'Cost Reduction' },
       { value: '14', label: 'Departments Connected' },
@@ -53,71 +55,106 @@ export const CS_LIST_CARDS = [
     href: '/case-studies/workflow-14',
   },
   {
-    id: 'ml-forecast',
+    id: 'voice-transcription-app',
+    category: 'Speech Recognition',
+    filterKey: 'Speech Recognition',
+    company: 'Voice-to-Text Transcription',
+    companySubtitle: 'AI / Speech Recognition',
+    title: 'Voice-to-Text Transcription App',
+    description:
+      'This app uses advanced speech recognition to transcribe voice recordings into text instantly. With searchability, easy organization, and sharing, users turn audio notes into editable, shareable formats for professionals, students, and content creators.',
+    metrics: [
+      { value: '<2s', label: 'Avg. Chunk Latency' },
+      { value: '100%', label: 'Searchable Library' },
+      { value: '40+', label: 'Locales / Accents' },
+    ],
+    href: '/case-studies/voice-transcription-app',
+  },
+  {
+    id: 'sentiment-investment-prediction',
     category: 'Machine Learning',
     filterKey: 'Machine Learning',
-    company: 'Northwind Retail',
-    companySubtitle: 'Omnichannel retail',
-    title:
-      'Demand forecasting that cut inventory\nwaste by a third',
+    company: 'Sentiment-Enhanced Forecasting',
+    companySubtitle: 'AI / Investment & Finance',
+    title: 'AI-driven sentiment analysis for investment price prediction',
     description:
-      'Legacy spreadsheets could not keep pace with seasonal swings.\nWe deployed gradient-boosted models on fresh POS streams so buyers\nsee accurate two-week horizons without manual tuning.',
+      'A research-grade platform with an advanced ML framework that blends price signals with sentiment from news, social media, and financial reports, delivering richer features and more robust forecast bands.',
     metrics: [
-      { value: '32%', label: 'Less Stock Waste' },
-      { value: '18%', label: 'Margin Uplift' },
-      { value: '4wk', label: 'Payback' },
+      { value: '3', label: 'Signal Classes' },
+      { value: 'Daily', label: 'Feature Refresh' },
+      { value: 'A/B', label: 'Model Validation' },
     ],
-    href: '/case-studies/ml-forecast',
+    href: '/case-studies/sentiment-investment-prediction',
   },
   {
-    id: 'strategy-lumen',
-    category: 'AI Strategy',
-    filterKey: 'AI Strategy',
-    company: 'Lumen Financial',
-    companySubtitle: 'Regional banking',
-    title:
-      'An AI roadmap that passed board review\nin one session',
+    id: 'avatar-learning-platform',
+    category: 'EdTech',
+    filterKey: 'EdTech',
+    company: 'Avatar',
+    companySubtitle: 'AI / EdTech',
+    title: 'Conversational AI platform for smarter learning',
     description:
-      'Executives needed a defensible sequence of pilots versus big-bang\nplatform bets. We mapped risk, data readiness, and ROI so the team\ncould fund the right first wave with confidence.',
+      'Meet Avatar, your smart AI companion for learning English. It personalises lessons to your level and goals with dynamic practice, real-time feedback, and natural conversations, anytime, anywhere.',
     metrics: [
-      { value: '12', label: 'Use Cases Scored' },
-      { value: '90d', label: 'Pilot Window' },
-      { value: '100%', label: 'Board Approval' },
+      { value: 'Adaptive', label: 'Learning Paths' },
+      { value: 'Live', label: 'Conversation Practice' },
+      { value: '24/7', label: 'Lesson Access' },
     ],
-    href: '/case-studies/project-aether',
+    href: '/case-studies/avatar-learning-platform',
   },
   {
-    id: 'chatbot-support',
-    category: 'AI Chatbot',
-    filterKey: 'AI Chatbot',
-    company: 'Helix Health',
-    companySubtitle: 'Telehealth network',
-    title:
-      'Triage bots that cut wait times without\nsacrificing empathy',
+    id: 'data-automation-platform',
+    category: 'Data Engineering',
+    filterKey: 'Data Engineering',
+    company: 'Data Automation & Transformation',
+    companySubtitle: 'Data Engineering / Automation',
+    title: 'Data automation & transformation tool',
     description:
-      'Patients abandoned queues when hold times spiked. A guarded LLM\nworkflow now resolves tier-1 questions, escalates with context, and\nkeeps clinicians in the loop for safety.',
+      'This platform automates extraction, cleaning, and transformation of raw data into actionable insights. Multiple integrations support streamlined pipelines with real-time analytics and reporting.',
     metrics: [
-      { value: '61%', label: 'Fewer Abandons' },
-      { value: '2.1x', label: 'Capacity' },
-      { value: '0', label: 'PII Incidents' },
+      { value: '50+', label: 'Source Connectors' },
+      { value: 'Real-time', label: 'Analytics Layer' },
+      { value: '99.9%', label: 'Pipeline SLA Target' },
     ],
-    href: '/case-studies/chatbot-support',
+    href: '/case-studies/data-automation-platform',
   },
   {
-    id: 'auto-finance',
-    category: 'AI Automation',
-    filterKey: 'AI Automation',
-    company: 'Cedar Capital',
-    companySubtitle: 'Asset management',
-    title:
-      'Closing workflows automated from inbox\nto ledger',
+    id: 'creative-ai-design-tool',
+    category: 'Creative Design',
+    filterKey: 'Creative Design',
+    company: 'Creative AI Design Studio',
+    companySubtitle: 'AI / Creative Design',
+    title: 'Creative AI design tool',
     description:
-      'Analysts re-keyed the same fields across five systems. RPA plus\nvalidation models now handle routine closes, freeing the desk for\nexceptions only.',
+      'An AI-powered creative tool that generates high-quality images, graphics, and designs from simple prompts, making marketing and social visuals accessible to professionals and non-designers alike.',
     metrics: [
-      { value: '220h', label: 'Saved / Quarter' },
-      { value: '99.2%', label: 'Post Accuracy' },
-      { value: '3', label: 'Systems Retired' },
+      { value: '4K', label: 'Export Ready' },
+      { value: 'Prompt', label: 'Driven Workflow' },
+      { value: '<30s', label: 'Typical Iteration' },
     ],
-    href: '/case-studies/auto-finance',
+    href: '/case-studies/creative-ai-design-tool',
   },
+  {
+    id: 'wellness-ai-companion',
+    category: 'HealthTech',
+    filterKey: 'HealthTech',
+    company: 'Wellness AI',
+    companySubtitle: 'AI / HealthTech / Wellness',
+    title: 'Your intelligent digital companion',
+    description:
+      'Wellness AI supports emotional and physical wellbeing with advanced AI and sensing-aware signals. It connects to biometric context to surface stress and fatigue patterns with proactive, real-time guidance.',
+    metrics: [
+      { value: 'Real-time', label: 'Wellness Guidance' },
+      { value: 'Biometric', label: 'Signal Awareness' },
+      { value: 'Private', label: 'By-design Architecture' },
+    ],
+    href: '/case-studies/wellness-ai-companion',
+  },
+];
+
+export const CS_LIST_FILTERS = [
+  'All',
+  ...CS_LIST_FILTER_TAG_ORDER.filter((tag) =>
+    CS_LIST_CARDS.some((c) => (c.filterKey ?? c.category) === tag)
+  ),
 ];

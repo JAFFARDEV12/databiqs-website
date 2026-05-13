@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./BlogNewsletterBanner.css";
 import arrowIcon from "../../assets/rightarrow.svg";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
@@ -6,12 +7,8 @@ import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 const BlogNewsletterBanner = () => {
   const sectionRef = useScrollAnimation({ threshold: 0.2 });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
   return (
-    <section className="blogNewsletter" ref={sectionRef} aria-label="Newsletter signup">
+    <section className="blogNewsletter" ref={sectionRef} aria-label="Book a consultation">
       <div className="blogNewsletter__wrap">
         <div className="blogNewsletter__card">
           <div className="blogNewsletter__cardBg" aria-hidden="true">
@@ -19,36 +16,24 @@ const BlogNewsletterBanner = () => {
             <div className="blogNewsletter__decor blogNewsletter__decor--tr" />
           </div>
           <div className="blogNewsletter__inner">
-            <h2 className="blogNewsletter__title">Never Miss an insight</h2>
+            <span className="blogNewsletter__pill">Free Strategy Session</span>
+            <h2 className="blogNewsletter__title">
+              Book Your
+              <br />
+              <em className="blogNewsletter__titleEm">Consultation</em>
+            </h2>
             <p className="blogNewsletter__sub">
-              Join 8,000+ leaders who get our best thinking on{" "}
-              <span className="blogNewsletter__keepCase">AI</span>
-              <br />
-              and automation — straight to their inbox, twice a
-              <br />
-              month.
+              Reserve a focused 30-minute strategy session with our CEO. Walk away with a clear AI
+              product roadmap tailored to your goals.
             </p>
-            <form className="blogNewsletter__form" onSubmit={handleSubmit} noValidate>
-              <label htmlFor="blog-newsletter-email" className="blogNewsletter__visuallyHidden">
-                Email address
-              </label>
-              <div className="blogNewsletter__field">
-                <input
-                  id="blog-newsletter-email"
-                  className="blogNewsletter__input"
-                  type="email"
-                  name="email"
-                  placeholder="Enter your email"
-                  autoComplete="email"
-                />
-              </div>
-              <button type="submit" className="blogNewsletter__submit">
-                <span className="blogNewsletter__submitText">Subscribe, It&apos;s Free</span>
-                <span className="blogNewsletter__submitArrow" aria-hidden>
+            <div className="blogNewsletter__actions">
+              <Link to="/book-consultation" className="cta-button" aria-label="Book a consultation">
+                <span>Book a Consultation</span>
+                <div className="cta-icon-circle">
                   <img src={arrowIcon} alt="" />
-                </span>
-              </button>
-            </form>
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

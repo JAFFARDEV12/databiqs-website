@@ -27,6 +27,14 @@
     box-sizing: border-box;
     margin-bottom: 20px;
   }
+
+  /* Case study cards (listing-style): keep Sora + normal wrapping; page `p` rules would override otherwise */
+  .case-studies-page .case-study-card .cs-description {
+    font-family: 'Sora', sans-serif !important;
+    margin-bottom: 0 !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+  }
   
   /* Case studies route: selected headings use Sora at 40px (phase titles keep Bebas via scoped classes) */
   .case-studies-page h1,
@@ -54,8 +62,7 @@
   .case-studies-page .more-cs,
   .case-studies-page .more-cs-inner,
   .case-studies-page .more-cs-head,
-  .case-studies-page .more-cs-card,
-  .case-studies-page .more-cs-card-content {
+  .case-studies-page .more-cs .case-study-card {
     min-width: 0;
   }
   

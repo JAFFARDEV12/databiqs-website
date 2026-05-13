@@ -19,12 +19,12 @@ export const serviceDetailBySlug = {
         {
           key: "nlu",
           title: "Natural Language Understanding",
-          desc: "Deep semantic parsing so agents resolve intent—not just keywords—with your business vocabulary.",
+          desc: "Deep semantic parsing so agents resolve intent - not just keywords - with your business vocabulary.",
         },
         {
           key: "omni",
           title: "Omnichannel Deployment",
-          desc: "One brain across web, mobile, voice, and messaging—consistent answers and shared context everywhere.",
+          desc: "One brain across web, mobile, voice, and messaging - consistent answers and shared context everywhere.",
         },
         {
           key: "support",
@@ -105,7 +105,7 @@ export const serviceDetailBySlug = {
     heroImageAlt: "Automation and workflow intelligence",
     capabilities: {
       title: "Core Capabilities",
-      lead: "Automation that connects systems, data, and people—without brittle scripts or one-off integrations.",
+      lead: "Automation that connects systems, data, and people - without brittle scripts or one-off integrations.",
       cards: [
         {
           key: "orch",
@@ -190,12 +190,12 @@ export const serviceDetailBySlug = {
     heroTitleLine1: "Machine Learning &",
     heroTitleLine2: "Predictive Systems",
     heroLead:
-      "Turn historical and streaming data into decisions—models tuned for accuracy, drift resistance, and business adoption.",
+      "Turn historical and streaming data into decisions - models tuned for accuracy, drift resistance, and business adoption.",
     heroImage: executionImage,
     heroImageAlt: "Machine learning and predictive analytics",
     capabilities: {
       title: "Core Capabilities",
-      lead: "From feature pipelines to production scoring—ML engineered for the messy reality of enterprise data.",
+      lead: "From feature pipelines to production scoring - ML engineered for the messy reality of enterprise data.",
       cards: [
         {
           key: "feat",
@@ -261,7 +261,7 @@ export const serviceDetailBySlug = {
     },
     stats: {
       title: "Quantifiable Results in Every Deployment",
-      lead: "Models that earn trust in production—not just in notebooks.",
+      lead: "Models that earn trust in production - not just in notebooks.",
       items: [
         { value: "+12pts", label: "Lift vs. baseline" },
         { value: "35%", label: "False positives cut" },
@@ -280,12 +280,12 @@ export const serviceDetailBySlug = {
     heroTitleLine1: "AI Consulting &",
     heroTitleLine2: "Transformation",
     heroLead:
-      "Prioritize the right bets—roadmaps that connect data readiness, operating model, and ROI to a sequenced execution plan.",
+      "Prioritize the right bets - roadmaps that connect data readiness, operating model, and ROI to a sequenced execution plan.",
     heroImage: caseStudyImage,
     heroImageAlt: "AI consulting and transformation roadmap",
     capabilities: {
       title: "Core Capabilities",
-      lead: "Executive-ready clarity on where AI creates value—and what must be true to capture it.",
+      lead: "Executive-ready clarity on where AI creates value - and what must be true to capture it.",
       cards: [
         {
           key: "use",
@@ -305,7 +305,7 @@ export const serviceDetailBySlug = {
         {
           key: "change",
           title: "Change Management",
-          desc: "Skills, policy, and adoption plans so teams embrace—not resist—new ways of working.",
+          desc: "Skills, policy, and adoption plans so teams embrace - not resist - new ways of working.",
         },
       ],
     },

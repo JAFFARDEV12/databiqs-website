@@ -1,4 +1,4 @@
-/* Service detail — layout aligned to marketing design, 300px–1600px+ */
+/* Service detail - layout aligned to marketing design, 300px–1600px+ */
 
 .service-detail-page {
   background: #ffffff;
@@ -36,7 +36,7 @@
   font-family: "Inter", sans-serif !important;
 }
 
-/* ——— Hero (full-bleed band, matches services listing tone) ——— */
+/* --- Hero (full-bleed band, matches services listing tone) --- */
 .service-detail-page .sd-hero-section {
   margin: -12px 0 0;
   padding: 12px 0 clamp(20px, 3vw, 36px);
@@ -216,7 +216,7 @@
   object-fit: cover;
 }
 
-/* ——— Main stack ——— */
+/* - - - Main stack - - - */
 .service-detail-page .sd-main {
   padding-top: clamp(8px, 2vw, 16px);
   padding-bottom: clamp(40px, 6vw, 80px);
@@ -275,7 +275,7 @@
   text-align: left;
 }
 
-/* Core capabilities — 4-up → 2 → 1 */
+/* Core capabilities - 4-up → 2 → 1 */
 .service-detail-page .sd-cap-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -322,7 +322,7 @@
   text-wrap: pretty;
 }
 
-/* Precision — list + image */
+/* Precision - list + image */
 .service-detail-page .sd-precision-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
@@ -400,7 +400,7 @@
   object-fit: cover;
 }
 
-/* Verticals — centered cards */
+/* Verticals - centered cards */
 .service-detail-page .sd-ver-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -580,7 +580,7 @@
   }
 }
 
-/* ——— Responsive breakpoints ——— */
+/* - - - Responsive breakpoints - - - */
 @media (max-width: 1100px) {
   .service-detail-page .sd-hero-section::before {
     width: 100vw;

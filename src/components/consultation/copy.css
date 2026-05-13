@@ -322,7 +322,7 @@
   box-shadow: 0 6px 18px rgba(0, 46, 158, 0.28);
 }
 
-/* Modal — full-range time picker (native clock UI + themed analog preview) */
+/* Modal - full-range time picker (native clock UI + themed analog preview) */
 .book-consultation__selector--time-picker .book-time-picker__lead {
   margin: 0 0 12px;
   font-size: 13px;

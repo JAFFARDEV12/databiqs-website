@@ -73,7 +73,7 @@
   align-items: stretch;
 }
 
-/* Cards: pure white — match blog hover (simple lift + blue border + soft shadow) */
+/* Cards: pure white - match blog hover (simple lift + blue border + soft shadow) */
 .core-card {
   --accent-rgb: 0, 46, 158;
   --lottie-filter: none;

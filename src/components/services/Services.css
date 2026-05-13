@@ -1,4 +1,4 @@
-/* Services.css — Inter loaded globally via src/index.css */
+/* Services.css - Inter loaded globally via src/index.css */
 
 /* All <p> on Services + Service detail: Inter 400 regular; font-size/line-height stay from existing rules */
 .services-page p {
@@ -83,7 +83,7 @@
   z-index: 2;
 }
 
-/* ——— Services listing hero: Sora (heading) + Inter (lede), 300px–1600+ ——— */
+/* - - - Services listing hero: Sora (heading) + Inter (lede), 300px–1600+ - - - */
 .services-page .services-hero-section {
   margin: -12px calc(-1 * var(--case-study-page-pad-x)) 0;
   padding: 20px 0 clamp(8px, 1.5vw, 18px);
@@ -402,7 +402,7 @@
 
 /* Keep services hero always visible (prevents blank hero on load). */
 
-/* ——— Service detail hero (legacy class names; Sora title + pills) ——— */
+/* - - - Service detail hero (legacy class names; Sora title + pills) - - - */
 .service-detail-page .case-study-page-hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -539,7 +539,7 @@
   animation: servicesFadeUp 0.55s ease-out 0.12s forwards;
 }
 
-/* Slider images — service detail page only */
+/* Slider images - service detail page only */
 .service-detail-page .case-study-page-hero-slider .case-study-page-hero-visual {
   position: absolute;
   inset: 0;

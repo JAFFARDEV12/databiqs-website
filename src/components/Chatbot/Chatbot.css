@@ -27,7 +27,7 @@
   transform: scale(0.96) !important;
 }
 
-/* Lottie on FAB — src/assets/rightbottomchatbot.json */
+/* Lottie on FAB - src/assets/rightbottomchatbot.json */
 .chatbot-fab-lottie-wrap {
   width: 100%;
   height: 100%;
@@ -46,7 +46,7 @@
   flex-shrink: 0;
 }
 
-/* Tooltip — dark theme, aligned with chat header navy */
+/* Tooltip - dark theme, aligned with chat header navy */
 .chatbot-tooltip {
   position: absolute;
   bottom: 138px;

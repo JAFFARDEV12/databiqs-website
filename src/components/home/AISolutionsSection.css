@@ -36,13 +36,13 @@
   visibility: visible !important;
 }
 
-/* scoped — does not affect other sections */
+/* scoped - does not affect other sections */
 
 .section-headline .highlight {
   color: #002E9E !important;
 }
 
-/* scoped — does not affect other sections */
+/* scoped - does not affect other sections */
 
 .solutions-card {
 

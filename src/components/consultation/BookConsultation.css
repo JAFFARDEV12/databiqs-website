@@ -337,6 +337,47 @@
      flex-direction: column;
      gap: 28px;
      padding-left: 8px;
+     align-self: start;
+     margin-top: 0px;
+   }
+
+   .bc-right-top {
+     display: flex;
+     flex-direction: column;
+     align-items: stretch;
+     gap: 50px;
+     margin: 0;
+     padding: 0;
+   }
+
+   .bc-book-lottie {
+     margin: 0;
+     padding: 0;
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: flex-start;
+     line-height: 0;
+     text-decoration: none;
+     color: inherit;
+     cursor: pointer;
+     border-radius: 12px;
+     transition: opacity 0.2s ease, transform 0.2s ease;
+   }
+
+   .bc-book-lottie:hover {
+     opacity: 0.92;
+   }
+
+   .bc-book-lottie:focus-visible {
+     outline: 2px solid var(--bc-primary-b);
+     outline-offset: 4px;
+   }
+
+   .bc-book-lottie > div {
+     width: min(100%, 300px) !important;
+     max-width: 100%;
+     margin: 0 auto !important;
    }
    
    /* ── Platform chips (vertical) ── */
@@ -478,7 +519,7 @@
    
    /* ═══════════════ RESPONSIVE ═══════════════ */
    
-   /* Tablet — collapse to single column */
+   /* Tablet - collapse to single column */
    @media (max-width: 900px) {
      .bc-inner {
        grid-template-columns: 1fr;
@@ -490,10 +531,18 @@
      }
    
     .bc-left  { padding-right: 0; }
-    .bc-right { padding-left: 0; }
+    .bc-right {
+      padding-left: 0;
+      align-self: stretch;
+      margin-top: 0;
+    }
+
+    .bc-right-top {
+      margin-top: 30px;
+    }
 
     .bc-book-cta {
-      margin-top: 30px;
+      margin-top: 0;
     }
   
     .bc-section {

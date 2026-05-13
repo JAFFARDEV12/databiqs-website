@@ -1,11 +1,4 @@
 .more-cs {
-  /* Figma — 264px cards; gaps via JSX uniformGapPx (sync MORE_CS_CARD in MoreCaseStudiesCarousel.jsx) */
-  --more-cs-card-w: 264px;
-  --more-cs-card-h: 394px;
-  --more-cs-card-gap: 20px;
-  /* Inner card padding: equal top & bottom, max 30px; shrinks on narrow viewports */
-  --more-cs-card-pad-y: clamp(16px, 3.2vw, 30px);
-  --more-cs-card-pad-x: clamp(14px, 3.2vw, 22px);
   /* Vertical rhythm with case study page (one gap — avoid margin + padding doubling) */
   margin-top: 0;
   padding: var(--case-study-section-gap, clamp(40px, 6.5vw, 72px)) 0;
@@ -16,7 +9,6 @@
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
-  /* Figma-like: pure white base; very soft “low purple” only in the middle (behind cards) */
   background-color: #ffffff;
   background-image: radial-gradient(
     ellipse 102% 52% at 50% 50%,
@@ -38,28 +30,22 @@
 .more-cs-head {
   text-align: center;
   margin-bottom: clamp(32px, 5vw, 48px);
-  
 }
 
 .more-cs-pill {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  height: 40px;           /* same height */
-  padding: 10px 18px;     /* same spacing */
+  height: 40px;
+  padding: 10px 18px;
   margin-bottom: 20px;
-
   border: 1px solid #e0e0e0;
   border-radius: 80px;
-
   background: #ffffff;
   color: #1a1a1a;
-
-  font-size: 14px;        /* same font size */
+  font-size: 14px;
   font-weight: 400;
   line-height: 1;
-
   width: fit-content;
   max-width: 100%;
   white-space: nowrap;
@@ -87,7 +73,6 @@ p.more-cs-sub {
   color: #5c5c5c;
 }
 
-/* Arrows live in dedicated grid columns — no overlap on cards (Figma-friendly) */
 .more-cs-carousel-wrap {
   position: relative;
   display: grid;
@@ -114,227 +99,60 @@ p.more-cs-sub {
   width: calc(var(--more-cs-pages, 1) * 100%);
   transition: transform 0.45s cubic-bezier(0.25, 0.1, 0.25, 1);
   will-change: transform;
-  
 }
 
+/* Same 2-column rhythm as main case studies grid; equal width + height */
 .more-cs-page {
   flex: 0 0 calc(100% / var(--more-cs-pages));
   box-sizing: border-box;
-  display: flex;
-  flex-wrap: nowrap;
-  gap: var(--more-cs-uniform-gap, var(--more-cs-card-gap));
-  padding: 0 var(--more-cs-uniform-gap, 0px);
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
   align-items: stretch;
+  width: 100%;
   min-width: 0;
   max-width: 100%;
-  overflow: hidden;
+  padding: 0;
 }
 
-.more-cs-card {
-  flex: 0 0 var(--more-cs-card-w);
-  width: var(--more-cs-card-w);
-  min-width: 0;
-  max-width: var(--more-cs-card-w);
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  background: #ffffff;
-  border: 1px solid #e8dff5;
-  border-radius: 30px;
-  opacity: 1;
-  height: auto;
-  min-height: min(var(--more-cs-card-h), 92vh);
-  max-height: var(--more-cs-card-h);
-  align-self: stretch;
-  padding: var(--more-cs-card-pad-y) var(--more-cs-card-pad-x);
-  box-sizing: border-box;
-  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
-  overflow: hidden;
+.more-cs[data-cards-per-view='2'] .more-cs-page {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-/* One card: fit narrow viewports, keep Figma cap */
+.more-cs[data-cards-per-view='2'] .more-cs-page--center-single {
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+.more-cs[data-cards-per-view='2'] .more-cs-page--center-single .case-study-card {
+  max-width: min(100%, calc((100% - 24px) / 2));
+}
+
 .more-cs[data-cards-per-view='1'] .more-cs-page {
-  align-items: stretch;
-  justify-content: center;
+  max-width: min(560px, 100%);
+  margin-inline: auto;
 }
 
-.more-cs[data-cards-per-view='1'] .more-cs-card {
-  flex: 0 0 auto;
-  width: min(100%, var(--more-cs-card-w));
-  max-width: var(--more-cs-card-w);
-  min-width: 0;
-  height: auto;
-  min-height: min(320px, 85vh);
-  max-height: var(--more-cs-card-h);
-  align-self: center;
-}
-
-/* Figma: full-width top block; icon sits on same horizontal grid as text */
-.more-cs-card-visual {
-  position: relative;
-  min-width: 0;
+/* Cards are not inside `.case-studies-section.animate` — show full listing look */
+.more-cs .case-study-card {
   width: 100%;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.more-cs-card-visual::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
- 
-}
-
-.more-cs-card-message-img {
-  display: flex;
   min-width: 0;
-  width: 100%;
-  min-height: 120px;
-  max-height: 128px;
-  margin: 0 0 14px;
-  border-radius: 12px;
-  box-sizing: border-box;
-  display: block;
-  object-fit: contain;
-  filter: saturate(0.88) hue-rotate(8deg);
-}
-
-.more-cs-card-lottie {
-  width: 100%;
-  min-height: 86px;
-  height: 96px;
-  max-height: 96px;
-  margin: 0 0 14px;
-  border-radius: 12px;
-  box-sizing: border-box;
-  overflow: hidden;
-  background: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.more-cs-card-lottie > div {
-  width: min(84%, 180px);
   height: 100%;
-  background: transparent !important;
+  min-height: 100%;
+  align-self: stretch;
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
 }
 
-.more-cs-card-lottie svg,
-.more-cs-card-lottie canvas {
-  background: transparent !important;
+.more-cs .case-study-card .cs-title,
+.more-cs .case-study-card .cs-description {
+  opacity: 1 !important;
+  animation: none !important;
 }
 
-.more-cs-card-content {
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: flex-start;
-  row-gap: 0;
-  min-height: 0;
-  width: 100%;
-  min-width: 0;
-  overflow: hidden;
-}
-
-/* Figma: Title Case, left, line breaks from \n in data (pre-line) */
-p.more-cs-card-text {
-  margin: 0 0 8px;
-  width: 100%;
-  flex: 0 1 auto;
-  min-width: 0;
-  max-height: 200px;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-style: normal;
-  font-size: 14px;
-  line-height: 1.5;
-  letter-spacing: 0.01em;
-  color: #1a1a1a;
-  font-weight: 400;
-  text-align: left;
-  white-space: pre-line;
-  overflow-wrap: break-word;
-  word-break: normal;
-  hyphens: manual;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* Single-card mobile: a bit more room for copy */
-.more-cs[data-cards-per-view='1'] p.more-cs-card-text {
-  max-height: 220px;
-}
-
-.more-cs-card-cta {
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 6px;
-  flex-wrap: nowrap;
-  width: auto;
-  max-width: none;
-  box-sizing: border-box;
-  margin: 0;
+.more-cs .case-study-card .cs-cta {
   margin-top: auto;
-  padding-top: 14px;
-  flex: 0 0 auto;
-  line-height: 1.2;
-  text-align: left;
-
-  font-size: 15px;
-  font-weight: 700;
-  color: #1b56c3;
-  text-decoration: none;
-  transition: color 0.2s ease, gap 0.2s ease;
-}
-
-.more-cs-card-cta-label {
-  flex: 0 1 auto;
-  min-width: 0;
-}
-
-.more-cs-card-cta:hover {
-  color: #0054E9;
-  gap: 10px;
-}
-
-.more-cs-card-cta-icon {
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: rgba(0, 46, 158, 0.08);
-  flex-shrink: 0;
-  line-height: 0;
-  transform: translateX(0);
-  transition: transform 0.25s ease, background 0.2s ease;
-}
-
-.more-cs-card-cta-icon img {
-  display: block;
-  width: 10px;
-  height: 10px;
-  object-fit: contain;
-  filter: none;
-  transform: rotate(-45deg);
-  transition: transform 0.25s ease;
-}
-
-.more-cs-card-cta:hover .more-cs-card-cta-icon {
-  background: rgba(0, 46, 158, 0.12);
-  transform: translateX(4px);
-}
-
-.more-cs-card-cta:hover .more-cs-card-cta-icon img {
-  transform: rotate(0deg);
 }
 
 .more-cs-arrow {
@@ -387,13 +205,13 @@ p.more-cs-card-text {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: clamp(8px, 1.5vw, 12px);
+  gap: clamp(6px, 1.2vw, 10px);
   margin-top: clamp(20px, 3vw, 32px);
 }
 
 .more-cs-dot {
-  width: clamp(18px, 2.4vw, 26px);
-  height: clamp(18px, 2.4vw, 26px);
+  width: clamp(10px, 1.35vw, 13px);
+  height: clamp(10px, 1.35vw, 13px);
   padding: 0;
   border: none;
   border-radius: 50%;
@@ -404,7 +222,7 @@ p.more-cs-card-text {
 
 .more-cs-dot.is-active {
   background: #002E9E;
-  transform: scale(1.15);
+  transform: scale(1.2);
 }
 
 @media (max-width: 1023px) {

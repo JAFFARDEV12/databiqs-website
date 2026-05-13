@@ -32,7 +32,7 @@ const WhyAISection = () => {
         </p>
 
         <div className="why-ai-grid">
-          {/* Left — Complaints */}
+          {/* Left - Complaints */}
           <div className="why-ai-left">
             <div className="why-ai-complaints-heading">
               <span className="why-ai-q-icon">?</span>
@@ -48,7 +48,7 @@ const WhyAISection = () => {
             </div>
           </div>
 
-          {/* Right — Databiqs Difference */}
+          {/* Right - Databiqs Difference */}
           <div className="why-ai-right">
             <h3 className="diff-heading">
               We Don't Just Build Technology<br />

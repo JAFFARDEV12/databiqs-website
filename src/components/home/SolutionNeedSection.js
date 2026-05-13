@@ -13,7 +13,7 @@ const SOLUTION_OPTIONS = [
     title: 'AI Automation / Implementation',
     shortLabel: 'AI Automation /\nImplementation',
     subheading:
-      'End-to-end automation that connects your tools, data, and teams so repetitive work runs reliably in production—not just in a demo.',
+      'End-to-end automation that connects your tools, data, and teams so repetitive work runs reliably in production - not just in a demo.',
     bullets: [
       'Cross-team workflow automation',
       'Reliable API integrations',

@@ -1,6 +1,8 @@
 import './BookConsultation.css';
+import Lottie from 'lottie-react';
 import ceoImg from "../../assets/ceo.png";
 import arrowIcon from "../../assets/rightarrow.svg";
+import bookConsultationAnimation from '../../assets/book-a-consulatation.json';
 const CALENDLY_URL = 'https://calendly.com/ceo-databiqs/30min';
 
 /** Default meeting channel passed to Calendly (custom question a1). */
@@ -192,19 +194,28 @@ const BookConsultationSection = ({
 
         {/* ══ RIGHT COLUMN ══ */}
         <div className="bc-right">
-
-          {/* Book button */}
-          <button
-            type="button"
-            className="cta-button bc-book-cta"
-            onClick={handleBook}
-            aria-label="Book a free consultation on Calendly"
-          >
-            <span>Book a Free Session</span>
-            <div className="cta-icon-circle">
-              <img src={arrowIcon} alt="" />
-            </div>
-          </button>
+          <div className="bc-right-top">
+            <a
+              href={calendlyLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bc-book-lottie"
+              aria-label="Book a free session on Calendly (opens in a new tab)"
+            >
+              <Lottie animationData={bookConsultationAnimation} loop autoplay />
+            </a>
+            <button
+              type="button"
+              className="cta-button bc-book-cta"
+              onClick={handleBook}
+              aria-label="Book a free consultation on Calendly"
+            >
+              <span>Book a Free Session</span>
+              <div className="cta-icon-circle">
+                <img src={arrowIcon} alt="" />
+              </div>
+            </button>
+          </div>
 
           {/* Trust strip */}
           <div className="bc-trust">

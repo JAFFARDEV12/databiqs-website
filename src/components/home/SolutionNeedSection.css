@@ -80,7 +80,7 @@
   width: 100%;
 }
 
-/* Pinned block: only cards + detail — tighter padding so the row sits in the viewport middle */
+/* Pinned block: only cards + detail - tighter padding so the row sits in the viewport middle */
 .solution-need-section--pin-body {
   padding: clamp(12px, 2vw, 28px) 0;
 }

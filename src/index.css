@@ -180,7 +180,6 @@ html body *:not(code):not(pre):not(kbd):not(samp)::after {
   .tools-card__cta,
   .insight-cta,
   .cs-cta,
-  .more-cs-card-cta,
   .core-card__link,
   .featuredBlogCard__link,
   .book-open-modal-btn,
@@ -216,7 +215,6 @@ html body *:not(code):not(pre):not(kbd):not(samp)::after {
   .tools-card__cta,
   .insight-cta,
   .cs-cta,
-  .more-cs-card-cta,
   .core-card__link,
   .featuredBlogCard__link,
   .book-open-modal-btn,
@@ -237,7 +235,6 @@ html body *:not(code):not(pre):not(kbd):not(samp)::after {
   .tools-card__cta-arrow,
   .insight-cta-arrow,
   .cs-cta-arrow,
-  .more-cs-card-cta-icon,
   .core-card__link-arrow,
   .featuredBlogCard__icon,
   .heroBlog__readIcon,
@@ -271,8 +268,6 @@ html body *:not(code):not(pre):not(kbd):not(samp)::after {
   .insight-cta-arrow svg,
   .cs-cta-arrow img,
   .cs-cta-arrow svg,
-  .more-cs-card-cta-icon img,
-  .more-cs-card-cta-icon svg,
   .core-card__link-arrow img,
   .core-card__link-arrow svg,
   .featuredBlogCard__icon img,
@@ -297,7 +292,6 @@ html body *:not(code):not(pre):not(kbd):not(samp)::after {
   .tools-card__cta,
   .insight-cta,
   .cs-cta,
-  .more-cs-card-cta,
   .core-card__link,
   .featuredBlogCard__link,
   .book-open-modal-btn,
@@ -321,8 +315,6 @@ html body *:not(code):not(pre):not(kbd):not(samp)::after {
   .insight-cta-arrow svg,
   .cs-cta-arrow img,
   .cs-cta-arrow svg,
-  .more-cs-card-cta-icon img,
-  .more-cs-card-cta-icon svg,
   .core-card__link-arrow img,
   .core-card__link-arrow svg,
   .featuredBlogCard__icon img,
@@ -345,14 +337,14 @@ html body *:not(code):not(pre):not(kbd):not(samp)::after {
   flex: 0 0 22px !important;
 }
 
-/* Read full case studies: force Read More style (not global pill CTA) */
-.case-studies-page .more-cs-card-cta {
+/* Case study detail — More Case Studies uses same card + Read More as main listing */
+.case-studies-page .more-cs .cs-cta {
   background: transparent !important;
-  color: #1b56c3 !important;
+  color: #002E9E !important;
   border: none !important;
   height: auto !important;
   min-height: 0 !important;
-  padding: 14px 0 0 !important;
+  padding: 0 !important;
   border-radius: 0 !important;
   display: inline-flex !important;
   align-items: center !important;
@@ -363,29 +355,31 @@ html body *:not(code):not(pre):not(kbd):not(samp)::after {
   transform: none !important;
 }
 
-.case-studies-page .more-cs-card-cta:hover {
+.case-studies-page .more-cs .cs-cta:hover,
+.case-studies-page .more-cs .case-study-card:hover .cs-cta {
   background: transparent !important;
   color: #0054E9 !important;
   gap: 10px !important;
   transform: none !important;
 }
 
-.case-studies-page .more-cs-card-cta-icon {
+.case-studies-page .more-cs .cs-cta-arrow {
   width: 26px !important;
   height: 26px !important;
   min-width: 26px !important;
   min-height: 26px !important;
-  background: rgba(0, 46, 158, 0.08) !important;
+  background: rgba(0, 46, 158, 0.12) !important;
   transform: translateX(0) !important;
   transition: transform 0.25s ease, background 0.2s ease !important;
 }
 
-.case-studies-page .more-cs-card-cta:hover .more-cs-card-cta-icon {
-  background: rgba(0, 46, 158, 0.12) !important;
-  transform: translateX(4px) !important;
+.case-studies-page .more-cs .cs-cta:hover .cs-cta-arrow,
+.case-studies-page .more-cs .case-study-card:hover .cs-cta-arrow {
+  background: rgba(0, 46, 158, 0.08) !important;
+  transform: translateX(6px) !important;
 }
 
-.case-studies-page .more-cs-card-cta-icon img {
+.case-studies-page .more-cs .cs-arrow-svg {
   width: 10px !important;
   height: 10px !important;
   filter: none !important;
@@ -393,7 +387,8 @@ html body *:not(code):not(pre):not(kbd):not(samp)::after {
   transition: transform 0.25s ease !important;
 }
 
-.case-studies-page .more-cs-card-cta:hover .more-cs-card-cta-icon img {
+.case-studies-page .more-cs .cs-cta:hover .cs-arrow-svg,
+.case-studies-page .more-cs .case-study-card:hover .cs-arrow-svg {
   transform: rotate(0deg) !important;
 }
 

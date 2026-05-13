@@ -88,7 +88,7 @@
 }
 
 /* ══════════════════════════════════════════════════════════
-   CAROUSEL WRAPPER — positions the prev/next buttons
+   CAROUSEL WRAPPER - positions the prev/next buttons
    outside (or overlapping) the carousel edges
 ══════════════════════════════════════════════════════════ */
 .our-team__carousel-wrap {
@@ -126,7 +126,7 @@
   background: transparent;
 }
 
-/* Pause on hover — desktop only (touch devices get sticky :hover and the track stayed paused) */
+/* Pause on hover - desktop only (touch devices get sticky :hover and the track stayed paused) */
 @media (hover: hover) {
   .our-team__carousel:hover .our-team__track {
     animation-play-state: paused;
@@ -139,7 +139,7 @@
 }
 
 /* ══════════════════════════════════════════════════════════
-   NAV BUTTONS — prev / next
+   NAV BUTTONS - prev / next
    Float just outside the carousel card edges vertically centered
 ══════════════════════════════════════════════════════════ */
 .our-team__nav-btn {
@@ -190,7 +190,7 @@
 .our-team__nav-btn--next { right: -23px; }
 
 /* ══════════════════════════════════════════════════════════
-   TEAM CARD — every original rule preserved verbatim
+   TEAM CARD - every original rule preserved verbatim
 ══════════════════════════════════════════════════════════ */
 .our-team-card {
   min-width: 0;

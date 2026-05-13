@@ -363,9 +363,12 @@
   gap: 10px;
   text-align: center;
   box-sizing: border-box;
-  width: 122px;
+  width: max-content;
+  max-width: 100%;
+  min-width: 176px;
   min-height: 38px;
-  padding: 8px 24px;
+  padding: 8px 28px;
+  white-space: nowrap;
   border: 1px solid #002E9E;
   border-radius: 99px;
   background: transparent;
@@ -391,6 +394,7 @@
     height: auto;
     padding: 8px clamp(16px, 4vw, 24px);
     font-size: clamp(11px, 3vw, 12px);
+    white-space: normal;
   }
 }
 
@@ -409,10 +413,16 @@
 .cs-description {
   font-family: 'Sora', sans-serif;
   font-size: 14px;
-  line-height: 1.7;
+  line-height: 1.65;
   color: #555555;
   margin: 0;
   flex: 1;
+  min-height: 0;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: auto;
+  text-wrap: pretty;
 }
 
 /* Metrics row */

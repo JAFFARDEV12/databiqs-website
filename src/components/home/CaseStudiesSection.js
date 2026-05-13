@@ -10,12 +10,13 @@ const DEFAULT_CASE_STUDIES = [
     tag: 'AI Chatbot',
     title: 'Rebuilding enterprise support with conversational AI triage',
     description:
-      "NovaTech's 14-person support team was overwhelmed. With tickets doubling every quarter and CSAT declining, they needed a smarter approach — not more headcount.",
+      "Novatech's 10-person support team was overwhelmed. With tickets doubling every quarter and CSAT declining, they needed a smarter approach, not more headcount.",
     metrics: [
       { value: '78%', label: 'Faster First Response' },
       { value: '1.2M', label: 'Annual Savings' },
       { value: '4.8', label: 'CSAT Score' },
     ],
+    href: '/case-studies/novatech',
   },
   {
     tag: 'AI Automation',

@@ -285,8 +285,8 @@ const BookConsultationSection = ({
               <p className="book-consultation__selected">
                 Selected:{' '}
                 <strong>{selectedDate ? formatDateLabel(selectedDate) : 'Choose a date'}</strong> at{' '}
-                <strong>{slotSaved && selectedTime24 ? selectedTimeLabel : '—'}</strong> via{' '}
-                <strong>{slotSaved ? selectedMode : '—'}</strong>
+                <strong>{slotSaved && selectedTime24 ? selectedTimeLabel : ' - '}</strong> via{' '}
+                <strong>{slotSaved ? selectedMode : ' - '}</strong>
               </p>
             </div>
           </div>
@@ -333,7 +333,7 @@ const BookConsultationSection = ({
                 <p className="book-calendly-locked__desc">
                   Choose an available date on the calendar, then tap{' '}
                   <strong>Select Session Mode &amp; Time Slot</strong> and save your preferred time.
-                  Your Calendly scheduling page will open here — no extra tab needed.
+                  Your Calendly scheduling page will open here - no extra tab needed.
                 </p>
                 <span className="book-calendly-locked__steps">
                   <span className="book-calendly-locked__step">
@@ -377,7 +377,7 @@ const BookConsultationSection = ({
                 </button>
               </div>
               <p className="book-modal__sub">
-                {selectedDate ? formatDateLabel(selectedDate) : 'Select a date'} — Choose mode and time
+                {selectedDate ? formatDateLabel(selectedDate) : 'Select a date'} - Choose mode and time
               </p>
 
               <div className="book-consultation__selector">
@@ -399,7 +399,7 @@ const BookConsultationSection = ({
               <div className="book-consultation__selector book-consultation__selector--time-picker">
                 <h4>Preferred time</h4>
                 <p className="book-time-picker__lead">
-                  Pick any time — use the clock picker or enter hours and minutes.
+                  Pick any time - use the clock picker or enter hours and minutes.
                 </p>
                 <div className="book-time-picker">
                   <div className="book-time-picker__clock">
@@ -422,7 +422,7 @@ const BookConsultationSection = ({
                       <strong>
                         {modalDraft.time && isValidTimeHHmm(modalDraft.time)
                           ? formatTime12h(modalDraft.time)
-                          : '—'}
+                          : ' - '}
                       </strong>
                     </p>
                   </div>
