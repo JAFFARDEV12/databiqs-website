@@ -22,10 +22,11 @@ import fatimaTahirImg from "../../assets/team/fatima tuz zahra.png";
 import laibaImg from "../../assets/team/LAIBA.png";
 import hadeedTararImg from "../../assets/team/Hadeed Tarar.png";
 import hamadKhanImg from "../../assets/team/hamad khan.png";
-
+import amariFields from "../../assets/team/Amari-Fields.png";
 const TEAM_MEMBERS = [
   { name: "Jaffar Ali Chaudhary", role: "Founder & CEO",                  image: ceoImg,                       featured: true, spotlight: true },
   { name: "Jawad Afzal",           role: "CTO",                            image: ctoImg,                       featured: true },
+  { name: "Amari Fields",         role: "Director of CS & Business Development",    image: amariFields,                     featured: true },
   { name: "Maudood Fareed",       role: "Team Lead",                       image: teamlead,                     featured: true },
   { name: "Akhlaq Ahmad",         role: "Senior Software Engineer",        image: akhlaqImg,                    featured: true },
   { name: "Alishba Aslam",        role: "HR Manager",                      image: alishbaimg1 },

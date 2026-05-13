@@ -18,9 +18,9 @@ const BlogNewsletterBanner = () => {
           <div className="blogNewsletter__inner">
             <span className="blogNewsletter__pill">Free Strategy Session</span>
             <h2 className="blogNewsletter__title">
-              Book Your
-              <br />
-              <em className="blogNewsletter__titleEm">Consultation</em>
+              Book Your Consultation
+             
+             
             </h2>
             <p className="blogNewsletter__sub">
               Reserve a focused 30-minute strategy session with our CEO. Walk away with a clear AI

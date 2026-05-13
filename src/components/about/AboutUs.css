@@ -1283,11 +1283,11 @@ width: 100%;
   min-width: 0;
 }
 
-/* About hero CTA: tighten text ↔ icon spacing */
+/* About hero CTA: label left, icon right with comfortable padding */
 .au-page .au-actions .au-btnSchedule {
-  justify-content: flex-start !important;
-  gap: 4px !important;
-  padding: 0 10px 0 18px !important;
+  justify-content: space-between !important;
+  gap: clamp(12px, 3vw, 28px) !important;
+  padding: 0 14px 0 22px !important;
 }
 
 .au-page .au-actions .au-btnSchedule__text {
@@ -1346,7 +1346,7 @@ width: 100%;
 @media (max-width: 900px) {
   .au-page .au-hero__inner {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: clamp(28px, 5vw, 40px);
   }
 
   .au-page .au-title {
@@ -1356,7 +1356,7 @@ width: 100%;
 
   .au-page .au-paragraph {
     min-height: 0;
-    margin-bottom: 24px;
+    margin-bottom: clamp(28px, 5vw, 40px);
   }
 
   .au-page .au-p1,
@@ -1381,9 +1381,14 @@ width: 100%;
     padding: 16px 0 clamp(24px, 6vw, 40px);
   }
 
+  .au-page .au-hero__inner {
+    gap: clamp(28px, 6vw, 44px);
+  }
+
   .au-page .au-actions {
     width: 100%;
     align-items: flex-start;
+    margin-top: clamp(6px, 1.5vw, 12px);
   }
 
   .au-page .au-btnSchedule {
@@ -1414,12 +1419,12 @@ width: 100%;
   }
 
   .au-page .au-hero__inner {
-    gap: 18px;
+    gap: clamp(28px, 7vw, 48px);
     padding: 0 10px;
   }
 
   .au-page .au-paragraph {
-    margin-bottom: 18px;
+    margin-bottom: clamp(28px, 6vw, 44px);
   }
 
   .au-page .au-p1,

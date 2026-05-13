@@ -77,10 +77,7 @@
   color: inherit;
   display: block;
   box-sizing: border-box;
-  transition:
-    border-color 0.25s ease,
-    box-shadow 0.25s ease,
-    transform 0.25s ease;
+  transition: border-color 0.25s ease, transform 0.25s ease;
 }
 
 .browseByTopic__card:focus-visible {
@@ -90,13 +87,11 @@
 
 .browseByTopic__card:hover {
   border-color: #002E9E;
-  box-shadow: 0 2px 18px -4px rgba(0, 46, 158, 0.4);
   transform: translateY(-2px);
 }
 
 .browseByTopic__card.is-active {
   border-color: #002E9E;
-  box-shadow: 0 2px 18px -4px rgba(0, 46, 158, 0.35);
   background: rgba(0, 46, 158, 0.04);
 }
 

@@ -163,34 +163,7 @@ const CaseStudiesDetails = () => {
             </div>
           </div>
 
-          <figure className="case-study-page-testimonial">
-            <div className="case-study-page-testimonial-body">
-              <img
-                src={apostropheMark}
-                alt=""
-                className="case-study-page-testimonial-quote-icon"
-                aria-hidden="true"
-              />
-              <blockquote className="case-study-page-testimonial-quote">
-                {testimonial.quote}
-              </blockquote>
-            </div>
-            <figcaption className="case-study-page-testimonial-footer">
-              <div className="case-study-page-testimonial-identity">
-                <img
-                  src={testimonial.avatarSrc}
-                  alt={testimonial.name}
-                  className="case-study-page-testimonial-avatar"
-                  width="64"
-                  height="64"
-                />
-                <div className="case-study-page-testimonial-author">
-                  <span className="case-study-page-testimonial-name">{testimonial.name}</span>
-                  <span className="case-study-page-testimonial-role">{testimonial.role}</span>
-                </div>
-              </div>
-            </figcaption>
-          </figure>
+          
         </div>
       </section>
 

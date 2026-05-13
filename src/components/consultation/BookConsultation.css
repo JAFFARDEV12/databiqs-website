@@ -179,7 +179,7 @@
    .bc-stat__num {
      font-family: var(--bc-font-head);
      font-size: 34px;
-     font-weight: 400;
+     font-weight: 700;
      color: var(--bc-primary);
      line-height: 1;
    }

@@ -1,10 +1,11 @@
 import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import Footer from "../home/Footer";
 import arrowIcon from "../../assets/rightarrow.svg";
 import relatedStillCover from "../../assets/main.png";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
-import { BLOG_POSTS, BLOG_POSTS_BY_ID } from "./blogPostsData";
+import { BLOG_POSTS, BLOG_POSTS_BY_ID, pickBlogDetailHeroVideo } from "./blogPostsData";
 import "../blog-page/FeaturedBlogCardsRow.css";
 import "./BlogDetail.css";
 
@@ -12,29 +13,81 @@ const blogDetailPath = (cardId) => `/blog-detail/${cardId}`;
 
 const isVideoAssetUrl = (src) => typeof src === "string" && src.toLowerCase().includes(".mp4");
 
-/** Rank by category/tag match, then pick one MP4 card + one static-image card (always distinct). */
-const getRelatedVideoAndStill = (current, posts) => {
+const RELATED_COUNT = 2;
+
+/**
+ * Prefer up to two other posts from the same category; if fewer than two, fill from other categories.
+ * Returns distinct posts (never the current article).
+ */
+const pickRelatedPosts = (current, posts) => {
   const others = posts.filter((p) => p.id !== current.id);
-  const relevance = (p) =>
-    (p.category === current.category ? 2 : 0) + (p.tag === current.tag ? 1 : 0);
-  const ranked = [...others].sort((a, b) => relevance(b) - relevance(a) || a.id - b.id);
+  const picked = [];
+  const seen = new Set();
 
-  const withVideo = ranked.filter((p) => isVideoAssetUrl(p.image));
-  const withoutVideo = ranked.filter((p) => !isVideoAssetUrl(p.image));
+  const pushUnique = (list) => {
+    for (const p of list) {
+      if (picked.length >= RELATED_COUNT) return;
+      if (seen.has(p.id)) continue;
+      picked.push(p);
+      seen.add(p.id);
+    }
+  };
 
-  const videoPost = withVideo[0] || ranked[0];
-  let stillPost =
-    withoutVideo.find((p) => p.id !== videoPost.id) ||
-    withoutVideo[0] ||
-    ranked.find((p) => p.id !== videoPost.id);
+  const sameCategory = others
+    .filter((p) => p.category === current.category)
+    .sort((a, b) => a.id - b.id);
+  pushUnique(sameCategory);
 
-  if (!stillPost || stillPost.id === videoPost.id) {
-    stillPost = ranked.find((p) => p.id !== videoPost.id);
+  if (picked.length < RELATED_COUNT) {
+    const rest = others
+      .filter((p) => !seen.has(p.id))
+      .sort((a, b) => {
+        const ta = a.tag === current.tag ? 1 : 0;
+        const tb = b.tag === current.tag ? 1 : 0;
+        if (tb !== ta) return tb - ta;
+        return a.id - b.id;
+      });
+    pushUnique(rest);
   }
 
+  return picked.slice(0, RELATED_COUNT);
+};
+
+/** Build display rows: prefer one video-style card + one still-style when possible; always distinct posts. */
+const buildRelatedDisplayItems = (current, posts) => {
+  const picked = pickRelatedPosts(current, posts);
+  if (picked.length === 0) return [];
+
+  if (picked.length === 1) {
+    const p = picked[0];
+    return [{ post: p, variant: isVideoAssetUrl(p.image) ? "video" : "still" }];
+  }
+
+  const [a, b] = picked;
+  const aVid = isVideoAssetUrl(a.image);
+  const bVid = isVideoAssetUrl(b.image);
+
+  if (aVid && !bVid) {
+    return [
+      { post: a, variant: "video" },
+      { post: b, variant: "still" },
+    ];
+  }
+  if (!aVid && bVid) {
+    return [
+      { post: b, variant: "video" },
+      { post: a, variant: "still" },
+    ];
+  }
+  if (aVid && bVid) {
+    return [
+      { post: a, variant: "video" },
+      { post: b, variant: "still" },
+    ];
+  }
   return [
-    { post: videoPost, variant: "video" },
-    { post: stillPost, variant: "still" },
+    { post: a, variant: "still" },
+    { post: b, variant: "still" },
   ];
 };
 
@@ -89,10 +142,19 @@ const BlogDetail = () => {
   const card2Ref = useScrollAnimation({ threshold: 0.2 });
 
   const blog = BLOG_POSTS_BY_ID[String(id)] || BLOG_POSTS_BY_ID["1"];
-  const relatedPair = getRelatedVideoAndStill(blog, BLOG_POSTS);
+  const relatedItems = buildRelatedDisplayItems(blog, BLOG_POSTS);
   const contentLines = blog.content.split("\n");
   const contentNodes = contentLines.map((line, idx) => renderContentBlock(line, idx)).filter(Boolean);
   const isVideoCover = isVideoAssetUrl(blog.image);
+
+  const [heroVideoSrc, setHeroVideoSrc] = useState(blog.image);
+  useEffect(() => {
+    if (isVideoAssetUrl(blog.image)) {
+      setHeroVideoSrc(pickBlogDetailHeroVideo());
+    } else {
+      setHeroVideoSrc(blog.image);
+    }
+  }, [blog.id, blog.image]);
   const seo = blog.seo;
   const origin = typeof window !== "undefined" ? window.location.origin : "";
   const canonicalUrl = `${origin}${seo.canonicalPath}`;
@@ -157,6 +219,7 @@ const BlogDetail = () => {
       <div className={`bdp__hero${isVideoCover ? " bdp__hero--video" : ""}`}>
         {isVideoCover ? (
           <video
+            key={`bdp-hero-${blog.id}`}
             className="bdp__heroImg"
             autoPlay
             loop
@@ -165,7 +228,7 @@ const BlogDetail = () => {
             preload="metadata"
             aria-label={blog.title}
           >
-            <source src={blog.image} type="video/mp4" />
+            <source src={heroVideoSrc} type="video/mp4" />
           </video>
         ) : (
           <img className="bdp__heroImg" src={blog.image} alt={blog.title} />
@@ -204,7 +267,13 @@ const BlogDetail = () => {
             </h2>
 
             <div className="featuredBlogRow__grid bdp__relatedFeaturedGrid">
-              {relatedPair.map(({ post: card, variant }, idx) => (
+              {relatedItems.length === 0 ? (
+                <p className="bdp__relatedEmpty">
+                  More articles in this topic are on the way.{" "}
+                  <Link to="/blog-page">Browse all insights</Link>
+                </p>
+              ) : (
+                relatedItems.map(({ post: card, variant }, idx) => (
                 <article
                   key={`${variant}-${card.id}`}
                   ref={idx === 0 ? card1Ref : idx === 1 ? card2Ref : undefined}
@@ -232,7 +301,7 @@ const BlogDetail = () => {
                     <>
                       <img
                         className="featuredBlogCard__stillBg"
-                        src={relatedStillCover}
+                        src={isVideoAssetUrl(card.image) ? relatedStillCover : card.image || relatedStillCover}
                         alt=""
                         aria-hidden="true"
                       />
@@ -263,7 +332,8 @@ const BlogDetail = () => {
                     </div>
                   </div>
                 </article>
-              ))}
+                ))
+              )}
             </div>
           </section>
 

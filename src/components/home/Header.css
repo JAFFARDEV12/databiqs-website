@@ -54,7 +54,7 @@
   margin: auto;
   padding: 0 28px;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 28px;
 }
@@ -211,7 +211,7 @@
 }
 
 .Header.scrolled .header-container {
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   gap: 28px;
 }
 
@@ -258,11 +258,15 @@
     padding: 3px 22px;
     margin: -12px auto;
     gap: 16px;
-    grid-template-columns: auto 1fr auto auto;
+    max-width: 100%;
+    box-sizing: border-box;
+    /* 3 items (hamburger hidden): let nav shrink so CTA stays in viewport */
+    grid-template-columns: auto minmax(0, 1fr) auto;
   }
 
   .Header.scrolled .header-container {
     padding: 3px 22px;
+    grid-template-columns: auto minmax(0, 1fr) auto;
   }
 
   .Header .logo img {
@@ -270,15 +274,23 @@
   }
 
   .Header .nav {
-    gap: 18px;
+    gap: 12px;
+    padding: 0 10px;
+    min-width: 0;
+    max-width: 100%;
+    width: fit-content;
+    justify-self: center;
   }
 
   .Header .nav a {
-    font-size: 15px;
+    font-size: 13px;
+    padding: 5px 8px;
   }
 
   .Header .cta-button.desktop-only {
     padding: 1px 10px 1px 18px;
+    justify-self: end;
+    flex-shrink: 0;
   }
 
   .cta-button.mobile-only {
@@ -304,7 +316,7 @@
   }
 
   .Header .header-container {
-    grid-template-columns: auto 1fr auto auto;
+    grid-template-columns: auto minmax(0, 1fr) auto auto;
     padding: 8px 14px;
     margin: 0 auto;
     border-radius: 0;

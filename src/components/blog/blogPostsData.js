@@ -8,12 +8,19 @@ import videoPoolSeven from "../../assets/8328106-uhd_2160_3840_25fps.mp4";
 import videoPoolEight from "../../assets/8501993-uhd_2160_3840_25fps.mp4";
 import videoPoolNine from "../../assets/7688618-uhd_2160_4096_24fps.mp4";
 import videoPoolTen from "../../assets/14945650_2160_3840_25fps.mp4";
+import videoPoolEleven from "../../assets/8084620-uhd_3840_2160_25fps.mp4";
+import videoPoolTwelve from "../../assets/8464662-uhd_3840_2160_25fps.mp4";
+import videoPoolThirteen from "../../assets/8327799-uhd_3840_2160_25fps.mp4";
+import videoPoolFourteen from "../../assets/8467244-uhd_3840_2160_25fps.mp4";
+import videoPoolFifteen from "../../assets/8086703-uhd_3840_2160_25fps.mp4";
+import videoPoolSixteen from "../../assets/8084494-uhd_3840_2160_25fps.mp4";
+
 import blogMediaPred from "../../assets/case-study-phase-prediction.jpg";
 import blogMediaExec from "../../assets/case-study-phase-execution.jpg";
 import blogMediaMl from "../../assets/machine-learning.svg";
 import blogBrandMark from "../../assets/Databiqs Logo.png";
 
-/** All site MP4s used for blog covers + featured grids (deterministic “random” spread by id/topic). */
+/** All blog / featured MP4s (hero detail picks randomly from this pool). */
 export const BLOG_VIDEO_POOL = [
   videoCardOne,
   videoCardTwo,
@@ -25,7 +32,43 @@ export const BLOG_VIDEO_POOL = [
   videoPoolEight,
   videoPoolNine,
   videoPoolTen,
+  videoPoolEleven,
+  videoPoolTwelve,
+  videoPoolThirteen,
+  videoPoolFourteen,
+  videoPoolFifteen,
+  videoPoolSixteen,
 ];
+
+const BLOG_DETAIL_LAST_HERO_VIDEO_KEY = "databiqs_blogDetail_lastHeroMp4";
+
+/**
+ * Random clip for the blog detail hero. Uses sessionStorage so consecutive article
+ * opens rarely repeat the same file (falls back to full pool if only one asset).
+ */
+export function pickBlogDetailHeroVideo() {
+  const pool = BLOG_VIDEO_POOL;
+  if (!pool.length) return "";
+  let last = "";
+  try {
+    if (typeof sessionStorage !== "undefined") {
+      last = sessionStorage.getItem(BLOG_DETAIL_LAST_HERO_VIDEO_KEY) || "";
+    }
+  } catch {
+    /* private / blocked storage */
+  }
+  const candidates = last ? pool.filter((url) => url !== last) : [...pool];
+  const pickFrom = candidates.length ? candidates : pool;
+  const pick = pickFrom[Math.floor(Math.random() * pickFrom.length)];
+  try {
+    if (typeof sessionStorage !== "undefined") {
+      sessionStorage.setItem(BLOG_DETAIL_LAST_HERO_VIDEO_KEY, pick);
+    }
+  } catch {
+    /* ignore */
+  }
+  return pick;
+}
 
 const BLOG_POSTS_RAW = [
   {
