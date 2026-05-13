@@ -4,7 +4,8 @@
   position: fixed;
   bottom: calc(24px + var(--keyboard-offset, 0px));
   right: 24px;
-  z-index: 99999;
+  /* Below .chatbot-window so the panel + input stay clickable (FAB was stealing focus/clicks). */
+  z-index: 99998;
   width: 120px;
   height: 120px;
   border: none;
@@ -125,7 +126,7 @@
 .chatbot-overlay {
   position: fixed;
   inset: 0;
-  z-index: 99997;
+  z-index: 99999;
   background: rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(4px);
 }
@@ -143,7 +144,7 @@
   border: 1px solid rgba(0, 46, 158, 0.12);
   border-radius: 22px;
   overflow: hidden;
-  z-index: 99998;
+  z-index: 100000;
   box-shadow: none;
   display: flex;
   flex-direction: column;

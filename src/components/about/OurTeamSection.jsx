@@ -99,13 +99,16 @@ const TeamCard = ({ member, compact = false }) => (
 );
 
 const OurTeamSection = () => {
-  const sectionRef    = useScrollAnimation({ threshold: 0.14 });
-  const carouselRef   = useRef(null);
-  const trackRef      = useRef(null);
-  const resumeTimer   = useRef(null);
+  const sectionRef = useScrollAnimation({ threshold: 0.14 });
+  const carouselRef = useRef(null);
+  const trackRef = useRef(null);
+  const resumeIdleTimerRef = useRef(null);
+  const transitionFallbackRef = useRef(null);
+  const transitionHandlerRef = useRef(null);
+  const marqueeDurationRef = useRef(48);
   const [paused, setPaused] = useState(false);
 
-  const ceoMember    = TEAM_MEMBERS.find((m) => m.spotlight);
+  const ceoMember = TEAM_MEMBERS.find((m) => m.spotlight);
   const otherMembers = TEAM_MEMBERS.filter((m) => !m.spotlight);
 
   /* Card width + gap */
@@ -122,78 +125,163 @@ const OurTeamSection = () => {
   const laneWidth = useCallback(() => {
     const track = trackRef.current;
     if (!track) return 0;
-    // The track has two identical lanes; half its scrollWidth = one lane
     return track.scrollWidth / 2;
   }, []);
 
-  /* Read current animated translateX */
   const getCurrentX = useCallback(() => {
     const track = trackRef.current;
     if (!track) return 0;
-    const matrix = new DOMMatrixReadOnly(getComputedStyle(track).transform);
-    return matrix.m41;
+    const t = getComputedStyle(track).transform;
+    if (!t || t === "none") return 0;
+    try {
+      const matrix = new DOMMatrixReadOnly(t);
+      return matrix.m41;
+    } catch {
+      return 0;
+    }
   }, []);
 
-  useEffect(() => () => clearTimeout(resumeTimer.current), []);
-
-  const slide = useCallback((dir) => {
+  const clearResumeSchedule = useCallback(() => {
+    clearTimeout(resumeIdleTimerRef.current);
+    clearTimeout(transitionFallbackRef.current);
     const track = trackRef.current;
-    if (!track) return;
+    const handler = transitionHandlerRef.current;
+    if (track && handler) {
+      track.removeEventListener("transitionend", handler);
+      transitionHandlerRef.current = null;
+    }
+  }, []);
 
-    const step  = cardStep();
-    const oneLane = laneWidth();
-
-    /* Capture current animated position */
-    let currentX = getCurrentX();
-
-    /* ── INFINITE WRAP FIX (both directions) ──────────────────────────
-       The marquee loops between translateX(0) and translateX(-oneLane).
-       Both lanes are identical, so any position X is visually equivalent
-       to X ± oneLane.
-
-       PREV (dir === -1): if we're within one step of the start (X > -step),
-       sliding right would go past 0 into empty space → teleport one lane
-       back (X - oneLane) so there's always content to the right.
-
-       NEXT (dir === 1): if we're within one step of the end (X < -oneLane + step),
-       sliding left would go past -oneLane into empty space → teleport one lane
-       forward (X + oneLane) so there's always content to the left.
-
-       The teleport is instant (no transition), then the animated step runs
-       normally from the new position.
-    ─────────────────────────────────────────────────────────────────── */
-    if (dir === -1 && currentX > -step) {
-      // Too close to start — mirror into second lane
-      currentX = currentX - oneLane;
-    } else if (dir === 1 && currentX < -oneLane + step) {
-      // Too close to end — mirror back into first lane
-      currentX = currentX + oneLane;
+  const resumeMarqueeFromCurrentPosition = useCallback(() => {
+    const track = trackRef.current;
+    if (!track) {
+      setPaused(false);
+      return;
     }
 
-    /* Freeze: remove animation, pin inline transform */
-    track.style.transition = "none";
-    track.style.animation  = "none";
-    track.style.transform  = `translateX(${currentX}px)`;
+    if (
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      track.style.transition = "";
+      track.style.animation = "";
+      track.style.transform = "";
+      track.style.removeProperty("animation-delay");
+      setPaused(false);
+      return;
+    }
 
-    /* Force reflow */
+    const oneLane = track.scrollWidth / 2;
+    if (oneLane <= 0) {
+      track.style.transition = "";
+      track.style.animation = "";
+      track.style.transform = "";
+      track.style.removeProperty("animation-delay");
+      setPaused(false);
+      return;
+    }
+
+    const matrix = new DOMMatrixReadOnly(getComputedStyle(track).transform);
+    const x = matrix.m41;
+    const p = ((-x / oneLane) % 1 + 1) % 1;
+    const durationSec =
+      Number.isFinite(marqueeDurationRef.current) && marqueeDurationRef.current > 0
+        ? marqueeDurationRef.current
+        : parseFloat(getComputedStyle(track).animationDuration) || 48;
+
+    track.style.transition = "";
+    track.style.animation = "none";
+    track.style.removeProperty("transform");
     void track.offsetWidth;
 
-    /* Slide one step */
-    const targetX = currentX + dir * step * -1; // dir=1 → move left (forward)
-    track.style.transition = "transform 0.45s cubic-bezier(0.4, 0, 0.2, 1)";
-    track.style.transform  = `translateX(${targetX}px)`;
+    track.style.removeProperty("animation");
+    track.style.animationDelay = `${-p * durationSec}s`;
+    void track.offsetWidth;
 
-    /* Resume CSS animation after delay */
-    clearTimeout(resumeTimer.current);
-    resumeTimer.current = setTimeout(() => {
-      track.style.transition = "";
-      track.style.animation  = "";
-      track.style.transform  = "";
-      setPaused(false);
-    }, 3200);
+    setPaused(false);
+  }, []);
 
-    setPaused(true);
-  }, [cardStep, laneWidth, getCurrentX]);
+  useEffect(
+    () => () => {
+      clearResumeSchedule();
+    },
+    [clearResumeSchedule]
+  );
+
+  const RESUME_AFTER_MS = 3000;
+  const SLIDE_TRANSITION_FALLBACK_MS = 600;
+
+  const slide = useCallback(
+    (dir) => {
+      const track = trackRef.current;
+      if (!track) return;
+
+      clearResumeSchedule();
+
+      const dur = parseFloat(getComputedStyle(track).animationDuration);
+      marqueeDurationRef.current =
+        Number.isFinite(dur) && dur > 0 ? dur : 48;
+
+      track.style.removeProperty("animation-delay");
+
+      const step = cardStep();
+      const oneLane = laneWidth();
+
+      let currentX = getCurrentX();
+
+      if (dir === -1 && currentX > -step) {
+        currentX = currentX - oneLane;
+      } else if (dir === 1 && currentX < -oneLane + step) {
+        currentX = currentX + oneLane;
+      }
+
+      track.style.transition = "none";
+      track.style.animation = "none";
+      track.style.transform = `translateX(${currentX}px)`;
+
+      void track.offsetWidth;
+
+      const targetX = currentX + dir * step * -1;
+      track.style.transition =
+        "transform 0.45s cubic-bezier(0.4, 0, 0.2, 1)";
+      track.style.transform = `translateX(${targetX}px)`;
+
+      setPaused(true);
+
+      const armIdleResume = () => {
+        clearTimeout(resumeIdleTimerRef.current);
+        resumeIdleTimerRef.current = setTimeout(() => {
+          resumeMarqueeFromCurrentPosition();
+        }, RESUME_AFTER_MS);
+      };
+
+      const onTransitionEnd = (ev) => {
+        if (ev.target !== track || ev.propertyName !== "transform") return;
+        track.removeEventListener("transitionend", onTransitionEnd);
+        transitionHandlerRef.current = null;
+        clearTimeout(transitionFallbackRef.current);
+        transitionFallbackRef.current = null;
+        armIdleResume();
+      };
+
+      transitionHandlerRef.current = onTransitionEnd;
+      track.addEventListener("transitionend", onTransitionEnd);
+
+      transitionFallbackRef.current = setTimeout(() => {
+        track.removeEventListener("transitionend", onTransitionEnd);
+        transitionHandlerRef.current = null;
+        transitionFallbackRef.current = null;
+        armIdleResume();
+      }, SLIDE_TRANSITION_FALLBACK_MS);
+    },
+    [
+      cardStep,
+      laneWidth,
+      getCurrentX,
+      clearResumeSchedule,
+      resumeMarqueeFromCurrentPosition,
+    ]
+  );
 
   return (
     <section className="our-team" id="our-team" ref={sectionRef}>

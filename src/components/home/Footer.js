@@ -1,146 +1,12 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import emailjs from '@emailjs/browser';
 import './Footer.css';
 import footerlogo from '../../assets/footer-logo.svg';
 import instaSvg from '../../assets/insta.svg';
 import linkedinSvg from '../../assets/linkedin.svg';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
-/* =========================
-   EMAILJS CONFIG
-========================= */
-
-const EMAILJS_SERVICE_ID = 'service_rij8xrc';
-
-const USER_TEMPLATE_ID =
-  process.env.REACT_APP_EMAILJS_NEWSLETTER_TEMPLATE_ID ||
-  'template_7dkqwaf';
-
-const ADMIN_TEMPLATE_ID =
-  process.env.REACT_APP_EMAILJS_ADMIN_TEMPLATE_ID ||
-  'template_bmxi77f';
-
-const EMAILJS_PUBLIC_KEY = 'wpl35VnksY_DS5v2V';
-
-const INTERNAL_EMAIL =
-  process.env.REACT_APP_EMAILJS_ADMIN_EMAIL ||
-  process.env.REACT_APP_COMPANY_EMAIL ||
-  'contact@databiqs.com';
-
-const SUBSCRIBER_STORAGE_KEY = 'databiqs_newsletter_subscribers_v1';
-
 const Footer = () => {
   const sectionRef = useScrollAnimation({ threshold: 0.2 });
-
-  const [newsletterEmail, setNewsletterEmail] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [newsletterSuccess, setNewsletterSuccess] = useState(false);
-
-  const handleNewsletterSubmit = async (e) => {
-    e.preventDefault();
-
-    const email = newsletterEmail.trim();
-
-    const looksLikeEmail =
-      /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-    if (!looksLikeEmail) {
-      alert('Please enter a valid email address.');
-      return;
-    }
-
-    if (
-      !EMAILJS_SERVICE_ID ||
-      !USER_TEMPLATE_ID ||
-      !ADMIN_TEMPLATE_ID ||
-      !EMAILJS_PUBLIC_KEY
-    ) {
-      alert('Email service is not configured.');
-      return;
-    }
-
-    setIsSubmitting(true);
-    setNewsletterSuccess(false);
-
-    try {
-      /* =========================
-         SAVE TO LOCAL STORAGE
-      ========================= */
-
-      const existing = JSON.parse(
-        localStorage.getItem(SUBSCRIBER_STORAGE_KEY) || '[]'
-      );
-
-      const deduped = Array.from(
-        new Set([...(existing || []), email])
-      );
-
-      localStorage.setItem(
-        SUBSCRIBER_STORAGE_KEY,
-        JSON.stringify(deduped)
-      );
-
-      /* =========================
-         USER EMAIL PARAMS
-      ========================= */
-
-      const userTemplateParams = {
-        to_email: email,
-        subscriber_email: email,
-        user_email: email,
-        reply_to: email,
-        fullName: 'Subscriber',
-        topic: 'newsletter',
-      };
-
-      /* =========================
-         SEND USER CONFIRMATION
-      ========================= */
-
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        USER_TEMPLATE_ID,
-        userTemplateParams,
-        EMAILJS_PUBLIC_KEY
-      );
-
-      /* =========================
-         ADMIN EMAIL PARAMS
-      ========================= */
-
-      const adminTemplateParams = {
-        to_email: INTERNAL_EMAIL,
-        subscriber_email: email,
-        user_email: email,
-        reply_to: email,
-        fullName: 'New Subscriber',
-        topic: 'newsletter',
-      };
-
-      /* =========================
-         SEND ADMIN NOTIFICATION
-      ========================= */
-
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        ADMIN_TEMPLATE_ID,
-        adminTemplateParams,
-        EMAILJS_PUBLIC_KEY
-      );
-
-      setNewsletterSuccess(true);
-      setNewsletterEmail('');
-    } catch (err) {
-      console.error('FULL EMAILJS ERROR:', err);
-      alert(
-        err?.text ||
-          'Something went wrong while subscribing.'
-      );
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   return (
     <footer className="footer" ref={sectionRef}>
@@ -243,55 +109,37 @@ const Footer = () => {
               <li>
                 <Link to="/blog-page">Blog</Link>
               </li>
+
+              <li>
+                <Link to="/contact-us">Contact us</Link>
+              </li>
             </ul>
           </div>
 
           <div className="footer-right">
             <h2 className="footer-heading">
-              Join Our Newsletter
+              Ready to connect?
             </h2>
-
-            <form
-              className="newsletter-form"
-              onSubmit={handleNewsletterSubmit}
-            >
-              <input
-                type="email"
-                className="newsletter-input"
-                placeholder="Enter your email"
-                required
-                value={newsletterEmail}
-                onChange={(e) =>
-                  setNewsletterEmail(
-                    e.target.value
-                  )
-                }
-                aria-label="Email address"
-              />
-
-              <button
-                type="submit"
-                className="newsletter-button"
-                disabled={isSubmitting}
+            <p className="footer-cta__text">
+              Reach out with your goals, or book a session and we&apos;ll help you map the next step.
+            </p>
+            <div className="footer-cta__actions">
+              <Link to="/contact-us" className="footer-cta__btn footer-cta__btn--primary">
+                Contact us
+              </Link>
+              <Link
+                to="/book-consultation"
+                className="footer-cta__btn footer-cta__btn--ghost"
               >
-                {isSubmitting
-                  ? 'Subscribing...'
-                  : 'Subscribe'}
-              </button>
-            </form>
-
-            {newsletterSuccess ? (
-              <p className="newsletter-success">
-                Thanks for subscribing!
-              </p>
-            ) : null}
+                Book a consultation
+              </Link>
+            </div>
           </div>
         </div>
 
         <div className="footer-bottom">
           <p className="copyright">
-            © 2026 Databiqs. All rights
-            reserved.
+            © 2024–2026 Databiqs. All rights reserved.
           </p>
         </div>
       </div>

@@ -13,7 +13,7 @@ import audio5TH from '../../assets/testominial audios/5TH.wav';
 import audio6TH from '../../assets/testominial audios/6TH.wav';
 import audio7TH from '../../assets/testominial audios/7TH.wav';
 import audio8TH from '../../assets/testominial audios/8TH.wav';
-import audio9TH from '../../assets/testominial audios/9TH.wav';
+// import audio9TH from '../../assets/testominial audios/9TH.wav';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 /** One clip per testimonial card, in the same order as `TESTIMONIALS`. */
@@ -26,7 +26,7 @@ const TESTIMONIAL_AUDIOS_IN_ORDER = [
   audio6TH,
   audio7TH,
   audio8TH,
-  audio9TH,
+  // audio9TH,
 ];
 
 const TESTIMONIALS = [
@@ -78,12 +78,12 @@ const TESTIMONIALS = [
       '"The Team At Databiqs Brought Both Technical Depth And Strategic Vision. Their AI Solutions Integrated Seamlessly With Our Existing Systems And Delivered Real ROI."',
     bg: card4Picture,
   },
-  {
-    id: 11,
-    quote:
-      '"Our Customer Satisfaction Scores Jumped After Deploying Databiqs AI Tools. Automation Of Routine Tasks Freed Our Team To Focus On High-Value Client Relationships."',
-    bg: card1Picture,
-  },
+  // {
+  //   id: 11,
+  //   quote:
+  //     '"Our Customer Satisfaction Scores Jumped After Deploying Databiqs AI Tools. Automation Of Routine Tasks Freed Our Team To Focus On High-Value Client Relationships."',
+  //   bg: card1Picture,
+  // },
 ];
 
 const TESTIMONIALS_WITH_AUDIO = TESTIMONIALS.map((item, index) => ({
@@ -187,15 +187,16 @@ const TestimonialsSection = ({ sectionId = 'case-studies' } = {}) => {
             <div key={currentSlide} className={`testimonials-grid${slideClass ? ` ${slideClass}` : ''}`}>
               {cards.map((card) => {
                 const hasAudio = Boolean(card.audio);
+                // Voice on hover / focus — commented out (do not remove). Restore by adding these props to the div below:
+                // onMouseEnter={hasAudio ? () => playAudio(card.id) : undefined}
+                // onMouseLeave={hasAudio ? () => stopAudio(card.id) : undefined}
+                // onFocus={hasAudio ? () => playAudio(card.id) : undefined}
+                // onBlur={hasAudio ? () => stopAudio(card.id) : undefined}
                 return (
                   <div
                     key={card.id}
                     className="testimonial-card"
                     style={{ backgroundImage: `url(${card.bg})` }}
-                    onMouseEnter={hasAudio ? () => playAudio(card.id) : undefined}
-                    onMouseLeave={hasAudio ? () => stopAudio(card.id) : undefined}
-                    onFocus={hasAudio ? () => playAudio(card.id) : undefined}
-                    onBlur={hasAudio ? () => stopAudio(card.id) : undefined}
                   >
                     <img
                       src={apostrophySvg}

@@ -15,6 +15,7 @@ import Services from './components/services/Services';
 import ServiceDetail from './components/services/ServiceDetail';
 import Chatbot from './components/Chatbot/Chatbot';
 import BookConsultation from './components/consultation/BookConsultation';
+import ContactUs from './components/contact/ContactUs';
 import DoorIntro from './components/intro/DoorIntro';
 
 function AppRoutes({ introDone, setIntroDone }) {
@@ -43,6 +44,7 @@ function AppRoutes({ introDone, setIntroDone }) {
           <Route path="/blog/:id" element={<BlogDetail />} />
           <Route path="/blog-detail/:id" element={<BlogDetail />} />
           <Route path="/blog-page" element={<InsightsInnovation />} />
+          <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/case-studies/:slug" element={<CaseStudiesDetails />} />
           <Route path="/services" element={<Services />} />

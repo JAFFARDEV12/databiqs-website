@@ -50,6 +50,7 @@ const Header = () => {
   const isServicesActive = location.pathname === '/services';
   const isCaseStudiesActive = location.pathname === '/case-studies';
   const isInsightsActive = location.pathname === '/blog-page';
+  const isContactUsActive = location.pathname === '/contact-us';
 
   const activeClass = (active) => (active ? ' nav-link-active' : '');
 
@@ -72,6 +73,7 @@ const Header = () => {
             <Link to="/case-studies" onClick={closeMenu} className={activeClass(isCaseStudiesActive)}>Case Studies</Link>
             <Link to="/about-us" onClick={closeMenu} className={activeClass(isAboutActive)}>About Us</Link>
             <Link to="/blog-page" onClick={closeMenu} className={activeClass(isInsightsActive)}>Blog</Link>
+            <Link to="/contact-us" onClick={closeMenu} className={activeClass(isContactUsActive)}>Contact us</Link>
           </>
 
           <Link to="/book-consultation" onClick={closeMenu} className="cta-button mobile-only" aria-label="Book a consultation">

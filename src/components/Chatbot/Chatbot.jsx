@@ -71,6 +71,14 @@ const Chatbot = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, loading]);
 
+  useEffect(() => {
+    if (!isOpen) return undefined;
+    const id = window.setTimeout(() => {
+      inputRef.current?.focus();
+    }, 0);
+    return () => window.clearTimeout(id);
+  }, [isOpen]);
+
   const sendMessage = async () => {
     const trimmed = input.trim();
     if (!trimmed || loading) return;
@@ -78,6 +86,9 @@ const Chatbot = () => {
     setMessages(prev => [...prev, { role: 'user', text: trimmed }]);
     setInput('');
     setLoading(true);
+    queueMicrotask(() => {
+      inputRef.current?.focus();
+    });
 
     try {
       const res = await fetch(API_URL, {
@@ -155,7 +166,13 @@ const Chatbot = () => {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="chatbot-window">
+        <div
+          className="chatbot-window"
+          onMouseDown={(e) => e.stopPropagation()}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Databiqs AI assistant"
+        >
           <div className="chatbot-header">
             <div className="chatbot-header-brand">
               <div className="chatbot-mini-logo">
@@ -225,7 +242,7 @@ const Chatbot = () => {
                 value={input}
                 onChange={e => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
-                disabled={loading}
+                aria-busy={loading}
               />
               <button
                 className="chatbot-send"

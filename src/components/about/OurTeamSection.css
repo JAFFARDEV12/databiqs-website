@@ -126,9 +126,11 @@
   background: transparent;
 }
 
-/* Pause on hover — original behaviour */
-.our-team__carousel:hover .our-team__track {
-  animation-play-state: paused;
+/* Pause on hover — desktop only (touch devices get sticky :hover and the track stayed paused) */
+@media (hover: hover) {
+  .our-team__carousel:hover .our-team__track {
+    animation-play-state: paused;
+  }
 }
 
 /* Pause via JS state (button click) */
@@ -158,6 +160,7 @@
   box-shadow:
     0 4px 18px rgba(0, 46, 158, 0.16),
     0 1px 4px rgba(0, 0, 0, 0.06);
+  touch-action: manipulation;
   transition:
     background    0.22s ease,
     border-color  0.22s ease,
