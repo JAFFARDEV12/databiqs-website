@@ -75,8 +75,8 @@
   max-width: 460px;
 }
 
-.hero-cta-email,
-.hero-cta-email:visited {
+.hero-cta-contact,
+.hero-cta-contact:visited {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -100,7 +100,7 @@
   -webkit-appearance: none;
 }
 
-.hero-cta-email:hover {
+.hero-cta-contact:hover {
   background: #0054E9;
 }
 
@@ -346,7 +346,7 @@
     gap: 6px;
   }
 
-  .hero-cta-email {
+  .hero-cta-contact {
     font-size: 14px;
     padding: 13px 26px;
   }
@@ -398,7 +398,7 @@
     padding: 7px 10px;
   }
 
-  .hero-cta-email {
+  .hero-cta-contact {
     font-size: 13px;
     padding: 12px 22px;
     width: 90%;
