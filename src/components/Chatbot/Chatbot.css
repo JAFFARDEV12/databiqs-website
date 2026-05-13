@@ -134,12 +134,12 @@
 /* Chatbot Window - Appears above the icon */
 .chatbot-window {
   position: fixed;
-  bottom: calc(168px + var(--keyboard-offset, 0px));
+  bottom: calc(148px + var(--keyboard-offset, 0px));
   right: 24px;
-  width: 390px;
+  width: 340px;
   max-width: calc(100vw - 30px);
-  height: 540px;
-  max-height: calc(100dvh - 150px - var(--keyboard-offset, 0px));
+  height: 470px;
+  max-height: calc(100dvh - 128px - var(--keyboard-offset, 0px));
   background: #fff;
   border: 1px solid rgba(0, 46, 158, 0.12);
   border-radius: 22px;
@@ -295,7 +295,7 @@
 .chatbot-intro-card {
   align-self: center;
   width: 100%;
-  max-width: 320px;
+  max-width: 300px;
   padding: 12px 14px;
   background: #ffffff;
   border: 1px solid rgba(0, 46, 158, 0.12);
@@ -360,7 +360,7 @@
 }
 
 .chatbot-bubble {
-  max-width: min(80%, 286px);
+  max-width: min(80%, 252px);
   min-width: 0;
   padding: 11px 14px;
   border-radius: 15px;
@@ -497,12 +497,12 @@
   }
 
   .chatbot-window {
-    bottom: calc(142px + var(--keyboard-offset, 0px));
+    bottom: calc(126px + var(--keyboard-offset, 0px));
     right: 15px;
     width: calc(100vw - 30px);
-    max-width: 380px;
-    height: 480px;
-    max-height: calc(100dvh - 100px - var(--keyboard-offset, 0px));
+    max-width: 340px;
+    height: 430px;
+    max-height: calc(100dvh - 92px - var(--keyboard-offset, 0px));
   }
 
   .chatbot-tooltip {
@@ -539,9 +539,9 @@
   }
 
   .chatbot-window {
-    height: 440px;
-    max-height: calc(100dvh - 120px - var(--keyboard-offset, 0px));
-    bottom: calc(130px + var(--keyboard-offset, 0px));
+    height: 400px;
+    max-height: calc(100dvh - 108px - var(--keyboard-offset, 0px));
+    bottom: calc(118px + var(--keyboard-offset, 0px));
   }
 
   .chatbot-header {
