@@ -133,7 +133,7 @@ const OurTeamSection = () => {
   const getCurrentX = useCallback(() => {
     const track = trackRef.current;
     if (!track) return 0;
-    const t = getComputedStyle(track).transform;
+    const t = getComputedStyle(track).transform; //d
     if (!t || t === "none") return 0;
     try {
       const matrix = new DOMMatrixReadOnly(t);
