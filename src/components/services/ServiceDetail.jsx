@@ -290,6 +290,7 @@ const ServiceDetail = () => {
                 className="sd-hero-img"
                 aria-label={page.heroImageAlt}
                 role="img"
+                rendererSettings={{ preserveAspectRatio: 'xMidYMid meet' }}
               />
             </div>
           </div>

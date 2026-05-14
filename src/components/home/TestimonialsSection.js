@@ -2,9 +2,8 @@
 import { useEffect, useRef, useState } from 'react';
 import './TestimonialsSection.css';
 import apostrophySvg from '../../assets/appostrophy.svg';
-import card1Picture from '../../assets/card 1 picture.svg';
-import card3Picture from '../../assets/card 3 picture.svg';
-import card4Picture from '../../assets/card 4 picture.svg';
+/* import card1Picture from '../../assets/card 1 picture.svg';
+import card4Picture from '../../assets/card 4 picture.svg'; */
 import audio1ST from '../../assets/testominial audios/1ST.wav';
 import audio2ND from '../../assets/testominial audios/2ND.wav';
 import audio3RD from '../../assets/testominial audios/3RD.wav';
@@ -15,6 +14,9 @@ import audio7TH from '../../assets/testominial audios/7TH.wav';
 import audio8TH from '../../assets/testominial audios/8TH.wav';
 // import audio9TH from '../../assets/testominial audios/9TH.wav';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
+
+
+/* const card3Picture = publicMedia('card-3-picture.svg'); */
 
 /** One clip per testimonial card, in the same order as `TESTIMONIALS`. */
 const TESTIMONIAL_AUDIOS_IN_ORDER = [
@@ -34,49 +36,49 @@ const TESTIMONIALS = [
     id: 1,
     quote:
       '"Databiqs Delivered An AI Solution That Significantly Improved Our Customer Response Time And Operational Efficiency. Their Approach Was Strategic, Professional, And Results-Driven."',
-    bg: card1Picture,
+   
   },
   {
     id: 2,
     quote:
       '"Databiqs Helped Us Modernize Our Customer Experience With AI-First Automation, Delivering Faster Service And Better Decision-Making Across Teams."',
-    bg: card3Picture,
+   
   },
   {
     id: 3,
     quote:
       '"The AI Automation Implemented By Databiqs Streamlined Our Internal Workflows And Reduced Manual Effort Across Teams. Their Expertise With Intelligent Systems Truly Stands Out."',
-    bg: card3Picture,
+  
   },
   {
     id: 5,
     quote:
       '"Working With Databiqs Has Been Transformative For Our Business. Their AI Solutions Enabled Us To Automate Key Processes And Scale Effortlessly Across All Departments."',
-    bg: card4Picture,
+    
   },
   {
     id: 6,
     quote:
       '"The Intelligent Automation Platform Deployed By Databiqs Reduced Our Operational Costs By 40%. Their Team Was Knowledgeable, Responsive, And Truly Invested In Our Success."',
-    bg: card3Picture,
+    
   },
   {
     id: 7,
     quote:
       '"Databiqs Understood Our Unique Challenges And Delivered A Tailored AI Solution That Exceeded Expectations. The Results Were Measurable Within The First Month."',
-    bg: card4Picture,
+   
   },
   {
     id: 8,
     quote:
       '"From Initial Consultation To Full Deployment The Databiqs Team Was Professional And Thorough. Their AI Tools Gave Us A Competitive Edge We Did Not Expect So Quickly."',
-    bg: card1Picture,
+   
   },
   {
     id: 10,
     quote:
       '"The Team At Databiqs Brought Both Technical Depth And Strategic Vision. Their AI Solutions Integrated Seamlessly With Our Existing Systems And Delivered Real ROI."',
-    bg: card4Picture,
+    
   },
   // {
   //   id: 11,
@@ -125,42 +127,6 @@ const TestimonialsSection = ({ sectionId = 'case-studies' } = {}) => {
     });
   };
 
-  const playAudio = (id) => {
-    const el = audioRefs.current[id];
-    if (!el) return;
-    Object.entries(audioRefs.current).forEach(([key, other]) => {
-      if (!other || String(key) === String(id)) return;
-      try {
-        other.pause();
-        other.currentTime = 0;
-      } catch (_) {
-        /* noop */
-      }
-    });
-    try {
-      el.currentTime = 0;
-      const result = el.play();
-      if (result && typeof result.catch === 'function') {
-        result.catch(() => {
-          /* autoplay blocked or interrupted; safe to ignore */
-        });
-      }
-    } catch (_) {
-      /* noop */
-    }
-  };
-
-  const stopAudio = (id) => {
-    const el = audioRefs.current[id];
-    if (!el) return;
-    try {
-      el.pause();
-      el.currentTime = 0;
-    } catch (_) {
-      /* noop */
-    }
-  };
-
   useEffect(() => {
     stopAllAudio();
   }, [currentSlide]);
@@ -187,11 +153,7 @@ const TestimonialsSection = ({ sectionId = 'case-studies' } = {}) => {
             <div key={currentSlide} className={`testimonials-grid${slideClass ? ` ${slideClass}` : ''}`}>
               {cards.map((card) => {
                 const hasAudio = Boolean(card.audio);
-                // Voice on hover / focus - commented out (do not remove). Restore by adding these props to the div below:
-                // onMouseEnter={hasAudio ? () => playAudio(card.id) : undefined}
-                // onMouseLeave={hasAudio ? () => stopAudio(card.id) : undefined}
-                // onFocus={hasAudio ? () => playAudio(card.id) : undefined}
-                // onBlur={hasAudio ? () => stopAudio(card.id) : undefined}
+                // Voice on hover / focus: wire handlers here and call stopAllAudio + play on the ref for card.id.
                 return (
                   <div
                     key={card.id}

@@ -3,7 +3,6 @@ import { Navigate, useParams } from 'react-router-dom';
 import './caseStudiesDetails.css';
 import CaseStudyHero from './CaseStudyHero';
 import MoreCaseStudiesCarousel from './MoreCaseStudiesCarousel';
-import apostropheMark from '../../assets/appostrophy.svg';
 import Footer from '../home/Footer';
 import { getCaseStudyDetail } from './caseStudyDetailContent';
 
@@ -26,7 +25,7 @@ const CaseStudiesDetails = () => {
     return <Navigate to="/case-studies" replace />;
   }
 
-  const { hero, challenge, alert, techStack, phases, impact, ltsv, testimonial } = page;
+  const { hero, challenge, alert, techStack, phases, impact, ltsv } = page;
 
   return (
     <div className="case-studies-page">

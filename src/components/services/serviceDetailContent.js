@@ -1,6 +1,8 @@
-import caseStudyImage from "../../assets/case-study.svg";
+import { publicMedia } from '../../utils/publicMedia';
 import predictionImage from "../../assets/case-study-phase-prediction.jpg";
 import executionImage from "../../assets/case-study-phase-execution.jpg";
+
+const caseStudyImage = publicMedia('case-study.svg');
 
 /** Rich layout + copy for service detail pages (hero → CTA). */
 export const serviceDetailBySlug = {

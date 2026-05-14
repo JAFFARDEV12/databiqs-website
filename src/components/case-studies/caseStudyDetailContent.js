@@ -2,10 +2,12 @@
  * Case study detail pages: keyed by URL slug (`/case-studies/:slug`).
  * Add or edit entries here; CaseStudiesDetails renders from this shape.
  */
-import caseStudyImage from '../../assets/case-study.svg';
-import phasePredictionImg from '../../assets/phase1-prediction.svg';
-import phaseExecutionImg from '../../assets/phase2-prediction.svg';
 import testimonialAvatar from '../../assets/Michael-Hayes.svg';
+import { publicMedia } from '../../utils/publicMedia';
+
+const caseStudyImage = publicMedia('case-study.svg');
+const phasePredictionImg = publicMedia('phase1-prediction.svg');
+const phaseExecutionImg = publicMedia('phase2-prediction.svg');
 
 const phaseBody = (lines) => lines;
 

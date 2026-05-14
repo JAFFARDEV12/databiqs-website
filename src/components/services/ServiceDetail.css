@@ -51,11 +51,11 @@
 .service-detail-page .sd-hero-section::before {
   content: "";
   position: absolute;
-  top: 50%;
+  top: 0;
+  bottom: 0;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   width: calc(100vw - 100px);
-  height: 100%;
   border-radius: 20px;
   background: linear-gradient(
     90deg,
@@ -210,10 +210,19 @@
 .service-detail-page .sd-hero-img {
   display: block;
   width: 100%;
+  max-width: min(520px, 100%);
+  margin-inline: auto;
+  aspect-ratio: 1;
   height: auto;
-  min-height: clamp(200px, 32vw, 340px);
-  max-height: 420px;
-  object-fit: cover;
+  object-fit: contain;
+}
+
+.service-detail-page .sd-hero-img svg,
+.service-detail-page .sd-hero-img canvas {
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  vertical-align: top;
 }
 
 /* - - - Main stack - - - */
@@ -583,7 +592,10 @@
 /* - - - Responsive breakpoints - - - */
 @media (max-width: 1100px) {
   .service-detail-page .sd-hero-section::before {
-    width: 100vw;
+    left: 0;
+    right: 0;
+    transform: none;
+    width: 100%;
     border-radius: 0;
   }
 
@@ -600,11 +612,25 @@
 
   .service-detail-page .sd-hero-visual {
     order: -1;
+    max-width: min(560px, 100%);
+    margin-left: auto;
+    margin-right: auto;
+    padding-inline: clamp(4px, 1.5vw, 12px);
+    padding-bottom: clamp(12px, 3vw, 28px);
+    overflow: visible;
   }
 
   .service-detail-page .sd-hero-img {
-    max-height: 320px;
-    min-height: 200px;
+    max-width: min(100%, 440px);
+    aspect-ratio: 1;
+    max-height: min(72vh, 480px);
+    width: 100%;
+    height: auto;
+  }
+
+  .service-detail-page .sd-hero-img svg,
+  .service-detail-page .sd-hero-img canvas {
+    max-height: min(72vh, 480px);
   }
 
   .service-detail-page .sd-precision-grid {
