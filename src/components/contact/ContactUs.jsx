@@ -1,13 +1,15 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Lottie from 'lottie-react';
 import emailjs from '@emailjs/browser';
 import Footer from '../home/Footer';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-import contactUsLottie from '../../assets/gif/contact us.json';
-import submittedLottie from '../../assets/gif/sucessfuly submitted.json';
-import arrowIcon from '../../assets/rightarrow.svg';
+import LottieFromCdn from '../LottieFromCdn';
 import './ContactUs.css';
+import { assetUrl } from '../../utils/assetUrl';
+
+const arrowIcon = assetUrl('assets/rightarrow.svg');
+
+
 
 const EMAILJS_SERVICE_ID = 'service_hhqip4y';
 const EMAILJS_TEMPLATE_ID = 'template_ge605zo';
@@ -104,9 +106,9 @@ export default function ContactUs() {
                 </p>
               </div>
               <div className="contact-us__hero-visual" aria-hidden="true">
-                <Lottie
+                <LottieFromCdn
+                  path="assets/gif/contact us.json"
                   className="contact-us__hero-lottie"
-                  animationData={contactUsLottie}
                   loop
                   autoplay
                 />
@@ -215,9 +217,9 @@ export default function ContactUs() {
                 aria-live="polite"
               >
                 <div className="contact-us__success-visual" aria-hidden="true">
-                  <Lottie
+                  <LottieFromCdn
+                    path="assets/gif/sucessfuly submitted.json"
                     className="contact-us__success-lottie"
-                    animationData={submittedLottie}
                     loop
                     autoplay
                   />

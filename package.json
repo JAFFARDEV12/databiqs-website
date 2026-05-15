@@ -30,7 +30,15 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "assets:inventory": "node scripts/asset-cdn/list-static-assets.mjs",
+    "assets:sync": "node scripts/asset-cdn/sync-to-assets-repo.mjs --target ../databiqs-website-assets",
+    "assets:replace-dry": "node scripts/asset-cdn/replace-imports-with-cdn.mjs --dry-run",
+    "assets:replace": "node scripts/asset-cdn/replace-imports-with-cdn.mjs --apply",
+    "assets:verify": "node scripts/asset-cdn/verify-cdn-urls.mjs",
+    "assets:remove-dry": "node scripts/asset-cdn/remove-local-assets.mjs --dry-run",
+    "assets:remove": "node scripts/asset-cdn/remove-local-assets.mjs --apply",
+    "assets:fix-order": "node scripts/asset-cdn/fix-import-order.mjs"
   },
   "eslintConfig": {
     "extends": [

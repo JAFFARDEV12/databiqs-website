@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
 import './Footer.css';
-import footerlogo from '../../assets/footer-logo.svg';
-import instaSvg from '../../assets/insta.svg';
-import linkedinSvg from '../../assets/linkedin.svg';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
+import { assetUrl } from '../../utils/assetUrl';
+
+const footerlogo = assetUrl('assets/footer-logo.svg');
+const instaSvg = assetUrl('assets/insta.svg');
+const linkedinSvg = assetUrl('assets/linkedin.svg');
+
 
 const Footer = () => {
   const sectionRef = useScrollAnimation({ threshold: 0.2 });

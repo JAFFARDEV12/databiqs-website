@@ -2,10 +2,13 @@ import React, { useMemo } from "react";
 import "./HeroBlog.css";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import { Link } from "react-router-dom";
-import arrowIcon from "../../assets/rightarrow.svg";
-import Lottie from "lottie-react";
-import aiConversationAnimation from "../../assets/ai-conversation.json";
+import LottieFromCdn from "../LottieFromCdn";
 import { BLOG_VIDEO_POOL } from "../blog/blogPostsData";
+import { assetUrl } from '../../utils/assetUrl';
+
+const arrowIcon = assetUrl('assets/rightarrow.svg');
+
+
 
 const HeroBlog = () => {
   const sectionRef = useScrollAnimation({ threshold: 0.2 });
@@ -28,9 +31,9 @@ const HeroBlog = () => {
             </p>
           </div>
           <div className="heroBlog__lottieWrap" aria-hidden="true">
-            <Lottie
+            <LottieFromCdn
+              path="assets/ai-conversation.json"
               className="heroBlog__lottie heroBlog__lottie--top"
-              animationData={aiConversationAnimation}
               loop
               autoplay
             />

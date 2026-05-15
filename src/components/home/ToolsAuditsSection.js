@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './ToolsAuditsSection.css';
-import arrowIcon from '../../assets/rightarrow.svg';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-import aiAuditIcon from '../../assets/ai-audit.svg';
-import uxReviewIcon from '../../assets/UX-Review.svg';
+import { assetUrl } from '../../utils/assetUrl';
 
-
+const arrowIcon = assetUrl('assets/rightarrow.svg');
+const aiAuditIcon = assetUrl('assets/ai-audit.svg');
+const uxReviewIcon = assetUrl('assets/UX-Review.svg');
 
 const ToolsAuditsSection = () => {
   const sectionRef = useScrollAnimation({ threshold: 0.2 });

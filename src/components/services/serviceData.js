@@ -1,8 +1,9 @@
-import { publicMedia } from '../../utils/publicMedia';
-import predictionImage from "../../assets/case-study-phase-prediction.jpg";
-import executionImage from "../../assets/case-study-phase-execution.jpg";
+import { assetUrl } from '../../utils/assetUrl';
 
-const caseStudyImage = publicMedia('case-study.svg');
+const predictionImage = assetUrl('assets/case-study-phase-prediction.jpg');
+const executionImage = assetUrl('assets/case-study-phase-execution.jpg');
+const caseStudyImage = assetUrl('media/case-study.svg');
+
 
 export const serviceHeroSlides = [
   {

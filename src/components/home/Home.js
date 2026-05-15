@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import HeroSection from './HeroSection';
 import AISolutionsSection from './AISolutionsSection';
@@ -13,8 +12,11 @@ import MeetingBannerSection from './MeetingBannerSection';
 import Footer from './Footer';
 import { useLocation } from 'react-router-dom';
 import './Home.css';
-import aiSolutionsGif from '../../assets/gif/Databiqas-Animation1.gif';
-import aiAutomationGif from '../../assets/gif/Databiqas-Animation.gif';
+import { assetUrl } from '../../utils/assetUrl';
+
+const aiSolutionsGif = assetUrl('assets/gif/Databiqas-Animation1.gif');
+const aiAutomationGif = assetUrl('assets/gif/Databiqas-Animation.gif');
+
 
 
 const Home = () => {

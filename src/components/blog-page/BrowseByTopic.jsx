@@ -1,27 +1,19 @@
 import React from "react";
 import { Link, useLocation, useSearchParams } from "react-router-dom";
-import Lottie from "lottie-react";
-import automationLottie from "../../assets/ai-animation-Flow.json";
-import strategyRoiLottie from "../../assets/Strategy.json";
-import analyticsLottie from "../../assets/data analysis.json";
-import customerExperienceLottie from "../../assets/Customer-Support.json";
-import chatbotLottie from "../../assets/Live chatbot.json";
-import aiStrategyLottie from "../../assets/Ai-brain-board.json";
-import neuralNetworksLottie from "../../assets/Brain Connected with Artificial Intelligence.json";
-import aiSolutionsLottie from "../../assets/Artificial-Intelligence.json";
+import LottieFromCdn from "../LottieFromCdn";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import { normalizeBlogTopicKey } from "../blog/blogPostsData";
 import "./BrowseByTopic.css";
 
 const TOPICS = [
-  { id: 1, name: "AI & Automation", articles: 4, animation: automationLottie, key: "automation" },
-  { id: 2, name: "Strategy & ROI", articles: 4, animation: strategyRoiLottie, key: "strategy" },
-  { id: 3, name: "Data & Analytics", articles: 4, animation: analyticsLottie, key: "analytics" },
-  { id: 4, name: "Customer Experience", articles: 4, animation: customerExperienceLottie, key: "cx" },
-  { id: 5, name: "AI Chatbot", articles: 4, animation: chatbotLottie, key: "chatbot" },
-  { id: 6, name: "AI Consulting", articles: 4, animation: aiStrategyLottie, key: "ai-consulting" },
-  { id: 7, name: "Neural Networks", articles: 4, animation: neuralNetworksLottie, key: "neural" },
-  { id: 8, name: "AI Solutions", articles: 4, animation: aiSolutionsLottie, key: "solutions" },
+  { id: 1, name: "AI & Automation", articles: 4, lottiePath: "assets/ai-animation-Flow.json", key: "automation" },
+  { id: 2, name: "Strategy & ROI", articles: 4, lottiePath: "assets/Strategy.json", key: "strategy" },
+  { id: 3, name: "Data & Analytics", articles: 4, lottiePath: "assets/data analysis.json", key: "analytics" },
+  { id: 4, name: "Customer Experience", articles: 4, lottiePath: "assets/Customer-Support.json", key: "cx" },
+  { id: 5, name: "AI Chatbot", articles: 4, lottiePath: "assets/Live chatbot.json", key: "chatbot" },
+  { id: 6, name: "AI Consulting", articles: 4, lottiePath: "assets/Ai-brain-board.json", key: "ai-consulting" },
+  { id: 7, name: "Neural Networks", articles: 4, lottiePath: "assets/Brain Connected with Artificial Intelligence.json", key: "neural" },
+  { id: 8, name: "AI Solutions", articles: 4, lottiePath: "assets/Artificial-Intelligence.json", key: "solutions" },
 ];
 
 const BrowseByTopic = () => {
@@ -49,9 +41,9 @@ const BrowseByTopic = () => {
               to={`/blog-page?topic=${encodeURIComponent(topic.key)}`}
               onClick={scrollToFeatured}
             >
-              <Lottie
+              <LottieFromCdn
+                path={topic.lottiePath}
                 className={`browseByTopic__lottie browseByTopic__lottie--${topic.key}`}
-                animationData={topic.animation}
                 loop
                 autoplay
                 aria-hidden="true"
@@ -69,3 +61,5 @@ const BrowseByTopic = () => {
 };
 
 export default BrowseByTopic;
+
+

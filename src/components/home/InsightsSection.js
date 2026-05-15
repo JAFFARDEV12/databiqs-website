@@ -1,11 +1,15 @@
-
 import { Link } from 'react-router-dom';
 import './InsightsSection.css';
-import arrowIcon from '../../assets/rightarrow.svg';
-import leftImage from '../../assets/insights&innovationsection left image how ai chatbots...png';
-import topRightImage from '../../assets/insights & innovationrightabove image automating buiness....png';
-import bottomRightImage from '../../assets/insights&innovations bottom rihg timage transforming customer....png';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
+import { assetUrl } from '../../utils/assetUrl';
+
+const arrowIcon = assetUrl('assets/rightarrow.svg');
+const leftImage = assetUrl('assets/insights&innovationsection left image how ai chatbots...png');
+const topRightImage = assetUrl('assets/insights & innovationrightabove image automating buiness....png');
+const bottomRightImage = assetUrl('assets/insights&innovations bottom rihg timage transforming customer....png');
+
+
+
 
 const InsightsSection = () => {
   const sectionRef = useScrollAnimation({ threshold: 0.2 });

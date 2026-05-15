@@ -1,21 +1,24 @@
-
 import "./AboutUs.css";
 import { Link } from "react-router-dom";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import Footer from "../home/Footer";
-import starIcon from "../../assets/star.svg";
-
-// Assets (hero)
-import ceoImg from "../../assets/ceo.png";
-
-// Assets (section 2 cards SVG icons)
-import missionIcon from "../../assets/mission.svg";
-import visionIcon from "../../assets/vision.svg";
-import approachIcon from "../../assets/approach.svg";
-
-import arrowIcon from "../../assets/rightarrow.svg";
 import OurTeamSection from "./OurTeamSection";
 import MeetingBannerSection from "../home/MeetingBannerSection";
+import { assetUrl } from '../../utils/assetUrl';
+
+const starIcon = assetUrl('assets/star.svg');
+const ceoImg = assetUrl('assets/ceo.png');
+const missionIcon = assetUrl('assets/mission.svg');
+const visionIcon = assetUrl('assets/vision.svg');
+const approachIcon = assetUrl('assets/approach.svg');
+const arrowIcon = assetUrl('assets/rightarrow.svg');
+
+
+
+// Assets (hero)
+
+// Assets (section 2 cards SVG icons)
+
 
 export default function AboutUs() {
   const heroRef = useScrollAnimation({ threshold: 0.2 });

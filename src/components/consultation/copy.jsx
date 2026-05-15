@@ -1,9 +1,11 @@
 import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import './copy.css';
-import vectorleft from '../../assets/Vector-left.svg';
-import vectorright from '../../assets/Vector-right.svg';
-import arrowIcon from '../../assets/rightarrow.svg';
+import { assetUrl } from '../../utils/assetUrl';
+
+const vectorleft = assetUrl('assets/Vector-left.svg');
+const vectorright = assetUrl('assets/Vector-right.svg');
+const arrowIcon = assetUrl('assets/rightarrow.svg');
 
 /**
  * Replace this with your actual Calendly event URL.

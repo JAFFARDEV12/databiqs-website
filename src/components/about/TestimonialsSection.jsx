@@ -1,16 +1,18 @@
-
 import React, { useRef, useState } from "react";
 import "./TestimonialsSection.css";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
+import { assetUrl } from '../../utils/assetUrl';
 
-import testimonialVideo from "../../assets/testimonial-video.png";
-import playButton from "../../assets/play-button.png";
-import testimonialVideoMp4 from "../../assets/client-testinomials.mp4";
+const testimonialVideo = assetUrl('assets/testimonial-video.png');
+const playButton = assetUrl('assets/play-button.png');
+const testimonialVideoMp4 = assetUrl('assets/client-testinomials.mp4');
+const avatarRobert = assetUrl('assets/avatar-robert-wilson.png');
+const avatarDavid = assetUrl('assets/avatar-david-turner.png');
+const avatarMichael = assetUrl('assets/avatar-michael-hayes.png');
+const avatarEmily = assetUrl('assets/avatar-emily-scott.png');
 
-import avatarRobert from "../../assets/avatar-robert-wilson.png";
-import avatarDavid from "../../assets/avatar-david-turner.png";
-import avatarMichael from "../../assets/avatar-michael-hayes.png";
-import avatarEmily from "../../assets/avatar-emily-scott.png";
+
+
 
 const testimonials = [
   {

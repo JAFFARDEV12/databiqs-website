@@ -1,22 +1,22 @@
-// TestimonialsSection.jsx
 import { useEffect, useRef, useState } from 'react';
 import './TestimonialsSection.css';
-import apostrophySvg from '../../assets/appostrophy.svg';
-/* import card1Picture from '../../assets/card 1 picture.svg';
-import card4Picture from '../../assets/card 4 picture.svg'; */
-import audio1ST from '../../assets/testominial audios/1ST.wav';
-import audio2ND from '../../assets/testominial audios/2ND.wav';
-import audio3RD from '../../assets/testominial audios/3RD.wav';
-import audio4TH from '../../assets/testominial audios/4TH.wav';
-import audio5TH from '../../assets/testominial audios/5TH.wav';
-import audio6TH from '../../assets/testominial audios/6TH.wav';
-import audio7TH from '../../assets/testominial audios/7TH.wav';
-import audio8TH from '../../assets/testominial audios/8TH.wav';
-// import audio9TH from '../../assets/testominial audios/9TH.wav';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
+import { assetUrl } from '../../utils/assetUrl';
 
+const apostrophySvg = assetUrl('assets/appostrophy.svg');
+const audio1ST = assetUrl('assets/testominial audios/1ST.wav');
+const audio2ND = assetUrl('assets/testominial audios/2ND.wav');
+const audio3RD = assetUrl('assets/testominial audios/3RD.wav');
+const audio4TH = assetUrl('assets/testominial audios/4TH.wav');
+const audio5TH = assetUrl('assets/testominial audios/5TH.wav');
+const audio6TH = assetUrl('assets/testominial audios/6TH.wav');
+const audio7TH = assetUrl('assets/testominial audios/7TH.wav');
+const audio8TH = assetUrl('assets/testominial audios/8TH.wav');
 
-/* const card3Picture = publicMedia('card-3-picture.svg'); */
+/* import card1Picture from '../../assets/card 1 picture.svg';
+import card4Picture from '../../assets/card 4 picture.svg';
+// import audio9TH from '../../assets/testominial audios/9TH.wav';
+// const card3Picture = assetUrl('media/card-3-picture.svg'); */
 
 /** One clip per testimonial card, in the same order as `TESTIMONIALS`. */
 const TESTIMONIAL_AUDIOS_IN_ORDER = [

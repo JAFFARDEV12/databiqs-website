@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './AISolutionsSection.css';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-import bgTwoRectangles1 from '../../assets/gif/Databiqas-Animation1.gif';
-import aiCustomerAnimation from '../../assets/Customer-Support.json';
-import Lottie from 'lottie-react';
+import LottieFromCdn from '../LottieFromCdn';
+import { assetUrl } from '../../utils/assetUrl';
+
+const bgTwoRectangles1 = assetUrl('assets/gif/Databiqas-Animation1.gif');
+
 
 const AISolutionsSection = () => {
   const sectionRef = useScrollAnimation({ threshold: 0.05, rootMargin: '220px 0px' });
@@ -64,9 +66,9 @@ const AISolutionsSection = () => {
           <div className="card-right">
             <div className="automation-title-row">
             <div className="automation-title-lottie">
-  <Lottie
+  <LottieFromCdn
     key={animationCycle}
-    animationData={aiCustomerAnimation}
+    path="assets/Customer-Support.json"
     loop={false}
     autoplay
     speed={7}

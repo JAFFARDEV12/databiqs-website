@@ -1,0 +1,806 @@
+{
+  "generatedAt": "2026-05-15T16:28:29.075Z",
+  "target": "e:\\Work\\Databiqs-Projects\\company-website\\databiqs-website-assets",
+  "entries": [
+    {
+      "localPath": "public/media/card-3-picture.svg",
+      "cdnPath": "media/card-3-picture.svg"
+    },
+    {
+      "localPath": "public/media/case-study.svg",
+      "cdnPath": "media/case-study.svg"
+    },
+    {
+      "localPath": "public/media/phase1-prediction.svg",
+      "cdnPath": "media/phase1-prediction.svg"
+    },
+    {
+      "localPath": "public/media/phase2-prediction.svg",
+      "cdnPath": "media/phase2-prediction.svg"
+    },
+    {
+      "localPath": "src/assets/1.png",
+      "cdnPath": "assets/1.png"
+    },
+    {
+      "localPath": "src/assets/12 years of industry experience icon.png",
+      "cdnPath": "assets/12 years of industry experience icon.png"
+    },
+    {
+      "localPath": "src/assets/14209120-uhd_3840_2160_30fps.mp4",
+      "cdnPath": "assets/14209120-uhd_3840_2160_30fps.mp4"
+    },
+    {
+      "localPath": "src/assets/14945650_2160_3840_25fps.mp4",
+      "cdnPath": "assets/14945650_2160_3840_25fps.mp4"
+    },
+    {
+      "localPath": "src/assets/15438012_1920_1080_30fps.mp4",
+      "cdnPath": "assets/15438012_1920_1080_30fps.mp4"
+    },
+    {
+      "localPath": "src/assets/1st rec 1st line.svg",
+      "cdnPath": "assets/1st rec 1st line.svg"
+    },
+    {
+      "localPath": "src/assets/1st rec 2nd line.svg",
+      "cdnPath": "assets/1st rec 2nd line.svg"
+    },
+    {
+      "localPath": "src/assets/2.png",
+      "cdnPath": "assets/2.png"
+    },
+    {
+      "localPath": "src/assets/2nd rec first line.svg",
+      "cdnPath": "assets/2nd rec first line.svg"
+    },
+    {
+      "localPath": "src/assets/2nd rectangle 2nd line.svg",
+      "cdnPath": "assets/2nd rectangle 2nd line.svg"
+    },
+    {
+      "localPath": "src/assets/3.png",
+      "cdnPath": "assets/3.png"
+    },
+    {
+      "localPath": "src/assets/4.png",
+      "cdnPath": "assets/4.png"
+    },
+    {
+      "localPath": "src/assets/4354448-uhd_3840_2160_25fps.mp4",
+      "cdnPath": "assets/4354448-uhd_3840_2160_25fps.mp4"
+    },
+    {
+      "localPath": "src/assets/4th.mp3",
+      "cdnPath": "assets/4th.mp3"
+    },
+    {
+      "localPath": "src/assets/5.png",
+      "cdnPath": "assets/5.png"
+    },
+    {
+      "localPath": "src/assets/6.png",
+      "cdnPath": "assets/6.png"
+    },
+    {
+      "localPath": "src/assets/6153453-uhd_4096_2160_25fps.mp4",
+      "cdnPath": "assets/6153453-uhd_4096_2160_25fps.mp4"
+    },
+    {
+      "localPath": "src/assets/7687810-uhd_4096_2160_24fps.mp4",
+      "cdnPath": "assets/7687810-uhd_4096_2160_24fps.mp4"
+    },
+    {
+      "localPath": "src/assets/7688618-uhd_2160_4096_24fps.mp4",
+      "cdnPath": "assets/7688618-uhd_2160_4096_24fps.mp4"
+    },
+    {
+      "localPath": "src/assets/8084494-uhd_3840_2160_25fps.mp4",
+      "cdnPath": "assets/8084494-uhd_3840_2160_25fps.mp4"
+    },
+    {
+      "localPath": "src/assets/8084620-uhd_3840_2160_25fps.mp4",
+      "cdnPath": "assets/8084620-uhd_3840_2160_25fps.mp4"
+    },
+    {
+      "localPath": "src/assets/8084751-uhd_3840_2160_25fps.mp4",
+      "cdnPath": "assets/8084751-uhd_3840_2160_25fps.mp4"
+    },
+    {
+      "localPath": "src/assets/8086703-uhd_3840_2160_25fps.mp4",
+      "cdnPath": "assets/8086703-uhd_3840_2160_25fps.mp4"
+    },
+    {
+      "localPath": "src/assets/8327799-uhd_3840_2160_25fps.mp4",
+      "cdnPath": "assets/8327799-uhd_3840_2160_25fps.mp4"
+    },
+    {
+      "localPath": "src/assets/8328106-uhd_2160_3840_25fps.mp4",
+      "cdnPath": "assets/8328106-uhd_2160_3840_25fps.mp4"
+    },
+    {
+      "localPath": "src/assets/8464662-uhd_3840_2160_25fps.mp4",
+      "cdnPath": "assets/8464662-uhd_3840_2160_25fps.mp4"
+    },
+    {
+      "localPath": "src/assets/8467244-uhd_3840_2160_25fps.mp4",
+      "cdnPath": "assets/8467244-uhd_3840_2160_25fps.mp4"
+    },
+    {
+      "localPath": "src/assets/8501993-uhd_2160_3840_25fps.mp4",
+      "cdnPath": "assets/8501993-uhd_2160_3840_25fps.mp4"
+    },
+    {
+      "localPath": "src/assets/ai automation box middle to databse box.png",
+      "cdnPath": "assets/ai automation box middle to databse box.png"
+    },
+    {
+      "localPath": "src/assets/ai automation box to llm box.png",
+      "cdnPath": "assets/ai automation box to llm box.png"
+    },
+    {
+      "localPath": "src/assets/ai automation box to user box.png",
+      "cdnPath": "assets/ai automation box to user box.png"
+    },
+    {
+      "localPath": "src/assets/ai strategy.svg",
+      "cdnPath": "assets/ai strategy.svg"
+    },
+    {
+      "localPath": "src/assets/ai to crm.png",
+      "cdnPath": "assets/ai to crm.png"
+    },
+    {
+      "localPath": "src/assets/ai to email.png",
+      "cdnPath": "assets/ai to email.png"
+    },
+    {
+      "localPath": "src/assets/ai to erp.png",
+      "cdnPath": "assets/ai to erp.png"
+    },
+    {
+      "localPath": "src/assets/ai to text.png",
+      "cdnPath": "assets/ai to text.png"
+    },
+    {
+      "localPath": "src/assets/ai to user box.png",
+      "cdnPath": "assets/ai to user box.png"
+    },
+    {
+      "localPath": "src/assets/ai-animation-Flow.json",
+      "cdnPath": "assets/ai-animation-Flow.json"
+    },
+    {
+      "localPath": "src/assets/ai-audit.svg",
+      "cdnPath": "assets/ai-audit.svg"
+    },
+    {
+      "localPath": "src/assets/ai-automation.svg",
+      "cdnPath": "assets/ai-automation.svg"
+    },
+    {
+      "localPath": "src/assets/Ai-brain-board.json",
+      "cdnPath": "assets/Ai-brain-board.json"
+    },
+    {
+      "localPath": "src/assets/ai-conversation.json",
+      "cdnPath": "assets/ai-conversation.json"
+    },
+    {
+      "localPath": "src/assets/Ai-powered marketing tools abstract.json",
+      "cdnPath": "assets/Ai-powered marketing tools abstract.json"
+    },
+    {
+      "localPath": "src/assets/ai.json",
+      "cdnPath": "assets/ai.json"
+    },
+    {
+      "localPath": "src/assets/appostrophy.svg",
+      "cdnPath": "assets/appostrophy.svg"
+    },
+    {
+      "localPath": "src/assets/approach.svg",
+      "cdnPath": "assets/approach.svg"
+    },
+    {
+      "localPath": "src/assets/arrow-icon.svg",
+      "cdnPath": "assets/arrow-icon.svg"
+    },
+    {
+      "localPath": "src/assets/Artificial-Intelligence.json",
+      "cdnPath": "assets/Artificial-Intelligence.json"
+    },
+    {
+      "localPath": "src/assets/avatar-david-turner.png",
+      "cdnPath": "assets/avatar-david-turner.png"
+    },
+    {
+      "localPath": "src/assets/avatar-emily-scott.png",
+      "cdnPath": "assets/avatar-emily-scott.png"
+    },
+    {
+      "localPath": "src/assets/avatar-michael-hayes.png",
+      "cdnPath": "assets/avatar-michael-hayes.png"
+    },
+    {
+      "localPath": "src/assets/avatar-robert-wilson.png",
+      "cdnPath": "assets/avatar-robert-wilson.png"
+    },
+    {
+      "localPath": "src/assets/avator bg ellipse.svg",
+      "cdnPath": "assets/avator bg ellipse.svg"
+    },
+    {
+      "localPath": "src/assets/before customer ellipse.svg",
+      "cdnPath": "assets/before customer ellipse.svg"
+    },
+    {
+      "localPath": "src/assets/bg play button.svg",
+      "cdnPath": "assets/bg play button.svg"
+    },
+    {
+      "localPath": "src/assets/bg two rectangles.svg",
+      "cdnPath": "assets/bg two rectangles.svg"
+    },
+    {
+      "localPath": "src/assets/blank avator.svg",
+      "cdnPath": "assets/blank avator.svg"
+    },
+    {
+      "localPath": "src/assets/blue circle.svg",
+      "cdnPath": "assets/blue circle.svg"
+    },
+    {
+      "localPath": "src/assets/book-a-consulatation.json",
+      "cdnPath": "assets/book-a-consulatation.json"
+    },
+    {
+      "localPath": "src/assets/Brain Connected with Artificial Intelligence.json",
+      "cdnPath": "assets/Brain Connected with Artificial Intelligence.json"
+    },
+    {
+      "localPath": "src/assets/card 1 picture.svg",
+      "cdnPath": "assets/card 1 picture.svg"
+    },
+    {
+      "localPath": "src/assets/card 2 picture.svg",
+      "cdnPath": "assets/card 2 picture.svg"
+    },
+    {
+      "localPath": "src/assets/card 4 picture.svg",
+      "cdnPath": "assets/card 4 picture.svg"
+    },
+    {
+      "localPath": "src/assets/card1-Databiqs Delivered.mp3",
+      "cdnPath": "assets/card1-Databiqs Delivered.mp3"
+    },
+    {
+      "localPath": "src/assets/card2.mp3",
+      "cdnPath": "assets/card2.mp3"
+    },
+    {
+      "localPath": "src/assets/card3-ai-automation.mp3",
+      "cdnPath": "assets/card3-ai-automation.mp3"
+    },
+    {
+      "localPath": "src/assets/case studies.svg",
+      "cdnPath": "assets/case studies.svg"
+    },
+    {
+      "localPath": "src/assets/case-study-detail.json",
+      "cdnPath": "assets/case-study-detail.json"
+    },
+    {
+      "localPath": "src/assets/case-study-phase-execution.jpg",
+      "cdnPath": "assets/case-study-phase-execution.jpg"
+    },
+    {
+      "localPath": "src/assets/case-study-phase-prediction.jpg",
+      "cdnPath": "assets/case-study-phase-prediction.jpg"
+    },
+    {
+      "localPath": "src/assets/ceo.png",
+      "cdnPath": "assets/ceo.png"
+    },
+    {
+      "localPath": "src/assets/chatbot to coversatinput.svg",
+      "cdnPath": "assets/chatbot to coversatinput.svg"
+    },
+    {
+      "localPath": "src/assets/chatbot to customer conversations.svg",
+      "cdnPath": "assets/chatbot to customer conversations.svg"
+    },
+    {
+      "localPath": "src/assets/chatbot to integrated systems.svg",
+      "cdnPath": "assets/chatbot to integrated systems.svg"
+    },
+    {
+      "localPath": "src/assets/Chatbot-Icon.png",
+      "cdnPath": "assets/Chatbot-Icon.png"
+    },
+    {
+      "localPath": "src/assets/chatbot-icon.svg",
+      "cdnPath": "assets/chatbot-icon.svg"
+    },
+    {
+      "localPath": "src/assets/chatbotlogo.svg",
+      "cdnPath": "assets/chatbotlogo.svg"
+    },
+    {
+      "localPath": "src/assets/chatbotlogo1.svg",
+      "cdnPath": "assets/chatbotlogo1.svg"
+    },
+    {
+      "localPath": "src/assets/client satisfaction icon.png",
+      "cdnPath": "assets/client satisfaction icon.png"
+    },
+    {
+      "localPath": "src/assets/client-testinomials.mp4",
+      "cdnPath": "assets/client-testinomials.mp4"
+    },
+    {
+      "localPath": "src/assets/Contact.json",
+      "cdnPath": "assets/Contact.json"
+    },
+    {
+      "localPath": "src/assets/costume-animation.json",
+      "cdnPath": "assets/costume-animation.json"
+    },
+    {
+      "localPath": "src/assets/crm.svg",
+      "cdnPath": "assets/crm.svg"
+    },
+    {
+      "localPath": "src/assets/cross at red.svg",
+      "cdnPath": "assets/cross at red.svg"
+    },
+    {
+      "localPath": "src/assets/customer to chatbot.svg",
+      "cdnPath": "assets/customer to chatbot.svg"
+    },
+    {
+      "localPath": "src/assets/Customer-Support.json",
+      "cdnPath": "assets/Customer-Support.json"
+    },
+    {
+      "localPath": "src/assets/data analysis.json",
+      "cdnPath": "assets/data analysis.json"
+    },
+    {
+      "localPath": "src/assets/Databiqs Logo.png",
+      "cdnPath": "assets/Databiqs Logo.png"
+    },
+    {
+      "localPath": "src/assets/Databiqs Logo.svg",
+      "cdnPath": "assets/Databiqs Logo.svg"
+    },
+    {
+      "localPath": "src/assets/databse.svg",
+      "cdnPath": "assets/databse.svg"
+    },
+    {
+      "localPath": "src/assets/developer skills.json",
+      "cdnPath": "assets/developer skills.json"
+    },
+    {
+      "localPath": "src/assets/Development.json",
+      "cdnPath": "assets/Development.json"
+    },
+    {
+      "localPath": "src/assets/dot.svg",
+      "cdnPath": "assets/dot.svg"
+    },
+    {
+      "localPath": "src/assets/Ellipse 9.svg",
+      "cdnPath": "assets/Ellipse 9.svg"
+    },
+    {
+      "localPath": "src/assets/email.svg",
+      "cdnPath": "assets/email.svg"
+    },
+    {
+      "localPath": "src/assets/erp.svg",
+      "cdnPath": "assets/erp.svg"
+    },
+    {
+      "localPath": "src/assets/excellence.svg",
+      "cdnPath": "assets/excellence.svg"
+    },
+    {
+      "localPath": "src/assets/facebook.svg",
+      "cdnPath": "assets/facebook.svg"
+    },
+    {
+      "localPath": "src/assets/footer-logo.svg",
+      "cdnPath": "assets/footer-logo.svg"
+    },
+    {
+      "localPath": "src/assets/gif/ai-automation.json",
+      "cdnPath": "assets/gif/ai-automation.json"
+    },
+    {
+      "localPath": "src/assets/gif/ai-chatbot.json",
+      "cdnPath": "assets/gif/ai-chatbot.json"
+    },
+    {
+      "localPath": "src/assets/gif/ai-strategry.json",
+      "cdnPath": "assets/gif/ai-strategry.json"
+    },
+    {
+      "localPath": "src/assets/gif/arrow.svg",
+      "cdnPath": "assets/gif/arrow.svg"
+    },
+    {
+      "localPath": "src/assets/gif/case-study.json",
+      "cdnPath": "assets/gif/case-study.json"
+    },
+    {
+      "localPath": "src/assets/gif/contact us.json",
+      "cdnPath": "assets/gif/contact us.json"
+    },
+    {
+      "localPath": "src/assets/gif/Databiqas-Animation.gif",
+      "cdnPath": "assets/gif/Databiqas-Animation.gif"
+    },
+    {
+      "localPath": "src/assets/gif/Databiqas-Animation1.gif",
+      "cdnPath": "assets/gif/Databiqas-Animation1.gif"
+    },
+    {
+      "localPath": "src/assets/gif/machine-learning.json",
+      "cdnPath": "assets/gif/machine-learning.json"
+    },
+    {
+      "localPath": "src/assets/gif/services-animation.gif",
+      "cdnPath": "assets/gif/services-animation.gif"
+    },
+    {
+      "localPath": "src/assets/gif/Services.json",
+      "cdnPath": "assets/gif/Services.json"
+    },
+    {
+      "localPath": "src/assets/gif/sucessfuly submitted.json",
+      "cdnPath": "assets/gif/sucessfuly submitted.json"
+    },
+    {
+      "localPath": "src/assets/girl avator.svg",
+      "cdnPath": "assets/girl avator.svg"
+    },
+    {
+      "localPath": "src/assets/header-logo.svg",
+      "cdnPath": "assets/header-logo.svg"
+    },
+    {
+      "localPath": "src/assets/herosection-rectangle-rightside.png",
+      "cdnPath": "assets/herosection-rectangle-rightside.png"
+    },
+    {
+      "localPath": "src/assets/HistoryDetail.json",
+      "cdnPath": "assets/HistoryDetail.json"
+    },
+    {
+      "localPath": "src/assets/Icon.svg",
+      "cdnPath": "assets/Icon.svg"
+    },
+    {
+      "localPath": "src/assets/insights & innovationrightabove image automating buiness....png",
+      "cdnPath": "assets/insights & innovationrightabove image automating buiness....png"
+    },
+    {
+      "localPath": "src/assets/insights&innovations bottom rihg timage transforming customer....png",
+      "cdnPath": "assets/insights&innovations bottom rihg timage transforming customer....png"
+    },
+    {
+      "localPath": "src/assets/insights&innovationsection left image how ai chatbots...png",
+      "cdnPath": "assets/insights&innovationsection left image how ai chatbots...png"
+    },
+    {
+      "localPath": "src/assets/insta.svg",
+      "cdnPath": "assets/insta.svg"
+    },
+    {
+      "localPath": "src/assets/integratedboxusericon.svg",
+      "cdnPath": "assets/integratedboxusericon.svg"
+    },
+    {
+      "localPath": "src/assets/left-arrow.svg",
+      "cdnPath": "assets/left-arrow.svg"
+    },
+    {
+      "localPath": "src/assets/linkedin.svg",
+      "cdnPath": "assets/linkedin.svg"
+    },
+    {
+      "localPath": "src/assets/Little power robot.json",
+      "cdnPath": "assets/Little power robot.json"
+    },
+    {
+      "localPath": "src/assets/Live chatbot.json",
+      "cdnPath": "assets/Live chatbot.json"
+    },
+    {
+      "localPath": "src/assets/llm.svg",
+      "cdnPath": "assets/llm.svg"
+    },
+    {
+      "localPath": "src/assets/Logo.png",
+      "cdnPath": "assets/Logo.png"
+    },
+    {
+      "localPath": "src/assets/machine-learning.svg",
+      "cdnPath": "assets/machine-learning.svg"
+    },
+    {
+      "localPath": "src/assets/main.png",
+      "cdnPath": "assets/main.png"
+    },
+    {
+      "localPath": "src/assets/message.svg",
+      "cdnPath": "assets/message.svg"
+    },
+    {
+      "localPath": "src/assets/Michael-Hayes.svg",
+      "cdnPath": "assets/Michael-Hayes.svg"
+    },
+    {
+      "localPath": "src/assets/mission.svg",
+      "cdnPath": "assets/mission.svg"
+    },
+    {
+      "localPath": "src/assets/night.gif",
+      "cdnPath": "assets/night.gif"
+    },
+    {
+      "localPath": "src/assets/nlp to intent.svg",
+      "cdnPath": "assets/nlp to intent.svg"
+    },
+    {
+      "localPath": "src/assets/phoneicon.png",
+      "cdnPath": "assets/phoneicon.png"
+    },
+    {
+      "localPath": "src/assets/play-button.png",
+      "cdnPath": "assets/play-button.png"
+    },
+    {
+      "localPath": "src/assets/playbutton.svg",
+      "cdnPath": "assets/playbutton.svg"
+    },
+    {
+      "localPath": "src/assets/red at left alreading cutting from right.svg",
+      "cdnPath": "assets/red at left alreading cutting from right.svg"
+    },
+    {
+      "localPath": "src/assets/rightarrow.svg",
+      "cdnPath": "assets/rightarrow.svg"
+    },
+    {
+      "localPath": "src/assets/rightbottomchatbot.json",
+      "cdnPath": "assets/rightbottomchatbot.json"
+    },
+    {
+      "localPath": "src/assets/Robot-Futuristic-Ai-animated.json",
+      "cdnPath": "assets/Robot-Futuristic-Ai-animated.json"
+    },
+    {
+      "localPath": "src/assets/RobotSaludando.json",
+      "cdnPath": "assets/RobotSaludando.json"
+    },
+    {
+      "localPath": "src/assets/satisfaction.svg",
+      "cdnPath": "assets/satisfaction.svg"
+    },
+    {
+      "localPath": "src/assets/scroll.svg",
+      "cdnPath": "assets/scroll.svg"
+    },
+    {
+      "localPath": "src/assets/Services-Details-Page.json",
+      "cdnPath": "assets/Services-Details-Page.json"
+    },
+    {
+      "localPath": "src/assets/star.svg",
+      "cdnPath": "assets/star.svg"
+    },
+    {
+      "localPath": "src/assets/Strategy.json",
+      "cdnPath": "assets/Strategy.json"
+    },
+    {
+      "localPath": "src/assets/team/Akhlaq (1).png",
+      "cdnPath": "assets/team/Akhlaq (1).png"
+    },
+    {
+      "localPath": "src/assets/team/Alishba.png",
+      "cdnPath": "assets/team/Alishba.png"
+    },
+    {
+      "localPath": "src/assets/team/Alishba1.png",
+      "cdnPath": "assets/team/Alishba1.png"
+    },
+    {
+      "localPath": "src/assets/team/Amari-Fields.png",
+      "cdnPath": "assets/team/Amari-Fields.png"
+    },
+    {
+      "localPath": "src/assets/team/business-development-executive.jfif",
+      "cdnPath": "assets/team/business-development-executive.jfif"
+    },
+    {
+      "localPath": "src/assets/team/CEO.png",
+      "cdnPath": "assets/team/CEO.png"
+    },
+    {
+      "localPath": "src/assets/team/CTO.png",
+      "cdnPath": "assets/team/CTO.png"
+    },
+    {
+      "localPath": "src/assets/team/fatima tuz zahra.png",
+      "cdnPath": "assets/team/fatima tuz zahra.png"
+    },
+    {
+      "localPath": "src/assets/team/fullstack-AI-Engineer.png",
+      "cdnPath": "assets/team/fullstack-AI-Engineer.png"
+    },
+    {
+      "localPath": "src/assets/team/Hadeed Tarar.png",
+      "cdnPath": "assets/team/Hadeed Tarar.png"
+    },
+    {
+      "localPath": "src/assets/team/hamad khan.png",
+      "cdnPath": "assets/team/hamad khan.png"
+    },
+    {
+      "localPath": "src/assets/team/Irum (1).png",
+      "cdnPath": "assets/team/Irum (1).png"
+    },
+    {
+      "localPath": "src/assets/team/junaid.png",
+      "cdnPath": "assets/team/junaid.png"
+    },
+    {
+      "localPath": "src/assets/team/LAIBA.png",
+      "cdnPath": "assets/team/LAIBA.png"
+    },
+    {
+      "localPath": "src/assets/team/marketing-manager.png",
+      "cdnPath": "assets/team/marketing-manager.png"
+    },
+    {
+      "localPath": "src/assets/team/project-manager&AI-Developer.png",
+      "cdnPath": "assets/team/project-manager&AI-Developer.png"
+    },
+    {
+      "localPath": "src/assets/team/Shamaim (1).png",
+      "cdnPath": "assets/team/Shamaim (1).png"
+    },
+    {
+      "localPath": "src/assets/team/software-engineer.png",
+      "cdnPath": "assets/team/software-engineer.png"
+    },
+    {
+      "localPath": "src/assets/team/software-engineer2.png",
+      "cdnPath": "assets/team/software-engineer2.png"
+    },
+    {
+      "localPath": "src/assets/team/software-engineer3.jpg",
+      "cdnPath": "assets/team/software-engineer3.jpg"
+    },
+    {
+      "localPath": "src/assets/team/team-lead.png",
+      "cdnPath": "assets/team/team-lead.png"
+    },
+    {
+      "localPath": "src/assets/team/ui-ux-designer.png",
+      "cdnPath": "assets/team/ui-ux-designer.png"
+    },
+    {
+      "localPath": "src/assets/testimonial-video.png",
+      "cdnPath": "assets/testimonial-video.png"
+    },
+    {
+      "localPath": "src/assets/testominial audios/1ST.wav",
+      "cdnPath": "assets/testominial audios/1ST.wav"
+    },
+    {
+      "localPath": "src/assets/testominial audios/2ND.wav",
+      "cdnPath": "assets/testominial audios/2ND.wav"
+    },
+    {
+      "localPath": "src/assets/testominial audios/3RD.wav",
+      "cdnPath": "assets/testominial audios/3RD.wav"
+    },
+    {
+      "localPath": "src/assets/testominial audios/4TH.wav",
+      "cdnPath": "assets/testominial audios/4TH.wav"
+    },
+    {
+      "localPath": "src/assets/testominial audios/5TH.wav",
+      "cdnPath": "assets/testominial audios/5TH.wav"
+    },
+    {
+      "localPath": "src/assets/testominial audios/6TH.wav",
+      "cdnPath": "assets/testominial audios/6TH.wav"
+    },
+    {
+      "localPath": "src/assets/testominial audios/7TH.wav",
+      "cdnPath": "assets/testominial audios/7TH.wav"
+    },
+    {
+      "localPath": "src/assets/testominial audios/8TH.wav",
+      "cdnPath": "assets/testominial audios/8TH.wav"
+    },
+    {
+      "localPath": "src/assets/testominial audios/9TH.wav",
+      "cdnPath": "assets/testominial audios/9TH.wav"
+    },
+    {
+      "localPath": "src/assets/tick icon.svg",
+      "cdnPath": "assets/tick icon.svg"
+    },
+    {
+      "localPath": "src/assets/Triangle-herosection-revoleaboverectangle.png",
+      "cdnPath": "assets/Triangle-herosection-revoleaboverectangle.png"
+    },
+    {
+      "localPath": "src/assets/trust.svg",
+      "cdnPath": "assets/trust.svg"
+    },
+    {
+      "localPath": "src/assets/trusted by 1500+ clients.png",
+      "cdnPath": "assets/trusted by 1500+ clients.png"
+    },
+    {
+      "localPath": "src/assets/user.svg",
+      "cdnPath": "assets/user.svg"
+    },
+    {
+      "localPath": "src/assets/UX-Review.svg",
+      "cdnPath": "assets/UX-Review.svg"
+    },
+    {
+      "localPath": "src/assets/Vector-left.svg",
+      "cdnPath": "assets/Vector-left.svg"
+    },
+    {
+      "localPath": "src/assets/Vector-right.svg",
+      "cdnPath": "assets/Vector-right.svg"
+    },
+    {
+      "localPath": "src/assets/Vector.svg",
+      "cdnPath": "assets/Vector.svg"
+    },
+    {
+      "localPath": "src/assets/vision.svg",
+      "cdnPath": "assets/vision.svg"
+    },
+    {
+      "localPath": "src/assets/wave.json",
+      "cdnPath": "assets/wave.json"
+    },
+    {
+      "localPath": "public/chatbotlogo1.svg",
+      "cdnPath": "assets/public/chatbotlogo1.svg"
+    },
+    {
+      "localPath": "public/favicon.ico",
+      "cdnPath": "assets/public/favicon.ico"
+    },
+    {
+      "localPath": "public/favicon.png",
+      "cdnPath": "assets/public/favicon.png"
+    },
+    {
+      "localPath": "public/im.gif",
+      "cdnPath": "assets/public/im.gif"
+    },
+    {
+      "localPath": "public/logo192.png",
+      "cdnPath": "assets/public/logo192.png"
+    },
+    {
+      "localPath": "public/logo512.png",
+      "cdnPath": "assets/public/logo512.png"
+    }
+  ]
+}

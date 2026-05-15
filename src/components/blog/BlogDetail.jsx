@@ -2,12 +2,15 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import Footer from "../home/Footer";
-import arrowIcon from "../../assets/rightarrow.svg";
-import relatedStillCover from "../../assets/main.png";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import { BLOG_POSTS, BLOG_POSTS_BY_ID, pickBlogDetailHeroVideo } from "./blogPostsData";
 import "../blog-page/FeaturedBlogCardsRow.css";
 import "./BlogDetail.css";
+import { assetUrl } from '../../utils/assetUrl';
+
+const arrowIcon = assetUrl('assets/rightarrow.svg');
+const relatedStillCover = assetUrl('assets/main.png');
+
 
 const blogDetailPath = (cardId) => `/blog-detail/${cardId}`;
 

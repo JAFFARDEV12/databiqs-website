@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import arrowIcon from "../../assets/rightarrow.svg";
 import {
   BLOG_POSTS_BY_ID,
   BLOG_BROWSE_TOPIC_KEYS,
@@ -9,7 +8,10 @@ import {
   pickFeaturedDiagonalVideo,
 } from "../blog/blogPostsData";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
+import { assetUrl } from '../../utils/assetUrl';
 import "./FeaturedBlogCardsRow.css";
+
+const arrowIcon = assetUrl('assets/rightarrow.svg');
 
 const TOPIC_LABELS = {
   automation: "AI & Automation",

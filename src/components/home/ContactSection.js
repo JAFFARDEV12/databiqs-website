@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import './ContactSection.css';
-import phoneIcon from '../../assets/phoneicon.png';
-import arrowIcon from '../../assets/rightarrow.svg';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
+import { assetUrl } from '../../utils/assetUrl';
+
+const phoneIcon = assetUrl('assets/phoneicon.png');
+const arrowIcon = assetUrl('assets/rightarrow.svg');
+
 const ContactSection = () => {
   const [formData, setFormData] = useState({
     fullName: '',

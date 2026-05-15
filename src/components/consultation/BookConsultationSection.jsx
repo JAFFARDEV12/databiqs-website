@@ -1,8 +1,10 @@
 import './BookConsultation.css';
-import Lottie from 'lottie-react';
-import ceoImg from "../../assets/ceo.png";
-import arrowIcon from "../../assets/rightarrow.svg";
-import bookConsultationAnimation from '../../assets/book-a-consulatation.json';
+import LottieFromCdn from '../LottieFromCdn';
+import { assetUrl } from '../../utils/assetUrl';
+
+const ceoImg = assetUrl('assets/ceo.png');
+const arrowIcon = assetUrl('assets/rightarrow.svg');
+
 const CALENDLY_URL = 'https://calendly.com/ceo-databiqs/30min';
 
 /** Default meeting channel passed to Calendly (custom question a1). */
@@ -202,7 +204,7 @@ const BookConsultationSection = ({
               className="bc-book-lottie"
               aria-label="Book a free session on Calendly (opens in a new tab)"
             >
-              <Lottie animationData={bookConsultationAnimation} loop autoplay />
+              <LottieFromCdn path="assets/book-a-consulatation.json" loop autoplay />
             </a>
             <button
               type="button"

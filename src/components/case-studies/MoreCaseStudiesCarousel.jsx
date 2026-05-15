@@ -2,8 +2,11 @@ import { useState, useEffect, useLayoutEffect, useCallback, useMemo, useRef } fr
 import { Link } from 'react-router-dom';
 import '../home/CaseStudiesSection.css';
 import './MoreCaseStudiesCarousel.css';
-import arrowIcon from '../../assets/rightarrow.svg';
 import { CS_LIST_CARDS } from './caseStudiesListingData';
+import { assetUrl } from '../../utils/assetUrl';
+
+const arrowIcon = assetUrl('assets/rightarrow.svg');
+
 
 /** Match main case studies grid: 2 columns from tablet up, 1 on narrow viewports. */
 function cardsPerViewForViewportWidth(w) {

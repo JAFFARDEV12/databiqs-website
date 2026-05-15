@@ -2,18 +2,14 @@
 import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './CoreCapabilities.css';
-import AIAutomation from '../../assets/gif/ai-automation.json'
-import AIChatbot from '../../assets/gif/ai-chatbot.json'
-import AIMachineLearning from '../../assets/gif/machine-learning.json'
-import AIStrategy from '../../assets/gif/ai-strategry.json'
-import Lottie from 'lottie-react';
+import LottieFromCdn from '../LottieFromCdn';
 import { services } from './serviceData';
 
-const animationBySlug = {
-  "ai-chatbots": AIChatbot,
-  "ai-automation": AIAutomation,
-  "machine-learning": AIMachineLearning,
-  "ai-consulting": AIStrategy,
+const animationPathBySlug = {
+  'ai-chatbots': 'assets/gif/ai-chatbot.json',
+  'ai-automation': 'assets/gif/ai-automation.json',
+  'machine-learning': 'assets/gif/machine-learning.json',
+  'ai-consulting': 'assets/gif/ai-strategry.json',
 };
 
 const Card = ({ capability, onServiceHover, onServiceLeave }) => {
@@ -40,10 +36,10 @@ const Card = ({ capability, onServiceHover, onServiceLeave }) => {
     >
       <div className="core-card__animation">
         <span className={`core-card__fx core-card__fx--${capability.slug}`} aria-hidden="true" />
-        <Lottie
+        <LottieFromCdn
           lottieRef={lottieRef}
+          path={animationPathBySlug[capability.slug]}
           className="service-lottie"
-          animationData={animationBySlug[capability.slug]}
           loop
           autoplay
         />

@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './MeetingBannerSection.css';
-import arrowIcon from '../../assets/rightarrow.svg';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
+import { assetUrl } from '../../utils/assetUrl';
+
+const arrowIcon = assetUrl('assets/rightarrow.svg');
+
 
 const DEFAULT_COPY = {
   badge: "Let's Setup A Meeting",

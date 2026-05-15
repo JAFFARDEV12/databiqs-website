@@ -1,13 +1,15 @@
+import { assetUrl } from '../../utils/assetUrl';
+
+const testimonialAvatar = assetUrl('assets/Michael-Hayes.svg');
+const caseStudyImage = assetUrl('media/case-study.svg');
+const phasePredictionImg = assetUrl('media/phase1-prediction.svg');
+const phaseExecutionImg = assetUrl('media/phase2-prediction.svg');
+
+
 /**
  * Case study detail pages: keyed by URL slug (`/case-studies/:slug`).
  * Add or edit entries here; CaseStudiesDetails renders from this shape.
  */
-import testimonialAvatar from '../../assets/Michael-Hayes.svg';
-import { publicMedia } from '../../utils/publicMedia';
-
-const caseStudyImage = publicMedia('case-study.svg');
-const phasePredictionImg = publicMedia('phase1-prediction.svg');
-const phaseExecutionImg = publicMedia('phase2-prediction.svg');
 
 const phaseBody = (lines) => lines;
 

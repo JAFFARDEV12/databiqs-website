@@ -1,28 +1,31 @@
 import React, { useRef, useState, useEffect, useCallback } from "react";
 import "./OurTeamSection.css";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
-import ceoImg from "../../assets/ceo.png";
-import avatarIcon from "../../assets/user.svg";
-import ctoImg from "../../assets/team/CTO.png";
-import teamlead from "../../assets/team/team-lead.png";
-import projectmanager from "../../assets/team/project-manager&AI-Developer.png";
-import softwareengineer from "../../assets/team/software-engineer.png";
-import softwareengineer2 from "../../assets/team/software-engineer2.png";
-import softwareengineer3 from "../../assets/team/software-engineer3.jpg";
-import businessdevelopmentexecutive from "../../assets/team/business-development-executive.jfif";
-import marketingmanager from "../../assets/team/marketing-manager.png";
-import uiuxdesigner from "../../assets/team/ui-ux-designer.png";
-import irumImg from "../../assets/team/Irum (1).png";
-import shamimImg from "../../assets/team/Shamaim (1).png";
-import akhlaqImg from "../../assets/team/Akhlaq (1).png";
-import talhaimg from "../../assets/team/fullstack-AI-Engineer.png";
-import alishbaimg1 from "../../assets/team/Alishba1.png";
-import junaidImg from "../../assets/team/junaid.png";
-import fatimaTahirImg from "../../assets/team/fatima tuz zahra.png";
-import laibaImg from "../../assets/team/LAIBA.png";
-import hadeedTararImg from "../../assets/team/Hadeed Tarar.png";
-import hamadKhanImg from "../../assets/team/hamad khan.png";
-import amariFields from "../../assets/team/Amari-Fields.png";
+import { assetUrl } from '../../utils/assetUrl';
+
+const ceoImg = assetUrl('assets/ceo.png');
+const avatarIcon = assetUrl('assets/user.svg');
+const ctoImg = assetUrl('assets/team/CTO.png');
+const teamlead = assetUrl('assets/team/team-lead.png');
+const projectmanager = assetUrl('assets/team/project-manager&AI-Developer.png');
+const softwareengineer = assetUrl('assets/team/software-engineer.png');
+const softwareengineer2 = assetUrl('assets/team/software-engineer2.png');
+const softwareengineer3 = assetUrl('assets/team/software-engineer3.jpg');
+const businessdevelopmentexecutive = assetUrl('assets/team/business-development-executive.jfif');
+const marketingmanager = assetUrl('assets/team/marketing-manager.png');
+const uiuxdesigner = assetUrl('assets/team/ui-ux-designer.png');
+const irumImg = assetUrl('assets/team/Irum (1).png');
+const shamimImg = assetUrl('assets/team/Shamaim (1).png');
+const akhlaqImg = assetUrl('assets/team/Akhlaq (1).png');
+const talhaimg = assetUrl('assets/team/fullstack-AI-Engineer.png');
+const alishbaimg1 = assetUrl('assets/team/Alishba1.png');
+const junaidImg = assetUrl('assets/team/junaid.png');
+const fatimaTahirImg = assetUrl('assets/team/fatima tuz zahra.png');
+const laibaImg = assetUrl('assets/team/LAIBA.png');
+const hadeedTararImg = assetUrl('assets/team/Hadeed Tarar.png');
+const hamadKhanImg = assetUrl('assets/team/hamad khan.png');
+const amariFields = assetUrl('assets/team/Amari-Fields.png');
+
 const TEAM_MEMBERS = [
   { name: "Jaffar Ali Chaudhary", role: "Founder & CEO",                  image: ceoImg,                       featured: true, spotlight: true },
   { name: "Jawad Afzal",           role: "CTO",                            image: ctoImg,                       featured: true },

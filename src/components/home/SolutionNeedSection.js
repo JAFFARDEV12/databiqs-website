@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Bot, Brain, Lightbulb, Workflow } from 'lucide-react';
-import videoChatbots from '../../assets/8501993-uhd_2160_3840_25fps.mp4';
-import videoMl from '../../assets/8328106-uhd_2160_3840_25fps.mp4';
-import videoStrategy from '../../assets/7688618-uhd_2160_4096_24fps.mp4';
-import videoThirdCard from '../../assets/14945650_2160_3840_25fps.mp4';
 import './SolutionNeedSection.css';
+import { assetUrl } from '../../utils/assetUrl';
+
+const videoChatbots = assetUrl('assets/8501993-uhd_2160_3840_25fps.mp4');
+const videoMl = assetUrl('assets/8328106-uhd_2160_3840_25fps.mp4');
+const videoStrategy = assetUrl('assets/7688618-uhd_2160_4096_24fps.mp4');
+const videoThirdCard = assetUrl('assets/14945650_2160_3840_25fps.mp4');
+
 
 const SOLUTION_OPTIONS = [
   {

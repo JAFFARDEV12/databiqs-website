@@ -1,8 +1,10 @@
 import { useEffect, useState, useSyncExternalStore } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
-import logo from '../../assets/Databiqs Logo.svg';
-import arrowIcon from '../../assets/rightarrow.svg';
+import { assetUrl } from '../../utils/assetUrl';
+
+const logo = assetUrl('assets/Databiqs Logo.svg');
+const arrowIcon = assetUrl('assets/rightarrow.svg');
 
 const NARROW_MQ = '(max-width: 968px)';
 

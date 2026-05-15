@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
-import Lottie from "lottie-react";
+import LottieFromCdn from "../LottieFromCdn";
 import Footer from "../home/Footer";
 import { getServiceBySlug } from "./serviceData";
 import { getServiceDetailPage } from "./serviceDetailContent";
@@ -8,8 +8,11 @@ import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import "./Services.css";
 import "./ServiceDetail.css";
 import MeetingBannerSection from "../home/MeetingBannerSection";
-import arrowIcon from '../../assets/rightarrow.svg';
-import servicesDetailPageAnimation from "../../assets/Services-Details-Page.json";
+import { assetUrl } from '../../utils/assetUrl';
+
+const arrowIcon = assetUrl('assets/rightarrow.svg');
+
+
 const CapIcon = ({ name }) => {
   const common = { width: 40, height: 40, viewBox: "0 0 24 24", fill: "none", "aria-hidden": true };
   switch (name) {
@@ -283,8 +286,8 @@ const ServiceDetail = () => {
               </Link>
             </div>
             <div className="sd-hero-visual">
-              <Lottie
-                animationData={servicesDetailPageAnimation}
+              <LottieFromCdn
+                path="assets/Services-Details-Page.json"
                 loop
                 autoplay
                 className="sd-hero-img"

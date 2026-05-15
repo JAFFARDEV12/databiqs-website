@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import Lottie from 'lottie-react';
 import './Chatbot.css';
-import chatbotFabLottie from '../../assets/rightbottomchatbot.json';
-import chatbotIcon from '../../assets/chatbotlogo1.svg';
+import LottieFromCdn from '../LottieFromCdn';
+import { assetUrl } from '../../utils/assetUrl';
+
+const chatbotIcon = assetUrl('assets/chatbotlogo1.svg');
+
 
 const API_URL = 'https://databiqs-website-backend-production.up.railway.app/api/prompt';
 
@@ -143,9 +145,9 @@ const Chatbot = () => {
         aria-label="Open chatbot"
       >
         <div className="chatbot-fab-lottie-wrap" aria-hidden="true">
-          <Lottie
+          <LottieFromCdn
+            path="assets/rightbottomchatbot.json"
             className="chatbot-fab-lottie"
-            animationData={chatbotFabLottie}
             loop
             autoplay
           />

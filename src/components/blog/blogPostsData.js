@@ -1,24 +1,25 @@
-import videoCardOne from "../../assets/4354448-uhd_3840_2160_25fps.mp4";
-import videoCardTwo from "../../assets/7687810-uhd_4096_2160_24fps.mp4";
-import videoDetailThree from "../../assets/15438012_1920_1080_30fps.mp4";
-import videoDetailFour from "../../assets/6153453-uhd_4096_2160_25fps.mp4";
-import videoDetailFive from "../../assets/14209120-uhd_3840_2160_30fps.mp4";
-import videoPoolSix from "../../assets/8084751-uhd_3840_2160_25fps.mp4";
-import videoPoolSeven from "../../assets/8328106-uhd_2160_3840_25fps.mp4";
-import videoPoolEight from "../../assets/8501993-uhd_2160_3840_25fps.mp4";
-import videoPoolNine from "../../assets/7688618-uhd_2160_4096_24fps.mp4";
-import videoPoolTen from "../../assets/14945650_2160_3840_25fps.mp4";
-import videoPoolEleven from "../../assets/8084620-uhd_3840_2160_25fps.mp4";
-import videoPoolTwelve from "../../assets/8464662-uhd_3840_2160_25fps.mp4";
-import videoPoolThirteen from "../../assets/8327799-uhd_3840_2160_25fps.mp4";
-import videoPoolFourteen from "../../assets/8467244-uhd_3840_2160_25fps.mp4";
-import videoPoolFifteen from "../../assets/8086703-uhd_3840_2160_25fps.mp4";
-import videoPoolSixteen from "../../assets/8084494-uhd_3840_2160_25fps.mp4";
+import { assetUrl } from '../../utils/assetUrl';
 
-import blogMediaPred from "../../assets/case-study-phase-prediction.jpg";
-import blogMediaExec from "../../assets/case-study-phase-execution.jpg";
-import blogMediaMl from "../../assets/machine-learning.svg";
-import blogBrandMark from "../../assets/Databiqs Logo.png";
+const videoCardOne = assetUrl('assets/4354448-uhd_3840_2160_25fps.mp4');
+const videoCardTwo = assetUrl('assets/7687810-uhd_4096_2160_24fps.mp4');
+const videoDetailThree = assetUrl('assets/15438012_1920_1080_30fps.mp4');
+const videoDetailFour = assetUrl('assets/6153453-uhd_4096_2160_25fps.mp4');
+const videoDetailFive = assetUrl('assets/14209120-uhd_3840_2160_30fps.mp4');
+const videoPoolSix = assetUrl('assets/8084751-uhd_3840_2160_25fps.mp4');
+const videoPoolSeven = assetUrl('assets/8328106-uhd_2160_3840_25fps.mp4');
+const videoPoolEight = assetUrl('assets/8501993-uhd_2160_3840_25fps.mp4');
+const videoPoolNine = assetUrl('assets/7688618-uhd_2160_4096_24fps.mp4');
+const videoPoolTen = assetUrl('assets/14945650_2160_3840_25fps.mp4');
+const videoPoolEleven = assetUrl('assets/8084620-uhd_3840_2160_25fps.mp4');
+const videoPoolTwelve = assetUrl('assets/8464662-uhd_3840_2160_25fps.mp4');
+const videoPoolThirteen = assetUrl('assets/8327799-uhd_3840_2160_25fps.mp4');
+const videoPoolFourteen = assetUrl('assets/8467244-uhd_3840_2160_25fps.mp4');
+const videoPoolFifteen = assetUrl('assets/8086703-uhd_3840_2160_25fps.mp4');
+const videoPoolSixteen = assetUrl('assets/8084494-uhd_3840_2160_25fps.mp4');
+const blogMediaPred = assetUrl('assets/case-study-phase-prediction.jpg');
+const blogMediaExec = assetUrl('assets/case-study-phase-execution.jpg');
+const blogMediaMl = assetUrl('assets/machine-learning.svg');
+const blogBrandMark = assetUrl('assets/Databiqs Logo.png');
 
 /** All blog / featured MP4s (hero detail picks randomly from this pool). */
 export const BLOG_VIDEO_POOL = [

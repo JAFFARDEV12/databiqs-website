@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./PurpleCTAButton.css";
-import arrowIcon from "../../assets/rightarrow.svg";
+import { assetUrl } from '../../utils/assetUrl';
+
+const arrowIcon = assetUrl('assets/rightarrow.svg');
 
 const PurpleCTAButton = ({
   to = "/",

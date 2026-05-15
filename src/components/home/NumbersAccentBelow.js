@@ -1,6 +1,8 @@
 import React from 'react';
 import './NumbersAccentBelow.css';
-import scrollIcon from '../../assets/scroll.svg';
+import { assetUrl } from '../../utils/assetUrl';
+
+const scrollIcon = assetUrl('assets/scroll.svg');
 
 /** Scroll mouse hint only - below the numbers / analytics card (revolving Lottie lives in hero). */
 const NumbersAccentBelow = () => {
